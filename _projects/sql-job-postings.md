@@ -76,7 +76,7 @@ SQL Code 01
 -- What are the skills required for these top-paying jobs?
 WITH top_paying_jobs AS (
     SELECT
-        j.job_id,
+        j.job_ids,
         j.job_title,
         c.name AS company_name,
         j.salary_year_avg
