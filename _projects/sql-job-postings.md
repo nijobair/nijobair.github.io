@@ -18,7 +18,13 @@ As an aspiring Data Analyst, my goal for this project is to gain valuable insigh
 
 ## Methodology
 ### Data Source
+The dataset used in this project was collected by [Luke Barousse](https://www.linkedin.com/in/luke-b/). It contains job postings data sourced from several websites, offering a comprehensive view of the job market. You can download the original dataset, set up for PostgreSQL, from [here](https://www.lukebarousse.com/sql).
+
+Since I work with MySQL, I made some tweaks to make the dataset compatible. If you are interested in using MySQL for your analysis, you can find the necessary conversion code [here](www.github.com).
+
 ### Data Cleaning and Processing
+The dataset provided by [Luke Barousse](https://www.linkedin.com/in/luke-b/) was fairly clean and well-structured. Consequently, minimal data cleaning was required. This allowed me to focus more on the analysis and insights without the need for extensive preprocessing.
+
 ### Data Analysis and Findings
 <!--
 ------------------------------------------------------------
