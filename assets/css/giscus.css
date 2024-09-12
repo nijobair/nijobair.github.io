@@ -126,25 +126,19 @@ a.color-text-primary {
 }
 
 #__next main div.gsc-comments {
-    .gsc-timeline div div {
-        .gsc-comment-header div a.gsc-comment-author-avatar {
-            color: #417090;
+    span {
+        color: #417090;
+    }
 
-            span {
-                color: inherit;
-            }
-
-            &:hover {
-                color: #1800b3;
-            }
-        }
-
-        .markdown.gsc-comment-content p {
-            color: #544943;
-        }
+    &:hover {
+        color: #1800b3;
     }
 
     form div.gsc-comment-box-main div textarea {
         color: #544943;
     }
+}
+
+.markdown.gsc-comment-content p {
+    color: #544943;
 }
