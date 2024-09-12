@@ -1,4 +1,5 @@
 ---
+layout: post
 featured: true
 categories: dax powerbi
 title: "My Solution to the **'25 Days of DAX Fridays!'** Challenge – Ed1 by **CURBAL**"
@@ -139,10 +140,8 @@ DATEDIFF(
     TODAY(),
     DAY
 )
-=======
 ```
 ...
->>>>>>> parent of 08453e9 (dax answers)
 ```
 
 #### Challenge 11:
@@ -210,7 +209,6 @@ RETURN
     )
 
     -- I didn't understand this formula properly? Is there any easier way?
-=======
 ```
 ...
 ```
@@ -231,7 +229,6 @@ RETURN
 - ****
 ```
 ...
->>>>>>> parent of 08453e9 (dax answers)
 ```
 
 #### Challenge 15:
