@@ -1,0 +1,101 @@
+.post-item {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    background-color: #dbbf94;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.post-image {
+
+    img {
+        margin: 5px;
+    }
+}
+
+.post-content {
+    padding-left: 15px;
+    align-content: center;
+
+    p {
+        margin-top: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/*
+------------------------------------------------------------
+Post navigation
+------------------------------------------------------------
+*/
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 0.25em;
+    margin-top: clamp(20px, 2.9vw, 30px);
+
+    div {
+        flex: 1 1 0;
+
+        &:first-child {
+            padding-right: 0.5em;
+        }
+
+        &:last-child {
+            padding-left: 0.5em;
+            text-align: right;
+        }
+    }
+}
+
+.unsighted {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+/*
+------------------------------------------------------------
+Blog Categories Buttons
+------------------------------------------------------------
+*/
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px 0;
+
+    a {
+        margin: 5px;
+        text-align: center;
+        align-content: center;
+        padding: 5px;
+        border-radius: 5px;
+        border: #dbbf94 1px solid;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #7c334f;
+            color: white;
+        }
+    }
+}
+
+.selected-category {
+    background-color: #7c334f;
+    color: white;
+}

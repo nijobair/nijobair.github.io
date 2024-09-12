@@ -1,0 +1,134 @@
+/*
+------------------------------------------------------------
+Logo
+------------------------------------------------------------
+*/
+a#site-logo {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: clamp(60px, 9.6vw, 99px);
+    height: clamp(20px, 4.1vw, 43px);
+    display: block;
+    background: transparent url(../images/NIJobair.svg) 0 0 no-repeat;
+    z-index: 3;
+}
+
+/*
+------------------------------------------------------------
+Logo hover
+------------------------------------------------------------
+*/
+a#site-logo:hover {
+    transform: scale(1.1, 1.1);
+    /* Increase size by 10% on hover */
+    transition: transform 0.2s ease-in-out;
+    /* Smooth transition effect */
+}
+
+/*
+------------------------------------------------------------
+Header div
+------------------------------------------------------------
+*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 130%;
+}
+
+/*
+------------------------------------------------------------
+Uppermost banner/ Flex - 01
+------------------------------------------------------------
+*/
+header div.banner-fix {
+    background: transparent url(../images/download-fallback-bg.png);
+    width: 50%;
+    margin-bottom: -2px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 20px;
+}
+
+/*
+------------------------------------------------------------
+Flex - 02
+------------------------------------------------------------
+*/
+header div.ribbon-outer {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/*
+------------------------------------------------------------
+Flex - 02 of (Flex - 02)
+------------------------------------------------------------
+*/
+header span.ribbon-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7c334f;
+    padding: 3px;
+    width: 80%;
+    height: fit-content;
+}
+
+/*
+------------------------------------------------------------
+Right and left graphics/ Flex - 01, 03 of (Flex - 02)
+------------------------------------------------------------
+*/
+header span.left-tail,
+header span.right-tail {
+    position: relative;
+    z-index: 1;
+    top: clamp(14px, 2.4vw, 24.5px);
+    flex: 1;
+}
+
+header span.left-tail {
+    background: transparent url(../images/header-left-tail.png) no-repeat;
+    background-position: right;
+    background-size: auto 100%;
+    left: clamp(9.5px, 1.6vw, 17px);
+}
+
+header span.right-tail {
+    background: transparent url(../images/header-right-tail.png) no-repeat;
+    background-size: auto 100%;
+    background-position: left;
+    right: clamp(9px, 1.5vw, 16px);
+}
+
+/*
+------------------------------------------------------------
+Title of the website
+------------------------------------------------------------
+*/
+header h1 {
+    text-transform: uppercase;
+    color: #ece4d8;
+    padding: 4px 4% 0;
+    border: none;
+    line-height: 0.8em;
+    margin: 0;
+}
+
+/*
+------------------------------------------------------------
+Website description
+------------------------------------------------------------
+*/
+header p {
+    font-family: 'Lugrasimo', sans-serif;
+    font-size: clamp(0.4rem, 1.5vw, 1rem);
+    color: #e69b95;
+    padding: 3px 4%;
+    margin: 0;
+}

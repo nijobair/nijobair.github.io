@@ -1,0 +1,13 @@
+<div class="social-media">
+
+    {% for icon in site.data.social-media %}
+
+    <div>
+        <a href="{{ icon.link }}" target="_blank" class="follow-link">
+            <img class="icons" src="{{ icon.logo }}" alt="{{ icon.alt_text}}" title="{{ icon.alt_text }}">
+        </a>
+    </div>
+
+    {% endfor %}
+
+</div>

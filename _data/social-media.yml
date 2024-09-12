@@ -1,0 +1,24 @@
+# UPWORK
+- link: "https://www.upwork.com/freelancers/nijobair?mp_source=share"
+  logo: "/assets/images/social-media/upwork.svg"
+  alt_text: "Click to view my Upwork profile"
+
+# LINKEDIN
+- link: "https://www.linkedin.com/in/nijobair/"
+  logo: "/assets/images/social-media/linkedin.svg"
+  alt_text: "Start a conversation on LinkedIn"
+
+# BUYMEACOFFEE
+- link: "https://buymeacoffee.com/nijobair"
+  logo: "/assets/images/social-media/buymeacoffee.svg"
+  alt_text: "Support me on Buy Me a Coffee"
+
+# FACEBOOK
+- link: "https://www.facebook.com/nijobair/"
+  logo: "/assets/images/social-media/facebook.svg"
+  alt_text: "Connect with me on Facebook"
+
+# REDDIT
+- link: "https://www.reddit.com/user/nijobair/"
+  logo: "/assets/images/social-media/reddit.svg"
+  alt_text: "Follow me on Reddit"

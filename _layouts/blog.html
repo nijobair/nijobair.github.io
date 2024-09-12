@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<h1>Explore, Learn, Share</h1>
+
+<div class="category-buttons">
+    {% for category in site.blog %}
+    {% if page.title == category.title %}
+    <a class="selected-category" href="{{ category.url | relative_url }}">{{ category.title }}</a>
+    {% else %}
+    <a class="other-categories" href="{{ category.url | relative_url }}">{{ category.title }}</a>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{{ content }}

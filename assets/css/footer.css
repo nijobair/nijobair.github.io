@@ -1,0 +1,113 @@
+/*
+------------------------------------------------------------
+Footer
+------------------------------------------------------------
+*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    width: 140%;
+    margin-top: clamp(20px, 2.9vw, 30px);
+}
+
+/*
+------------------------------------------------------------
+Parent flex
+------------------------------------------------------------
+*/
+footer span.ribbon-outer {
+    display: flex;
+    width: 90%;
+}
+
+/*
+------------------------------------------------------------
+Footer description container
+------------------------------------------------------------
+*/
+footer span.ribbon-inner {
+    display: flex;
+    background-color: #7c334f;
+    border-bottom: 2px solid #bdb6ad;
+    padding: .05% .2%;
+    z-index: 1;
+    width: 80%;
+    text-align: center;
+    height: fit-content;
+}
+
+/*
+------------------------------------------------------------
+Footer text
+------------------------------------------------------------
+*/
+footer span.ribbon-inner p {
+    color: #e69b95;
+    padding: .3%;
+    width: 100%;
+    font-size: clamp(0.4rem, 1vw, .7rem);
+    margin: .3%;
+    font-weight: bold;
+}
+
+/*
+------------------------------------------------------------
+Footer link
+------------------------------------------------------------
+*/
+footer span.ribbon-inner a {
+    color: #7eb0d2;
+    font-family: 'Lugrasimo', sans-serif;
+    font-weight: bold;
+}
+
+/*
+------------------------------------------------------------
+Right and left graphics
+------------------------------------------------------------
+*/
+footer span.left-tail,
+footer span.right-tail {
+    position: relative;
+    bottom: clamp(4px, 0.7vw, 7.5px);
+    z-index: -1;
+    flex: 1;
+    /* border: solid black; */
+}
+
+footer span.left-tail {
+    background: transparent url(../images/footer-left-tail.png) no-repeat;
+    background-position: right;
+    background-size: auto 100%;
+    left: clamp(4px, 0.6vw, 6px);
+}
+
+footer span.right-tail {
+    background: transparent url(../images/footer-right-tail.png) no-repeat;
+    background-position: left;
+    background-size: auto 100%;
+    right: clamp(4px, 0.6vw, 6px);
+}
+
+/*
+------------------------------------------------------------
+Smaller screen adjustments
+------------------------------------------------------------
+*/
+/* @media (max-width: 365px) {
+
+    footer span.left-tail,
+    footer span.right-tail {
+        bottom: 6.5px;
+    }
+
+    footer span.left-tail {
+        left: 5px;
+    }
+
+    footer span.right-tail {
+        right: 5px;
+    }
+} */

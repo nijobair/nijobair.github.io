@@ -1,0 +1,23 @@
+# DATA ANALYSIS & MODELING
+- title: "Data Analysis & Modeling"
+  description: "Gain actionable insights through customized data analysis and predictive modeling, tailored to inform your business strategies."
+  picture: "assets/images/services/da_modeling.png"
+  alt_text: "Power BI Report"
+
+# POWER BI DASHBOARDS
+- title: "Power BI Dashboards"
+  description: "Receive dynamic, interactive dashboards that provide real-time insights and help you make data-driven decisions with ease."
+  picture: "assets/images/services/power_bi.png"
+  alt_text: "Power BI Report"
+
+# EXCEL SOLUTIONS
+- title: "Excel Solutions"
+  description: "Get advanced, automated Excel solutions that streamline your data processes, ensuring accuracy and boosting productivity."
+  picture: "assets/images/services/excel.png"
+  alt_text: "Power BI Report"
+
+# CUSTOM REPORTS
+- title: "Custom Reports"
+  description: "Obtain detailed, personalized reports that integrate data from multiple sources, offering a clear and comprehensive view of your business performance."
+  picture: "assets/images/services/report.png"
+  alt_text: "Power BI Report"

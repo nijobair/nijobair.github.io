@@ -1,0 +1,43 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+    {% include head.html %}
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVX4ZGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a id="site-logo" href="https://nijobair.github.io/"></a>
+
+    <div class="wrapper">
+
+        <!-- HEADER -->
+        <header>
+            {% include header.html %}
+        </header>
+
+
+        <!-- MAIN CONTENT -->
+        <section id="main_content">
+            {{ content }}
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            {% include footer.html %}
+        </footer>
+
+    </div>
+    <script src="{{ '/assets/js/copyButton.js' | relative_url }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+title: Nazmul Islam
+description: A continuous learner
+author: Nazmul Islam
+
+
+show_downloads: false
+
+
+
+markdown: kramdown
+
+kramdown:
+  syntax_highlighter: None
+  syntax_highlighter_opts:
+    disable : true
+
+
+sass_dir: _sass
+sass:
+  load_paths:
+    - "assets/css"
+    - "_sass"
+
+
+
+collections_dir: my_collections
+collections:
+  projects:
+    output: true
+  deneb:
+    output: true
+  blog:
+    output: true
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /posts/:categories/:title/
+  
+  -
+    scope:
+      path: ""
+      type: projects
+    values:
+      layout: post
+      permalink: /projects/:title/
+
+plugins:
+  - jekyll-sitemap

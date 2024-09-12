@@ -1,0 +1,140 @@
+/*
+------------------------------------------------------------
+Image
+------------------------------------------------------------
+*/
+img {
+    width: 100%;
+    box-shadow: 0px 2px 2px 0px #474746;
+    margin-top: clamp(10px, 1.8vw, 20px);
+}
+
+/*
+------------------------------------------------------------
+Badges
+------------------------------------------------------------
+*/
+.achievements {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-width: 15%;
+        align-items: center;
+        padding: 1em;
+
+        img {
+            margin: 0;
+            box-shadow: none;
+            ;
+        }
+
+        img:hover {
+            transform: scale(1.1, 1.1);
+            /* Increase size by 10% on hover */
+            transition: transform 0.4s ease-in-out;
+            /* Smooth transition effect */
+        }
+    }
+}
+
+/*
+------------------------------------------------------------
+Social Media
+------------------------------------------------------------
+*/
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-width: 5%;
+        align-items: center;
+        padding: 1em;
+
+        img {
+            margin: 0;
+            box-shadow: none;
+        }
+
+        img:hover {
+            transform: scale(1.1, 1.1);
+            /* Increase size by 10% on hover */
+            transition: transform 0.2s ease-in-out;
+            /* Smooth transition effect */
+        }
+    }
+}
+
+/*
+------------------------------------------------------------
+Services
+------------------------------------------------------------
+*/
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 157px;
+        padding: .5em;
+        background: #fddfb0;
+        margin: .3em;
+        border-radius: .5em;
+        box-shadow: 0px 2px 2px 0px #474746;
+
+        h5 {
+            font-size: clamp(0.8rem, 1.7vw, 1.2rem);
+        }
+
+        p {
+            font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            margin: 0;
+            box-shadow: none;
+        }
+    }
+}
+
+/*
+------------------------------------------------------------
+Buy Me A Coffee
+------------------------------------------------------------
+*/
+.buymeacoffee {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: clamp(20px, 2.9vw, 30px);
+
+    a {
+        max-width: 20%;
+    }
+
+    img {
+        margin: 0;
+        box-shadow: none;
+    }
+
+    img:hover {
+        transform: scale(1.1, 1.1);
+        transition: transform 0.2s ease-in-out;
+    }
+}

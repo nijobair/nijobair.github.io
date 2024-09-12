@@ -1,0 +1,18 @@
+details {
+    border-radius: 3em;
+    margin: 1em 0;
+}
+
+summary {
+    cursor: pointer;
+    padding: 0.3em 2em;
+    background: #dbbf94;
+    border-radius: 3em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background: #7c334f;
+        color: #dbbf94;
+    }
+}

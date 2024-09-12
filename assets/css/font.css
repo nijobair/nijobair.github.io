@@ -1,0 +1,141 @@
+/*
+By default, 1rem = 16px
+*/
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-weight: 1000;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-BoldItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('../fonts/UbuntuMono-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lugrasimo';
+    src: url('../fonts/Lugrasimo-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+------------------------------------------------------------
+Base font
+------------------------------------------------------------
+*/
+body {
+    background: #ece4d8;
+    font-family: 'Ubuntu', sans-serif;
+    color: #544943;
+    -webkit-font-smoothing: antialiased;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+/*
+------------------------------------------------------------
+Bold text
+------------------------------------------------------------
+*/
+strong {
+    font-weight: bold;
+}
+
+/*
+------------------------------------------------------------
+Italic text
+------------------------------------------------------------
+*/
+em {
+    font-style: italic;
+}
+
+/*
+------------------------------------------------------------
+Headers
+------------------------------------------------------------
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #7c334f;
+    font-style: italic;
+    margin: .25em .25em 0;
+    line-height: 1.2em;
+    padding-bottom: .2em;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(1.2rem, 3.9vw, 2.5rem);
+    border-bottom: .1em solid #d3ccc1;
+}
+
+h2 {
+    font-size: clamp(1rem, 3.1vw, 2rem);
+}
+
+h3 {
+    font-size: clamp(0.8rem, 2.5vw, 1.6rem);
+}
+
+h4 {
+    font-size: clamp(0.7rem, 2vw, 1.3rem);
+}
+
+h5 {
+    font-size: clamp(0.6rem, 1.7vw, 1.1rem);
+}
+
+h6 {
+    font-size: clamp(0.5rem, 1.4vw, 0.9rem);
+}
+
+/*
+------------------------------------------------------------
+Links
+------------------------------------------------------------
+*/
+a {
+    color: #417090;
+    text-decoration: none;
+}
+
+/*
+------------------------------------------------------------
+Link hover
+------------------------------------------------------------
+*/
+a:hover {
+    text-decoration: underline;
+    color: #1800b3;
+}

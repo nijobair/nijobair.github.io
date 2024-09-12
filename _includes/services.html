@@ -1,0 +1,13 @@
+<div class="services">
+
+    {% for service in site.data.services %}
+
+    <div>
+        <img class="service-picture" src="{{ service.picture }}" alt="{{ service.alt_text }}">
+        <h5>{{ service.title }}</h5>
+        <p>{{ service.description }}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
