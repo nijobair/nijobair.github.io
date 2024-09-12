@@ -1,7 +1,3 @@
----
-layout: default
----
-
 <h1 align="center">Website with GitHub Pages & Jekyll</h1>
 
 Making and hosting a website with GitHub pages and Jekyll is super easy if you have the right resources and a bit of knowledge of Jekyll, HTML, and CSS. I have used one of the Jekyll themes (merlot) as a starting point and made necessary changes afterwards. If you want to do the same, below are some resources to help you:
