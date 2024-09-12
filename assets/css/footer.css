@@ -90,24 +90,3 @@ footer span.right-tail {
     background-size: auto 100%;
     right: clamp(4px, 0.6vw, 6px);
 }
-
-/*
-------------------------------------------------------------
-Smaller screen adjustments
-------------------------------------------------------------
-*/
-/* @media (max-width: 365px) {
-
-    footer span.left-tail,
-    footer span.right-tail {
-        bottom: 6.5px;
-    }
-
-    footer span.left-tail {
-        left: 5px;
-    }
-
-    footer span.right-tail {
-        right: 5px;
-    }
-} */
