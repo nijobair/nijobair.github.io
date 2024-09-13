@@ -56,7 +56,9 @@ Code snippet
 */
 code {
     background-color: #f3d9b4;
-    padding: 1px 3px;
+    margin: 1px 3px;
+    padding: 0 2px;
+    border-radius: 3px;
 
     &.hljs {
         font-family: monospace, 'UbuntoMono', sans-serif;
