@@ -16,7 +16,7 @@ excerpt: ""
     </div>
 
     <div class="post-content">
-        <h4><a href="{{ post.url | relative_url }}">{{ post.title | markdownify }}</a></h4>
+        <h5><a href="{{ post.url | relative_url }}">{{ post.title | markdownify }}</a></h5>
         <p>{{ post.excerpt }}</p>
     </div>
 </div>

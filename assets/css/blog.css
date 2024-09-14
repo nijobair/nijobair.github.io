@@ -1,30 +1,47 @@
 .post-item {
-    display: grid;
-    grid-template-columns: 35% 65%;
+    display: flex;
+    flex-wrap: wrap;
     background-color: #dbbf94;
     margin: 10px;
     padding: 10px;
-    border-radius: 15px;
-}
+    border-radius: 5px;
+    gap: 7px;
 
-.post-image {
+    .post-image {
+        width: max(140px, 35%);
+        flex-grow: 1;
+        align-content: center;
 
-    img {
-        margin: 5px;
+        img {
+            width: 100%;
+            margin: 0;
+        }
     }
-}
 
-.post-content {
-    padding-left: 15px;
-    align-content: center;
+    .post-content {
+        width: max(140px, 55%);
+        flex-grow: 1;
+        align-content: center;
 
-    p {
-        margin-top: 0;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        h5 {
+            margin: 0;
+        }
+
+        a {
+            p {
+                font-size: clamp(0.875rem, 2vw, 1.5rem);
+            }
+        }
+
+        p {
+            margin: 0;
+            font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
 
@@ -80,10 +97,11 @@ Blog Categories Buttons
 
     a {
         margin: 5px;
+        font-size: clamp(0.8rem, 1.3vw, 9rem);
         text-align: center;
         align-content: center;
-        padding: 5px;
-        border-radius: 5px;
+        padding: 3px;
+        border-radius: 3px;
         border: #dbbf94 1px solid;
         cursor: pointer;
         transition: background-color 0.3s;
