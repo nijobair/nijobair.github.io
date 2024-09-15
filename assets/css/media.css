@@ -32,7 +32,7 @@ Animations
     animation-name: appear-right;
     animation-timing-function: ease-in-out;
     animation-timeline: view();
-    animation-range: entry 0 cover 45%;
+    animation-range: entry 0 cover 29%;
 }
 
 .achievements div:nth-child(even),
@@ -40,7 +40,7 @@ Animations
     animation-name: appear-left;
     animation-timing-function: ease-in-out;
     animation-timeline: view();
-    animation-range: entry 0 cover 45%;
+    animation-range: entry 0 cover 29%;
 }
 
 /*
@@ -177,6 +177,7 @@ Services
         img {
             margin: 0;
             box-shadow: none;
+            border-radius: .5em;
         }
     }
 }
