@@ -3,44 +3,16 @@
 Animations
 ------------------------------------------------------------
 */
-@keyframes appear-left {
+@keyframes appear-in {
     0% {
         opacity: 0;
-        transform: translateX(-100vw);
+        scale: 0;
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        scale: 1;
     }
-}
-
-@keyframes appear-right {
-    0% {
-        opacity: 0;
-        transform: translateX(100vw);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.achievements div:nth-child(odd),
-.services div:nth-child(odd) {
-    animation-name: appear-right;
-    animation-timing-function: ease-in-out;
-    animation-timeline: view();
-    animation-range: entry 0 cover 29%;
-}
-
-.achievements div:nth-child(even),
-.services div:nth-child(even) {
-    animation-name: appear-left;
-    animation-timing-function: ease-in-out;
-    animation-timeline: view();
-    animation-range: entry 0 cover 29%;
 }
 
 /*
@@ -72,6 +44,11 @@ Badges
         max-width: 15%;
         align-items: center;
         padding: 1em;
+
+        animation-name: appear-in;
+        animation-timing-function: ease-in-out;
+        animation-timeline: view();
+        animation-range: entry 1% cover 39%;
 
         img {
             margin: 0;
@@ -155,6 +132,8 @@ Services
     max-width: 100%;
     justify-content: center;
     gap: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     div {
         display: flex;
@@ -163,6 +142,12 @@ Services
         background: #fddfb0;
         border-radius: .5em;
         box-shadow: 0px 2px 2px 0px #474746;
+        position: relative;
+
+        animation-name: appear-in;
+        animation-timing-function: ease-in-out;
+        animation-timeline: view();
+        animation-range: entry 1% cover 39%;
 
         h5 {
             font-size: clamp(0.8rem, 1.7vw, 1.2rem);
@@ -179,6 +164,11 @@ Services
             box-shadow: none;
             border-radius: .5em;
         }
+    }
+
+    div:hover {
+        transform: scale(1.1, 1.1);
+        transition: transform 0.4s ease-in-out;
     }
 }
 
