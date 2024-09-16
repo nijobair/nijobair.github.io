@@ -150,6 +150,8 @@ DATEDIFF(
 ```dax
 COUNTROWS(
     FILTER(
+        // This is a multi-line comment.
+        -- Okay?
         SUMMARIZE(
             Customers,
             Customers[CustomerID],
@@ -165,6 +167,7 @@ COUNTROWS(
 ```dax
 COUNTROWS(
     FILTER(
+        // This is a single line comment.
         SUMMARIZE(
             Customers,
             Customers[CustomerID],
