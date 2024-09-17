@@ -126,3 +126,38 @@ header p {
     padding: 3px 4%;
     margin: 0;
 }
+
+/*
+------------------------------------------------------------
+Sticky Header
+------------------------------------------------------------
+*/
+div#sticky-header {
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: clamp(30px, 5.4vw, 70px);
+    z-index: 2;
+    background-color: #7c334f;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    transition: top 3s;
+    display: none;
+
+    a {
+        font-family: 'Lugrasimo', sans-serif;
+        font-size: clamp(0.6rem, 1.5vw, 1rem);
+        color: white;
+        margin: 3px 2%;
+        padding: 0.4em;
+
+    }
+
+    a:hover {
+        color: black;
+        border-radius: .5em;
+        background-color: #e69b95;
+    }
+}

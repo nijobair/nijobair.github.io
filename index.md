@@ -11,31 +11,31 @@ This website showcases my work, including data analysis projects, research publi
 
 
 <!-- Educational information -->
-## Education
+<h2 id="education">Education</h2>
 
 - Studied Physics at the [University of Dhaka](https://www.du.ac.bd/) in Bangladesh.
 
 - Studying Physics at [Marmara University](http://fzk.fen.marmara.edu.tr/en/) with the prestigious full-ride [Türkiye Bursları](https://www.turkiyeburslari.gov.tr/) (Turkish Scholarships).
 
 <!-- Services that I offer -->
-## My Services
+<h2 id="my-services">My Services</h2>
 
 {% include services.html %}
 
 <!-- Projects -->
-## Projects
+<h2 id="projects">Projects</h2>
 
 {% for project in site.projects %}
 - [{{ project.title }}]({{ project.url | relative_url }})
 {% endfor %}
 
 <!-- Acquired certifications -->
-## Achievements
+<h2 id="achievements">Achievements</h2>
 
 {% include badges.html %}
 
 <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
-## Publications
+<h2 id="publications">Publications</h2>
 
 {% assign featured_posts = site.posts | where: "featured", true %}
 {% for post in featured_posts %}
@@ -45,7 +45,7 @@ This website showcases my work, including data analysis projects, research publi
 ...[more posts 📝]({% link _blog/1_all.md %})
 
 <!-- Social Media Links -->
-## Get in Touch
+<h2 id="contact">Get in Touch</h2>
 
 {% include social-media.html %}
 
