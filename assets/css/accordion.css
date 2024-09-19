@@ -12,7 +12,7 @@ summary {
     transition: background-color 0.3s;
 
     &:hover {
-        background: var(--header-color);
+        background: var(--color-header);
         color: #dbbf94;
     }
 }

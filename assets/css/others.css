@@ -103,7 +103,7 @@ Copy Button
     right: 0.5em;
     background-color: transparent;
     color: white;
-    border: var(--header-color) 1px solid;
+    border: var(--color-header) 1px solid;
     padding: 0.25em 0.5em;
     cursor: pointer;
     font-size: 0.8em;
@@ -112,7 +112,7 @@ Copy Button
 }
 
 .copy:hover {
-    background-color: var(--header-color);
+    background-color: var(--color-header);
 }
 
 

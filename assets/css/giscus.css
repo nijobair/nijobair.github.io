@@ -68,13 +68,13 @@ main {
     --color-canvas-overlay: rgb(255 255 255 / 90%);
     --color-canvas-inset: transparent;
     --color-canvas-subtle: #f3d9b4;
-    --color-border-default: var(--header-color);
+    --color-border-default: var(--color-header);
     --color-border-muted: hsl(210deg 18% 87% / 100%);
     --color-neutral-muted: rgb(175 184 193 / 5%);
     --color-neutral-subtle: rgb(175 184 193 / 10%);
     --color-accent-fg: #0969da;
     --color-accent-emphasis: #0969da;
-    --color-accent-muted: var(--header-color);
+    --color-accent-muted: var(--color-header);
     --color-accent-subtle: #ddf4ff;
     --color-success-fg: #1a7f37;
     --color-attention-fg: #9a6700;

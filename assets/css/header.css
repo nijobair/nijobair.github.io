@@ -73,7 +73,7 @@ header span.ribbon-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--header-color);
+    background-color: var(--color-header);
     padding: 3px;
     width: 80%;
     height: fit-content;
