@@ -35,13 +35,13 @@ Badges
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
 
     div {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        max-width: 15%;
+        max-width: 20%;
         align-items: center;
         padding: 1em;
 
