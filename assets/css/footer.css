@@ -29,7 +29,7 @@ Footer description container
 */
 footer span.ribbon-inner {
     display: flex;
-    background-color: #7c334f;
+    background-color: var(--header-color);
     border-bottom: 2px solid #bdb6ad;
     padding: .05% .2%;
     z-index: 1;

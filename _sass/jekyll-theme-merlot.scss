@@ -7,10 +7,18 @@
 @import url("/assets/css/blog.css");
 @import url("/assets/css/accordion.css");
 @import url("/assets/css/giscus.css");
+@import url("/assets/css/index.css");
 
 @import "highlighter.scss";
 
-
+/*
+------------------------------------------------------------
+Universal Styles
+------------------------------------------------------------
+*/
+:root {
+    --header-color: #7c334f;
+}
 
 /*
 ------------------------------------------------------------
@@ -30,11 +38,11 @@ Content wrapper
 .wrapper {
     display: flex;
     flex-direction: column;
-    width: min(740px, 85%);
+    width: min(740px, 87%);
     margin-inline: auto;
     padding: 0 2vw;
     align-items: center;
-    margin-top: clamp(12px, 2.9vw, 30px);
+    margin-top: clamp(40px, 5.5vw, 60px);
     margin-bottom: clamp(10px, 2.4vw, 25px);
 }
 

@@ -18,6 +18,7 @@ a#site-logo {
 a#site-logo:hover {
     transform: scale(1.1, 1.1);
     transition: transform 0.3s ease-in-out;
+    filter: invert(0.5);
 }
 
 /*
@@ -30,6 +31,9 @@ header {
     flex-direction: column;
     align-items: center;
     width: 130%;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 /*
@@ -37,7 +41,7 @@ header {
 Uppermost banner/ Flex - 01
 ------------------------------------------------------------
 */
-header div.banner-fix {
+/* header div.banner-fix {
     background: transparent url(../images/download-fallback-bg.png);
     width: 50%;
     margin-bottom: -2px;
@@ -45,7 +49,7 @@ header div.banner-fix {
     background-repeat: no-repeat;
     background-position: bottom;
     height: 20px;
-}
+} */
 
 /*
 ------------------------------------------------------------
@@ -56,6 +60,8 @@ header div.ribbon-outer {
     display: flex;
     width: 100%;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
 }
 
 /*
@@ -67,7 +73,7 @@ header span.ribbon-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #7c334f;
+    background-color: var(--header-color);
     padding: 3px;
     width: 80%;
     height: fit-content;
@@ -125,39 +131,4 @@ header p {
     color: #e69b95;
     padding: 3px 4%;
     margin: 0;
-}
-
-/*
-------------------------------------------------------------
-Sticky Header
-------------------------------------------------------------
-*/
-div#sticky-header {
-    align-items: center;
-    justify-content: flex-end;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: clamp(30px, 5.4vw, 70px);
-    z-index: 2;
-    background-color: #7c334f;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    transition: top 3s;
-    display: none;
-
-    a {
-        font-family: 'Lugrasimo', sans-serif;
-        font-size: clamp(0.6rem, 1.5vw, 1rem);
-        color: white;
-        margin: 3px 2%;
-        padding: 0.4em;
-
-    }
-
-    a:hover {
-        color: black;
-        border-radius: .5em;
-        background-color: #e69b95;
-    }
 }

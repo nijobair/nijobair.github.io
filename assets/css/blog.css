@@ -111,13 +111,13 @@ Blog Categories Buttons
         transition: background-color 0.3s;
 
         &:hover {
-            background-color: #7c334f;
+            background-color: var(--header-color);
             color: white;
         }
     }
 }
 
 .selected-category {
-    background-color: #7c334f;
+    background-color: var(--header-color);
     color: white;
 }
