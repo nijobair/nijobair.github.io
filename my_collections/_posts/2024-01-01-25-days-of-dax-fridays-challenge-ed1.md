@@ -1,5 +1,4 @@
 ---
-layout: post
 featured: true
 categories: dax powerbi
 title: "My Solution to the **'25 Days of DAX Fridays!'** Challenge – Ed1 by **CURBAL**"

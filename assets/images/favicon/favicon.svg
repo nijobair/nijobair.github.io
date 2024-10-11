@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="160" height="160"><svg id="SvgjsSvg1060" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7d334f;
+        stroke: #7d334f;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="10.31 149.54 10.31 9.54 60.31 9.54 60.31 99.54 70.31 99.54 70.31 9.54 90.31 9.54 90.31 119.54 40.31 119.54 40.31 29.54 30.31 29.54 30.31 149.54 10.31 149.54"></polygon>
+  <polygon class="cls-1" points="130.31 9.54 150.31 9.54 150.31 149.54 40.31 149.54 40.31 129.54 130.31 129.54 130.31 9.54"></polygon>
+  <rect class="cls-1" x="100.22" y="9.54" width="19.63" height="109.91"></rect>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

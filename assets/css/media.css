@@ -26,6 +26,10 @@ img {
     margin-top: clamp(10px, 1.8vw, 20px);
 }
 
+img.shadowless {
+    box-shadow: none;
+}
+
 /*
 ------------------------------------------------------------
 Badges
@@ -75,11 +79,11 @@ Social Media
     }
 
     33% {
-        rotate: 10deg;
+        rotate: 7deg;
     }
 
     66% {
-        rotate: -10deg;
+        rotate: -7deg;
     }
 
     100% {
@@ -108,7 +112,7 @@ Social Media
 
             animation-name: social-media;
             animation-timing-function: ease-in-out;
-            animation-duration: 2s;
+            animation-duration: 1s;
             animation-iteration-count: infinite;
             animation-play-state: running;
         }
