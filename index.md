@@ -75,24 +75,3 @@ This website showcases my work, including data analysis projects, research publi
 {% include social-media.html %}
 
 </div>
-
-```python
-import pandas as pd
-import matplotlib.pyplot as plt
-```
-
-```sql
-SELECT *
-FROM that_table
-WHERE
-    client_name = "Nazmul"
-```
-
-
-```javascript
-{
-    "name": "Nazmul",
-    "age": 25,
-    "current status": "heartbroken"
-}
-```
