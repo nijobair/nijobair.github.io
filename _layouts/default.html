@@ -15,20 +15,18 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <a id="site-logo" href="https://nijobair.github.io/"></a>
-
-    <div class="wrapper">
+    <div class="container">
 
         <!-- HEADER -->
-        <header>
+        <nav id="header">
             {% include header.html %}
-        </header>
+        </nav>
 
 
         <!-- MAIN CONTENT -->
-        <section id="main_content">
-            {{ content }}
-        </section>
+
+        {{ content }}
+
 
 
         <!-- FOOTER -->
@@ -37,6 +35,15 @@
         </footer>
 
     </div>
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/copyButton.js' | relative_url }}"></script>
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
         type="text/javascript"></script>

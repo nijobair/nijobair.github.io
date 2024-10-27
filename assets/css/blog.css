@@ -1,7 +1,19 @@
+.blog-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(740px, 87%);
+    margin-inline: auto;
+    padding: 0 2vw;
+    /* align-items: center; */
+    /* margin-top: clamp(40px, 5.5vw, 60px); */
+    /* margin-bottom: clamp(10px, 2.4vw, 25px); */
+}
+
 .post-item {
     display: flex;
     flex-wrap: wrap;
-    background-color: #dbbf94;
+    background-color: var(--color-backgroundDarker);
     margin: 10px;
     padding: 10px;
     border-radius: 5px;

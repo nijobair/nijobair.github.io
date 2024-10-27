@@ -1,17 +1,29 @@
-/*
-------------------------------------------------------------
-Logo
-------------------------------------------------------------
-*/
+/* ----- NAVIGATION BAR ----- */
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    background: var(--color-background);
+    padding-inline: 9vw;
+    transition: .3s;
+    z-index: 100;
+}
+
+.nav-logo {
+    position: relative;
+    width: 135px;
+}
+
 a#site-logo {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    width: clamp(60px, 9.6vw, 99px);
-    height: clamp(20px, 4.1vw, 43px);
+    height: 45px;
     display: block;
     background: transparent url(../images/NIJobair.svg) 0 0 no-repeat;
-    z-index: 3;
     transition-duration: 0.3s;
 }
 
@@ -20,114 +32,43 @@ a#site-logo:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-/*
-------------------------------------------------------------
-Header div
-------------------------------------------------------------
-*/
-header {
+.nav-menu,
+.nav_menu_list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 130%;
-    position: sticky;
-    top: 0;
-    z-index: 2;
 }
 
-/*
-------------------------------------------------------------
-Uppermost banner/ Flex - 01
-------------------------------------------------------------
-*/
-/* header div.banner-fix {
-    background: transparent url(../images/download-fallback-bg.png);
-    width: 50%;
-    margin-bottom: -2px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    height: 20px;
-} */
-
-/*
-------------------------------------------------------------
-Flex - 02
-------------------------------------------------------------
-*/
-header div.ribbon-outer {
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-    position: sticky;
-    top: 0;
-}
-
-/*
-------------------------------------------------------------
-Flex - 02 of (Flex - 02)
-------------------------------------------------------------
-*/
-header span.ribbon-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--color-header);
-    padding: 3px;
-    width: 80%;
-    height: fit-content;
-}
-
-/*
-------------------------------------------------------------
-Right and left graphics/ Flex - 01, 03 of (Flex - 02)
-------------------------------------------------------------
-*/
-header span.left-tail,
-header span.right-tail {
+.nav-menu .nav_list {
+    list-style: none;
     position: relative;
-    z-index: 1;
-    top: clamp(14px, 2.4vw, 24.5px);
-    flex: 1;
+    background: none;
 }
 
-header span.left-tail {
-    background: transparent url(../images/header-left-tail.png) no-repeat;
-    background-position: right;
-    background-size: auto 100%;
-    left: clamp(9.5px, 1.6vw, 17px);
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
 }
 
-header span.right-tail {
-    background: transparent url(../images/header-right-tail.png) no-repeat;
-    background-size: auto 100%;
-    background-position: left;
-    right: clamp(9px, 1.5vw, 16px);
+.nav-menu-btn {
+    display: none;
 }
 
-/*
-------------------------------------------------------------
-Title of the website
-------------------------------------------------------------
-*/
-header h1 {
-    text-transform: uppercase;
-    color: #ece4d8;
-    padding: 4px 4% 0;
-    border: none;
-    line-height: 0.8em;
-    margin: 0;
+.active-link {
+    position: relative;
+    color: var(--first-color);
+    transition: .3;
 }
 
-/*
-------------------------------------------------------------
-Website description
-------------------------------------------------------------
-*/
-header p {
-    font-family: 'Lugrasimo', sans-serif;
-    font-size: clamp(0.4rem, 1.5vw, 1rem);
-    color: #e69b95;
-    padding: 3px 4%;
-    margin: 0;
+.active-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: var(--first-color);
+    border-radius: 50%;
 }

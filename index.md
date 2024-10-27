@@ -1,62 +1,52 @@
 ---
 layout: default
 ---
-# Data Analyst & Physics Lover
+<main class="home-wrapper">
 
-<!-- Introduction -->
-<div class="index-introduction" markdown="1">
+{% include homePage/heroSection.html %}
 
-I am a passionate data analyst with a background in physics, driven by a fascination with uncovering hidden patterns and extracting meaningful insights from data. I leverage my analytical skills and scientific knowledge to tackle complex problems, develop data-driven solutions, and create impactful visualizations.
-
-This website showcases my work, including data analysis projects, research publications, and technical skills. I am eager to collaborate with individuals and organizations seeking to unlock the power of data and gain a deeper understanding of their world.
-
-</div>
-
-
-<!-- Educational information -->
-<div class="index-education" markdown="1">
-
-## Education
-
-- Studied Physics at the [University of Dhaka](https://www.du.ac.bd/) in Bangladesh.
-
-- Studying Physics at [Marmara University](http://fzk.fen.marmara.edu.tr/en/) with the prestigious full-ride [Türkiye Bursları](https://www.turkiyeburslari.gov.tr/) (Turkish Scholarships).
-
-</div>
-
+{% include homePage/aboutSection.html %}
 <!-- Services that I offer -->
-<div class="index-my-services" markdown="1">
+<!-- <div class="index-my-services" markdown="1">
 
-## My Services
+<div class="home-title">
+<h2>My Services</h2>
+</div>
 
 {% include services.html %}
 
-</div>
+</div> -->
 
 <!-- Projects -->
-<div class="index-projects" markdown="1">
+<!-- <div class="index-projects" markdown="1">
 
-## Projects
+<div class="home-title">
+<h2>Projects</h2>
+</div>
 
 {% for project in site.projects %}
 - [{{ project.title }}]({{ project.url | relative_url }})
 {% endfor %}
 
-</div>
+</div> -->
 
 <!-- Acquired certifications -->
-<div class="index-achievements" markdown="1">
+<!-- <div class="index-achievements" markdown="1">
 
-## Achievements
+<div class="home-title">
+<h2>Achievements</h2>
+</div>
 
 {% include badges.html %}
 
-</div>
+</div> -->
 
 <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
-<div id="index-publications" markdown="1">
+<!-- <div id="index-publications" markdown="1">
 
-## Publications
+<div class="home-title">
+<h2>Publications</h2>
+</div>
 
 {% assign featured_posts = site.posts | where: "featured", true %}
 {% for post in featured_posts %}
@@ -65,13 +55,6 @@ This website showcases my work, including data analysis projects, research publi
 
 ...[more posts 📝]({% link _blog/1_all.md %})
 
-</div>
+</div> -->
 
-<!-- Social Media Links -->
-<div class="index-contact" markdown="1">
-
-## Get in Touch
-
-{% include social-media.html %}
-
-</div>
+</main>

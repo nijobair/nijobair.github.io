@@ -1,6 +1,7 @@
 @import url("/assets/css/font.css");
 @import url("/assets/css/header.css");
 @import url("/assets/css/footer.css");
+@import url("/assets/css/homePage.css");
 @import url("/assets/css/others.css");
 @import url("/assets/css/media.css");
 @import url("/assets/css/table.css");
@@ -17,7 +18,33 @@ Universal Styles
 ------------------------------------------------------------
 */
 :root {
-    --color-header: #7c334f;
+    --color-primary: #7c334f;
+    --color-background: #ffebcd;
+    --color-backgroundDarker: #eccd9e;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-blue: #007bff;
+
+    --color-text: #544943;
+
+    --color-button: var(--color-backgroundDarker);
+    --color-buttonHover: var(--color-primary);
+
+    --color-link: #d85a80;
+    --color-linkHover: #e680a3;
+
+    --color-shadow: #0000001a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 /*
@@ -26,7 +53,7 @@ Body
 ------------------------------------------------------------
 */
 body {
-    background-color: #ffebcd;
+    background-color: var(--color-background);
 }
 
 /*
@@ -34,22 +61,136 @@ body {
 Content wrapper
 ------------------------------------------------------------
 */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    width: min(740px, 87%);
-    margin-inline: auto;
-    padding: 0 2vw;
-    align-items: center;
-    margin-top: clamp(40px, 5.5vw, 60px);
-    margin-bottom: clamp(10px, 2.4vw, 25px);
-}
-
-/*
-------------------------------------------------------------
-Content wrapper
-------------------------------------------------------------
-*/
-.main_content {
+.container {
     width: 100%;
+    position: relative;
+}
+
+
+.home-wrapper {
+    padding-inline: 10vw;
+    position: relative;
+}
+
+/*
+------------------------------------------------------------
+Content wrapper
+------------------------------------------------------------
+*/
+// .main_content {
+//     width: 100%;
+// }
+
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media only screen and (max-width: 1024px) {
+    .featured-text {
+        padding: 0;
+    }
+}
+
+/* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
+@media only screen and (max-width: 768px) {
+    .nav-menu.responsive {
+        left: 0;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: .3s;
+    }
+
+    .nav_menu_list {
+        flex-direction: column;
+    }
+
+    .nav-menu-btn {
+        display: flex;
+        width: 21px;
+        height: 21px;
+        background-image: url("/assets/images/navigation.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    .nav-menu-btn.open {
+        background-image: url("/assets/images/xmark.svg");
+    }
+
+    .featured-box {
+        flex-direction: column;
+        height: 85vh;
+    }
+
+    .featured-text {
+        width: 100%;
+        order: 2;
+        justify-content: flex-start;
+        margin: 20px 0;
+        min-height: none;
+    }
+
+    .hero-image {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .col {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-info,
+    .contact-info {
+        width: 100%;
+    }
+
+    .project-container {
+        justify-content: center;
+    }
+
+    .project-box {
+        width: 80%;
+    }
+
+}
+
+/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
+
+@media only screen and (max-width: 540px) {
+    .featured-name {
+        font-size: 40px;
+    }
+
+    .project-box {
+        width: 100%;
+    }
+
+    .form-inputs {
+        flex-direction: column;
+    }
+
+    .input-field {
+        width: 100%;
+    }
 }
