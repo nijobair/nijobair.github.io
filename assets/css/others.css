@@ -1,14 +1,5 @@
 /*
 ------------------------------------------------------------
-Paragraph
-------------------------------------------------------------
-*/
-p {
-    margin: .7em .25em 0;
-}
-
-/*
-------------------------------------------------------------
 ordered list
 ------------------------------------------------------------
 */
@@ -103,7 +94,7 @@ Copy Button
     right: 0.5em;
     background-color: transparent;
     color: white;
-    border: var(--color-header) 1px solid;
+    border: var(--color-primary) 1px solid;
     padding: 0.25em 0.5em;
     cursor: pointer;
     font-size: 0.8em;
@@ -112,7 +103,7 @@ Copy Button
 }
 
 .copy:hover {
-    background-color: var(--color-header);
+    background-color: var(--color-primary);
 }
 
 
