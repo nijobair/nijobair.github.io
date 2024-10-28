@@ -1,4 +1,5 @@
-.social-media {
+.social-media,
+.social-media-footer {
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
