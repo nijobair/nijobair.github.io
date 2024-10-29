@@ -1,18 +1,18 @@
 <div class="nav-logo">
-    <a id="site-logo" href="https://nijobair.github.io/"></a>
+    <a id="site-logo" href="{{ site.url }}"></a>
 </div>
 
 
 <div class="nav-menu" id="myNavMenu">
     <ul class="nav_menu_list">
         <li class="nav_list">
-            <a href="#home" class="nav-link">Home</a>
+            <a href="{{ site.url }}" class="nav-link">Home</a>
         </li>
         <li class="nav_list">
-            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#" class="nav-link">Projects</a>
         </li>
         <li class="nav_list">
-            <a href="#blog" class="nav-link">Blog</a>
+            <a href="{{ '/blog' | relative_url }}" class="nav-link">Blog</a>
         </li>
     </ul>
 </div>

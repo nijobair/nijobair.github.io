@@ -1,6 +1,5 @@
 ---
 layout: default
-title: 
 ---
 <main class="home-wrapper">
 
@@ -57,5 +56,7 @@ title:
 ...[more posts 📝]({% link _blog/1_all.md %})
 
 </div> -->
+
+<p>{{ site.url }}</p>
 
 </main>

@@ -6,7 +6,7 @@
 
 <head>
     {% include head.html %}
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{{ site.title }}</title>
 </head>
 
 
@@ -23,12 +23,7 @@
             {% include header.html %}
         </nav>
 
-
-        <!-- MAIN CONTENT -->
-
         {{ content }}
-
-
 
         <!-- FOOTER -->
         <footer>
@@ -45,7 +40,11 @@
 
     <!-- ----- MAIN JS ----- -->
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+    <!-- ----- COPY BUTTON JS ----- -->
     <script src="{{ '/assets/js/copyButton.js' | relative_url }}"></script>
+
+    <!-- ----- MATHJAXfor LATEX ----- -->
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
         type="text/javascript"></script>
 </body>
