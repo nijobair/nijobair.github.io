@@ -128,7 +128,7 @@ Content wrapper
         background-image: url("/assets/images/xmark.svg");
     }
 
-    .featured-box {
+    .hero-section {
         flex-direction: column;
         height: 85vh;
     }
@@ -182,14 +182,6 @@ Content wrapper
     }
 
     .project-box {
-        width: 100%;
-    }
-
-    .form-inputs {
-        flex-direction: column;
-    }
-
-    .input-field {
         width: 100%;
     }
 }
