@@ -1,5 +1,7 @@
 @import url('/assets/css/homePage/heroSection.css');
-@import url('/assets/css/homePage/aboutSection.css');
+@import url('/assets/css/homePage/about.css');
+@import url('/assets/css/homePage/achievements.css');
+@import url('/assets/css/homePage/featuredPosts.css');
 
 
 .section {
@@ -21,7 +23,8 @@
 
 .home-title {
     text-align: center;
-    margin: 3em;
+    margin-top: 3em;
+    margin-bottom: 1em;
 }
 
 button {

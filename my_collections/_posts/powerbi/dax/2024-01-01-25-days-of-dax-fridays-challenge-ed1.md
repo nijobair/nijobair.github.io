@@ -1,7 +1,7 @@
 ---
 featured: true
 categories: dax powerbi
-title: "My Solution to the **'25 Days of DAX Fridays!'** Challenge – Ed1 by **CURBAL**"
+title: "My Solution to the '25 Days of DAX Fridays!' Challenge – Ed1 by CURBAL"
 image: /assets/images/post_dax-challenge/dax-challenge-ed1.png
 excerpt: "Explore a beginner's solution to the '25 days of DAX Fridays!' Challenge by CURBAL."
 ---
@@ -14,6 +14,8 @@ Learning `DAX` can be scary and frustrating at times.`import pandas as pd`  Unde
 
 
 ## My Solutions
+
+<div><img class="lightbox-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}"></div>
 
 
 #### Challenge 01:

@@ -1,0 +1,24 @@
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 100%;
+}
+
+.post {
+    width: max(300px, 25%);
+    padding: 1em;
+    background-color: var(--color-backgroundDarker);
+    margin: 1em;
+    border-radius: 10px;
+
+    img {
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+.more-button {
+    padding: 1em;
+    text-align: right;
+}

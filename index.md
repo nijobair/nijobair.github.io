@@ -3,9 +3,12 @@ layout: default
 ---
 <main class="home-wrapper">
 
+<!-- Hero Section -->
 {% include homePage/heroSection.html %}
 
-{% include homePage/aboutSection.html %}
+<!-- About -->
+{% include homePage/about.html %}
+
 <!-- Services that I offer -->
 <!-- <div class="index-my-services" markdown="1">
 
@@ -31,32 +34,9 @@ layout: default
 </div> -->
 
 <!-- Acquired certifications -->
-<!-- <div class="index-achievements" markdown="1">
-
-<div class="home-title">
-<h2>Achievements</h2>
-</div>
-
-{% include badges.html %}
-
-</div> -->
+{% include homePage/badges.html %}
 
 <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
-<!-- <div id="index-publications" markdown="1">
-
-<div class="home-title">
-<h2>Publications</h2>
-</div>
-
-{% assign featured_posts = site.posts | where: "featured", true %}
-{% for post in featured_posts %}
-- [{{ post.title }}]({{ post.url }})
-{% endfor %}
-
-...[more posts 📝]({% link _blog/1_all.md %})
-
-</div> -->
-
-<p>{{ site.url }}</p>
+{% include homePage/featuredPosts.html %}
 
 </main>

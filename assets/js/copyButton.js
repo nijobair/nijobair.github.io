@@ -1,3 +1,8 @@
+/*
+------------------------------------------------------------
+Copy Button in Code Blocks
+------------------------------------------------------------
+*/
 let codeBlocks = document.querySelectorAll('pre');
 
 codeBlocks.forEach(function (codeBlock) {

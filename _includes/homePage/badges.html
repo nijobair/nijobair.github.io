@@ -1,0 +1,19 @@
+{% assign title = "Click to View Credential" %}
+
+<section class="achievements">
+    <h2 class="home-title">Achievements</h2>
+
+    <div class="badges">
+
+        {% for badge in site.data.badges %}
+
+        <div class="badge">
+            <a href="{{ badge.link }}" target="_blank" class="accredition">
+                <img src="{{ badge.logo }}" alt="{{ badge.alt_text}}" title="{{ title }}">
+            </a>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</section>

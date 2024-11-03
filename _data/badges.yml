@@ -3,20 +3,25 @@
   logo: "/assets/images/badges/microsoft-office-specialist-excel-expert-microsoft-365-apps.png"
   alt_text: "Microsoft Office Specialist: Excel Expert (Microsoft 365 Apps)"
 
+  # MAVEN ANALYTICS: POWER BI DESKTOP CERTIFICATE
+- link: "https://certificates.mavenanalytics.io/6bbf9239-b6aa-40c8-860f-623a788882f4#gs.gt2arb"
+  logo: "/assets/images/badges/maven-analytics-power-bi-desktop.png"
+  alt_text: "Maven Analytics: Power BI Desktop Certificate"
+
 # GOOGLE ANALYTICS PROFESSIONAL CERTIFICATE
 - link: "https://www.credly.com/badges/bec2a027-4aa4-4d14-8abf-9e4a62b67633/public_url"
   logo: "/assets/images/badges/google-data-analytics-professional-certificate.2.png"
   alt_text: "Google Data Analytics Professional Certificate"
 
+# MAVEN ANALYTICS: MYSQL ANALYSIS CERTIFICATE
+- link: "https://certificates.mavenanalytics.io/d8d2662b-570d-4133-949f-464c69ea3be6"
+  logo: "/assets/images/badges/maven-analytics-mysql-analysis.png"
+  alt_text: "Maven Analytics: MySQL Analysis Certificate"
+
 # MECC COMPLETION BADGE
 - link: "https://www.credential.net/374b93e3-87a5-423d-b8c2-7af67df10723"
   logo: "/assets/images/badges/MECC_completion_badge.png"
   alt_text: "MECC Completion Badge"
-
-# EXCEL ESSENTIALS FOR DATA ANALYTICS
-- link: "https://www.credly.com/badges/40ca3303-5bfe-484f-912c-1dbe132ebad7/public_url"
-  logo: "/assets/images/badges/excel-essentials-for-data-analytics.png"
-  alt_text: "Excel Essentials for Data Analytics"
 
 # DATA ANALYSIS & VISUALIZATION FOUNDATIONS SPECIALIZATION
 - link: "https://www.credly.com/badges/5858b41b-2c68-4e18-9676-8fead555c982/public_url"
