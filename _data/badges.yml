@@ -3,6 +3,11 @@
   logo: "/assets/images/badges/microsoft-office-specialist-excel-expert-microsoft-365-apps.png"
   alt_text: "Microsoft Office Specialist: Excel Expert (Microsoft 365 Apps)"
 
+  # UPWORK SKILL CERTIFICATION: DATA ANALYSIS
+- link: "https://www.upwork.com/fl/nijobair?mp_source=share"
+  logo: "/assets/images/badges/upwork-skill-certification.png"
+  alt_text: "Upwork Skill Certification: Data Analysis"
+
   # MAVEN ANALYTICS: POWER BI DESKTOP CERTIFICATE
 - link: "https://certificates.mavenanalytics.io/6bbf9239-b6aa-40c8-860f-623a788882f4#gs.gt2arb"
   logo: "/assets/images/badges/maven-analytics-power-bi-desktop.png"
@@ -20,7 +25,7 @@
 
 # MECC COMPLETION BADGE
 - link: "https://www.credential.net/374b93e3-87a5-423d-b8c2-7af67df10723"
-  logo: "/assets/images/badges/MECC_completion_badge.png"
+  logo: "/assets/images/badges/mecc-completion.png"
   alt_text: "MECC Completion Badge"
 
 # DATA ANALYSIS & VISUALIZATION FOUNDATIONS SPECIALIZATION
