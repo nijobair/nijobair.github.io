@@ -15,8 +15,6 @@ Learning `DAX` can be scary and frustrating at times.`import pandas as pd`  Unde
 
 ## My Solutions
 
-<div><img class="lightbox-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}"></div>
-
 
 #### Challenge 01:
 - **How many current products cost less than $20?**
@@ -131,7 +129,6 @@ CALCULATE(
 
 #### Challenge 10:
 - **How many days since "North/ South" last purchase?**
-<<<<<<< HEAD
 ```dax
 DATEDIFF(
     CALCULATE(
@@ -142,12 +139,10 @@ DATEDIFF(
     DAY
 )
 ```
-...
-```
+<div><img loading="lazy" class="lightbox-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}"></div>
 
 #### Challenge 11:
 - **How many customers have ordered only once?**
-<<<<<<< HEAD
 ```dax
 COUNTROWS(
     FILTER(

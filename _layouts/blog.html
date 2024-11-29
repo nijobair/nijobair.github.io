@@ -6,13 +6,12 @@ layout: default
     <h1>Explore, Learn, Share</h1>
 
     <div class="category-buttons">
-        {% for category in site.blog %}
-        {% if page.title == category.title %}
-        <a class="selected-category" href="{{ category.url | relative_url }}">{{ category.title }}</a>
-        {% else %}
-        <a class="other-categories" href="{{ category.url | relative_url }}">{{ category.title }}</a>
-        {% endif %}
-        {% endfor %}
+        <span class="other-categories selected-category" filter="all">All</span>
+        <span class="other-categories" filter="excel">Excel</span>
+        <span class="other-categories" filter="dax">DAX</span>
+        <span class="other-categories" filter="vba">VBA</span>
+        <span class="other-categories" filter="powerbi">Power BI</span>
+        <span class="other-categories" filter="others">Others</span>
     </div>
 
     {{ content }}

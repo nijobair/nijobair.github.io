@@ -78,8 +78,7 @@ pre {
     white-space: pre-wrap;
     padding: 1em .8em 1em 2em;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto;
     box-sizing: border-box;
 }
 

@@ -1,13 +1,10 @@
 ---
 layout: blog
-title: DAX
-permalink: /blog/dax/
+permalink: /blog/
 ---
 
-{% assign dax_posts = site.posts | where: "categories", "dax" %}
-
-{% for post in dax_posts %}
-<div class="post-item">
+{% for post in site.posts %}
+<div class="post-item {{ post.categories | join: ' ' }}">
     <div class="post-image">
         {% if post.image %}
         <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
@@ -17,6 +14,9 @@ permalink: /blog/dax/
     </div>
 
     <div class="post-content">
+        {% for category in post.categories %}
+            <span class="category">{{ category }}</span>
+        {% endfor %}
         <h5><a href="{{ post.url | relative_url }}">{{ post.title | markdownify }}</a></h5>
         <p>{{ post.excerpt }}</p>
     </div>
