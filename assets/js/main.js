@@ -2,6 +2,7 @@ import 'https://unpkg.com/scrollreveal';
 import 'https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js';
 
 import './homePage/scrollReveal.js';
+import './homePage/scrollingLogos.js';
 import './lightbox.js';
 import './copyButton.js';
 import './postFilter.js';

@@ -1,0 +1,7 @@
+<div class="scroller" data-direction="right" data-speed="slow">
+    <div class="scroller__inner">
+        {% for logo in site.data.scrolling-logos %}
+        <img class="scrolling-logo shadowless" src="{{ logo.source }}" alt="">
+        {% endfor %}
+    </div>
+</div>

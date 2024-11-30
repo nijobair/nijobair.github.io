@@ -39,4 +39,7 @@ layout: default
 <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
 {% include homePage/featuredPosts.html %}
 
+<!-- Scrolling Logos -->
+{% include homePage/scrollingLogos.html %}
+
 </main>

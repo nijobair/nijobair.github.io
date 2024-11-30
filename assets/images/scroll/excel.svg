@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 100" style="enable-background:new 0 0 300 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#6D6E71;}
+	.st1{fill:#A7A9AC;}
+	.st2{fill:#939598;}
+	.st3{opacity:0.1;fill:#010101;enable-background:new    ;}
+	.st4{opacity:0.2;fill:#010101;enable-background:new    ;}
+	.st5{fill:#808285;}
+	.st6{fill:#FFEBCD;}
+	.st7{fill:#BCBEC0;}
+	.st8{font-family:'MonotypeCorsiva';}
+	.st9{font-size:30px;}
+</style>
+<g>
+	<path class="st0" d="M62.5,48.1L30,42.4v42.3c0,1.9,1.6,3.5,3.5,3.5l0,0h56c1.9,0,3.5-1.6,3.5-3.5l0,0V69.1L62.5,48.1z"/>
+	<path class="st1" d="M62.5,11.8h-29c-1.9,0-3.5,1.6-3.5,3.5l0,0v15.6L62.5,50l17.2,5.7L93,50V30.9L62.5,11.8z"/>
+	<path class="st2" d="M30,30.9h32.4V50H30V30.9z"/>
+	<path class="st3" d="M53.3,27.1H30v47.7h23.2c1.9,0,3.5-1.6,3.5-3.5V30.6C56.8,28.7,55.2,27.1,53.3,27.1z"/>
+	<path class="st4" d="M51.4,29H30v47.7h21.3c1.9,0,3.5-1.6,3.5-3.5V32.5C54.9,30.6,53.3,29,51.4,29z"/>
+	<path class="st4" d="M51.4,29H30v43.9h21.3c1.9,0,3.5-1.6,3.5-3.5V32.5C54.9,30.6,53.3,29,51.4,29z"/>
+	<path class="st4" d="M49.5,29H30v43.9h19.4c1.9,0,3.5-1.6,3.5-3.5V32.5C52.9,30.6,51.4,29,49.5,29z"/>
+	<path class="st5" d="M14.5,29h35c1.9,0,3.5,1.6,3.5,3.5v35c0,1.9-1.6,3.5-3.5,3.5h-35c-1.9,0-3.5-1.6-3.5-3.5v-35
+		C11,30.6,12.5,29,14.5,29z"/>
+	<path class="st6" d="M21.8,61.4L29.2,50l-6.7-11.3h5.4l3.7,7.3c0.3,0.7,0.6,1.2,0.7,1.5l0,0c0.2-0.5,0.5-1.1,0.8-1.6l3.9-7.2h5
+		l-7,11.2l7.1,11.5h-5.3l-4.3-8c-0.2-0.3-0.4-0.7-0.5-1.1l0,0c-0.1,0.4-0.3,0.7-0.5,1l-4.4,8L21.8,61.4L21.8,61.4z"/>
+	<path class="st7" d="M89.5,11.8h-27v19.1H93V15.3C93,13.4,91.5,11.8,89.5,11.8L89.5,11.8z"/>
+	<path class="st2" d="M62.5,50H93v19.1H62.5V50z"/>
+	<text transform="matrix(1 0 0 1 101.2642 57.2878)" class="st0 st8 st9">Microsoft Excel</text>
+</g>
+</svg>
