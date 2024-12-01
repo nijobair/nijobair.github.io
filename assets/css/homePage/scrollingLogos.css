@@ -18,13 +18,13 @@
 .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
     flex-wrap: nowrap;
-    animation: scroll 30s reverse linear infinite;
+    animation: scroll 25s reverse linear infinite;
 }
 
 
 @keyframes scroll {
     to {
-        transform: translate(calc(-50% - 0.5rem));
+        transform: translate(calc(-50% - 1rem));
     }
 }
 

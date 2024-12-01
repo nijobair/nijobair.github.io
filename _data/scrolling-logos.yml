@@ -4,6 +4,9 @@
 # POWER QUERY
 - source: "assets/images/scroll/powerquery.svg"
 
+# SQL
+- source: "assets/images/scroll/sql.svg"
+
 # DAX
 - source: "assets/images/scroll/dax.svg"
 
@@ -15,6 +18,3 @@
 
 # R
 - source: "assets/images/scroll/r.svg"
-
-# SQL
-- source: "assets/images/scroll/sql.svg"

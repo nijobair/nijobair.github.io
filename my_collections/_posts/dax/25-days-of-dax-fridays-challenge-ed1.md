@@ -139,7 +139,6 @@ DATEDIFF(
     DAY
 )
 ```
-<div><img loading="lazy" class="lightbox-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}"></div>
 
 #### Challenge 11:
 - **How many customers have ordered only once?**
