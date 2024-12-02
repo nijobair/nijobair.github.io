@@ -1,0 +1,9 @@
+# Example:
+#   - Term is same as displayed text: {% glossary term_name %}
+#     - Ex. {% glossary operating system %}, {% glossary computer %}
+#   - Term is different from displayed text: {% glossary <term>, display: <diplay name> %}
+#     - Ex. {% glossary operating system, display: OS %}, {% glossary computer, display: PC %}
+#
+- term: Jobair
+  definition: Nazmul Islam Jobair is a looser. He can't do anything.
+  url: https://www.facebook.com/nijobair

@@ -23,7 +23,7 @@ nav {
 a#site-logo {
     height: 45px;
     display: block;
-    background: transparent url(../images/NIJobair.svg) 0 0 no-repeat;
+    background: transparent url(../../images/NIJobair.svg) 0 0 no-repeat;
     transition-duration: 0.3s;
 }
 
