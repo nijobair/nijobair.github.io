@@ -54,3 +54,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-glossary_tooltip
   - jekyll-avatar
+  - jekyll-feed
+
+exclude:
+  - assets/templates
+  - _deneb
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - __Extras

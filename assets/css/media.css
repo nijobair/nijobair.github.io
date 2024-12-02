@@ -25,7 +25,7 @@ Image
 */
 img {
     width: 100%;
-    box-shadow: 0px 2px 2px 0px #474746;
+    box-shadow: 0px 2px 2px 0px var(--color-shadow);
     margin-top: clamp(10px, 1.8vw, 20px);
 }
 
@@ -55,7 +55,7 @@ Services
         padding: .5em;
         background: #fddfb0;
         border-radius: .5em;
-        box-shadow: 0px 2px 2px 0px #474746;
+        box-shadow: 0px 2px 2px 0px var(--color-shadow);
         position: relative;
 
         animation-name: appear-in;

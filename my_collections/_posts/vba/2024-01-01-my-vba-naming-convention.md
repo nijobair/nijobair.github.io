@@ -80,15 +80,15 @@ Naming objects like UserForms and controls requires a method that ensures clarit
 <div class="df_before" markdown="1">
 <br>
 
-| **Prefix** | **Object**       | **Example**         |
-|------------|------------------|---------------------|
-| `frm`      | UserForm         | `frmLogin`          |
-| `lbl`      | Label            | `lblStatus`         |
-| `txt`      | TextBox          | `txtUserName`       |
-| `btn`      | CommandButton    | `btnSubmit`         |
-| `chk`      | Checkbox         | `chkAgree`          |
-| `opt`      | OptionButton     | `optBangladesh`     |
-| `img`      | Image            | `imgCatFight`       |
+| Prefix | Object            | Example           |
+|--------|-------------------|-------------------|
+| frm     | UserForm         | frmLogin          |
+| lbl     | Label            | lblStatus         |
+| txt     | TextBox          | txtUserName       |
+| btn     | CommandButton    | btnSubmit         |
+| chk     | Checkbox         | chkAgree          |
+| opt     | OptionButton     | optBangladesh     |
+| img     | Image            | imgCatFight       |
 
 </div>
 

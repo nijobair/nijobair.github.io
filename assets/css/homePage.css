@@ -36,7 +36,7 @@ button {
     border-radius: 10px;
     cursor: pointer;
     transition: .4s;
-    box-shadow: 2px 2px 1px 1px var(--color-shadow);
+    box-shadow: 1px 1px 0.5px 0.5px var(--color-shadow);
 }
 
 button:hover {

@@ -3,8 +3,3 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-bg_remover.py
-trials.ipynb
-r.ipynb
-youtube_data.csv
-learning

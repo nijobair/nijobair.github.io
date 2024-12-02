@@ -47,6 +47,8 @@ GEM
       concurrent-ruby (~> 1.0)
     jekyll-avatar (0.8.0)
       jekyll (>= 3.0, < 5.0)
+    jekyll-feed (0.17.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-glossary_tooltip (1.5.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-sass-converter (3.0.0)
@@ -98,6 +100,7 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll!
   jekyll-avatar
+  jekyll-feed
   jekyll-glossary_tooltip
   jekyll-seo-tag
   jekyll-sitemap
