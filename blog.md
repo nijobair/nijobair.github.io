@@ -17,7 +17,7 @@ permalink: /blog/
         {% for category in post.categories %}
             <span class="category">{{ category }}</span>
         {% endfor %}
-        <h5><a href="{{ post.url | relative_url }}">{{ post.title | markdownify }}</a></h5>
+        <h5><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h5>
         <p>{{ post.excerpt }}</p>
     </div>
 </div>

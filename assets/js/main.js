@@ -6,6 +6,7 @@ import './homePage/scrollingLogos.js';
 import './lightbox.js';
 import './copyButton.js';
 import './postFilter.js';
+// import './pagination.js';
 
 /*
 ------------------------------------------------------------
