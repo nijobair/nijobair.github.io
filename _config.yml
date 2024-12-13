@@ -4,6 +4,7 @@ author: Nazmul Islam
 
 show_downloads: false
 
+url: "https://nijobair.github.io"
 baseurl: ""
 
 markdown: kramdown
@@ -63,3 +64,6 @@ exclude:
   - Gemfile.lock
   - README.md
   - __Extras
+  - my_collections/_posts/_drafts
+  - my_collections/_projects/_drafts
+  
