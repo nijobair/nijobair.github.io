@@ -21,58 +21,54 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
-    runs-on: ubuntu-24.04 # Adjust according to your self-hosted runner version
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Install prerequisites for ruby-build
-      - name: Install dependencies for ruby-build
+      # Restore Ruby from cache if available
+      - name: Restore Ruby from cache
+        id: ruby-cache
+        uses: actions/cache@v3
+        with:
+          path: /opt/hostedtoolcache/Ruby/3.2.2/x64
+          key: ruby-3.2.2
+
+      # Install Ruby only if not cached
+      - name: Install Ruby 3.2.2 (if not cached)
+        if: steps.ruby-cache.outputs.cache-hit != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential libssl-dev zlib1g-dev libreadline-dev
-
-      # Clone ruby-build repository
-      - name: Clone ruby-build
-        run: git clone https://github.com/rbenv/ruby-build.git /tmp/ruby-build
-
-      # Build and install Ruby 3.2.2
-      - name: Install Ruby 3.2.2
-        run: |
+          git clone https://github.com/rbenv/ruby-build.git /tmp/ruby-build
           sudo /tmp/ruby-build/bin/ruby-build 3.2.2 /opt/hostedtoolcache/Ruby/3.2.2/x64
           sudo touch /opt/hostedtoolcache/Ruby/3.2.2/x64.complete
 
-      # Add Ruby to PATH
       - name: Add Ruby to PATH
         run: echo "/opt/hostedtoolcache/Ruby/3.2.2/x64/bin" >> $GITHUB_PATH
 
-      # Verify Ruby Installation
       - name: Verify Ruby Version
         run: ruby --version
 
-      # Install Bundler and project dependencies
-      - name: Install Bundler and gems
-        run: |
-          gem install bundler
-          bundle install
+      # - name: Install Bundler
+      #   run: gem install bundler
+
+      # - name: Install gems
+      #   run: bundle install
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
       - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
