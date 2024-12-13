@@ -52,6 +52,12 @@ jobs:
       - name: Verify Ruby Version
         run: ruby --version
 
+      # Install Bundler and project dependencies
+      - name: Install Bundler and gems
+        run: |
+          gem install bundler
+          bundle install
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
