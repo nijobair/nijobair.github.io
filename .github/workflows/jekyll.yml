@@ -1,9 +1,3 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Jekyll
 
 on:
@@ -29,24 +23,45 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Adjust according to your self-hosted runner version
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
-        with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+
+      # Install prerequisites for ruby-build
+      - name: Install dependencies for ruby-build
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libssl-dev zlib1g-dev libreadline-dev
+
+      # Clone ruby-build repository
+      - name: Clone ruby-build
+        run: git clone https://github.com/rbenv/ruby-build.git /tmp/ruby-build
+
+      # Build and install Ruby 3.2.2
+      - name: Install Ruby 3.2.2
+        run: |
+          sudo /tmp/ruby-build/bin/ruby-build 3.2.2 /opt/hostedtoolcache/Ruby/3.2.2/x64
+          sudo touch /opt/hostedtoolcache/Ruby/3.2.2/x64.complete
+
+      # Add Ruby to PATH
+      - name: Add Ruby to PATH
+        run: echo "/opt/hostedtoolcache/Ruby/3.2.2/x64/bin" >> $GITHUB_PATH
+
+      # Verify Ruby Installation
+      - name: Verify Ruby Version
+        run: ruby --version
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
