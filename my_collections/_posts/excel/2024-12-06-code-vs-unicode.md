@@ -64,8 +64,8 @@ Let’s take a look at a few scenarios where these functions can be super handy.
 For standard English characters, both functions give the same result:
 
 ```excel
-=CODE("é")       // Returns 233
-=UNICODE("é")    // Returns 233
+=CODE("C")       // Returns 67
+=UNICODE("C")    // Returns 67
 ```
 No difference here! But things change when you move beyond the standard ASCII range.
 
