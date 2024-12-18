@@ -4,6 +4,6 @@
 #   - Term is different from displayed text: {% glossary <term>, display: <diplay name> %}
 #     - Ex. {% glossary operating system, display: OS %}, {% glossary computer, display: PC %}
 #
-- term: Jobair
-  definition: Nazmul Islam Jobair is a looser. He can't do anything.
-  url: https://www.facebook.com/nijobair
+- term: ASCII
+  definition: ASCII is a character encoding standard for electronic communication. It uses 128 code points (95 printable), limiting its scope.
+  url: https://en.wikipedia.org/wiki/ASCII#:~:text=ASCII%20(%2F%CB%88%C3%A6sk,telecommunications%20equipment%2C%20and%20other%20devices.
