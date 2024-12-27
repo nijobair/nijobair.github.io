@@ -39,6 +39,9 @@ layout: default
 <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
 {% include homePage/featuredPosts.html %}
 
+
+<a href="/sql-playground/">SQL Playground</a>
+
 <!-- Scrolling Logos -->
 {% include homePage/scrollingLogos.html %}
 

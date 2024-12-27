@@ -1,0 +1,7 @@
+{
+    "id": 1,
+    "title": "Select All Users",
+    "description": "Write a query to select all columns from the users table.",
+    "table": "users",
+    "expected_result": "result1.json"
+}
