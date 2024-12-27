@@ -27,9 +27,7 @@ collections_dir: my_collections
 collections:
   projects:
     output: true
-  deneb:
-    output: true
-  blog:
+  sqlPlayground:
     output: true
 
 

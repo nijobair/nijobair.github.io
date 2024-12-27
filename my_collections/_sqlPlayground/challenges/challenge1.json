@@ -1,7 +1,9 @@
 {
     "id": 1,
+    "author": "Nazmul Islam",
     "title": "Select All Users",
     "description": "Write a query to select all columns from the users table.",
     "table": "users",
-    "expected_result": "result1.json"
+    "expected_result": "result1.json",
+    "difficulty": 1
 }

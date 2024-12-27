@@ -1,0 +1,24 @@
+{
+    "columns": [
+        "name",
+        "amount"
+    ],
+    "rows": [
+        [
+            "Alice",
+            50
+        ],
+        [
+            "Alice",
+            30
+        ],
+        [
+            "Bob",
+            20
+        ],
+        [
+            "Charlie",
+            40
+        ]
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "id": 3,
+    "author": "Nazmul Islam",
+    "title": "Join Users and Orders",
+    "description": "Write a query to select user names and their corresponding order amounts.",
+    "tables": [
+        "users",
+        "orders"
+    ],
+    "expected_result": "result3.json",
+    "difficulty": 3
+}

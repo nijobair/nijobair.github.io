@@ -1,7 +1,9 @@
 {
     "id": 2,
+    "author": "Nazmul Islam",
     "title": "Select Users with Specific Email Domain",
     "description": "Write a query to select users whose email domain is 'example.com'.",
     "table": "users",
-    "expected_result": "result2.json"
+    "expected_result": "result2.json",
+    "difficulty": 2
 }

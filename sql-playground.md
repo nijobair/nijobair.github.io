@@ -4,7 +4,13 @@ title: SQL Playground
 permalink: /sql-playground/
 ---
 
-<div id="sql-playground-app">
+<div id="challenge-list">
+  <h1>Choose a Challenge</h1>
+  <ul id="challenges"></ul>
+</div>
+
+<div id="sql-playground-app" style="display:none;">
+  <button onclick="showChallengeList()">Back to Challenges</button>
   <h1>SQL Playground</h1>
   <div id="challenge-container"></div>
   <textarea id="query-input" placeholder="Write your SQL query here..."></textarea>
