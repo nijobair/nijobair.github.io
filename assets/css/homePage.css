@@ -27,20 +27,3 @@
     margin-top: 3em;
     margin-bottom: 1em;
 }
-
-button {
-    font-weight: 500;
-    padding: 12px 20px;
-    background: var(--color-backgroundDarker);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .4s;
-    box-shadow: 1px 1px 0.5px 0.5px var(--color-shadow);
-}
-
-button:hover {
-    background: var(--color-primary);
-    color: var(--color-white);
-    transform: scale(1.1);
-}

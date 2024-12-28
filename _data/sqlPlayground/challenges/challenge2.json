@@ -1,6 +1,7 @@
 {
     "id": 2,
-    "author": "Nazmul Islam",
+    "category": "xyz",
+    "credit": "Nazmul Islam",
     "title": "Select Users with Specific Email Domain",
     "description": "Write a query to select users whose email domain is 'example.com'.",
     "table": "users",

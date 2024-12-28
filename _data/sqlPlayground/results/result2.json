@@ -1,20 +1,19 @@
 {
     "columns": [
+        "id",
         "name",
-        "amount"
+        "email"
     ],
     "rows": [
         [
+            1,
             "Alice",
-            80
+            "alice@example.com"
         ],
         [
+            2,
             "Bob",
-            20
-        ],
-        [
-            "Charlie",
-            40
+            "bob@example.com"
         ]
     ]
 }
