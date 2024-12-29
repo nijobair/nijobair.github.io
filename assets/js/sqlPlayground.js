@@ -3,7 +3,8 @@ let SQL;
 let currentChallengeID;
 let hint;
 
-const resultPlaceHolder = "Write a query and press the 'Run Query' button to see the result...";
+const resultPlaceHolder = "Write a query and click the 'Run Query' button or press 'Ctrl + Enter' to see the result...";
+let totalChallenges;
 
 // Initialize SQL.js and load the challenge list when the document is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +33,7 @@ function loadChallenge(id) {
             return response.json();
         })
         .then(challenges => {
+            totalChallenges = challenges.length;
             const challenge = challenges.find(challenge => challenge.id === id);
             if (!challenge) {
                 throw new Error(`Challenge with id ${id} not found`);
@@ -95,15 +97,20 @@ function loadTables(tableNames) {
 // Display table data in the SQL Playground
 function displayTableData(tableName, table) {
     const tableContainer = document.getElementById('table-container');
-    let tableHTML = `<p><strong>Table:</strong> ${tableName}</p><table border="1" style="align-self: center;"><thead><tr>`;
+    let tableHTML = `<p><strong>Table:</strong> ${tableName}${table.rows.length > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table border="1" style="align-self: center;"><thead><tr>`;
 
+    // Add table headers
     table.columns.forEach(column => {
         tableHTML += `<th>${column}</th>`;
     });
 
     tableHTML += `</tr></thead><tbody>`;
 
-    table.rows.forEach(row => {
+    // Limit the rows to the first 9 if there are more than 9 rows
+    const rowsToDisplay = table.rows.length > 9 ? table.rows.slice(0, 9) : table.rows;
+
+    // Add table rows
+    rowsToDisplay.forEach(row => {
         tableHTML += `<tr>`;
         row.forEach(value => {
             tableHTML += `<td>${value}</td>`;
@@ -303,3 +310,55 @@ function showHint() {
     queryInput.value = '';
     queryInput.placeholder = hint;
 }
+
+// Go to the next challenge
+function nextChallenge() {
+
+    if (currentChallengeID < totalChallenges) {
+        const nextChallengeID = currentChallengeID + 1;
+        loadChallenge(nextChallengeID);
+    } else {
+        alert('You have completed all the challenges. Congratulations! 🎉');
+    }
+
+}
+
+// Go to the previous challenge
+function previousChallenge() {
+
+    if (currentChallengeID > 1) {
+        const previousChallengeID = currentChallengeID - 1;
+        loadChallenge(previousChallengeID);
+    } else {
+        alert('There are no previous challenges.');
+    }
+
+}
+
+// Tab key functionality for the textarea
+document.getElementById('query-input').addEventListener('keydown', function (event) {
+    const textarea = event.target;
+
+    // Check if the Tab key was pressed
+    if (event.key === 'Tab') {
+        event.preventDefault(); // Prevent the default Tab behavior (focus shifting)
+
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+
+        // Set the textarea's value to: text before caret + 4 spaces + text after caret
+        const fourSpaces = '    ';
+        textarea.value = textarea.value.substring(0, start) + fourSpaces + textarea.value.substring(start);
+
+        // Move the caret
+        textarea.selectionStart = textarea.selectionEnd = start + fourSpaces.length;
+    }
+
+    // Check if Ctrl+Enter was pressed
+    if (event.key === 'Enter' && event.ctrlKey) {
+        event.preventDefault(); // Prevent the default Enter behavior
+
+        // Call the runQuery function
+        executeQuery();
+    }
+});

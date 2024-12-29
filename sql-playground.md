@@ -43,7 +43,11 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
 
 <div id="sql-playground-app" style="display:none;">
 
-  <button onclick="showChallengeList()" style="width: fit-content;">Back to Challenges</button>
+  <div class="buttons">
+    <button onclick="previousChallenge()">Previous</button>
+    <button onclick="showChallengeList()">Back to Challenges</button>
+    <button onclick="nextChallenge()">Next</button>
+  </div>
 
   <div id="challenge-container"></div>
 
