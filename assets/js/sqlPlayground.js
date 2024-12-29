@@ -61,9 +61,17 @@ function loadChallenge(id) {
                 <p><strong>Credit:</strong> <i>${challenge.credit}</i></p>
                 <div id="table-container"></div>
             `;
-            document.getElementById('query-input').value = '';
-            document.getElementById('result-output').placeholder = resultPlaceHolder;
-            document.getElementById('result-output').textContent = '';
+
+            const queryInput = document.getElementById('query-input');
+            queryInput.value = '';
+            queryInput.style.width = ''; // Reset the width of the textarea
+            queryInput.style.height = ''; // Reset the height of the textarea
+
+            const resultOutput = document.getElementById('result-output');
+            resultOutput.placeholder = resultPlaceHolder;
+            resultOutput.value = '';
+            resultOutput.style.width = ''; // Reset the width of the textarea
+            resultOutput.style.height = ''; // Reset the height of the textarea
 
             document.getElementById('challenge-list').style.display = 'none';
             document.getElementById('sql-playground-app').style.display = 'flex';

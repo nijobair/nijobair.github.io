@@ -43,12 +43,6 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
 
 <div id="sql-playground-app" style="display:none;">
 
-  <div class="buttons">
-    <button onclick="previousChallenge()">Previous</button>
-    <button onclick="showChallengeList()">Back to Challenges</button>
-    <button onclick="nextChallenge()">Next</button>
-  </div>
-
   <div id="challenge-container"></div>
 
   <p><strong>Query:</strong></p>
@@ -64,6 +58,12 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   <p><strong>Output:</strong></p>
   <div id="query-result">
     <textarea id="result-output" readonly></textarea>
+  </div>
+
+  <div class="buttons">
+    <button onclick="previousChallenge()">Previous</button>
+    <button onclick="showChallengeList()">Back to Challenges</button>
+    <button onclick="nextChallenge()">Next</button>
   </div>
 
 </div>
