@@ -11,13 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/${file}` }).then(SQLLib => {
         SQL = SQLLib;
         db = new SQL.Database();
+
+        // Check the URL for a challenge ID
+        const urlParams = new URLSearchParams(window.location.search);
+        const challengeID = urlParams.get('challenge');
+
+        if (challengeID) {
+            loadChallenge(parseInt(challengeID));
+        }
     }).catch(error => console.error('Error initializing SQL.js:', error));
 });
 
 // Load a specific challenge by its ID
 function loadChallenge(id) {
+    // Update the URL with the current challenge ID
+    window.history.pushState({ challengeID: id }, `Challenge ${id}`, `?challenge=${id}`);
+
     // Store the current challenge ID for comparison later
     currentChallengeID = id;
+
     // Check if SQL is initialized
     if (!SQL) {
         console.error('SQL.js is not initialized');
@@ -267,6 +279,9 @@ function displayFireworks() {
 
 // Show the challenge list and hide the SQL Playground
 function showChallengeList() {
+    // Update the URL to remove the challenge ID
+    window.history.pushState({}, document.title, window.location.pathname);
+
     document.getElementById('sql-playground-app').style.display = 'none';
     document.getElementById('challenge-list').style.display = 'block';
 }

@@ -114,6 +114,7 @@ Buttons
 button {
     font-weight: 500;
     padding: 12px 20px;
+    margin: 5px;
     background: var(--color-backgroundDarker);
     border: none;
     border-radius: 10px;

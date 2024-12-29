@@ -61,7 +61,7 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
     <button onclick="showAnswer()">Show Answer</button>
   </div>
 
-  <p><strong>Answer:</strong></p>
+  <p><strong>Output:</strong></p>
   <div id="query-result">
     <textarea id="result-output" readonly></textarea>
   </div>
