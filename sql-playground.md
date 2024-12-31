@@ -1,23 +1,23 @@
 ---
-layout: sqlPlayground
-title: SQL Playground
+layout: sqlChallengeHub
+title: SQL Challenge Hub
 image: /assets/images/sqlPlayground.webp
-permalink: /sql-playground/
+permalink: /sql-challenge-hub/
 ---
 
 <div id="challenge-list" markdown="1">
 
-# SQL PlayGround
+# SQL Challenge Hub
 
 <img class="featured-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
 
 ## Introduction
 
-Hi there! Welcome to the **SQL PlayGround!** Whether you're just starting out with SQL or already have some experience, one thing is for sure—practice is the key to mastering it. That’s why I’ve put together a collection of SQL challenges with varying levels of difficulty. These challenges are designed to give you hands-on experience and help you sharpen your SQL skills. The best part? It’s all completely **FREE!** No sign-ups, no strings attached. Just pick a problem and dive in!
+Hi there! Welcome to the **SQL Challenge Hub!** Whether you're just starting out with SQL or already have some experience, one thing is for sure—practice is the key to mastering it. That’s why I’ve put together a collection of SQL challenges with varying levels of difficulty. These challenges are designed to give you hands-on experience and help you sharpen your SQL skills. The best part? It’s all completely **FREE!** No sign-ups, no strings attached. Just pick a problem and dive in!
 
 **Challenge ID \| Category \| *Credit* \| Difficulty**
 
-{% assign sorted_files = site.data.sqlPlayground | numeric_sort %}
+{% assign sorted_files = site.data.sqlChallengeHub | numeric_sort %}
 
 {% for file in sorted_files %}
   {% assign challenge = file[1] %}
@@ -81,5 +81,5 @@ Use `Ctrl + /` to comment/uncomment selected lines."></textarea>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
-<script src="{{ '/assets/js/sqlPlayground.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/sqlChallengeHub.js' | relative_url }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>

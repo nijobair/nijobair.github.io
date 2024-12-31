@@ -36,7 +36,7 @@ function loadChallenge(id) {
         return;
     }
 
-    const challengesFile = '/sqlPlayground/challenges.json';
+    const challengesFile = '/sqlChallengeHub/challenges.json';
     fetch(challengesFile)
         .then(response => {
             if (!response.ok) {
@@ -95,10 +95,10 @@ function loadTables(tableNames) {
     const tableContainer = document.getElementById('table-container');
     tableContainer.innerHTML = ''; // Clear the table container before loading new tables
     tableNames.forEach(tableName => {
-        fetch(`/sqlPlayground/tables/${tableName}.json`)
+        fetch(`/sqlChallengeHub/tables/${tableName}.json`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch /sqlPlayground/tables/${tableName}.json: ${response.statusText}`);
+                    throw new Error(`Failed to fetch /sqlChallengeHub/tables/${tableName}.json: ${response.statusText}`);
                 }
                 return response.json();
             })
@@ -206,7 +206,7 @@ function isReadOnlyQuery(query) {
 
 // Fetch and compare the result of the user's query with the expected result
 function compareResults(challengeId, userResult) {
-    const resultFile = `/sqlPlayground/results/result${challengeId}.json`;
+    const resultFile = `/sqlChallengeHub/results/result${challengeId}.json`;
     fetch(resultFile)
         .then(response => {
             if (!response.ok) {
@@ -338,7 +338,7 @@ function clearQuery() {
 // Show the answer for the challenge
 function showAnswer() {
     // Construct the path to the answer file based on the challengeId
-    const filePath = `/sqlPlayground/answers/answer${currentChallengeID}.txt`;
+    const filePath = `/sqlChallengeHub/answers/answer${currentChallengeID}.txt`;
 
     // Fetch the content of the answer file
     fetch(filePath)
