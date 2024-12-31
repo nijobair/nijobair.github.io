@@ -36,23 +36,6 @@ Hi there! Welcome to the **SQL PlayGround!** Whether you're just starting out wi
   - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit }}* \| {{ stars }}</a>
 {% endfor %}
 
-<!-- {% for file in site.data.sqlPlayground %}
-  {% assign challenge = file[1] %}
-  
-  {% assign difficulty = challenge.difficulty %}
-  {% assign stars = '' %}
-  
-  {% for i in (1..5) %}
-    {% if i <= difficulty %}
-      {% assign stars = stars | append: '★' %}
-    {% else %}
-      {% assign stars = stars | append: '☆' %}
-    {% endif %}
-  {% endfor %}
-  
-  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit }}* \| {{ stars }}</a>
-{% endfor %} -->
-
 ## Wanna contribute?
 
 Have a cool SQL challenge you'd like to share? Or maybe you want to help others learn SQL for free? I'd love to hear from you! Send me your challenge, and I’ll review it. If it fits, I’ll add it to the list with a shoutout to you in the **credits**. Let’s make learning SQL fun, accessible, and free for everyone!
