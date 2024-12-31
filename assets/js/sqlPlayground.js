@@ -318,9 +318,16 @@ function showChallengeList() {
 
 // Clear Query and Result
 function clearQuery() {
-    document.getElementById('query-input').value = '';
-    document.getElementById('result-output').placeholder = resultPlaceHolder;
-    document.getElementById('result-output').value = '';
+    const queryInput = document.getElementById('query-input');
+    queryInput.value = '';
+    queryInput.style.width = ''; // Reset the width of the textarea
+    queryInput.style.height = ''; // Reset the height of the textarea
+
+    const resultOutput = document.getElementById('result-output');
+    resultOutput.placeholder = resultPlaceHolder;
+    resultOutput.value = '';
+    resultOutput.style.width = ''; // Reset the width of the textarea
+    resultOutput.style.height = ''; // Reset the height of the textarea
 
     const resultMessage = document.getElementById('result-message');
     if (resultMessage) {
