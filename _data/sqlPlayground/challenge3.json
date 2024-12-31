@@ -1,0 +1,12 @@
+{
+    "id": 3,
+    "category": "Filtering Data",
+    "credit": "Nazmul Islam",
+    "title": "Students with Full Marks in Arts",
+    "description": "The Arts department has a special award for students who scored highest in Arts. They want to know who these students are to present the awards. Write a query to list the full names of students who scored highest in Arts.",
+    "table": "students",
+    "expected_result": "result3.json",
+    "answer": "answer3.txt",
+    "difficulty": 2,
+    "hint": "To find a name, it's clear to see,\nA `WHERE` clause is the key."
+}

@@ -1,0 +1,184 @@
+{
+    "columns": [
+        "student1",
+        "student2",
+        "total_score"
+    ],
+    "rows": [
+        [
+            "Fatima Akter",
+            "Nafisa Rahman",
+            "400"
+        ],
+        [
+            "Fatima Akter",
+            "Shirin Begum",
+            "400"
+        ],
+        [
+            "Fatima Akter",
+            "Karim Uddin",
+            "400"
+        ],
+        [
+            "Mehedi Hassan",
+            "Sajid Khan",
+            "364"
+        ],
+        [
+            "Mehedi Hassan",
+            "Mizan Rahman",
+            "364"
+        ],
+        [
+            "Aylin Ozdemir",
+            "Zeynep Aydin",
+            "357"
+        ],
+        [
+            "Aylin Ozdemir",
+            "Emine Arslan",
+            "357"
+        ],
+        [
+            "Rahat Chowdhury",
+            "Tariq Ahmed",
+            "440"
+        ],
+        [
+            "Arif Mia",
+            "Riyad Hossain",
+            "418"
+        ],
+        [
+            "Arif Mia",
+            "Jamal Ali",
+            "418"
+        ],
+        [
+            "Arif Mia",
+            "Shahin Sarkar",
+            "418"
+        ],
+        [
+            "Burak Celik",
+            "Emir Yildiz",
+            "369"
+        ],
+        [
+            "Burak Celik",
+            "Can Koc",
+            "369"
+        ],
+        [
+            "Burak Celik",
+            "Deniz Yilmaz",
+            "369"
+        ],
+        [
+            "Nafisa Rahman",
+            "Shirin Begum",
+            "400"
+        ],
+        [
+            "Merve Yilmaz",
+            "Selin Kilic",
+            "373"
+        ],
+        [
+            "Riyad Hossain",
+            "Shahin Sarkar",
+            "418"
+        ],
+        [
+            "Can Koc",
+            "Emir Yildiz",
+            "369"
+        ],
+        [
+            "Can Koc",
+            "Deniz Yilmaz",
+            "369"
+        ],
+        [
+            "Emine Arslan",
+            "Zeynep Aydin",
+            "357"
+        ],
+        [
+            "Leyla Guzel",
+            "Selin Kilic",
+            "373"
+        ],
+        [
+            "Leyla Guzel",
+            "Merve Yilmaz",
+            "373"
+        ],
+        [
+            "Jamal Ali",
+            "Riyad Hossain",
+            "418"
+        ],
+        [
+            "Jamal Ali",
+            "Shahin Sarkar",
+            "418"
+        ],
+        [
+            "Deniz Yilmaz",
+            "Emir Yildiz",
+            "369"
+        ],
+        [
+            "Karim Uddin",
+            "Nafisa Rahman",
+            "400"
+        ],
+        [
+            "Karim Uddin",
+            "Shirin Begum",
+            "400"
+        ],
+        [
+            "Ahmet Yildirim",
+            "Aylin Ozdemir",
+            "357"
+        ],
+        [
+            "Ahmet Yildirim",
+            "Zeynep Aydin",
+            "357"
+        ],
+        [
+            "Ahmet Yildirim",
+            "Emine Arslan",
+            "357"
+        ],
+        [
+            "Mizan Rahman",
+            "Sajid Khan",
+            "364"
+        ],
+        [
+            "Ece Toprak",
+            "Selin Kilic",
+            "373"
+        ],
+        [
+            "Ece Toprak",
+            "Merve Yilmaz",
+            "373"
+        ],
+        [
+            "Ece Toprak",
+            "Leyla Guzel",
+            "373"
+        ],
+        [
+            "Amina Islam",
+            "Ayse Yildiz",
+            "308"
+        ]
+    ]
+}

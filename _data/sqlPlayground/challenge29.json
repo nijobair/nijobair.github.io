@@ -1,0 +1,12 @@
+{
+    "id": 29,
+    "category": "Advanced Calculations",
+    "credit": "Nazmul Islam",
+    "title": "Range Calculation for Each Subject",
+    "description": "The school administration wants to analyze the variability in student scores across different subjects. They need to calculate the range of scores (defined as the difference between the maximum and minimum scores) for each subject to understand the spread of scores. Your task is to write a query that lists each subject along with its score range. The result should have two columns: `subject` and `score_range`.",
+    "table": "students",
+    "expected_result": "result29.json",
+    "answer": "answer29.txt",
+    "difficulty": 4,
+    "hint": "To find the range for each subject,\nUse `MAX` and `MIN` in a select,\nSubtract the smallest from the largest score,\nFor each subject, and you'll find more."
+}

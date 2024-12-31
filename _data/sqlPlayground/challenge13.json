@@ -1,0 +1,12 @@
+{
+    "id": 13,
+    "category": "Sum Calculation",
+    "credit": "Nazmul Islam",
+    "title": "Total Scores for Male Students in Science",
+    "description": "The Science department wants to calculate the total combined score in Science for all male students to analyze gender-specific performance. Write a query to calculate the total score for male students in Science with the column name `total_science_score`.",
+    "table": "students",
+    "expected_result": "result13.json",
+    "answer": "answer13.txt",
+    "difficulty": 3,
+    "hint": "To sum the scores from every male,\nA function adds, it will not fail."
+}

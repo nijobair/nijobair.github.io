@@ -1,0 +1,16 @@
+{
+    "columns": [
+        "gender",
+        "gender_count"
+    ],
+    "rows": [
+        [
+            "Female",
+            "19"
+        ],
+        [
+            "Male",
+            "27"
+        ]
+    ]
+}

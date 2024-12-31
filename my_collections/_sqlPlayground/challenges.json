@@ -2,7 +2,7 @@
 layout: null
 ---
 [
-{% for file in site.data.sqlPlayground.challenges %}
+{% for file in site.data.sqlPlayground %}
 {{ file[1] | jsonify }}{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]

@@ -1,0 +1,12 @@
+{
+    "id": 8,
+    "category": "Min Value",
+    "credit": "Nazmul Islam",
+    "title": "Lowest Score in Bangla",
+    "description": "The Bangla department wants to identify the student with the lowest score in Bangla to offer additional support. They need the name and score of the student. Write a query to find the full name and score of the student with the lowest score in Bangla.",
+    "table": "students",
+    "expected_result": "result8.json",
+    "answer": "answer8.txt",
+    "difficulty": 2,
+    "hint": "To find the lowest score, use `MIN`,\nJoin names after, you'll surely win."
+}

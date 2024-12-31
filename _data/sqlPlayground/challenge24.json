@@ -1,0 +1,12 @@
+{
+    "id": 24,
+    "category": "Advanced Filtering",
+    "credit": "Nazmul Islam",
+    "title": "Students with Fluctuating Performance",
+    "description": "The school wants to identify students whose performance has fluctuated significantly across subjects. They define significant fluctuation as having a difference of 40 or more between the highest and lowest subject scores. Write a query to list the full names of students who have such fluctuating performance.",
+    "table": "students",
+    "expected_result": "result24.json",
+    "answer": "answer24.txt",
+    "difficulty": 5,
+    "hint": "To find the range of scores so wide,\nCalculate the max and min, don't hide.\nSubtract them to find the gap,\nFilter those who meet the trap."
+}

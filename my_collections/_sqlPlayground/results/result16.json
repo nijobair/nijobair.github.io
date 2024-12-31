@@ -1,0 +1,14 @@
+{
+    "columns": [
+        "registration_no",
+        "full_name",
+        "bangla"
+    ],
+    "rows": [
+        [
+            "2024006",
+            "Elif Demir",
+            "90"
+        ]
+    ]
+}

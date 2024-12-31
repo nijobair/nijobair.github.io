@@ -1,6 +1,4 @@
 SELECT
-    id,
-    name,
-    email
-FROM users
-WHERE email LIKE "%example.com";
+    count(*) AS math_toppers
+FROM students
+WHERE math > 80;

@@ -1,0 +1,12 @@
+{
+    "id": 9,
+    "category": "Count Query",
+    "credit": "Nazmul Islam",
+    "title": "Students Failing in Any Subject",
+    "description": "The school wants to identify students who need extra help. They need a list of students who have a score of less than 40 in any subject to provide additional support. Write a query to count the number of students who scored less than 40 in any subject with the column name `failing_students`.",
+    "table": "students",
+    "expected_result": "result9.json",
+    "answer": "answer9.txt",
+    "difficulty": 3,
+    "hint": "To find those who scored below forty,\nUse `OR` in `WHERE`, you'll see quickly."
+}

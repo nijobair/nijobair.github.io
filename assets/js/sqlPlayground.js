@@ -3,7 +3,7 @@ let SQL;
 let currentChallengeID;
 let hint;
 
-const resultPlaceHolder = "Write a query and click the 'Run Query' button or press 'Ctrl + Enter' to see the result...";
+const resultPlaceHolder = "Write a query and click the `Run Query` button or press `Ctrl + Enter` to see the result...";
 let totalChallenges;
 
 // Initialize SQL.js and load the challenge list when the document is fully loaded
@@ -57,6 +57,7 @@ function loadChallenge(id) {
             challengeContainer.innerHTML = `
                 <h2>Challenge ${challenge.id}</h2>
                 <p><strong>Category:</strong> ${challenge.category}</p>
+                <p><strong>Title:</strong> ${challenge.title}</p>
                 <p><strong>Description:</strong> ${challenge.description}</p>
                 <p><strong>Credit:</strong> <i>${challenge.credit}</i></p>
                 <div id="table-container"></div>
@@ -75,6 +76,12 @@ function loadChallenge(id) {
 
             document.getElementById('challenge-list').style.display = 'none';
             document.getElementById('sql-playground-app').style.display = 'flex';
+
+            // Remove previous message if it exists
+            const resultMessage = document.getElementById('result-message');
+            if (resultMessage) {
+                resultMessage.remove();
+            }
 
             // Reset the database and load new tables for the challenge
             db = new SQL.Database();
@@ -160,10 +167,24 @@ function executeQuery() {
                 rows: result[0].values
             };
 
-            let output = userResult.columns.join('\t') + '\n';
-            userResult.rows.forEach(row => {
-                output += row.join('\t') + '\n';
+            // Calculate the maximum length of each column
+            const colLengths = userResult.columns.map((col, index) => {
+                return Math.max(
+                    col.length,
+                    ...userResult.rows.map(row => (row[index] || '').toString().length)
+                );
             });
+
+            // Create a markdown table
+            let output = '| ' + userResult.columns.map((col, i) => col.padEnd(colLengths[i])).join(' | ') + ' |\n';
+            output += '| ' + colLengths.map(length => '-'.repeat(length)).join(' | ') + ' |\n';
+
+            // Add the table rows
+            userResult.rows.forEach(row => {
+                output += '| ' + row.map((value, i) => (value || '').toString().padEnd(colLengths[i])).join(' | ') + ' |\n';
+            });
+
+            // Update the result output element with the markdown table
             document.getElementById('result-output').value = output;
 
             // Fetch and compare results
@@ -198,7 +219,8 @@ function compareResults(challengeId, userResult) {
             normalizeResult(userResult);
             normalizeResult(expectedResult);
 
-            if (JSON.stringify(userResult) === JSON.stringify(expectedResult)) {
+            // Compare the rows of the results, ignoring the columns
+            if (JSON.stringify(userResult.rows) === JSON.stringify(expectedResult.rows)) {
                 displayFireworks();
                 const resultOutput = document.getElementById('query-result');
 
@@ -299,6 +321,11 @@ function clearQuery() {
     document.getElementById('query-input').value = '';
     document.getElementById('result-output').placeholder = resultPlaceHolder;
     document.getElementById('result-output').value = '';
+
+    const resultMessage = document.getElementById('result-message');
+    if (resultMessage) {
+        resultMessage.remove();
+    }
 }
 
 // Show the answer for the challenge
@@ -384,4 +411,48 @@ document.getElementById('query-input').addEventListener('keydown', function (eve
         // Call the runQuery function
         executeQuery();
     }
+
+    // Check if Ctrl+/ was pressed
+    if (event.key === '/' && event.ctrlKey) {
+        event.preventDefault(); // Prevent the default / behavior
+
+        // Call the comment/uncomment function
+        toggleComment(textarea);
+    }
 });
+
+// Comment/uncomment selected lines
+function toggleComment(textarea) {
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
+
+    // Get the start and end line indexes
+    const startLineStartIndex = text.lastIndexOf('\n', start - 1) + 1;
+    const endLineEndIndex = text.indexOf('\n', end);
+    const endLineEndIndexAdjusted = endLineEndIndex === -1 ? text.length : endLineEndIndex;
+
+    // Get the current line(s)
+    const selectedLines = text.substring(startLineStartIndex, endLineEndIndexAdjusted).split('\n');
+
+    // Determine if we are commenting or uncommenting
+    const isCommenting = selectedLines.every(line => !line.trim().startsWith('--'));
+
+    const updatedLines = selectedLines.map(line => {
+        if (isCommenting) {
+            return '-- ' + line;
+        } else {
+            return line.replace(/^\s*--\s?/, '');
+        }
+    });
+
+    // Update the textarea value with the commented/uncommented lines
+    const beforeSelection = text.substring(0, startLineStartIndex);
+    const afterSelection = text.substring(endLineEndIndexAdjusted);
+    const updatedText = beforeSelection + updatedLines.join('\n') + afterSelection;
+    textarea.value = updatedText;
+
+    // Adjust the selection to encompass the newly commented/uncommented text
+    textarea.selectionStart = start;
+    textarea.selectionEnd = end + (updatedLines.join('\n').length - selectedLines.join('\n').length);
+}

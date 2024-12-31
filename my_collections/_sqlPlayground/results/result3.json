@@ -1,20 +1,13 @@
 {
     "columns": [
-        "name",
-        "amount"
+        "full_name"
     ],
     "rows": [
         [
-            "Alice",
-            80
+            "Dilara Arslan"
         ],
         [
-            "Bob",
-            20
-        ],
-        [
-            "Charlie",
-            40
+            "AK Abid"
         ]
     ]
 }

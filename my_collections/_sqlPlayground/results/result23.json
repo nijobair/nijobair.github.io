@@ -1,0 +1,28 @@
+{
+    "columns": [
+        "gender",
+        "avg_bangla",
+        "avg_english",
+        "avg_arts",
+        "avg_math",
+        "avg_science"
+    ],
+    "rows": [
+        [
+            "Female",
+            "71",
+            "76",
+            "79",
+            "79",
+            "73"
+        ],
+        [
+            "Male",
+            "67",
+            "74",
+            "71",
+            "79",
+            "73"
+        ]
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "id": 11,
+    "category": "Average Calculation",
+    "credit": "Nazmul Islam",
+    "title": "Average Score for Female Students in Arts",
+    "description": "The Arts department wants to calculate the average score in Arts for female students to assess gender-specific performance. They need the average score rounded to two decimal places. Write a query to calculate the average score of female students in Arts with the column name `avg_arts_score`.",
+    "table": "students",
+    "expected_result": "result11.json",
+    "answer": "answer11.txt",
+    "difficulty": 3,
+    "hint": "To find the average for a certain gender,\nUse `AVG` with `WHERE`, it's no blunder."
+}

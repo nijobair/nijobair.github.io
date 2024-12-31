@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "category": "Average Calculation",
+    "credit": "Nazmul Islam",
+    "title": "Average Score in Bangla",
+    "description": "The school administration is analyzing the performance of students in different subjects. They need to calculate the average score of all students in the Bangla subject to assess the overall performance. Can you help them by writing a query to calculate the average score of students in the Bangla subject? Show the score rounded to two decimal places with the column name `avg_bangla_score`.",
+    "table": "students",
+    "expected_result": "result1.json",
+    "answer": "answer1.txt",
+    "difficulty": 2,
+    "hint": "To find the average, use a simple trick,\nThe `AVG` function will do it quick.."
+}

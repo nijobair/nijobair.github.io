@@ -1,0 +1,28 @@
+{
+    "columns": [
+        "subject",
+        "score_range"
+    ],
+    "rows": [
+        [
+            "Bangla",
+            "60"
+        ],
+        [
+            "English",
+            "47"
+        ],
+        [
+            "Arts",
+            "62"
+        ],
+        [
+            "Math",
+            "40"
+        ],
+        [
+            "Science",
+            "44"
+        ]
+    ]
+}

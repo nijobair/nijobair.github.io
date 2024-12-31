@@ -1,0 +1,12 @@
+{
+    "id": 19,
+    "category": "Data Comparison",
+    "credit": "Nazmul Islam",
+    "title": "Students with Highest Score in Arts",
+    "description": "The Arts department wants to identify the student with higher score than average in Arts to award them. They need the name and score of the students. Write a query to find the full name and score of the students with higher score than average in Arts.",
+    "table": "students",
+    "expected_result": "result19.json",
+    "answer": "answer19.txt",
+    "difficulty": 4,
+    "hint": "To find the highest score in play,\nA subquery leads you on the way."
+}

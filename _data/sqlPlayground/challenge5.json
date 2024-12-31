@@ -1,0 +1,12 @@
+{
+    "id": 5,
+    "category": "Sum Calculation",
+    "credit": "Nazmul Islam",
+    "title": "Total Scores for Each Student",
+    "description": "The school administration wants to calculate the total score for each student across all subjects to rank them. They need a list of students with their total scores. Write a query to list the full names of students along with their total scores in a column named `total_score`.",
+    "table": "students",
+    "expected_result": "result5.json",
+    "answer": "answer5.txt",
+    "difficulty": 2,
+    "hint": "To sum up scores, use `+`,\nAdd them all, and then you're done."
+}

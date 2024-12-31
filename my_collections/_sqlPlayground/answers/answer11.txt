@@ -1,0 +1,6 @@
+SELECT
+    round(
+        avg(arts), 2
+    ) AS avg_arts_score
+FROM students
+WHERE gender = 'Female';

@@ -1,0 +1,7 @@
+SELECT
+    full_name
+FROM students
+WHERE arts = (
+    SELECT MAX(arts)
+    FROM students
+);

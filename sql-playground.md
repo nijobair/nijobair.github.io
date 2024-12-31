@@ -17,9 +17,10 @@ Hi there! Welcome to the **SQL PlayGround!** Whether you're just starting out wi
 
 **Challenge ID \| Category \| *Credit* \| Difficulty**
 
-{% for file in site.data.sqlPlayground.challenges %}
+{% assign sorted_files = site.data.sqlPlayground | numeric_sort %}
+
+{% for file in sorted_files %}
   {% assign challenge = file[1] %}
-  {% comment %}The assign is needed, because we have different json files!{% endcomment %}
   
   {% assign difficulty = challenge.difficulty %}
   {% assign stars = '' %}
@@ -32,7 +33,7 @@ Hi there! Welcome to the **SQL PlayGround!** Whether you're just starting out wi
     {% endif %}
   {% endfor %}
   
-  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.title }} \| *{{ challenge.credit }}* \| {{ stars }}</a>
+  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit }}* \| {{ stars }}</a>
 {% endfor %}
 
 ## Wanna contribute?
@@ -43,10 +44,18 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
 
 <div id="sql-playground-app" style="display:none;">
 
+  <div class="buttons">
+    <button onclick="previousChallenge()">Previous</button>
+    <button onclick="showChallengeList()">Back to Challenges</button>
+    <button onclick="nextChallenge()">Next</button>
+  </div>
+
   <div id="challenge-container"></div>
 
   <p><strong>Query:</strong></p>
-  <textarea id="query-input" placeholder="Write your SQL query here..."></textarea>
+  <textarea id="query-input" placeholder="Write your SQL query here...
+
+Use `Ctrl + /` to comment/uncomment selected lines."></textarea>
 
   <div class="buttons">
     <button onclick="executeQuery()">Run Query</button>

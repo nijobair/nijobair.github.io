@@ -1,0 +1,12 @@
+{
+    "columns": [
+        "full_name",
+        "total_marks"
+    ],
+    "rows": [
+        [
+            "Dilara Arslan",
+            "450"
+        ]
+    ]
+}

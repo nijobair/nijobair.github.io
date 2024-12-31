@@ -1,0 +1,12 @@
+{
+    "id": 4,
+    "category": "Group By",
+    "credit": "Nazmul Islam",
+    "title": "Gender Count",
+    "description": "The school is conducting a gender diversity analysis. They need to count the number of male and female students to understand the gender distribution. Write a query to count the number of students by gender with the column names `gender` and `gender_count`.",
+    "table": "students",
+    "expected_result": "result4.json",
+    "answer": "answer4.txt",
+    "difficulty": 3,
+    "hint": "To group by gender, count them well,\n`GROUP BY` is the function to tell."
+}

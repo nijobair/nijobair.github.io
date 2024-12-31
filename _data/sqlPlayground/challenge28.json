@@ -1,0 +1,12 @@
+{
+    "id": 28,
+    "category": "Recursive CTEs",
+    "credit": "Nazmul Islam",
+    "title": "Cumulative Ranking of Students",
+    "description": "The school wants to rank students based on their total scores across all subjects, but they want to see the cumulative ranking where the rank is carried over to the next student if scores are tied. Write a query to calculate the cumulative ranking of students based on their total scores.",
+    "table": "students",
+    "expected_result": "result28.json",
+    "answer": "answer28.txt",
+    "difficulty": 5,
+    "hint": "To rank the scores with ties in mind,\nUse window functions of a special kind.\nOrder them and handle ties,\nTo see the ranks that do arise."
+}

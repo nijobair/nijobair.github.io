@@ -1,0 +1,12 @@
+{
+    "id": 21,
+    "category": "Complex Joins",
+    "credit": "Nazmul Islam",
+    "title": "Students with Consistently High Scores",
+    "description": "The school wants to reward students who have scored above 80 in all subjects. They need a list of students who have consistently maintained high scores in Bangla, English, Arts, Math, and Science. Write a query to list the full names of students who have scored above 80 in all subjects.",
+    "table": "students",
+    "expected_result": "result21.json",
+    "answer": "answer21.txt",
+    "difficulty": 5,
+    "hint": "To find those who score so high,\nCombine conditions, give it a try.\nEach subject checked, must meet the grade,\nJoin them with AND, a query made."
+}

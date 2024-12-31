@@ -1,0 +1,9 @@
+SELECT
+    registration_no,
+    full_name
+FROM students
+WHERE science = (
+    SELECT
+        max(science)
+    FROM students
+);

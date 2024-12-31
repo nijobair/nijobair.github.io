@@ -1,24 +1,10 @@
 {
     "columns": [
-        "id",
-        "name",
-        "email"
+        "avg_bangla_score"
     ],
     "rows": [
         [
-            1,
-            "Alice",
-            "alice@example.com"
-        ],
-        [
-            2,
-            "Bob",
-            "bob@example.com"
-        ],
-        [
-            3,
-            "Charlie",
-            "charlie@example.org"
+            "68.98"
         ]
     ]
 }
