@@ -27,7 +27,7 @@ collections_dir: my_collections
 collections:
   projects:
     output: true
-  sqlPlayground:
+  sqlChallengeHub:
     output: true
 
 
