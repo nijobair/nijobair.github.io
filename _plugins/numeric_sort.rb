@@ -1,10 +1,7 @@
 module Jekyll
   module NumericSortFilter
     def numeric_sort(files)
-      files.sort_by do |file|
-        match_data = file[0].match(/challenge(\d+)\.json/)
-        match_data ? match_data[1].to_i : Float::INFINITY
-      end
+      files.sort_by { |file| file[0].match(/challenge(\d+)/)[1].to_i }
     end
   end
 end
