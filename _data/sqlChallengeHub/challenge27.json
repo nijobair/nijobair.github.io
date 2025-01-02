@@ -5,8 +5,6 @@
     "title": "Students Scoring Above Median in Each Subject",
     "description": "The school wants to identify students who have scored above the median score in each subject. Write a query to list the full names of students who have scored above the median in Bangla, English, Arts, Math, and Science.",
     "table": "students",
-    "expected_result": "result27.json",
-    "answer": "answer27.txt",
     "difficulty": 5,
     "hint": "To find those who beat the median line,\nUse subqueries that work just fine.\nCalculate the middle score,\nThen compare to find much more."
 }

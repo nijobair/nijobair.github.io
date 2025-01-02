@@ -5,8 +5,6 @@
     "title": "Top Scorer in Bangla",
     "description": "The Bangla department wants to award the student with the highest score in Bangla. They need to know the top score and which student achieved it to present the award. Write a query to find the registration number, full name of the student with the highest score in Bangla.",
     "table": "students",
-    "expected_result": "result16.json",
-    "answer": "answer16.txt",
     "difficulty": 3,
     "hint": "To find the best, the top of the lot,\nUse `ORDER BY` and limit the spot."
 }

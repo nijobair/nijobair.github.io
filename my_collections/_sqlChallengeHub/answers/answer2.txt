@@ -1,4 +1,0 @@
-SELECT
-    count(*) AS math_toppers
-FROM students
-WHERE math > 80;

@@ -5,8 +5,6 @@
     "title": "Students with Higher Score in Math than Science",
     "description": "The school counselor wants to identify students whose Math scores are higher than their Science scores and determine the magnitude of that difference. They are particularly interested in the top 10 students with the smallest difference between their Math and Science scores, where Math is still higher. Write a query to list the full names of these students, along with the absolute difference between their Math and Science scores.",
     "table": "students",
-    "expected_result": "result15.json",
-    "answer": "answer15.txt",
     "difficulty": 3,
     "hint": "To find scores that match just right,\nUse `WHERE` to filter, day or night."
 }

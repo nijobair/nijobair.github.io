@@ -1,9 +1,0 @@
-SELECT
-    full_name,
-    bangla
-FROM students
-WHERE bangla = (
-    SELECT
-        min(bangla)
-    FROM students
-);

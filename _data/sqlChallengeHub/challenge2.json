@@ -5,8 +5,6 @@
     "title": "High Scorers in Math",
     "description": "The Math department wants to recognize students who scored more than 80 in Math. They need to count how many students achieved this score to prepare certificates of excellence. Write a query to count the number of students who scored more than 80 in Math with the column name `math_toppers`.",
     "table": "students",
-    "expected_result": "result2.json",
-    "answer": "answer2.txt",
     "difficulty": 2,
     "hint": "To count those who did so great,\nUse `COUNT` and a `WHERE` to state."
 }

@@ -2,9 +2,10 @@ let db;
 let SQL;
 let currentChallengeID;
 let hint;
+let totalChallenges;
 
 const resultPlaceHolder = "Write a query and click the `Run Query` button or press `Ctrl + Enter` to see the result...";
-let totalChallenges;
+
 
 // Initialize SQL.js and load the challenge list when the document is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,35 +54,8 @@ function loadChallenge(id) {
 
             hint = challenge.hint;
 
-            const challengeContainer = document.getElementById('challenge-container');
-            challengeContainer.innerHTML = `
-                <h2>Challenge ${challenge.id}</h2>
-                <p><strong>Category:</strong> ${challenge.category}</p>
-                <p><strong>Title:</strong> ${challenge.title}</p>
-                <p><strong>Description:</strong> ${challenge.description}</p>
-                <p><strong>Credit:</strong> <i>${challenge.credit}</i></p>
-                <div id="table-container"></div>
-            `;
-
-            const queryInput = document.getElementById('query-input');
-            queryInput.value = '';
-            queryInput.style.width = ''; // Reset the width of the textarea
-            queryInput.style.height = ''; // Reset the height of the textarea
-
-            const resultOutput = document.getElementById('result-output');
-            resultOutput.placeholder = resultPlaceHolder;
-            resultOutput.value = '';
-            resultOutput.style.width = ''; // Reset the width of the textarea
-            resultOutput.style.height = ''; // Reset the height of the textarea
-
-            document.getElementById('challenge-list').style.display = 'none';
-            document.getElementById('sql-playground-app').style.display = 'flex';
-
-            // Remove previous message if it exists
-            const resultMessage = document.getElementById('result-message');
-            if (resultMessage) {
-                resultMessage.remove();
-            }
+            displayChallengeDetails(challenge);
+            resetQueryAndResult();
 
             // Reset the database and load new tables for the challenge
             db = new SQL.Database();
@@ -90,63 +64,111 @@ function loadChallenge(id) {
         .catch(error => console.error('Error loading challenge:', error));
 }
 
+// Display challenge details
+function displayChallengeDetails(challenge) {
+    const challengeContainer = document.getElementById('challenge-container');
+    challengeContainer.innerHTML = `
+        <h2>Challenge ${challenge.id}</h2>
+        <p><strong>Category:</strong> ${challenge.category}</p>
+        <p><strong>Title:</strong> ${challenge.title}</p>
+        <p><strong>Description:</strong> ${challenge.description}</p>
+        <p><strong>Credit:</strong> <i>${challenge.credit}</i></p>
+        <div id="table-container"></div>
+    `;
+}
+
+// Reset query input and result output
+function resetQueryAndResult() {
+    const queryInput = document.getElementById('query-input');
+    queryInput.value = '';
+    queryInput.style.width = ''; // Reset the width of the textarea
+    queryInput.style.height = ''; // Reset the height of the textarea
+
+    const resultOutput = document.getElementById('result-output');
+    resultOutput.placeholder = resultPlaceHolder;
+    resultOutput.value = '';
+    resultOutput.style.width = ''; // Reset the width of the textarea
+    resultOutput.style.height = ''; // Reset the height of the textarea
+
+    document.getElementById('challenge-list').style.display = 'none';
+    document.getElementById('sql-playground-app').style.display = 'flex';
+
+    // Remove previous message if it exists
+    const resultMessage = document.getElementById('result-message');
+    if (resultMessage) {
+        resultMessage.remove();
+    }
+}
+
 // Load tables specified in the challenge
 function loadTables(tableNames) {
     const tableContainer = document.getElementById('table-container');
     tableContainer.innerHTML = ''; // Clear the table container before loading new tables
+
     tableNames.forEach(tableName => {
-        fetch(`/sqlChallengeHub/tables/${tableName}.json`)
+        fetch(`/sqlChallengeHub/tables/${tableName}.sql`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch /sqlChallengeHub/tables/${tableName}.json: ${response.statusText}`);
+                    throw new Error(`Failed to fetch /sqlChallengeHub/tables/${tableName}.sql: ${response.statusText}`);
                 }
-                return response.json();
+                return response.text();
             })
-            .then(table => {
-                const createTableSQL = `
-                    CREATE TABLE ${tableName} (${table.columns.map(col => `${col} TEXT`).join(', ')});
-                `;
-                db.run(createTableSQL);
+            .then(sql => {
+                // Execute the SQL commands to create the table and insert the data
+                db.run(sql);
 
-                table.rows.forEach(row => {
-                    const insertSQL = `
-                        INSERT INTO ${tableName} VALUES (${row.map(val => `'${val}'`).join(', ')});
-                    `;
-                    db.run(insertSQL);
-                });
-
-                displayTableData(tableName, table);
+                // Display the table data
+                displayTableData(tableName);
             })
             .catch(error => console.error('Error loading table:', error));
     });
 }
 
 // Display table data in the SQL Playground
-function displayTableData(tableName, table) {
+function displayTableData(tableName) {
     const tableContainer = document.getElementById('table-container');
-    let tableHTML = `<p><strong>Table:</strong> ${tableName}${table.rows.length > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table border="1" style="align-self: center;"><thead><tr>`;
+    const query = `SELECT * FROM ${tableName} LIMIT 9;`; // Limit to first 9 rows for display
+    const countQuery = `SELECT COUNT(*) AS total FROM ${tableName};`; // Query to count total rows
 
-    // Add table headers
-    table.columns.forEach(column => {
-        tableHTML += `<th>${column}</th>`;
-    });
+    try {
+        // Execute the count query to get the total number of rows
+        const countResult = db.exec(countQuery);
+        const totalRows = countResult[0].values[0][0]; // Get the total number of rows
 
-    tableHTML += `</tr></thead><tbody>`;
+        // Execute the query to get the first 9 rows
+        const result = db.exec(query);
+        if (result.length > 0) {
+            const table = {
+                columns: result[0].columns,
+                rows: result[0].values
+            };
 
-    // Limit the rows to the first 9 if there are more than 9 rows
-    const rowsToDisplay = table.rows.length > 9 ? table.rows.slice(0, 9) : table.rows;
+            let tableHTML = `<p><strong>Table:</strong> ${tableName}${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table border="1" style="align-self: center;"><thead><tr>`;
 
-    // Add table rows
-    rowsToDisplay.forEach(row => {
-        tableHTML += `<tr>`;
-        row.forEach(value => {
-            tableHTML += `<td>${value}</td>`;
-        });
-        tableHTML += `</tr>`;
-    });
+            // Add table headers
+            table.columns.forEach(column => {
+                tableHTML += `<th>${column}</th>`;
+            });
 
-    tableHTML += `</tbody></table>`;
-    tableContainer.innerHTML += tableHTML;
+            tableHTML += `</tr></thead><tbody>`;
+
+            // Add table rows
+            table.rows.forEach(row => {
+                tableHTML += `<tr>`;
+                row.forEach(value => {
+                    tableHTML += `<td>${value}</td>`;
+                });
+                tableHTML += `</tr>`;
+            });
+
+            tableHTML += `</tbody></table>`;
+            tableContainer.innerHTML += tableHTML;
+        } else {
+            tableContainer.innerHTML += `<p><strong>Table:</strong> ${tableName} <i>(no data)</i></p>`;
+        }
+    } catch (e) {
+        console.error('Error displaying table data:', e);
+    }
 }
 
 // Execute the SQL query written by the user
@@ -167,25 +189,8 @@ function executeQuery() {
                 rows: result[0].values
             };
 
-            // Calculate the maximum length of each column
-            const colLengths = userResult.columns.map((col, index) => {
-                return Math.max(
-                    col.length,
-                    ...userResult.rows.map(row => (row[index] || '').toString().length)
-                );
-            });
-
-            // Create a markdown table
-            let output = '| ' + userResult.columns.map((col, i) => col.padEnd(colLengths[i])).join(' | ') + ' |\n';
-            output += '| ' + colLengths.map(length => '-'.repeat(length)).join(' | ') + ' |\n';
-
-            // Add the table rows
-            userResult.rows.forEach(row => {
-                output += '| ' + row.map((value, i) => (value || '').toString().padEnd(colLengths[i])).join(' | ') + ' |\n';
-            });
-
-            // Update the result output element with the markdown table
-            document.getElementById('result-output').value = output;
+            // Display the query result
+            displayQueryResult(userResult);
 
             // Fetch and compare results
             compareResults(currentChallengeID, userResult);
@@ -197,6 +202,29 @@ function executeQuery() {
     }
 }
 
+// Display the result of the user's query
+function displayQueryResult(userResult) {
+    // Calculate the maximum length of each column
+    const colLengths = userResult.columns.map((col, index) => {
+        return Math.max(
+            col.length,
+            ...userResult.rows.map(row => (row[index] || '').toString().length)
+        );
+    });
+
+    // Create a markdown table
+    let output = '| ' + userResult.columns.map((col, i) => col.padEnd(colLengths[i])).join(' | ') + ' |\n';
+    output += '| ' + colLengths.map(length => '-'.repeat(length)).join(' | ') + ' |\n';
+
+    // Add the table rows
+    userResult.rows.forEach(row => {
+        output += '| ' + row.map((value, i) => (value || '').toString().padEnd(colLengths[i])).join(' | ') + ' |\n';
+    });
+
+    // Update the result output element with the markdown table
+    document.getElementById('result-output').value = output;
+}
+
 // Check if the query is a read-only query
 function isReadOnlyQuery(query) {
     const forbiddenKeywords = ['INSERT', 'UPDATE', 'DELETE', 'DROP', 'ALTER'];
@@ -206,56 +234,89 @@ function isReadOnlyQuery(query) {
 
 // Fetch and compare the result of the user's query with the expected result
 function compareResults(challengeId, userResult) {
-    const resultFile = `/sqlChallengeHub/results/result${challengeId}.json`;
+    const resultFile = `/sqlChallengeHub/results/result${challengeId}.sql`;
+
     fetch(resultFile)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to fetch ${resultFile}: ${response.statusText}`);
             }
-            return response.json();
+            return response.text();
         })
-        .then(expectedResult => {
+        .then(expectedQuery => {
+            // Execute the expected query to get the expected result
+            const expectedResult = db.exec(expectedQuery)[0];
+
+            if (!expectedResult) {
+                displayErrorMessage('Error: No result was found to compare your output.');
+                return;
+            }
+
+            const expectedResultFormatted = {
+                columns: expectedResult.columns,
+                rows: expectedResult.values
+            };
+
             // Normalize data types
             normalizeResult(userResult);
-            normalizeResult(expectedResult);
+            normalizeResult(expectedResultFormatted);
 
-            // Compare the rows of the results, ignoring the columns
-            if (JSON.stringify(userResult.rows) === JSON.stringify(expectedResult.rows)) {
+            // Check if the number of rows is the same
+            if (userResult.rows.length !== expectedResultFormatted.rows.length) {
+                displayErrorMessage('The result does not match the expected result. Please try again.');
+                return;
+            }
+
+            // Convert rows to string representations for comparison
+            const userRowsSet = new Set(userResult.rows.map(row => JSON.stringify(row)));
+            const expectedRowsSet = new Set(expectedResultFormatted.rows.map(row => JSON.stringify(row)));
+
+            // Check if every expected row is present in the user's result
+            let allRowsMatch = true;
+            for (const expectedRow of expectedRowsSet) {
+                if (!userRowsSet.has(expectedRow)) {
+                    allRowsMatch = false;
+                    break;
+                }
+            }
+
+            if (allRowsMatch) {
                 displayFireworks();
-                const resultOutput = document.getElementById('query-result');
-
-                // Remove previous message if it exists
-                const previousMessage = document.getElementById('result-message');
-                if (previousMessage) {
-                    previousMessage.remove();
-                }
-
-                // Create and append success message
-                const successMessage = document.createElement('div');
-                successMessage.id = 'result-message';
-                successMessage.textContent = 'Congratulations! You have successfully completed the challenge.';
-                successMessage.style.color = 'green'; // Optional: style the message
-                successMessage.style.textAlign = 'center'; // Optional: center the message
-                resultOutput.appendChild(successMessage);
+                displaySuccessMessage('Congratulations! You have successfully completed the challenge.');
             } else {
-                const resultOutput = document.getElementById('query-result');
-
-                // Remove previous message if it exists
-                const previousMessage = document.getElementById('result-message');
-                if (previousMessage) {
-                    previousMessage.remove();
-                }
-
-                // Create and append error message
-                const errorMessage = document.createElement('div');
-                errorMessage.id = 'result-message';
-                errorMessage.textContent = 'The result does not match the expected result. Please try again.';
-                errorMessage.style.color = 'red'; // Optional: style the message
-                errorMessage.style.textAlign = 'center'; // Optional: center the message
-                resultOutput.appendChild(errorMessage);
+                displayErrorMessage('The result does not match the expected result. Please try again.');
             }
         })
         .catch(error => console.error('Error comparing results:', error));
+}
+
+// Display a success message
+function displaySuccessMessage(message) {
+    displayMessage(message, 'green');
+}
+
+// Display an error message
+function displayErrorMessage(message) {
+    displayMessage(message, 'red');
+}
+
+// Common function to display a message
+function displayMessage(message, color) {
+    const resultOutput = document.getElementById('query-result');
+
+    // Remove previous message if it exists
+    const previousMessage = document.getElementById('result-message');
+    if (previousMessage) {
+        previousMessage.remove();
+    }
+
+    // Create and append the message
+    const messageElement = document.createElement('div');
+    messageElement.id = 'result-message';
+    messageElement.textContent = message;
+    messageElement.style.color = color; // Style the message
+    messageElement.style.textAlign = 'center'; // Center the message
+    resultOutput.appendChild(messageElement);
 }
 
 // Normalize data types in the result
@@ -318,29 +379,15 @@ function showChallengeList() {
 
 // Clear Query and Result
 function clearQuery() {
-    const queryInput = document.getElementById('query-input');
-    queryInput.value = '';
-    queryInput.style.width = ''; // Reset the width of the textarea
-    queryInput.style.height = ''; // Reset the height of the textarea
-
-    const resultOutput = document.getElementById('result-output');
-    resultOutput.placeholder = resultPlaceHolder;
-    resultOutput.value = '';
-    resultOutput.style.width = ''; // Reset the width of the textarea
-    resultOutput.style.height = ''; // Reset the height of the textarea
-
-    const resultMessage = document.getElementById('result-message');
-    if (resultMessage) {
-        resultMessage.remove();
-    }
+    resetQueryAndResult();
 }
 
 // Show the answer for the challenge
 function showAnswer() {
-    // Construct the path to the answer file based on the challengeId
-    const filePath = `/sqlChallengeHub/answers/answer${currentChallengeID}.txt`;
+    // Construct the path to the result SQL file based on the challengeId
+    const filePath = `/sqlChallengeHub/results/result${currentChallengeID}.sql`;
 
-    // Fetch the content of the answer file
+    // Fetch the content of the result SQL file
     fetch(filePath)
         .then(response => {
             if (!response.ok) {
@@ -348,13 +395,13 @@ function showAnswer() {
             }
             return response.text();
         })
-        .then(answer => {
+        .then(query => {
             // Set the content of the query-input textarea
             const queryInput = document.getElementById('query-input');
-            queryInput.value = answer;
+            queryInput.value = query;
         })
         .catch(error => {
-            console.error('Error fetching the answer:', error);
+            console.error('Error fetching the query:', error);
         });
 }
 
@@ -370,26 +417,22 @@ function showHint() {
 
 // Go to the next challenge
 function nextChallenge() {
-
     if (currentChallengeID < totalChallenges) {
         const nextChallengeID = currentChallengeID + 1;
         loadChallenge(nextChallengeID);
     } else {
         alert('You have completed all the challenges. Congratulations! 🎉');
     }
-
 }
 
 // Go to the previous challenge
 function previousChallenge() {
-
     if (currentChallengeID > 1) {
         const previousChallengeID = currentChallengeID - 1;
         loadChallenge(previousChallengeID);
     } else {
         alert('There are no previous challenges.');
     }
-
 }
 
 // Tab key functionality for the textarea
@@ -415,7 +458,7 @@ document.getElementById('query-input').addEventListener('keydown', function (eve
     if (event.key === 'Enter' && event.ctrlKey) {
         event.preventDefault(); // Prevent the default Enter behavior
 
-        // Call the runQuery function
+        // Call the executeQuery function
         executeQuery();
     }
 

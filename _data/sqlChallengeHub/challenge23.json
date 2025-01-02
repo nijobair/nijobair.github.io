@@ -5,8 +5,6 @@
     "title": "Gender-Based Performance Analysis",
     "description": "The school is conducting a gender-based performance analysis. They need to calculate the average score in each subject for male and female students separately. Write a query to calculate the average scores rounded to the nearest integer in Bangla, English, Arts, Math, and Science for each gender, and display the results with the column names `gender`, `avg_bangla`, `avg_english`, `avg_arts`, `avg_math`, and `avg_science`.",
     "table": "students",
-    "expected_result": "result23.json",
-    "answer": "answer23.txt",
     "difficulty": 4,
     "hint": "To group by gender, calculate,\nEach subject's average, don't be late.\nCombine them all in one big sweep,\nTo get the results that you keep."
 }

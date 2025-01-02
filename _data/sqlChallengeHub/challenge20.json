@@ -5,8 +5,6 @@
     "title": "Top N Students in Each Subject",
     "description": "The school administration wants to identify the top 3 students in each subject to award them for their excellence. They need a list of the top 3 students in Bangla, English, Arts, Math, and Science, along with their scores. Write a query to retrieve the full names and scores of the top 3 students in each subject. Sort the results by subject in ascending order, and then by score in descending order.",
     "table": "students",
-    "expected_result": "result20.json",
-    "answer": "answer20.txt",
     "difficulty": 5,
     "hint": "To find the top in every class,\nUse window functions, they'll surpass.\nRank each score, partition by,\nAnd limit rows to topmost high."
 }

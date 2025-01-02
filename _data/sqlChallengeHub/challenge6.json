@@ -5,8 +5,6 @@
     "title": "Students with Equal Scores in English and Math",
     "description": "The school counselor is curious to see if any students have equal scores in both English and Math. They need a list of these students to explore potential patterns. Write a query to list the full names of students who have the same scores in English and Math.",
     "table": "students",
-    "expected_result": "result6.json",
-    "answer": "answer6.txt",
     "difficulty": 2,
     "hint": "To find the scores that match so neat,\nCompare them in `WHERE`, a simple feat."
 }

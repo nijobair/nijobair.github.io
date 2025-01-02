@@ -5,8 +5,6 @@
     "title": "Students with Above Average Scores in All Subjects",
     "description": "The school wants to provide special recognition to students who have scored above the average score in all subjects. They need a list of such students along with their scores in each subject. Write a query to retrieve the full names and scores of students who have scored above the average in Bangla, English, Arts, Math, and Science.",
     "table": "students",
-    "expected_result": "result22.json",
-    "answer": "answer22.txt",
     "difficulty": 5,
     "hint": "To find those who score above the mean,\nUse subqueries that aren't seen.\nCalculate the average first,\nThen compare to find the burst."
 }

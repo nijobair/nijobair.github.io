@@ -1,7 +1,7 @@
 ---
 layout: sqlChallengeHub
 title: SQL Challenge Hub
-image: /assets/images/sqlPlayground.webp
+image: /assets/images/sqlChallengeHub.png
 permalink: /sql-challenge-hub/
 ---
 

@@ -5,8 +5,6 @@
     "title": "Students with Highest Total Score",
     "description": "The school administration wants to identify the student with the highest total score across all subjects to award them. They need the name and total score of the student. Write a query to find the full name and total score of the student with the highest total score across all subjects.",
     "table": "students",
-    "expected_result": "result12.json",
-    "answer": "answer12.txt",
     "difficulty": 3,
     "hint": "To find the highest score combined,\nA function sums, it helps you find."
 }

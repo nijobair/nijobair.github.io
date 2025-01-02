@@ -1,5 +1,0 @@
-SELECT
-    name,
-    date_of_birth
-FROM village_x
-WHERE substr(date_of_birth, 6, 2) = '12';

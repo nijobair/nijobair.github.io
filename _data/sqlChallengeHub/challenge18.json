@@ -5,8 +5,6 @@
     "title": "Average Score in Math for Top 5 Students",
     "description": "The Math department wants to calculate the average score in Math for the top 5 students to analyze their performance. Write a query to calculate the average score in Math for the top 5 students with the column name `avg_top5_math`.",
     "table": "students",
-    "expected_result": "result18.json",
-    "answer": "answer18.txt",
     "difficulty": 4,
     "hint": "To find the average, use a simple trick,\nThe `AVG` function will do it quick."
 }

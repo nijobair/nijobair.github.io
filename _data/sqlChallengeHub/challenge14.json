@@ -5,8 +5,6 @@
     "title": "Students Scoring Between 60 and 70 in English",
     "description": "The English department wants to know how many students scored between 60 and 70 in English to provide targeted support. Write a query to count the number of students who scored between 60 and 70 in English with the column name `english_range_count`.",
     "table": "students",
-    "expected_result": "result14.json",
-    "answer": "answer14.txt",
     "difficulty": 3,
     "hint": "To find scores within a range so neat,\nUse `BETWEEN` in `WHERE`, it's a treat."
 }

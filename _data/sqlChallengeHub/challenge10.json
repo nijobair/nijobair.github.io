@@ -5,8 +5,6 @@
     "title": "Students Excelling in Math and Science",
     "description": "The school is looking to identify students who excel in both Math and Science for a special science program. They need a list of students who scored 85 or more in both subjects. Write a query to list the full names of students who scored 85 or more in Math and Science.",
     "table": "students",
-    "expected_result": "result10.json",
-    "answer": "answer10.txt",
     "difficulty": 3,
     "hint": "For those who scored high in two subjects,\nCount with two conditions, no objects."
 }
