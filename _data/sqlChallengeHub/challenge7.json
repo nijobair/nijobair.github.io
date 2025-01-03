@@ -3,7 +3,7 @@
     "category": "Max Value",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Top Scorer in Science",
     "description": "The Science department wants to award the student with the highest score in Science. They need to know the top score and which student achieved it to present the award. Write a query to find the full name and registration number of the student with the highest score in Science.",

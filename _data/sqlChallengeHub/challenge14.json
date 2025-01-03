@@ -3,7 +3,7 @@
     "category": "Conditional Query",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Students Scoring Between 60 and 70 in English",
     "description": "The English department wants to know how many students scored between 60 and 70 in English to provide targeted support. Write a query to count the number of students who scored between 60 and 70 in English with the column name `english_range_count`.",

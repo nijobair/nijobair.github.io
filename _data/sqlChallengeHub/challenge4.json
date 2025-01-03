@@ -3,7 +3,7 @@
     "category": "Group By",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Gender Count",
     "description": "The school is conducting a gender diversity analysis. They need to count the number of male and female students to understand the gender distribution. Write a query to count the number of students by gender with the column names `gender` and `gender_count`.",

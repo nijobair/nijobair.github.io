@@ -3,7 +3,7 @@
     "category": "Average Calculation",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Average Score in Math for Top 5 Students",
     "description": "The Math department wants to calculate the average score in Math for the top 5 students to analyze their performance. Write a query to calculate the average score in Math for the top 5 students with the column name `avg_top5_math`.",

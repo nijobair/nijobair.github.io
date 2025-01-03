@@ -3,7 +3,7 @@
     "category": "Min Value",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Lowest Score in Bangla",
     "description": "The Bangla department wants to identify the student with the lowest score in Bangla to offer additional support. They need the name and score of the student. Write a query to find the full name and score of the student with the lowest score in Bangla.",

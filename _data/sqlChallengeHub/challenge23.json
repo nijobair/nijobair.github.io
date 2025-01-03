@@ -3,7 +3,7 @@
     "category": "Advanced Grouping",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Gender-Based Performance Analysis",
     "description": "The school is conducting a gender-based performance analysis. They need to calculate the average score in each subject for male and female students separately. Write a query to calculate the average scores rounded to the nearest integer in Bangla, English, Arts, Math, and Science for each gender, and display the results with the column names `gender`, `avg_bangla`, `avg_english`, `avg_arts`, `avg_math`, and `avg_science`.",

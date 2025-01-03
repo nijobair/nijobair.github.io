@@ -3,7 +3,7 @@
     "category": "Data Comparison",
     "credit": {
         "name": "Nazmul Islam",
-        "link": "https://www.linkedin.com/in/nazmulislam/"
+        "link": "https://www.linkedin.com/in/nijobair/"
     },
     "title": "Students with Highest Score in Arts",
     "description": "The Arts department wants to identify the student with higher score than average in Arts to award them. They need the name and score of the students. Write a query to find the full name and score of the students with higher score than average in Arts.",
