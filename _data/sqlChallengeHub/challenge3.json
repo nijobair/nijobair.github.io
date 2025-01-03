@@ -1,8 +1,10 @@
 {
     "id": 3,
     "category": "Filtering Data",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Full Marks in Arts",
     "description": "The Arts department has a special award for students who scored highest in Arts. They want to know who these students are to present the awards. Write a query to list the full names of students who scored highest in Arts.",
     "table": "students",

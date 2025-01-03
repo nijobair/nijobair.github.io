@@ -1,8 +1,10 @@
 {
     "id": 22,
     "category": "Nested Queries",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Above Average Scores in All Subjects",
     "description": "The school wants to provide special recognition to students who have scored above the average score in all subjects. They need a list of such students along with their scores in each subject. Write a query to retrieve the full names and scores of students who have scored above the average in Bangla, English, Arts, Math, and Science.",
     "table": "students",

@@ -72,7 +72,7 @@ function displayChallengeDetails(challenge) {
         <p><strong>Category:</strong> ${challenge.category}</p>
         <p><strong>Title:</strong> ${challenge.title}</p>
         <p><strong>Description:</strong> ${challenge.description}</p>
-        <p><strong>Credit:</strong> <i><a href="${challenge.link}" target="_blank">${challenge.credit}</a></i></p>
+        <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
         <div id="table-container"></div>
     `;
 }
@@ -204,11 +204,14 @@ function executeQuery() {
 
 // Display the result of the user's query
 function displayQueryResult(userResult) {
+    // Normalize the result rows
+    const normalizedRows = normalizeResult(userResult);
+
     // Calculate the maximum length of each column
     const colLengths = userResult.columns.map((col, index) => {
         return Math.max(
             col.length,
-            ...userResult.rows.map(row => (row[index] || '').toString().length)
+            ...normalizedRows.map(row => row[index].length)
         );
     });
 
@@ -217,8 +220,8 @@ function displayQueryResult(userResult) {
     output += '| ' + colLengths.map(length => '-'.repeat(length)).join(' | ') + ' |\n';
 
     // Add the table rows
-    userResult.rows.forEach(row => {
-        output += '| ' + row.map((value, i) => (value || '').toString().padEnd(colLengths[i])).join(' | ') + ' |\n';
+    normalizedRows.forEach(row => {
+        output += '| ' + row.map((value, i) => value.padEnd(colLengths[i])).join(' | ') + ' |\n';
     });
 
     // Update the result output element with the markdown table
@@ -321,7 +324,13 @@ function displayMessage(message, color) {
 
 // Normalize data types in the result
 function normalizeResult(result) {
-    result.rows = result.rows.map(row => row.map(value => {
+    return result.rows.map(row => row.map(value => {
+        if (value === null) {
+            return 'NULL'; // Handle NULL values
+        }
+        if (typeof value === 'boolean') {
+            return value ? 'TRUE' : 'FALSE'; // Convert boolean values to strings
+        }
         if (!isNaN(value) && typeof value !== 'boolean') {
             return String(value); // Convert numbers to strings
         }

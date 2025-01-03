@@ -1,8 +1,10 @@
 {
     "id": 6,
     "category": "Data Comparison",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Equal Scores in English and Math",
     "description": "The school counselor is curious to see if any students have equal scores in both English and Math. They need a list of these students to explore potential patterns. Write a query to list the full names of students who have the same scores in English and Math.",
     "table": "students",

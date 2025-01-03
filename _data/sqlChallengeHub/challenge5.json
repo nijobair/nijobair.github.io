@@ -1,8 +1,10 @@
 {
     "id": 5,
     "category": "Sum Calculation",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Total Scores for Each Student",
     "description": "The school administration wants to calculate the total score for each student across all subjects to rank them. They need a list of students with their total scores. Write a query to list the full names of students along with their total scores in a column named `total_score`.",
     "table": "students",

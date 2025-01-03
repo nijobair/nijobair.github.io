@@ -1,8 +1,10 @@
 {
     "id": 15,
     "category": "Data Comparison",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Higher Score in Math than Science",
     "description": "The school counselor wants to identify students whose Math scores are higher than their Science scores and determine the magnitude of that difference. They are particularly interested in the top 10 students with the smallest difference between their Math and Science scores, where Math is still higher. Write a query to list the full names of these students, along with the absolute difference between their Math and Science scores.",
     "table": "students",

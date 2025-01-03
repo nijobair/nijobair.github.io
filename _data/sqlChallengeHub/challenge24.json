@@ -1,8 +1,10 @@
 {
     "id": 24,
     "category": "Advanced Filtering",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Fluctuating Performance",
     "description": "The school wants to identify students whose performance has fluctuated significantly across subjects. They define significant fluctuation as having a difference of 40 or more between the highest and lowest subject scores. Write a query to list the full names of students who have such fluctuating performance.",
     "table": "students",

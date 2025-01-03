@@ -1,8 +1,10 @@
 {
     "id": 9,
     "category": "Count Query",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students Failing in Any Subject",
     "description": "The school wants to identify students who need extra help. They need a list of students who have a score of less than 40 in any subject to provide additional support. Write a query to count the number of students who scored less than 40 in any subject with the column name `failing_students`.",
     "table": "students",

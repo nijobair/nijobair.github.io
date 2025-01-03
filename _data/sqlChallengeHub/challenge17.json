@@ -1,8 +1,10 @@
 {
     "id": 17,
     "category": "Min Value",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Lowest Total Score",
     "description": "The school administration wants to identify the student with the lowest total score across all subjects to provide additional support. They need the name and total score of the student. Write a query to find the full name and total score of the student with the lowest total score across all subjects.",
     "table": "students",

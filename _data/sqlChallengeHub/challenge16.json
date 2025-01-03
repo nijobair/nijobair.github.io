@@ -1,8 +1,10 @@
 {
     "id": 16,
     "category": "Max Value",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Top Scorer in Bangla",
     "description": "The Bangla department wants to award the student with the highest score in Bangla. They need to know the top score and which student achieved it to present the award. Write a query to find the registration number, full name of the student with the highest score in Bangla.",
     "table": "students",

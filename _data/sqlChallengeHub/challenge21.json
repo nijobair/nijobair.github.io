@@ -1,8 +1,10 @@
 {
     "id": 21,
     "category": "Complex Joins",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Students with Consistently High Scores",
     "description": "The school wants to reward students who have scored above 80 in all subjects. They need a list of students who have consistently maintained high scores in Bangla, English, Arts, Math, and Science. Write a query to list the full names of students who have scored above 80 in all subjects.",
     "table": "students",

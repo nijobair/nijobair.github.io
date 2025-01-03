@@ -1,0 +1,6 @@
+1. Retrieving Data
+2. Filtering and Sorting Data
+3. Aggregating Data
+4. Joining Tables
+5. Subqueries/ Nested Queries
+6. Combining Results

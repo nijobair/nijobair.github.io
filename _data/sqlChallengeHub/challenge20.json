@@ -1,8 +1,10 @@
 {
     "id": 20,
     "category": "Advanced Aggregation",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Top N Students in Each Subject",
     "description": "The school administration wants to identify the top 3 students in each subject to award them for their excellence. They need a list of the top 3 students in Bangla, English, Arts, Math, and Science, along with their scores. Write a query to retrieve the full names and scores of the top 3 students in each subject. Sort the results by subject in ascending order, and then by score in descending order.",
     "table": "students",

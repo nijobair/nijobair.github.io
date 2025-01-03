@@ -1,8 +1,10 @@
 {
     "id": 13,
     "category": "Sum Calculation",
-    "credit": "Nazmul Islam",
-    "link": "https://www.linkedin.com/in/nijobair/",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
     "title": "Total Scores for Male Students in Science",
     "description": "The Science department wants to calculate the total combined score in Science for all male students to analyze gender-specific performance. Write a query to calculate the total score for male students in Science with the column name `total_science_score`.",
     "table": "students",

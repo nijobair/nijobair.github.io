@@ -33,7 +33,7 @@ Hi there! Welcome to the **SQL Challenge Hub!** Whether you're just starting out
     {% endif %}
   {% endfor %}
   
-  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit }}* \| {{ stars }}</a>
+  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit.name }}* \| {{ stars }}</a>
 {% endfor %}
 
 ## Wanna contribute?
