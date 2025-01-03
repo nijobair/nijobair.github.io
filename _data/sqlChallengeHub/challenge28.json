@@ -2,6 +2,7 @@
     "id": 28,
     "category": "Recursive CTEs",
     "credit": "Nazmul Islam",
+    "link": "https://www.linkedin.com/in/nijobair/",
     "title": "Cumulative Ranking of Students",
     "description": "The school wants to rank students based on their total scores across all subjects, but they want to see the cumulative ranking where the rank is carried over to the next student if scores are tied. Write a query to calculate the cumulative ranking of students based on their total scores.",
     "table": "students",

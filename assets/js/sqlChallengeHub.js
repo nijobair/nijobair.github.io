@@ -72,7 +72,7 @@ function displayChallengeDetails(challenge) {
         <p><strong>Category:</strong> ${challenge.category}</p>
         <p><strong>Title:</strong> ${challenge.title}</p>
         <p><strong>Description:</strong> ${challenge.description}</p>
-        <p><strong>Credit:</strong> <i>${challenge.credit}</i></p>
+        <p><strong>Credit:</strong> <i><a href="${challenge.link}" target="_blank">${challenge.credit}</a></i></p>
         <div id="table-container"></div>
     `;
 }

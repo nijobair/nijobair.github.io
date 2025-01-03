@@ -2,6 +2,7 @@
     "id": 25,
     "category": "Complex Calculations",
     "credit": "Nazmul Islam",
+    "link": "https://www.linkedin.com/in/nijobair/",
     "title": "Weighted Average Score Calculation",
     "description": "The school wants to calculate a weighted average score for each student, where Bangla and English each have a weight of 2, and Arts, Math, and Science each have a weight of 1. Write a query to calculate the weighted average score for each student and list their full names along with the weighted average score rounded to nearest 2 decimal in a column named `weighted_avg_score`.",
     "table": "students",

@@ -2,6 +2,7 @@
     "id": 26,
     "category": "Self Joins",
     "credit": "Nazmul Islam",
+    "link": "https://www.linkedin.com/in/nijobair/",
     "title": "Finding Student Pairs with Similar Scores",
     "description": "The school wants to identify pairs of students who have similar total scores across all subjects, with a difference of no more than 5 points. Write a query to list pairs of student full names and their total scores, ensuring each pair is listed only once.",
     "table": "students",

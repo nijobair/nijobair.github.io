@@ -55,7 +55,8 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   <p><strong>Query:</strong></p>
   <textarea id="query-input" placeholder="Write your SQL query here...
 
-Use `Ctrl + /` to comment/uncomment selected lines."></textarea>
+[Ctrl + /] --> Comment/uncomment selected lines.
+[Ctrl + Enter] --> Run Query."></textarea>
 
   <div class="buttons">
     <button onclick="executeQuery()">Run Query</button>

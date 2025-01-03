@@ -1,5 +1,5 @@
 -- Create table with appropriate data types
-CREATE TABLE village_x (
+CREATE TABLE IF NOT EXISTS people (
     id INTEGER PRIMARY KEY,
     name TEXT,
     date_of_birth DATE,
@@ -9,7 +9,7 @@ CREATE TABLE village_x (
 );
 
 -- Insert data into the table
-INSERT INTO village_x (id, name, date_of_birth, occupation, salary, religion) VALUES 
+INSERT INTO people (id, name, date_of_birth, occupation, salary, religion) VALUES 
 (22, ' George   RobiNSon ', '1975-11-22', 'Farmer', 3000.00, ''),
 (13, ' Charles   anderson ', '1991-07-19', 'Nurse', 4200.00, 'christianity'),
 (33, ' JaCob   WriGht ', '1991-07-19', '', 5200.00, 'hinduism'),

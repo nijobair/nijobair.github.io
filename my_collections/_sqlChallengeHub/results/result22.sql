@@ -7,11 +7,19 @@ WITH AvgScores AS (
         AVG(science) AS avg_science
     FROM students
 )
-SELECT full_name, bangla, english, arts, math, science
-FROM students, AvgScores
+SELECT
+    full_name,
+    bangla,
+    english,
+    arts,
+    math,
+    science
+FROM
+    students,
+    AvgScores
 WHERE 
-    CAST(bangla AS INT) > avg_bangla AND 
-    CAST(english AS INT) > avg_english AND 
-    CAST(arts AS INT) > avg_arts AND 
-    CAST(math AS INT) > avg_math AND 
-    CAST(science AS INT) > avg_science;
+    bangla > avg_bangla AND 
+    english > avg_english AND 
+    arts > avg_arts AND 
+    math > avg_math AND 
+    science > avg_science;

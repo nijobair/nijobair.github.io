@@ -2,6 +2,7 @@
     "id": 27,
     "category": "Advanced Subqueries",
     "credit": "Nazmul Islam",
+    "link": "https://www.linkedin.com/in/nijobair/",
     "title": "Students Scoring Above Median in Each Subject",
     "description": "The school wants to identify students who have scored above the median score in each subject. Write a query to list the full names of students who have scored above the median in Bangla, English, Arts, Math, and Science.",
     "table": "students",

@@ -3,7 +3,7 @@ SELECT
     arts
 FROM students
 WHERE arts > (
-    SELECT avg(arts)
+    SELECT AVG(arts)
     FROM students
 )
-ORDER BY CAST(arts AS INT) DESC;
+ORDER BY arts DESC;

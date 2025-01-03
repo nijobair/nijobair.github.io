@@ -2,6 +2,7 @@
     "id": 10,
     "category": "Conditional Query",
     "credit": "Nazmul Islam",
+    "link": "https://www.linkedin.com/in/nijobair/",
     "title": "Students Excelling in Math and Science",
     "description": "The school is looking to identify students who excel in both Math and Science for a special science program. They need a list of students who scored 85 or more in both subjects. Write a query to list the full names of students who scored 85 or more in Math and Science.",
     "table": "students",
