@@ -1,0 +1,13 @@
+{
+    "id": 999,
+    "category": "Experiment",
+    "credit": {
+        "name": "Nazmul Islam",
+        "link": "https://www.linkedin.com/in/nazmulislam/"
+    },
+    "title": "Experiment Challenge",
+    "description": "This is just a case to try out the features of the SQL Challenge Hub.",
+    "table": "village_x",
+    "difficulty": 4,
+    "hint": "Look at the sky and ponder,\nYou will get plenly of hints."
+}

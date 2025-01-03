@@ -93,6 +93,9 @@ function resetQueryAndResult() {
     document.getElementById('challenge-list').style.display = 'none';
     document.getElementById('sql-playground-app').style.display = 'flex';
 
+    // Focus the textarea with id 'query-input'
+    document.getElementById('query-input').focus();
+
     // Remove previous message if it exists
     const resultMessage = document.getElementById('result-message');
     if (resultMessage) {
