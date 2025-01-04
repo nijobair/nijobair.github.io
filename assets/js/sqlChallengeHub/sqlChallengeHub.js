@@ -80,6 +80,7 @@ function loadChallenge(id) {
                     },
                     autoCloseBrackets: true,
                     matchBrackets: true,
+                    lineWrapping: true,
                     highlightSelectionMatches: { showToken: /\w/ }
                 });
             } else {
