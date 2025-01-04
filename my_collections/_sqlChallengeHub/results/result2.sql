@@ -1,10 +1,7 @@
 -- Solution:
-SELECT
-    COUNT(*) AS math_toppers
-FROM
-    students
-WHERE
-    math > 80;
+SELECT COUNT(*) AS math_toppers
+FROM students
+WHERE math > 80;
 
 
 

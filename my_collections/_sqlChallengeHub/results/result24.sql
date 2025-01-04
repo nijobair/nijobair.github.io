@@ -1,3 +1,4 @@
+-- Solution:
 SELECT full_name
 FROM students
 WHERE ( 
@@ -42,3 +43,16 @@ WHERE (
         ELSE science - math 
     END) >= 40
 );
+
+
+
+
+
+
+/*
+This SQL query selects the full names of students who have a difference of 40 or more marks between any two subjects.
+1. `SELECT full_name FROM students`: Selects the `full_name` of students from the `students` table.
+2. `WHERE (...) >= 40`: Filters the results to include only those students who have a difference of 40 or more marks between any two subjects. The `CASE` statements calculate the absolute difference between two subject scores and check if it is greater than or equal to 40.
+
+In summary, this query provides the names of students who have a significant difference in scores between any two subjects.
+*/

@@ -7789,7 +7789,7 @@
       cm.display.scrollbars.setScrollTop(cm.doc.scrollTop);
       cm.display.scrollbars.setScrollLeft(cm.doc.scrollLeft);
     }, true);
-    option("lineNumbers", false, function (cm, val) {
+    option("lineNumbers", true, function (cm, val) {
       cm.display.gutterSpecs = getGutters(cm.options.gutters, val);
       updateGutters(cm);
     }, true);
@@ -7837,7 +7837,7 @@
     });
 
     option("tabindex", null, function (cm, val) { return cm.display.input.getField().tabIndex = val || ""; });
-    option("autofocus", null);
+    option("autofocus", true);
     option("direction", "ltr", function (cm, val) { return cm.doc.setDirection(val); }, true);
     option("phrases", null);
   }

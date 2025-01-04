@@ -67,7 +67,6 @@ function loadChallenge(id) {
             if (!editor) {
                 editor = CodeMirror.fromTextArea(queryInput, {
                     mode: 'text/x-sqlite',
-                    lineNumbers: true,
                     extraKeys: {
                         "Ctrl-Enter": executeQuery,
                         "Cmd-Enter": executeQuery,
@@ -80,7 +79,6 @@ function loadChallenge(id) {
                     },
                     autoCloseBrackets: true,
                     matchBrackets: true,
-                    lineWrapping: true,
                     highlightSelectionMatches: { showToken: /\w/ }
                 });
             } else {
