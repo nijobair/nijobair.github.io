@@ -53,10 +53,13 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   <div id="challenge-container"></div>
 
   <p><strong>Query:</strong></p>
-  <textarea id="query-input" placeholder="Write your SQL query here...
+  <textarea id="query-input" name="query-input" placeholder="Write your SQL query here...
 
+Some keyboard shortcuts:
 [Ctrl + /] --> Comment/uncomment selected lines.
-[Ctrl + Enter] --> Run Query."></textarea>
+[Ctrl + Enter] --> Run Query.
+[Ctrl + A] --> Select All.
+[F11] & Esc --> Toggle full-screen mode."></textarea>
 
   <div class="buttons">
     <button onclick="executeQuery()">Run Query</button>
@@ -77,10 +80,3 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   </div>
 
 </div>
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
-<script src="{{ '/assets/js/sqlChallengeHub.js' | relative_url }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>

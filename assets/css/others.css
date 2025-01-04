@@ -71,7 +71,7 @@ Predefined text
 */
 pre {
     display: flex;
-    background: #3a3a3a;
+    background: var(--color-backgroundPre);
     border-bottom: 2px solid #bdb6ad;
     overflow: auto;
     width: min(550px, 100%);

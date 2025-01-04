@@ -3,6 +3,7 @@ let SQL;
 let currentChallengeID;
 let hint;
 let totalChallenges;
+let editor;
 
 const resultPlaceHolder = "Write a query and click the `Run Query` button or press `Ctrl + Enter` to see the result...";
 
@@ -60,6 +61,30 @@ function loadChallenge(id) {
             // Reset the database and load new tables for the challenge
             db = new SQL.Database();
             loadTables(challenge.tables || [challenge.table]);
+
+            // Initialize CodeMirror editor
+            const queryInput = document.getElementById('query-input');
+            if (!editor) {
+                editor = CodeMirror.fromTextArea(queryInput, {
+                    mode: 'text/x-sqlite',
+                    lineNumbers: true,
+                    extraKeys: {
+                        "Ctrl-Enter": executeQuery,
+                        "Cmd-Enter": executeQuery,
+                        "F11": function (cm) {
+                            cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+                        },
+                        "Esc": function (cm) {
+                            if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+                        }
+                    },
+                    autoCloseBrackets: true,
+                    matchBrackets: true,
+                    highlightSelectionMatches: { showToken: /\w/ }
+                });
+            } else {
+                editor.setValue(''); // Clear the editor content if it already exists
+            }
         })
         .catch(error => console.error('Error loading challenge:', error));
 }
@@ -79,10 +104,9 @@ function displayChallengeDetails(challenge) {
 
 // Reset query input and result output
 function resetQueryAndResult() {
-    const queryInput = document.getElementById('query-input');
-    queryInput.value = '';
-    queryInput.style.width = ''; // Reset the width of the textarea
-    queryInput.style.height = ''; // Reset the height of the textarea
+    if (editor) {
+        editor.setValue(''); // Reset the editor content
+    }
 
     const resultOutput = document.getElementById('result-output');
     resultOutput.placeholder = resultPlaceHolder;
@@ -93,8 +117,10 @@ function resetQueryAndResult() {
     document.getElementById('challenge-list').style.display = 'none';
     document.getElementById('sql-playground-app').style.display = 'flex';
 
-    // Focus the textarea with id 'query-input'
-    document.getElementById('query-input').focus();
+    // Focus the CodeMirror editor
+    if (editor) {
+        editor.focus();
+    }
 
     // Remove previous message if it exists
     const resultMessage = document.getElementById('result-message');
@@ -176,7 +202,7 @@ function displayTableData(tableName) {
 
 // Execute the SQL query written by the user
 function executeQuery() {
-    const query = document.getElementById('query-input').value;
+    const query = editor.getValue(); // Get the content from CodeMirror
 
     // Check if the query is read-only
     if (!isReadOnlyQuery(query)) {
@@ -408,9 +434,8 @@ function showAnswer() {
             return response.text();
         })
         .then(query => {
-            // Set the content of the query-input textarea
-            const queryInput = document.getElementById('query-input');
-            queryInput.value = query;
+            // Set the content of the CodeMirror editor
+            editor.setValue(query);
         })
         .catch(error => {
             console.error('Error fetching the query:', error);
@@ -420,11 +445,11 @@ function showAnswer() {
 // Show the hint for the challenge
 function showHint() {
     // Get the query-input textarea element
-    const queryInput = document.getElementById('result-output');
+    const resultOutput = document.getElementById('result-output');
 
     // Set the placeholder attribute to the hint value
-    queryInput.value = '';
-    queryInput.placeholder = hint;
+    resultOutput.value = '';
+    resultOutput.placeholder = hint;
 }
 
 // Go to the next challenge
@@ -445,76 +470,4 @@ function previousChallenge() {
     } else {
         alert('There are no previous challenges.');
     }
-}
-
-// Tab key functionality for the textarea
-document.getElementById('query-input').addEventListener('keydown', function (event) {
-    const textarea = event.target;
-
-    // Check if the Tab key was pressed
-    if (event.key === 'Tab') {
-        event.preventDefault(); // Prevent the default Tab behavior (focus shifting)
-
-        const start = textarea.selectionStart;
-        const end = textarea.selectionEnd;
-
-        // Set the textarea's value to: text before caret + 4 spaces + text after caret
-        const fourSpaces = '    ';
-        textarea.value = textarea.value.substring(0, start) + fourSpaces + textarea.value.substring(start);
-
-        // Move the caret
-        textarea.selectionStart = textarea.selectionEnd = start + fourSpaces.length;
-    }
-
-    // Check if Ctrl+Enter was pressed
-    if (event.key === 'Enter' && event.ctrlKey) {
-        event.preventDefault(); // Prevent the default Enter behavior
-
-        // Call the executeQuery function
-        executeQuery();
-    }
-
-    // Check if Ctrl+/ was pressed
-    if (event.key === '/' && event.ctrlKey) {
-        event.preventDefault(); // Prevent the default / behavior
-
-        // Call the comment/uncomment function
-        toggleComment(textarea);
-    }
-});
-
-// Comment/uncomment selected lines
-function toggleComment(textarea) {
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const text = textarea.value;
-
-    // Get the start and end line indexes
-    const startLineStartIndex = text.lastIndexOf('\n', start - 1) + 1;
-    const endLineEndIndex = text.indexOf('\n', end);
-    const endLineEndIndexAdjusted = endLineEndIndex === -1 ? text.length : endLineEndIndex;
-
-    // Get the current line(s)
-    const selectedLines = text.substring(startLineStartIndex, endLineEndIndexAdjusted).split('\n');
-
-    // Determine if we are commenting or uncommenting
-    const isCommenting = selectedLines.every(line => !line.trim().startsWith('--'));
-
-    const updatedLines = selectedLines.map(line => {
-        if (isCommenting) {
-            return '-- ' + line;
-        } else {
-            return line.replace(/^\s*--\s?/, '');
-        }
-    });
-
-    // Update the textarea value with the commented/uncommented lines
-    const beforeSelection = text.substring(0, startLineStartIndex);
-    const afterSelection = text.substring(endLineEndIndexAdjusted);
-    const updatedText = beforeSelection + updatedLines.join('\n') + afterSelection;
-    textarea.value = updatedText;
-
-    // Adjust the selection to encompass the newly commented/uncommented text
-    textarea.selectionStart = start;
-    textarea.selectionEnd = end + (updatedLines.join('\n').length - selectedLines.join('\n').length);
 }

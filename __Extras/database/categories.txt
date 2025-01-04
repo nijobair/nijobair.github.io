@@ -4,3 +4,4 @@
 4. Joining Tables
 5. Subqueries/ Nested Queries
 6. Combining Results
+7. Cleaning Data

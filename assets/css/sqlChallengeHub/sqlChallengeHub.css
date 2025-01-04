@@ -15,7 +15,7 @@
     flex-direction: column;
 }
 
-#query-input,
+
 #result-output {
     width: 85%;
     min-height: 150px;
@@ -29,10 +29,10 @@
     font-family: monospace, 'UbuntoMono', sans-serif;
 }
 
-#query-input {
+/* #query-input {
     background: #3a3a3a;
     color: var(--color-white);
-}
+} */
 
 #result-output {
     background: #ccc;

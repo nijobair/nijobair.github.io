@@ -18,7 +18,8 @@
 @import url("/assets/css/accordion.css");
 @import url("/assets/css/giscus.css");
 
-@import url("/assets/css/sqlChallengeHub.css");
+@import url("/assets/css/sqlChallengeHub/sqlChallengeHub.css");
+@import url("/assets/css/sqlChallengeHub/codeMirror.css");
 
 
 
@@ -31,9 +32,11 @@ Universal Styles
     --color-primary: #7c334f;
     --color-background: #ffebcd;
     --color-backgroundDarker: #eccd9e;
+    --color-backgroundPre: #3a3a3a;
     --color-white: #fff;
     --color-black: #000;
     --color-blue: #007bff;
+    --color-grey: #6c757d;
 
     --color-text: #544943;
 
