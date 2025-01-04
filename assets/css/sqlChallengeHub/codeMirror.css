@@ -313,17 +313,18 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   outline: none;
 }
 
-#sql-playground-app>div.CodeMirror.cm-s-default.CodeMirror-wrap.CodeMirror-empty>div.CodeMirror-scroll>div.CodeMirror-sizer>div>div>div>pre {
+div.CodeMirror.CodeMirror-empty {
   color: var(--color-grey);
 }
 
-#sql-playground-app>div.CodeMirror.cm-s-default.CodeMirror-wrap.CodeMirror-fullscreen {
+div.CodeMirror.CodeMirror-fullscreen {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: auto;
+  height: 100vh;
+  width: 100vw;
   z-index: 9999;
 }
 
@@ -447,6 +448,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 .CodeMirror pre.CodeMirror-line,
 .CodeMirror pre.CodeMirror-line-like {
   /* Reset some styles that the rest of the page might have set */
+  width: 100%;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -455,7 +457,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   font-family: inherit;
   font-size: inherit;
   margin: 0;
-  white-space: pre;
+  white-space: pre-wrap;
   word-wrap: normal;
   line-height: inherit;
   color: inherit;
