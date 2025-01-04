@@ -14,4 +14,6 @@ Making and hosting a website with GitHub pages and Jekyll is super easy if you h
 
 - SQL Exercise (PostgreSQL): [https://pgexercises.com/](Link)
 
-- Jekyll Plugins: [https://github.com/planetjekyll/awesome-jekyll-plugins](Github Repo.)
+- Jekyll Plugins: [https://github.com/planetjekyll/awesome-jekyll-plugins](Github Repo)
+
+- CodeMirror: [https://codemirror.net/5/](CodeMirror 5)
