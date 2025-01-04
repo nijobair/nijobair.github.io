@@ -10,7 +10,7 @@ CREATE TABLE village_x (
 
 -- Insert data into the table
 INSERT INTO village_x (id, name, date_of_birth, occupation, salary, religion) VALUES 
-(22, ' George    RobiNSon', '1975-11-22', 'Farmer', 3000, NULL),
+(22, ' George      RobiNSon', '1975-11-22', 'Farmer', 3000, NULL),
 (13, ' Charles anderson ', '1991-07-19', 'Nurse', 4200, 'christianity'),
 (33, ' JaCob WriGht ', '1991-07-19', '', 5200, 'hinduism'),
 (8, 'Michael mARTINEZ ', '1988-06-30', 'Farmer', 3000, NULL),

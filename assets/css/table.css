@@ -42,8 +42,8 @@ Table header
 ------------------------------------------------------------
 */
 th {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    background-color: var(--color-grey);
+    color: var(--color-white);
     padding: .1em .3em;
 }
 
@@ -55,6 +55,7 @@ Table data
 td {
     text-align: center;
     padding: .1em .3em;
+    white-space: pre;
 }
 
 /*
@@ -84,5 +85,5 @@ Table caption
     font-family: 'Lugrasimo', sans-serif;
     text-align: center;
     text-decoration: underline;
-    color: #aa0000;
+    color: var(--color-primary);
 }
