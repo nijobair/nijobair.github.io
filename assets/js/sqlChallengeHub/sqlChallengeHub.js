@@ -84,6 +84,9 @@ function loadChallenge(id) {
             } else {
                 editor.setValue(''); // Clear the editor content if it already exists
             }
+
+            // Focus the CodeMirror editor
+            editor.focus();
         })
         .catch(error => console.error('Error loading challenge:', error));
 }
