@@ -13,7 +13,7 @@
     pairs: "()[]{}''\"\"",
     closeBefore: ")]}'\":;>",
     triples: "",
-    explode: "[]{}"
+    explode: "[]{}()"
   };
 
   var Pos = CodeMirror.Pos;
@@ -86,7 +86,8 @@
     }
     cm.operation(function () {
       var linesep = cm.lineSeparator() || "\n";
-      cm.replaceSelection(linesep + linesep, null);
+      var indent = cm.getOption("indentWithTabs") ? "\t" : Array(cm.getOption("indentUnit") + 1).join(" ");
+      cm.replaceSelection(linesep + indent + linesep, null);
       moveSel(cm, -1)
       ranges = cm.listSelections();
       for (var i = 0; i < ranges.length; i++) {

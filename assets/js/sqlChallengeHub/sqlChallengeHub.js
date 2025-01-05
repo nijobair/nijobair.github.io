@@ -79,7 +79,7 @@ function loadChallenge(id) {
                     },
                     autoCloseBrackets: true,
                     matchBrackets: true,
-                    highlightSelectionMatches: { showToken: /\w/ }
+                    highlightSelectionMatches: { showToken: false }
                 });
             } else {
                 editor.setValue(''); // Clear the editor content if it already exists
