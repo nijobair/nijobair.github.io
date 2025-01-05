@@ -1,0 +1,81 @@
+---
+title: Blog
+permalink: /blog/
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+
+<head>
+    {% include head.html %}
+    <title>{{ page.title }} | {{ site.title }}</title>
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVX4ZGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <nav id="header">
+            {% include header.html %}
+        </nav>
+
+        <main class="blog-wrapper">
+
+            <h1>Explore, Learn, Share</h1>
+
+            <div class="category-buttons">
+                <span class="other-categories selected-category" filter="all">All</span>
+                <span class="other-categories" filter="excel">Excel</span>
+                <span class="other-categories" filter="dax">DAX</span>
+                <span class="other-categories" filter="vba">VBA</span>
+                <span class="other-categories" filter="powerbi">Power BI</span>
+                <span class="other-categories" filter="others">Others</span>
+            </div>
+            <div class="posts">
+
+                {% for post in site.posts %}
+                <div class="post-item {{ post.categories | join: ' ' }}">
+                    <div class="post-image">
+                        {% if post.image %}
+                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                        {% else %}
+                        <img src="{{ '/assets/images/featured_default.png' | asset_url }}" alt="{{ post.title }}">
+                        {% endif %}
+                    </div>
+
+                    <div class="post-content">
+                        {% for category in post.categories %}
+                        <span class="category">{{ category }}</span>
+                        {% endfor %}
+                        <h5><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h5>
+                        <p>{{ post.excerpt }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <div class="pagination"></div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            {% include footer.html %}
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    {% include javascripts.html %}
+    <script src="/assets/js/blog.js"></script>
+
+</body>
+
+</html>

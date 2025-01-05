@@ -5,6 +5,12 @@
 @import url('/assets/css/homePage/scrollingLogos.css');
 
 
+.home-wrapper {
+    padding-inline: 10vw;
+    position: relative;
+}
+
+
 .section {
     padding-block: 2em;
 }

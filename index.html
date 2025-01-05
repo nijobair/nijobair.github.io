@@ -1,0 +1,82 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+
+<head>
+    {% include head.html %}
+    <title>{{ site.title }}</title>
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVX4ZGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <nav id="header">
+            {% include header.html %}
+        </nav>
+
+        <main class="home-wrapper">
+
+            <!-- Hero Section -->
+            {% include homePage/heroSection.html %}
+
+            <!-- About -->
+            {% include homePage/about.html %}
+
+            <!-- Services that I offer -->
+            <!-- <div class="index-my-services" markdown="1">
+            
+            <div class="home-title">
+            <h2>My Services</h2>
+            </div>
+            
+            {% include services.html %}
+            
+            </div> -->
+
+            <!-- Projects -->
+            <!-- <div class="index-projects" markdown="1">
+            
+            <div class="home-title">
+            <h2>Projects</h2>
+            </div>
+            
+            {% for project in site.projects %}
+            - [{{ project.title }}]({{ project.url | relative_url }})
+            {% endfor %}
+            
+            </div> -->
+
+            <!-- Acquired certifications -->
+            {% include homePage/badges.html %}
+
+            <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
+            {% include homePage/featuredPosts.html %}
+
+            <!-- Scrolling Logos -->
+            {% include homePage/scrollingLogos.html %}
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            {% include footer.html %}
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    {% include javascripts.html %}
+    <script async type="module" src="{{ '/assets/js/homePage.mjs' | relative_url }}"></script>
+
+</body>
+
+</html>

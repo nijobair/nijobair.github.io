@@ -1,16 +1,50 @@
 ---
-layout: default
 ---
-<main class="blog-wrapper">
 
-    {{ content }}
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
 
-    <div class="buymeacoffee">
-        <a href="https://buymeacoffee.com/nijobair" target="_blank" class="follow-link">
-            <img src="/assets/images/social-media/bmc-button.svg" alt="Buy Me a Coffee logo"
-                title="Buy me a coffee 🫠??">
-        </a>
+<head>
+    {% include head.html %}
+    <title>{{ page.title }} | {{ site.title }}</title>
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVX4ZGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <nav id="header">
+            {% include header.html %}
+        </nav>
+
+        <main class="blog-wrapper">
+
+            {{ content }}
+
+            <div class="buymeacoffee">
+                <a href="https://buymeacoffee.com/nijobair" target="_blank" class="follow-link">
+                    <img src="/assets/images/social-media/bmc-button.svg" alt="Buy Me a Coffee logo"
+                        title="Buy me a coffee 🫠??">
+                </a>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            {% include footer.html %}
+        </footer>
+
     </div>
+
+    <!-- JAVASCRIPT -->
+    {% include javascripts.html %}
 
     <!-- Javascripts for sqlChallengeHub -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
@@ -28,5 +62,6 @@ layout: default
     <script src="{{ '/assets/js/sqlChallengeHub/fullScreen.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/sqlChallengeHub/comment.js' | relative_url }}"></script>
 
+</body>
 
-</main>
+</html>

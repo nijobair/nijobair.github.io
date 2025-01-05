@@ -15,6 +15,7 @@ kramdown:
     disable : true
 
 
+# SASS configuration
 sass_dir: _sass
 sass:
   load_paths:
@@ -22,7 +23,7 @@ sass:
     - "_sass"
 
 
-
+# Define collection directories
 collections_dir: my_collections
 collections:
   projects:
@@ -31,6 +32,7 @@ collections:
     output: true
 
 
+# Layouts
 defaults:
   -
     scope:
@@ -48,6 +50,8 @@ defaults:
       layout: post
       permalink: /projects/:title/
 
+
+# Plugins
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
@@ -55,6 +59,15 @@ plugins:
   - jekyll-avatar
   - jekyll-feed
 
+
+# Enable compression and minification
+assets:
+  compress:
+    css: true
+    js: true
+
+
+# Exclude files from the build
 exclude:
   - assets/templates
   - _deneb

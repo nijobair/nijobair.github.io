@@ -1,61 +1,103 @@
 ---
-layout: default
 ---
-<main class="blog-wrapper">
 
-    <!-- Featured image-->
-    {% if page.image %}
-    <img class="featured-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    {% else %}
-    <img class="featured-image" src="{{ '/assets/images/featured_default.png' | asset_url }}" alt="{{ page.title }}">
-    {% endif %}
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+
+<head>
+    {% include head.html %}
+    <title>Blog | {{ site.title }}</title>
+</head>
 
 
-    <h1>{{ page.title | markdownify }}</h1>
-    <div class="post-top">
-        {% include share-buttons.html %}
-        <p style="font-family: 'UbuntuMono', sans-serif; text-align: right; text-decoration: underline;">{{ page.date |
-            date_to_string }}</p>
-    </div>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5CVX4ZGW" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    {{ content }}
+    <div class="container">
 
-    <div class="buymeacoffee">
-        <a href="https://buymeacoffee.com/nijobair" target="_blank" class="follow-link">
-            <img src="/assets/images/social-media/bmc-button.svg" alt="Buy Me a Coffee logo"
-                title="Buy me a coffee 🫠??">
-        </a>
-    </div>
+        <!-- HEADER -->
+        <nav id="header">
+            {% include header.html %}
+        </nav>
 
-    <!-- Post navigation -->
-    <div class="post-nav">
-        <div class="post-nav-previous">
-            {% if page.previous.url %}
-            <a href="{{ page.previous.url }}">
-                <span class="unsighted">Previous post:</span>
-                {{ page.previous.title | markdownify }}
-                <span aria-hidden="true">&laquo;</span>
-            </a>
+        <main class="blog-wrapper">
+
+            <!-- Featured image-->
+            {% if page.image %}
+            <img class="featured-image" src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+            {% else %}
+            <img class="featured-image" src="{{ '/assets/images/featured_default.png' | asset_url }}"
+                alt="{{ page.title }}">
             {% endif %}
-        </div>
-        <div class="post-nav-next">
-            {% if page.next.url %}
-            <a href="{{ page.next.url }}">
-                <span class="unsighted">Next post:</span>
-                {{ page.next.title | markdownify }}
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-            {% endif %}
-        </div>
+
+            <h1>{{ page.title | markdownify }}</h1>
+            <div class="post-top">
+                {% include share-buttons.html %}
+                <p style="font-family: 'UbuntuMono', sans-serif; text-align: right; text-decoration: underline;">{{
+                    page.date |
+                    date_to_string }}</p>
+            </div>
+
+            {{ content }}
+
+            <div class="buymeacoffee">
+                <a href="https://buymeacoffee.com/nijobair" target="_blank" class="follow-link">
+                    <img src="/assets/images/social-media/bmc-button.svg" alt="Buy Me a Coffee logo"
+                        title="Buy me a coffee 🫠??">
+                </a>
+            </div>
+
+            <!-- Post navigation -->
+            <div class="post-nav">
+                <div class="post-nav-previous">
+                    {% if page.previous.url %}
+                    <a href="{{ page.previous.url }}">
+                        <span class="unsighted">Previous post:</span>
+                        {{ page.previous.title | markdownify }}
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="post-nav-next">
+                    {% if page.next.url %}
+                    <a href="{{ page.next.url }}">
+                        <span class="unsighted">Next post:</span>
+                        {{ page.next.title | markdownify }}
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <script src="https://giscus.app/client.js" data-repo="nijobair/nijobair.github.io"
+                data-repo-id="R_kgDOMwgFyA" data-category="General" data-category-id="DIC_kwDOMwgFyM4CiZqE"
+                data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+                data-input-position="top" data-theme="https://nijobair.github.io/assets/css/giscus.css" data-lang="en"
+                data-loading="lazy" crossorigin="anonymous" async>
+                </script>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            {% include footer.html %}
+        </footer>
+
     </div>
 
+    <!-- JAVASCRIPT -->
+    {% include javascripts.html %}
+    <script defer src="/assets/js/blog.js"></script>
+    <script defer src="/assets/js/highlight.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            hljs.highlightAll();
+        });
+    </script>
 
+</body>
 
-    <!-- Comments -->
-    <script src="https://giscus.app/client.js" data-repo="nijobair/nijobair.github.io" data-repo-id="R_kgDOMwgFyA"
-        data-category="General" data-category-id="DIC_kwDOMwgFyM4CiZqE" data-mapping="pathname" data-strict="0"
-        data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top"
-        data-theme="https://nijobair.github.io/assets/css/giscus.css" data-lang="en" data-loading="lazy"
-        crossorigin="anonymous" async>
-        </script>
-</main>
+</html>

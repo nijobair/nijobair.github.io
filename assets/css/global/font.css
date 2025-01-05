@@ -50,7 +50,6 @@ Base font
 ------------------------------------------------------------
 */
 body {
-    background: #ece4d8;
     font-family: 'Ubuntu', sans-serif;
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;

@@ -1,13 +1,3 @@
-import 'https://unpkg.com/scrollreveal';
-import 'https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js';
-
-import './homePage/scrollReveal.js';
-import './homePage/scrollingLogos.js';
-import './lightbox.js';
-import './copyButton.js';
-import './postFilter.js';
-// import './pagination.js';
-
 /*
 ------------------------------------------------------------
 Navigation Bar Functionality
@@ -50,16 +40,3 @@ function headerShadow() {
 
     }
 }
-
-/*
-------------------------------------------------------------
-Typing effect
-------------------------------------------------------------
-*/
-var typingEffect = new Typed(".typedText", {
-    strings: ["Data Analyst", "Physicist"],
-    loop: true,
-    typeSpeed: 100,
-    backSpeed: 80,
-    backDelay: 2000
-})
