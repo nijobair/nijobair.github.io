@@ -3,6 +3,7 @@ layout: sqlChallengeHub
 title: SQL Challenge Hub
 image: /assets/images/sqlChallengeHub.png
 permalink: /sql-challenge-hub/
+placeHolder: "Write your SQL query here...\n\nSome keyboard shortcuts:\n[Ctrl + /] --> Comment/uncomment selected lines.\n[Ctrl + Enter] --> Run Query.\n[Ctrl + A] --> Select All.\n[F11] & Esc --> Toggle full-screen mode."
 ---
 
 <div id="challenge-list" markdown="1">
@@ -53,13 +54,7 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   <div id="challenge-container"></div>
 
   <p><strong>Query:</strong></p>
-  <textarea id="query-input" name="query-input" placeholder="Write your SQL query here...
-
-Some keyboard shortcuts:
-[Ctrl + /] --> Comment/uncomment selected lines.
-[Ctrl + Enter] --> Run Query.
-[Ctrl + A] --> Select All.
-[F11] & Esc --> Toggle full-screen mode."></textarea>
+  <textarea id="query-input" name="query-input" placeholder="{{ page.placeHolder }}"></textarea>
 
   <div class="buttons">
     <button onclick="executeQuery()">Run Query</button>
