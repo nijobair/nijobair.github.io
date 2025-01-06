@@ -84,6 +84,8 @@ function loadChallenge(id) {
             } else {
                 editor.setValue(''); // Clear the editor content if it already exists
             }
+
+            document.getElementById('challenge-container').focus();
         })
         .catch(error => console.error('Error loading challenge:', error));
 }

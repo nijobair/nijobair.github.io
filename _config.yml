@@ -63,7 +63,6 @@ plugins:
   - jekyll-glossary_tooltip
   - jekyll-avatar
   - jekyll-feed
-  - jekyll-minifier
 
 
 # Enable compression and minification
@@ -72,13 +71,6 @@ assets:
     css: true
     js: true
     
-
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
-  compress_javascript: false
-  preserve_patterns:
-    - '<!-- jekyll-minifier:begin -->[\s\S]*?<!-- jekyll-minifier:end -->'
 
 
 # Exclude files from the build
