@@ -1,3 +1,14 @@
+@import url('./codeMirror.css');
+
+.blog-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(740px, 87%);
+    margin-inline: auto;
+    padding: 0 2vw;
+}
+
 #sql-playground-app {
     margin: 20px 5px;
     flex-direction: column;
@@ -28,11 +39,6 @@
     font-size: large;
     font-family: monospace, 'UbuntoMono', sans-serif;
 }
-
-/* #query-input {
-    background: #3a3a3a;
-    color: var(--color-white);
-} */
 
 #result-output {
     background: #ccc;

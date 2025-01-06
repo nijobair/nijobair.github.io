@@ -1,3 +1,5 @@
+@import url('./giscus.css');
+
 .blog-wrapper {
     position: relative;
     display: flex;

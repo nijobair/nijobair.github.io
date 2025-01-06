@@ -7,6 +7,8 @@
 <head>
     {% include head.html %}
     <title>Blog | {{ site.title }}</title>
+
+    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
 </head>
 
 
@@ -97,6 +99,9 @@
             hljs.highlightAll();
         });
     </script>
+
+    <!-- MATHJAXfor LATEX -->
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </body>
 
