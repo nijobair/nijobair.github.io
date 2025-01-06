@@ -54,6 +54,7 @@ Have a cool SQL challenge you'd like to share? Or maybe you want to help others 
   <div id="challenge-container"></div>
 
   <p><strong>Query:</strong></p>
+  {% raw %}
   <textarea id="query-input" name="query-input" placeholder="Write your SQL query here...
 
 Some keyboard shortcuts:
@@ -61,6 +62,7 @@ Some keyboard shortcuts:
 [Ctrl + Enter] --> Run Query.
 [Ctrl + A] --> Select All.
 [F11] & Esc --> Toggle full-screen mode."></textarea>
+  {% endraw %}
 
   <div class="buttons">
     <button onclick="executeQuery()">Run Query</button>
