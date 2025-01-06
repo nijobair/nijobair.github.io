@@ -62,7 +62,7 @@ if (images.length > 0) { // Check if .lightbox-image elements exist
 
 /*
 ------------------------------------------------------------
-Post Filters
+Post Filters & Pagination
 ------------------------------------------------------------
 */
 $(document).ready(function () {
@@ -192,60 +192,12 @@ $(document).ready(function () {
     $(".other-categories[filter='all']").trigger("click");
 });
 
-
-/*
-------------------------------------------------------------
-Pagination
-------------------------------------------------------------
-*/
-function getPageList(totalPages, page, maxLength) {
-
-    // Helper function to create a range of numbers
-    function range(start, end) {
-        return Array.from(Array(end - start + 1), (_, i) => i + start);
-    }
-
-    // Define how many pages to show on the sides and how many in the middle
-    var sideWidth = maxLength < 9 ? 1 : 2; // Number of pages on each side
-    var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1; // Pages to show to the left of the current page
-    var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1; // Pages to show to the right of the current page
-
-    // Case 1: If the total pages fit within the max length, display all pages
-    if (totalPages <= maxLength) {
-        return range(1, totalPages);
-    }
-
-    // Case 2: If the current page is near the start
-    if (page <= maxLength - sideWidth - 1 - rightWidth) {
-        return range(1, maxLength - sideWidth - 1)
-            .concat([0]) // Add a separator (e.g., "...")
-            .concat(range(totalPages - sideWidth + 1, totalPages)); // Add the ending pages
-    }
-
-    // Case 3: If the current page is near the end
-    if (page >= totalPages - sideWidth - 1 - rightWidth) {
-        return range(1, sideWidth) // Add the starting pages
-            .concat([0]) // Add a separator
-            .concat(
-                range(totalPages - sideWidth - 1 - rightWidth - leftWidth, totalPages) // Add pages near the end
-            );
-    }
-
-    // Case 4: If the current page is somewhere in the middle
-    return range(1, sideWidth) // Starting pages
-        .concat([0]) // Separator
-        .concat(range(page - leftWidth, page + rightWidth)) // Middle pages around the current page
-        .concat([0]) // Separator
-        .concat(range(totalPages - sideWidth + 1, totalPages)); // Ending pages
-}
-
 $(function () {
-
     // Get the total number of items to paginate
     var numberOfItems = $(".posts .post-item").length;
 
     // Define the limit of items per page
-    var limitPerPage = 1;
+    var limitPerPage = 13;
 
     // Calculate the total number of pages
     var totalPages = Math.ceil(numberOfItems / limitPerPage);

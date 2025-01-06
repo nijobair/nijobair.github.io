@@ -85,10 +85,14 @@ function loadChallenge(id) {
                 editor.setValue(''); // Clear the editor content if it already exists
             }
 
+            // Focus on the element with ID 'challenge-container' and scroll it into view
+            const challengeContainer = document.getElementById('challenge-container');
+            if (challengeContainer) {
+                challengeContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
         })
         .catch(error => console.error('Error loading challenge:', error));
-
-    document.getElementById('challenge-container').focus();
 }
 
 // Display challenge details
@@ -119,7 +123,7 @@ function resetQueryAndResult() {
     document.getElementById('challenge-list').style.display = 'none';
     document.getElementById('sql-playground-app').style.display = 'flex';
 
-    // Focus the CodeMirror editor
+    // // Focus the CodeMirror editor
     if (editor) {
         editor.focus();
     }
