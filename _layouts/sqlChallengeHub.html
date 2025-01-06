@@ -8,7 +8,14 @@
     {% include head.html %}
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/sqlChallengeHub/sqlChallengeHub.css' | relative_url }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+    <script src="{{ '/assets/js/sqlChallengeHub/sqlChallengeHub.js' | relative_url }}"></script>
+
+    <link rel="preload" href="{{ '/assets/css/sqlChallengeHub.min.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ '/assets/css/sqlChallengeHub.min.css' | relative_url }}">
+    </noscript>
 </head>
 
 
@@ -45,12 +52,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT -->
-    {% include javascripts.html %}
-
     <!-- Javascripts for sqlChallengeHub -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
-    <script src="{{ '/assets/js/sqlChallengeHub/sqlChallengeHub.js' | relative_url }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>
     <script src="{{ '/assets/js/sqlChallengeHub/codeMirror.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/sqlChallengeHub/sqlCodeMirror.js' | relative_url }}"></script>

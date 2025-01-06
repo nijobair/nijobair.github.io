@@ -33,27 +33,31 @@ codeBlocks.forEach(function (codeBlock) {
 Image Lightbox
 ------------------------------------------------------------
 */
-const lightbox = document.createElement('div')
-lightbox.id = 'lightbox'
-document.body.appendChild(lightbox)
+const images = document.querySelectorAll('.lightbox-image');
 
-const images = document.querySelectorAll('.lightbox-image')
-images.forEach(image => {
-    image.addEventListener('click', e => {
-        lightbox.classList.add('active')
-        const img = document.createElement('img')
-        img.src = image.src
-        while (lightbox.firstChild) {
-            lightbox.removeChild(lightbox.firstChild)
-        }
-        lightbox.appendChild(img)
-    })
-})
+if (images.length > 0) { // Check if .lightbox-image elements exist
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    document.body.appendChild(lightbox);
 
-lightbox.addEventListener('click', e => {
-    if (e.target !== e.currentTarget) return
-    lightbox.classList.remove('active')
-})
+    images.forEach(image => {
+        image.addEventListener('click', e => {
+            lightbox.classList.add('active');
+            const img = document.createElement('img');
+            img.src = image.src;
+            while (lightbox.firstChild) {
+                lightbox.removeChild(lightbox.firstChild);
+            }
+            lightbox.appendChild(img);
+        });
+    });
+
+    lightbox.addEventListener('click', e => {
+        if (e.target !== e.currentTarget) return;
+        lightbox.classList.remove('active');
+    });
+}
+
 
 
 /*

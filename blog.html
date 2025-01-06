@@ -10,8 +10,13 @@ permalink: /blog/
     {% include head.html %}
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
-    <script async src="/assets/js/blog.js"></script>
+    <link rel="preload" href="{{ '/assets/css/blog.min.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ '/assets/css/blog.min.css' | relative_url }}">
+    </noscript>
+
+    <script defer src="/assets/js/blog.js"></script>
 </head>
 
 
@@ -74,9 +79,6 @@ permalink: /blog/
         </footer>
 
     </div>
-
-    <!-- JAVASCRIPT -->
-    {% include javascripts.html %}
 
 </body>
 

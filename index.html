@@ -8,7 +8,11 @@
     {% include head.html %}
     <title>{{ site.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/homePage.css' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/css/homePage.min.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ '/assets/css/homePage.min.css' | relative_url }}">
+    </noscript>
 </head>
 
 
@@ -76,8 +80,7 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    {% include javascripts.html %}
-    <script async type="module" src="{{ '/assets/js/homePage.mjs' | relative_url }}"></script>
+    <script defer type="module" src="{{ '/assets/js/homePage.mjs' | relative_url }}"></script>
 
 </body>
 

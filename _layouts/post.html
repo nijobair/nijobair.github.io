@@ -8,7 +8,13 @@
     {% include head.html %}
     <title>Blog | {{ site.title }}</title>
 
-    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+    <link rel="preload" href="{{ '/assets/css/blog.min.css' | relative_url }}" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ '/assets/css/blog.min.css' | relative_url }}">
+    </noscript>
+
+    <script async src="/assets/js/blog.js"></script>
 </head>
 
 
