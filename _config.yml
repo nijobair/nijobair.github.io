@@ -77,7 +77,7 @@ jekyll-minifier:
   uglifier_args:
     harmony: true
   compress_javascript: false
-  exclude: "sqlChallengeHub.md"
+  preserve_line_breaks: true
 
 
 # Exclude files from the build
