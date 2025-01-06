@@ -77,7 +77,8 @@ jekyll-minifier:
   uglifier_args:
     harmony: true
   compress_javascript: false
-  exclude: 'sqlChallengeHub.html'
+  preserve_patterns:
+    - 'placeholder="Write your SQL query here...[\s\S]*Toggle full-screen mode\."'
 
 
 # Exclude files from the build
