@@ -83,4 +83,25 @@ exclude:
   - __Extras
   - my_collections/_posts/_drafts
   - my_collections/_projects/_drafts
+  - blog.css
+  - global.css
+  - homePage.css
+  - others.css
+  - sqlChallengeHub.css
+  - accordion.css
+  - blog.js
+  - highlight.js
+  - annotateScrollbar.js
+  - closeBrackets.js
+  - codeMirror.js
+  - comment.js
+  - fullScreen.js
+  - matchBrackets.js
+  - matchHighlighter.js
+  - matchOnScrollbar.js
+  - placeHolder.js
+  - searchCursor.js
+  - sqlChallengeHub.js
+  - sqlCodeMirror.js
+
   
