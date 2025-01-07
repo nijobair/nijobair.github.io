@@ -231,3 +231,70 @@ Scrolling Logos Section
 .scrolling-logo {
     width: 150px;
 }
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media only screen and (max-width: 1024px) {
+    .featured-text {
+        padding: 0;
+    }
+}
+
+/* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
+@media only screen and (max-width: 768px) {
+
+    .hero-section {
+        flex-direction: column;
+        height: 85vh;
+    }
+
+    .featured-text {
+        width: 100%;
+        order: 2;
+        justify-content: flex-start;
+        margin: 20px 0;
+    }
+
+    .hero-image {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .col {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-info,
+    .contact-info {
+        width: 100%;
+    }
+
+    .project-container {
+        justify-content: center;
+    }
+
+    .project-box {
+        width: 80%;
+    }
+
+}
+
+/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
+
+@media only screen and (max-width: 540px) {
+    .featured-name {
+        font-size: 40px;
+    }
+
+    .project-box {
+        width: 100%;
+    }
+}
