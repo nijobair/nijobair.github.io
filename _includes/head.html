@@ -16,7 +16,11 @@
 <meta name="google-site-verification" content="S4Tlb1lsDUOJPMmna_OTpmHEcXzDtIppDOIwjpQ97VU" />
 
 
-<link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+<link rel="preload" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+</noscript>
 
 <!-- Jekyll SEO Tag -->
 {% seo title=false %}
