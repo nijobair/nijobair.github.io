@@ -63,14 +63,7 @@ plugins:
   - jekyll-glossary_tooltip
   - jekyll-avatar
   - jekyll-feed
-
-
-# Enable compression and minification
-assets:
-  compress:
-    css: true
-    js: true
-    
+  - jekyll-loading-lazy    
 
 
 # Exclude files from the build
