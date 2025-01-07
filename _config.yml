@@ -83,25 +83,25 @@ exclude:
   - __Extras
   - my_collections/_posts/_drafts
   - my_collections/_projects/_drafts
-  - blog.css
-  - global.css
-  - homePage.css
-  - others.css
-  - sqlChallengeHub.css
-  - accordion.css
-  - blog.js
-  - highlight.js
-  - annotateScrollbar.js
-  - closeBrackets.js
-  - codeMirror.js
-  - comment.js
-  - fullScreen.js
-  - matchBrackets.js
-  - matchHighlighter.js
-  - matchOnScrollbar.js
-  - placeHolder.js
-  - searchCursor.js
-  - sqlChallengeHub.js
-  - sqlCodeMirror.js
+  - assets/css/blog.css
+  - assets/css/global.css
+  - assets/css/homePage.css
+  - assets/css/others.css
+  - assets/css/sqlChallengeHub.css
+  - assets/css/accordion.css
+  - assets/js/blog.js
+  - assets/js/highlight.js
+  - assets/js/sqlChallengeHub/annotateScrollbar.js
+  - assets/js/sqlChallengeHub/closeBrackets.js
+  - assets/js/sqlChallengeHub/codeMirror.js
+  - assets/js/sqlChallengeHub/comment.js
+  - assets/js/sqlChallengeHub/fullScreen.js
+  - assets/js/sqlChallengeHub/matchBrackets.js
+  - assets/js/sqlChallengeHub/matchHighlighter.js
+  - assets/js/sqlChallengeHub/matchOnScrollbar.js
+  - assets/js/sqlChallengeHub/placeHolder.js
+  - assets/js/sqlChallengeHub/searchCursor.js
+  - assets/js/sqlChallengeHub/sqlChallengeHub.js
+  - assets/js/sqlChallengeHub/sqlCodeMirror.js
 
   
