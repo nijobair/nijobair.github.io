@@ -102,9 +102,9 @@ function displayChallengeDetails(challenge) {
         <h2>Challenge ${challenge.id}</h2>
         <p><strong>Category:</strong> ${challenge.category}</p>
         <p><strong>Title:</strong> ${challenge.title}</p>
-        <p><strong>Description:</strong> ${challenge.description}</p>
-        <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
         <p><strong>Difficulty:</strong> ${generateStars(challenge.difficulty)}</p>
+        <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
+        <p><strong>Description:</strong> ${challenge.description}</p>
         <div id="table-container"></div>
     `;
 }
@@ -197,7 +197,7 @@ function displayTableData(tableName) {
                 rows: result[0].values
             };
 
-            let tableHTML = `<p><strong>Table:</strong> ${tableName}${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table border="1" style="align-self: center;"><thead><tr>`;
+            let tableHTML = `<p><strong>Table:</strong> ${tableName}${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table class="related-table" border="1"><thead><tr>`;
 
             // Add table headers
             table.columns.forEach(column => {
