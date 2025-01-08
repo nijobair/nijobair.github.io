@@ -104,8 +104,27 @@ function displayChallengeDetails(challenge) {
         <p><strong>Title:</strong> ${challenge.title}</p>
         <p><strong>Description:</strong> ${challenge.description}</p>
         <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
+        <p><strong>Difficulty:</strong> ${generateStars(challenge.difficulty)}</p>
         <div id="table-container"></div>
     `;
+}
+
+// Function to generate star rating based on difficulty
+function generateStars(difficulty) {
+    const maxStars = 5; // Maximum number of stars
+    let stars = '';
+
+    // Generate filled stars
+    for (let i = 0; i < difficulty; i++) {
+        stars += '★';
+    }
+
+    // Generate empty stars
+    for (let i = difficulty; i < maxStars; i++) {
+        stars += '☆';
+    }
+
+    return stars;
 }
 
 // Reset query input and result output
