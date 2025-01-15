@@ -7,6 +7,12 @@
     padding: 0 2vw;
 }
 
+.challenge-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15%;
+}
+
 #sql-playground-app {
     margin: 20px 5px;
     flex-direction: column;

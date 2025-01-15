@@ -7,64 +7,6 @@
 
 // @import url("/assets/css/accordion.css");
 
-
-
-/*
-------------------------------------------------------------
-Universal Styles
-------------------------------------------------------------
-*/
-:root {
-    --color-primary: #7c334f;
-    --color-background: #ffebcd;
-    --color-backgroundDarker: #eccd9e;
-    --color-backgroundPre: #3a3a3a;
-    --color-white: #fff;
-    --color-black: #000;
-    --color-blue: #007bff;
-    --color-grey: #6c757d;
-
-    --color-text: #544943;
-
-    --color-button: var(--color-backgroundDarker);
-    --color-buttonHover: var(--color-primary);
-
-    --color-link: #417090;
-    --color-linkHover: #1800b3;
-
-    --color-shadow: #474746;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/*
-------------------------------------------------------------
-Body
-------------------------------------------------------------
-*/
-body {
-    background-color: var(--color-background);
-}
-
-/*
-------------------------------------------------------------
-Content wrapper
-------------------------------------------------------------
-*/
-.container {
-    width: 100%;
-    position: relative;
-}
-
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
 @media only screen and (max-width: 768px) {
     .nav-menu.responsive {

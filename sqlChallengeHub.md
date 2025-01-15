@@ -16,7 +16,9 @@ placeHolder:
 
 Hi there! Welcome to the **SQL Challenge Hub!** Whether you're just starting out with SQL or already have some experience, one thing is for sure—practice is the key to mastering it. That’s why I’ve put together a collection of SQL challenges with varying levels of difficulty. These challenges are designed to give you hands-on experience and help you sharpen your SQL skills. The best part? It’s all completely **FREE!** No sign-ups, no strings attached. Just pick a problem and dive in!
 
-**Challenge ID \| Category \| *Credit* \| Difficulty**
+<div class="challenge-list" markdown="1">
+
+**Challenge ID \| Category \| Difficulty**
 
 {% assign sorted_files = site.data.sqlChallengeHub | numeric_sort %}
 
@@ -34,8 +36,10 @@ Hi there! Welcome to the **SQL Challenge Hub!** Whether you're just starting out
     {% endif %}
   {% endfor %}
   
-  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| *{{ challenge.credit.name }}* \| {{ stars }}</a>
+  - <a href="#" onclick="loadChallenge({{ challenge.id }})">**Challenge {{ challenge.id }}** \| {{ challenge.category }} \| {{ stars }}</a>
 {% endfor %}
+
+</div>
 
 ## Wanna contribute?
 

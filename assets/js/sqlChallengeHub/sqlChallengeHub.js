@@ -103,10 +103,10 @@ function displayChallengeDetails(challenge) {
         <p><strong>Category:</strong> ${challenge.category}</p>
         <p><strong>Title:</strong> ${challenge.title}</p>
         <p><strong>Difficulty:</strong> ${generateStars(challenge.difficulty)}</p>
-        <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
         <p><strong>Description:</strong> ${challenge.description}</p>
         <div id="table-container"></div>
     `;
+    // <p><strong>Credit:</strong> <i><a href="${challenge.credit.link}" target="_blank">${challenge.credit.name}</a></i></p>
 }
 
 // Function to generate star rating based on difficulty
@@ -197,7 +197,7 @@ function displayTableData(tableName) {
                 rows: result[0].values
             };
 
-            let tableHTML = `<p><strong>Table:</strong> ${tableName}${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table class="related-table" border="1"><thead><tr>`;
+            let tableHTML = `<p><strong>Table:</strong> <code>${tableName}</code>${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table class="related-table" border="1"><thead><tr>`;
 
             // Add table headers
             table.columns.forEach(column => {

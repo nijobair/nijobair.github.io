@@ -1,6 +1,6 @@
 ---
-title: Blog
-permalink: /blog/
+title: Projects
+permalink: /projects/
 ---
 
 <!DOCTYPE html>
@@ -17,15 +17,10 @@ permalink: /blog/
     </noscript>
 
     <script defer src="/assets/js/blog.min.js"></script>
-
-    {% include cssCritical.html %}
-
 </head>
 
 
 <body>
-
-    {% include loader.html %}
 
     <div class="container">
 
@@ -41,29 +36,27 @@ permalink: /blog/
             <div class="category-buttons">
                 <span class="other-categories selected-category" filter="all">All</span>
                 <span class="other-categories" filter="excel">Excel</span>
-                <span class="other-categories" filter="dax">DAX</span>
-                <span class="other-categories" filter="vba">VBA</span>
                 <span class="other-categories" filter="powerbi">Power BI</span>
-                <span class="other-categories" filter="others">Others</span>
+                <span class="other-categories" filter="sql">SQL</span>
             </div>
             <div class="posts">
 
-                {% for post in site.posts %}
+                {% for project in site.projects %}
                 <div class="post-item {{ post.categories | join: ' ' }}">
                     <div class="post-image">
-                        {% if post.image %}
-                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+                        {% if project.image %}
+                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
                         {% else %}
-                        <img src="{{ '/assets/images/featured_default.png' | asset_url }}" alt="{{ post.title }}">
+                        <img src="{{ '/assets/images/featured_default.png' | asset_url }}" alt="{{ project.title }}">
                         {% endif %}
                     </div>
 
                     <div class="post-content">
-                        {% for category in post.categories %}
+                        {% for category in project.categories %}
                         <span class="category">{{ category }}</span>
                         {% endfor %}
-                        <h5><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h5>
-                        <p>{{ post.excerpt }}</p>
+                        <h5><a href="{{ post.url | relative_url }}">{{ project.title }}</a></h5>
+                        <p>{{ project.excerpt }}</p>
                     </div>
                 </div>
                 {% endfor %}

@@ -1,0 +1,118 @@
+<style>
+    :root {
+        --color-primary: #7c334f;
+        --color-background: #ffebcd;
+        --color-backgroundDarker: #eccd9e;
+        --color-backgroundPre: #3a3a3a;
+        --color-white: #fff;
+        --color-black: #000;
+        --color-blue: #007bff;
+        --color-grey: #6c757d;
+
+        --color-text: #544943;
+
+        --color-button: var(--color-backgroundDarker);
+        --color-buttonHover: var(--color-primary);
+
+        --color-link: #417090;
+        --color-linkHover: #1800b3;
+
+        --color-shadow: #474746;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-background);
+    }
+
+    .container {
+        width: 100%;
+        position: relative;
+    }
+
+    .loader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-background);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #loader-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #loader-logo img {
+        width: 67%;
+        margin: 0;
+    }
+
+
+    #loader-text {
+        width: 250px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        position: relative;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        color: var(--color-primary);
+    }
+
+    #loader-text::before,
+    #loader-text::after {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        background: var(--color-primary);
+        position: absolute;
+        animation: load .7s infinite alternate ease-in-out;
+    }
+
+    #loader-text::before {
+        top: 0;
+    }
+
+    #loader-text::after {
+        bottom: 0;
+    }
+
+    @keyframes load {
+        0% {
+            left: 0;
+            height: 30px;
+            width: 15px
+        }
+
+        50% {
+            height: 8px;
+            width: 40px
+        }
+
+        100% {
+            left: 235px;
+            height: 30px;
+            width: 15px
+        }
+    }
+</style>

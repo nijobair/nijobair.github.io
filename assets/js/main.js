@@ -40,3 +40,20 @@ function headerShadow() {
 
     }
 }
+
+/*
+------------------------------------------------------------
+Loader
+------------------------------------------------------------
+*/
+document.addEventListener("DOMContentLoaded", function () {
+    window.addEventListener("load", function () {
+        // Hide the loader
+        var loader = document.querySelector('.loader');
+        loader.style.display = 'none';
+
+        // Show the main content
+        var mainContent = document.querySelector('container');
+        mainContent.style.display = 'block';
+    });
+});

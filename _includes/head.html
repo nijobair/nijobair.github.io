@@ -5,7 +5,12 @@
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-V922SGR83P');
+    gtag('config', 'G-V922SGR83P', {
+        cookie_flags: 'SameSite=Lax; Secure',
+        cookie_domain: 'auto', // Use 'auto' to set the cookie for the current domain
+        cookie_prefix: '', // Optionally specify a prefix for the cookie name
+        cookie_update: false // Set to true to update cookie on each page load
+    });
 </script>
 
 <meta charset='utf-8'>
