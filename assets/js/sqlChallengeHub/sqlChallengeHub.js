@@ -197,7 +197,7 @@ function displayTableData(tableName) {
                 rows: result[0].values
             };
 
-            let tableHTML = `<p><strong>Table:</strong> <code>${tableName}</code>${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table class="related-table" border="1"><thead><tr>`;
+            let tableHTML = `<p class="table-name"><strong>Table:</strong> <code>${tableName}</code>${totalRows > 9 ? ' <i>(first 9 rows)</i>' : ''}</p><table class="related-table" border="1"><thead><tr>`;
 
             // Add table headers
             table.columns.forEach(column => {

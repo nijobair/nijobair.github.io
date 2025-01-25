@@ -140,21 +140,77 @@ Achievements Section
 Badges
 ------------------------------------------------------------
 */
-.badges {
+.achievements {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badges {
+    display: grid;
     max-width: 100%;
-    justify-content: space-evenly;
+    gap: .1rem;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+        "excel excel python analytics x dataviz mysql mysql excel-es a"
+        "excel excel upwork upwork powerbi powerbi mysql mysql google google"
+        "b sql upwork upwork powerbi powerbi softskills mecc google google";
+}
+
+.excel {
+    grid-area: excel;
+}
+
+.upwork {
+    grid-area: upwork;
+}
+
+.mysql {
+    grid-area: mysql;
+}
+
+.sql {
+    grid-area: sql;
+}
+
+.python {
+    grid-area: python;
+}
+
+.google {
+    grid-area: google;
+}
+
+.mecc {
+    grid-area: mecc;
+}
+
+.powerbi {
+    grid-area: powerbi;
+}
+
+.dataviz {
+    grid-area: dataviz;
+}
+
+.excel-es {
+    grid-area: excel-es;
+}
+
+.analytics {
+    grid-area: analytics;
+}
+
+.softskills {
+    grid-area: softskills;
 }
 
 .badge {
-    width: max(120px, 20%);
-    padding: 1em;
+    padding: .5em;
 }
 
 .badge img {
     margin: 0;
-    box-shadow: none;
     transition-duration: 0.4s;
 }
 
@@ -275,6 +331,23 @@ Scrolling Logos Section
     .about-info,
     .contact-info {
         width: 100%;
+    }
+
+    .badges {
+        grid-template-areas:
+            "excel excel excel a a python python"
+            "excel excel excel analytics analytics python python"
+            "excel excel excel analytics analytics b b"
+            "dataviz dataviz excel-es excel-es mysql mysql mysql"
+            "dataviz dataviz excel-es excel-es mysql mysql mysql"
+            "c upwork upwork upwork mysql mysql mysql"
+            "c upwork upwork upwork d sql sql"
+            "c upwork upwork upwork d sql sql"
+            "c softskills softskills mecc mecc e e"
+            "c softskills softskills mecc mecc e e"
+            "powerbi powerbi powerbi f google google google"
+            "powerbi powerbi powerbi f google google google"
+            "powerbi powerbi powerbi f google google google";
     }
 
     .project-container {

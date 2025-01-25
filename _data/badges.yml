@@ -1,35 +1,71 @@
 # MICROSOFT OFFICE SPECIALIST: EXCEL EXPERT (Microsoft 365 Apps)
-- link: "https://www.credly.com/badges/2168b937-3ce0-42e6-80be-a3acfb788c02/public_url"
+- class: "excel"
+  link: "https://www.credly.com/badges/2168b937-3ce0-42e6-80be-a3acfb788c02/public_url"
   logo: "/assets/images/badges/microsoft-office-specialist-excel-expert-microsoft-365-apps.png"
   alt_text: "Microsoft Office Specialist: Excel Expert (Microsoft 365 Apps)"
 
-  # UPWORK SKILL CERTIFICATION: DATA ANALYSIS
-- link: "https://www.upwork.com/fl/nijobair?mp_source=share"
+# UPWORK SKILL CERTIFICATION: DATA ANALYSIS
+- class: "upwork"
+  link: "https://www.upwork.com/fl/nijobair?mp_source=share"
   logo: "/assets/images/badges/upwork-skill-certification.png"
   alt_text: "Upwork Skill Certification: Data Analysis"
 
-  # MAVEN ANALYTICS: POWER BI DESKTOP CERTIFICATE
-- link: "https://certificates.mavenanalytics.io/6bbf9239-b6aa-40c8-860f-623a788882f4#gs.gt2arb"
-  logo: "/assets/images/badges/maven-analytics-power-bi-desktop.png"
-  alt_text: "Maven Analytics: Power BI Desktop Certificate"
-
-# GOOGLE ANALYTICS PROFESSIONAL CERTIFICATE
-- link: "https://www.credly.com/badges/bec2a027-4aa4-4d14-8abf-9e4a62b67633/public_url"
-  logo: "/assets/images/badges/google-data-analytics-professional-certificate.2.png"
-  alt_text: "Google Data Analytics Professional Certificate"
-
 # MAVEN ANALYTICS: MYSQL ANALYSIS CERTIFICATE
-- link: "https://certificates.mavenanalytics.io/d8d2662b-570d-4133-949f-464c69ea3be6"
+- class: "mysql"
+  link: "https://certificates.mavenanalytics.io/d8d2662b-570d-4133-949f-464c69ea3be6"
   logo: "/assets/images/badges/maven-analytics-mysql-analysis.png"
   alt_text: "Maven Analytics: MySQL Analysis Certificate"
 
+# QUERYING DATABASES WITH SQL
+- class: "sql"
+  link: "https://www.credly.com/badges/ed046529-7639-40c3-9de2-70868af2ef29/public_url"
+  logo: "/assets/images/badges/querying-databases-with-sql.png"
+  alt_text: "Querying Databases with SQL"
+
+# DATA ANALYSIS WITH PYTHON
+- class: "python"
+  link: "https://www.credly.com/badges/9a0baba6-d34d-42a6-98b5-5a84c618ac9d/public_url"
+  logo: "/assets/images/badges/data-analysis-with-python.png"
+  alt_text: "Data Analysis with Python"
+
+# GOOGLE ANALYTICS PROFESSIONAL CERTIFICATE
+- class: "google"
+  link: "https://www.credly.com/badges/bec2a027-4aa4-4d14-8abf-9e4a62b67633/public_url"
+  logo: "/assets/images/badges/google-data-analytics-professional-certificate.2.png"
+  alt_text: "Google Data Analytics Professional Certificate"
+
 # MECC COMPLETION BADGE
-- link: "https://www.credential.net/374b93e3-87a5-423d-b8c2-7af67df10723"
+- class: "mecc"
+  link: "https://www.credential.net/374b93e3-87a5-423d-b8c2-7af67df10723"
   logo: "/assets/images/badges/mecc-completion.png"
   alt_text: "MECC Completion Badge"
 
+# MAVEN ANALYTICS: POWER BI DESKTOP CERTIFICATE
+- class: "powerbi"
+  link: "https://certificates.mavenanalytics.io/6bbf9239-b6aa-40c8-860f-623a788882f4#gs.gt2arb"
+  logo: "/assets/images/badges/maven-analytics-power-bi-desktop.png"
+  alt_text: "Maven Analytics: Power BI Desktop Certificate"
+
 # DATA ANALYSIS & VISUALIZATION FOUNDATIONS SPECIALIZATION
-- link: "https://www.credly.com/badges/5858b41b-2c68-4e18-9676-8fead555c982/public_url"
+- class: "dataviz"
+  link: "https://www.credly.com/badges/5858b41b-2c68-4e18-9676-8fead555c982/public_url"
   logo: "/assets/images/badges/data-analysis-visualization-foundations-specialization-v2.png"
   alt_text: "Data Analysis & Visualization Foundations Specialization"
 
+# EXCEL ESSENTIALS FOR DATA ANALYTICS
+- class: "excel-es"
+  link: "https://www.credly.com/badges/40ca3303-5bfe-484f-912c-1dbe132ebad7/public_url"
+  logo: "/assets/images/badges/excel-essentials-for-data-analytics.png"
+  alt_text: "Excel Essentials for Data Analytics"
+
+# DATA ANALYTICS ESSENTIALS
+- class: "analytics"
+  link: "https://www.credly.com/badges/742fb9b0-144b-4df6-9d77-dd33c57d9d6c/public_url"
+  logo: "/assets/images/badges/data-analytics-essentials.png"
+  alt_text: "Data Analytics Essentials"
+
+# PEOPLE AND SOFT SKILLS ESSENTIALS
+- class: "softskills"
+  link: "https://www.credly.com/badges/0f45efbf-699d-490b-b86b-d332fd7b3e60/public_url"
+  logo: "/assets/images/badges/people-and-soft-skills-essentials.png"
+  alt_text: "People and Soft Skills Essentials"

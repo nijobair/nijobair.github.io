@@ -7,9 +7,9 @@
 
         {% for badge in site.data.badges %}
 
-        <div class="badge">
+        <div class="badge {{ badge.class }}">
             <a href="{{ badge.link }}" target="_blank" class="accredition">
-                <img src="{{ badge.logo }}" alt="{{ badge.alt_text}}" title="{{ title }}">
+                <img class="shadowless" src="{{ badge.logo }}" alt="{{ badge.alt_text}}" title="{{ title }}">
             </a>
         </div>
 

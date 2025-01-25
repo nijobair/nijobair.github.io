@@ -36,6 +36,9 @@
     align-items: center;
 }
 
+.table-name {
+    align-self: flex-start;
+}
 
 #result-output {
     width: 85%;
