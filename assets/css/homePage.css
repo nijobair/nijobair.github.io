@@ -298,6 +298,16 @@ Scrolling Logos Section
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
 @media only screen and (max-width: 768px) {
 
+    .post {
+        width: 43%;
+        max-width: 261px;
+        min-width: 226px;
+    }
+
+    .post:last-child {
+        display: block;
+    }
+
     .hero-section {
         flex-direction: column;
         height: 85vh;
@@ -363,6 +373,10 @@ Scrolling Logos Section
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
 
 @media only screen and (max-width: 540px) {
+    .post {
+        width: 300px;
+    }
+
     .featured-name {
         font-size: 40px;
     }

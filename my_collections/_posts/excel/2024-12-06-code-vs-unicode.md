@@ -1,6 +1,6 @@
 ---
 featured: false
-categories: excel
+categories: excel function
 title: "Differences Between CODE() and UNICODE() Functions in Excel"
 image: /assets/images/post_excel/title-CodeVsUnicode.png
 excerpt: "Confused about Excel's CODE() and UNICODE() functions? They seem similar but have different purposes. This quick guide explains how they work and when to use each!"

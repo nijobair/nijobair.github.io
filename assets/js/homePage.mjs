@@ -96,8 +96,8 @@ sr.reveal('.education', { origin: 'right', delay: 100 })
 Achievements
 ------------------------------------------------------------
 */
-sr.reveal('.badge:nth-child(odd)', { origin: 'left', interval: 200 })
-sr.reveal('.badge:nth-child(even)', { origin: 'right', interval: 200 })
+sr.reveal('.badge:nth-child(odd)', { origin: 'left', interval: 100 })
+sr.reveal('.badge:nth-child(even)', { origin: 'right', interval: 100 })
 
 /*
 ------------------------------------------------------------

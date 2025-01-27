@@ -1,25 +1,43 @@
 ---
+title: 4️⃣0️⃣4️⃣
 permalink: /404.html
-layout: default
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
 
-<div class="container">
-  <h1>404</h1>
+<head>
+  {% include head.html %}
+  <title>{{ page.title }} | {{ site.title }}</title>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+  <link rel="preload" href="{{ '/assets/css/blog.min.css' | relative_url }}" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ '/assets/css/blog.min.css' | relative_url }}">
+  </noscript>
+
+  {% include cssCritical.html %}
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav id="header">
+      {% include header.html %}
+    </nav>
+
+    <main class="blog-wrapper">
+
+      <img class="shadowless"
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWoybjd4dHg2a202dTl6Mjd1ZGMzaWZ0N3FmNzVnbWd5MXdnNjQ4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiN0L7EW5trfOvEk0/giphy.gif"
+        alt="Not found gif">
+
+      <footer>
+        {% include footer.html %}
+      </footer>
+
+    </main>
+
+  </div>
+</body>
