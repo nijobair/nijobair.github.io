@@ -2,7 +2,7 @@
 featured: true
 categories: vba excel
 title: "My Approach to Naming Conventions in VBA Code"
-image: /assets/images/post_excel/title-VBANaming.png
+image: /assets/images/posts/excel/title-VBANaming.png
 excerpt: "Learn the naming conventions I use in VBA to keep code clean, readable, and easy to maintain. Simple tips for variables, procedures, and more!"
 ---
 

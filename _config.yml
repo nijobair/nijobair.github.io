@@ -53,7 +53,7 @@ defaults:
       type: projects
     values:
       layout: post
-      permalink: /projects/:title/
+      permalink: /projects/:categories/:title/
 
 
 # Plugins
