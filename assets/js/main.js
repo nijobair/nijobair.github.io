@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = 'none';
 
         // Show the main content
-        var mainContent = document.querySelector('container');
+        var mainContent = document.querySelector('.container');
         mainContent.style.display = 'block';
     });
 });

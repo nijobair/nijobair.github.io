@@ -67,6 +67,10 @@
 
 .post-item:hover {
     box-shadow: 0px 2px 2px 0px var(--color-shadow);
+    border-top-left-radius: 0;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 0;
 }
 
 /*

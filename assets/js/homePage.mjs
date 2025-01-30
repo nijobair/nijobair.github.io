@@ -112,3 +112,99 @@ sr.reveal('.post:nth-child(3)', { origin: 'right', interval: 200 })
 /* -- PROJECT BOX -- */
 sr.reveal('.project-box', { interval: 200 })
 sr.reveal('.post:nth-child(2)', { interval: 200 })
+
+/*
+------------------------------------------------------------
+Testimonials Section
+------------------------------------------------------------
+*/
+var slide = document.getElementById('slide');
+var upArrow = document.getElementById('upArrow');
+var downArrow = document.getElementById('downArrow');
+
+const testimonials = Array.from(slide.children);
+const totalSlides = testimonials.length;
+let currentIndex = 0;
+let isAnimating = false;
+const transitionDuration = 500;
+
+// Initialize slide height
+const slideHeight = testimonials[0].offsetHeight;
+
+function handleTransitionEnd() {
+    slide.removeEventListener('transitionend', handleTransitionEnd);
+    isAnimating = false;
+}
+
+function handleNavigation(direction) {
+    if (isAnimating || totalSlides <= 1) return;
+    isAnimating = true;
+
+    if (direction === 'down') {
+        if (currentIndex === totalSlides - 1) {
+            // Clone first element and append
+            const clone = testimonials[0].cloneNode(true);
+            slide.appendChild(clone);
+
+            // First transition to clone
+            slide.style.transition = `transform ${transitionDuration}ms ease`;
+            slide.style.transform = `translateY(-${(currentIndex + 1) * slideHeight}px)`;
+
+            // After transition completes
+            slide.addEventListener('transitionend', function resetDown() {
+                slide.style.transition = 'none';
+                slide.style.transform = `translateY(0)`;
+                slide.removeChild(clone);
+                currentIndex = 0;
+
+                // Force reflow before restoring transition
+                void slide.offsetHeight;
+                slide.style.transition = '';
+                slide.removeEventListener('transitionend', resetDown);
+                isAnimating = false;
+            });
+        } else {
+            currentIndex++;
+            slide.style.transition = `transform ${transitionDuration}ms ease`;
+            slide.style.transform = `translateY(-${currentIndex * slideHeight}px)`;
+            slide.addEventListener('transitionend', handleTransitionEnd);
+        }
+    } else {
+        if (currentIndex === 0) {
+            // Clone last element and prepend
+            const clone = testimonials[totalSlides - 1].cloneNode(true);
+            slide.insertBefore(clone, slide.firstChild);
+
+            // Set initial position
+            slide.style.transition = 'none';
+            slide.style.transform = `translateY(-${slideHeight}px)`;
+            void slide.offsetHeight; // Force reflow
+
+            // Animate to new position
+            slide.style.transition = `transform ${transitionDuration}ms ease`;
+            slide.style.transform = `translateY(0)`;
+
+            // After transition completes
+            slide.addEventListener('transitionend', function resetUp() {
+                slide.style.transition = 'none';
+                slide.removeChild(clone);
+                currentIndex = totalSlides - 1;
+                slide.style.transform = `translateY(-${currentIndex * slideHeight}px)`;
+
+                // Force reflow before restoring transition
+                void slide.offsetHeight;
+                slide.style.transition = '';
+                slide.removeEventListener('transitionend', resetUp);
+                isAnimating = false;
+            });
+        } else {
+            currentIndex--;
+            slide.style.transition = `transform ${transitionDuration}ms ease`;
+            slide.style.transform = `translateY(-${currentIndex * slideHeight}px)`;
+            slide.addEventListener('transitionend', handleTransitionEnd);
+        }
+    }
+}
+
+upArrow.onclick = () => handleNavigation('up');
+downArrow.onclick = () => handleNavigation('down');

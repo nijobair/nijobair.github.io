@@ -63,7 +63,7 @@ plugins:
   - jekyll-glossary_tooltip
   - jekyll-avatar
   - jekyll-feed
-  - jekyll-loading-lazy    
+  - jekyll-loading-lazy
 
 
 # Exclude files from the build

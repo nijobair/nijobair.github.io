@@ -1,6 +1,23 @@
 - name: "Sayed Magfur Ahmed"
-  title: "Chief Operating Officer"
-  company: "Asia Lounge"
-  picture: "assets/images/testimonials/sayed_magfur_ahmed.jpg"
-  alt_text: "Sayed Magfur Ahmed"
-  quote: "I have been working with the team at Data Insights for over a year now. They have been instrumental in helping us understand our data and make informed decisions. Their expertise in data analysis and modeling has been invaluable to our business."
+  gender: "male"
+  country: "Bangladesh"
+  image:
+  review: "Nazmul was a fantastic data analysis freelancer who went above and beyond expectations. He quickly grasped our business needs and identified key performance indicators (KPIs) like customer acquisition cost and churn rate. Using his Excel mastery, he built a dynamic dashboard that automatically updates with new data, saving us hours of manual work.... I highly recommend Nazmul to anyone seeking a skilled, proactive, and communicative data analyst."
+
+- name: "Sher Asghar"
+  gender: "male"
+  country: "Pakistan ( &#x1F1FA;&#x1F1F8; )"
+  image:
+  review: "Nazmul Islam J. Did an excellent job on my Excel project. He has great moral character, is flexible and responsive, and I highly recommend him."
+
+- name: "David Schlaepfer"
+  gender: "male"
+  country: "Switzerland"
+  image:
+  review: "Great in customer discovery / asking the right questions, so we both surely agree on what has to be done.<br>Reads my mind, very quick in profound answers, both - technical and in finding the right basis, what is needed. Very agreeable!"
+
+- name: "Bijad Ahmad"
+  gender: "female"
+  country: "Palestine"
+  image:
+  review: "I have been working with the team at Data Insights for over a year now. They have been instrumental in helping us understand our data and make informed decisions. Their expertise in data analysis and modeling has been invaluable to our business."

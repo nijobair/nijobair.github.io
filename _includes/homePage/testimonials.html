@@ -1,0 +1,39 @@
+{% assign featured_posts = site.posts | where: "featured", true %}
+
+<section class="testimonials">
+    <h2 class="home-title">Testimonials</h2>
+
+    <div class="testimonials-box">
+        <div id="slide">
+            {% for testimonial in site.data.testimonials %}
+            <div class="testimonial">
+                <div class="profile">
+                    {% if testimonial.image %}
+                    <img class="shadowless" src="{{ testimonial.image }}" alt="">
+                    {% else %}
+                    {% if testimonial.gender == "male" %}
+                    <img class="shadowless" src="/assets/images/testimonials/man.jpg" alt="">
+                    {% else %}
+                    <img class="shadowless" src="/assets/images/testimonials/woman.jpg" alt="">
+                    {% endif %}
+                    {% endif %}
+                    <div>
+                        <h6>{{ testimonial.name }}</h6>
+                        <p>{{ testimonial.country }}</p>
+                    </div>
+                </div>
+                <div class="review">
+                    <p style="margin: 0;"><em>{{ testimonial.review }}</em></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="slider">
+            <img id="upArrow" class="shadowless" src="/assets/images/testimonials/upArrow.png" alt="Up Arrow">
+            <img id="downArrow" class="shadowless" src="/assets/images/testimonials/downArrow.png" alt="Down Arrow">
+        </div>
+
+    </div>
+
+</section>

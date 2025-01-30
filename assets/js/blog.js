@@ -69,6 +69,7 @@ $(document).ready(function () {
     // Initialize variables for pagination
     const limitPerPage = 13; // Number of posts per page
     let currentPage = 1;
+    let filteredPosts = $(".post-item");
 
     // Helper function to create a range of numbers
     function range(start, end) {
@@ -113,6 +114,8 @@ $(document).ready(function () {
         // Hide pagination if there is only one page
         if (totalPosts < limitPerPage) {
             $(".pagination").hide();
+        } else {
+            $(".pagination").show();
         }
 
         // Hide all posts and show only the current page's posts
@@ -152,26 +155,8 @@ $(document).ready(function () {
         $(".next-page").toggleClass("disabled", page === totalPages);
     }
 
-    // Handle category filter click
-    $(".other-categories").click(function () {
-        const value = $(this).attr("filter");
-        let filteredPosts;
-
-        if (value === "all") {
-            filteredPosts = $(".post-item");
-        } else {
-            filteredPosts = $(".post-item").filter("." + value);
-            $(".post-item").not("." + value).hide();
-        }
-
-        // Show paginated posts for the filtered category
-        currentPage = 1; // Reset to the first page for a new filter
-        showPaginatedPosts(filteredPosts, currentPage);
-
-        // Add active class to the selected category
-        $(this).addClass("selected-category").siblings().removeClass("selected-category");
-
-        // Handle pagination click
+    // Function to handle pagination click
+    function handlePaginationClick() {
         $(".pagination").off("click").on("click", "li.page-item", function () {
             if ($(this).hasClass("disabled") || $(this).hasClass("active")) return;
 
@@ -186,101 +171,33 @@ $(document).ready(function () {
             // Update the posts shown for the current page
             showPaginatedPosts(filteredPosts, currentPage);
         });
-    });
-
-    // Trigger the "all" filter by default on page load
-    $(".other-categories[filter='all']").trigger("click");
-});
-
-$(function () {
-    // Get the total number of items to paginate
-    var numberOfItems = $(".posts .post-item").length;
-
-    // Define the limit of items per page
-    var limitPerPage = 13;
-
-    // Calculate the total number of pages
-    var totalPages = Math.ceil(numberOfItems / limitPerPage);
-
-    // Number of visible page links in the pagination bar
-    var paginationSize = 2;
-
-    // Track the currently active page
-    var currentPage;
-
-    // Function to display a specific page
-    function showPage(whichPage) {
-        if (whichPage < 1 || whichPage > totalPages) return false; // Ignore invalid page numbers
-        currentPage = whichPage;
-
-        // Hide all items and show only the items for the current page
-        $(".posts .post-item")
-            .hide()
-            .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
-            .show();
-
-        // Clear existing page links and regenerate them
-        $(".pagination li").slice(1, -1).remove();
-
-        // Generate the pagination links for the current page
-        getPageList(totalPages, currentPage, paginationSize).forEach(item => {
-            $("<li>")
-                .addClass("page-item")
-                .addClass(item ? "current-page" : "dots") // Add "dots" class for separators (e.g., "...")
-                .toggleClass("active", item === currentPage) // Highlight the active page
-                .append(
-                    $("<a>")
-                        .addClass("page-link")
-                        .attr({
-                            href: "javascript:void(0)" // Prevent default link behavior
-                        })
-                        .text(item || "...") // Show the page number or "..."
-                )
-                .insertBefore(".next-page"); // Insert the new page link before the "Next" button
-        });
-
-        // Enable or disable "Previous" and "Next" buttons based on the current page
-        $(".previous-page").toggleClass("disabled", currentPage === 1);
-        $(".next-page").toggleClass("disabled", currentPage === totalPages);
-        return true;
     }
 
-    // Add the "Previous" and "Next" buttons to the pagination
-    $(".pagination").append(
-        $("<li>").addClass("page-item").addClass("previous-page").append(
-            $("<a>")
-                .addClass("page-link")
-                .attr({
-                    href: "javascript:void(0)" // Prevent default link behavior
-                })
-                .text("Prev") // Label for the "Previous" button
-        ),
-        $("<li>").addClass("page-item").addClass("next-page").append(
-            $("<a>")
-                .addClass("page-link")
-                .attr({
-                    href: "javascript:void(0)" // Prevent default link behavior
-                })
-                .text("Next") // Label for the "Next" button
-        )
-    );
+    // Function to handle category filter click
+    function handleCategoryFilterClick() {
+        $(".other-categories").click(function () {
+            const value = $(this).attr("filter");
 
-    // Initially display the first page
-    $(".post-item").show();
-    showPage(1);
+            if (value === "all") {
+                filteredPosts = $(".post-item");
+            } else {
+                filteredPosts = $(".post-item").filter("." + value);
+                $(".post-item").not("." + value).hide();
+            }
 
-    // Handle click events for page numbers
-    $(document).on("click", ".pagination li.current-page:not(.active)", function () {
-        return showPage(+$(this).text()); // Navigate to the clicked page
-    });
+            // Show paginated posts for the filtered category
+            currentPage = 1; // Reset to the first page for a new filter
+            showPaginatedPosts(filteredPosts, currentPage);
 
-    // Handle click event for the "Next" button
-    $(".next-page").on("click", function () {
-        return showPage(currentPage + 1); // Navigate to the next page
-    });
+            // Add active class to the selected category
+            $(this).addClass("selected-category").siblings().removeClass("selected-category");
 
-    // Handle click event for the "Previous" button
-    $(".previous-page").on("click", function () {
-        return showPage(currentPage - 1); // Navigate to the previous page
-    });
+            // Handle pagination click
+            handlePaginationClick();
+        });
+    }
+
+    // Initialize the default filter and pagination
+    handleCategoryFilterClick();
+    $(".other-categories[filter='all']").trigger("click");
 });
