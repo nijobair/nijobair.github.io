@@ -198,12 +198,14 @@ a#site-logo:hover {
 .nav-menu,
 .nav_menu_list {
     display: flex;
+    padding: 0;
 }
 
 .nav-menu .nav_list {
     list-style: none;
     position: relative;
     background: none;
+    padding: 0;
 }
 
 .nav-link {

@@ -473,7 +473,12 @@ Media Queries
         width: 80%;
     }
 
+    .testimonials-box {
+        height: 350px;
+    }
+
     .testimonial {
+        height: 350px;
         padding: 15px;
     }
 
@@ -498,11 +503,11 @@ Media Queries
     }
 
     .testimonials-box {
-        height: 371px;
+        height: 389px;
     }
 
     .testimonial {
-        height: 371px;
+        height: 389px;
         padding-bottom: 45px;
     }
 

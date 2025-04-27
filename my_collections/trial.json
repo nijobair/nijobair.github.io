@@ -1,0 +1,91 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A chart with two views, each having different background colors and occupying 50% width and 100% height of the canvas.",
+    "title": "Canvas",
+    "hconcat": [
+        {
+            "title": "View 1",
+            "view": {
+                "fill": "lightblue"
+            },
+            "width": 150,
+            "data": {
+                "values": [
+                    {
+                        "category": "A",
+                        "value": 30
+                    },
+                    {
+                        "category": "B",
+                        "value": 70
+                    },
+                    {
+                        "category": "C",
+                        "value": 50
+                    }
+                ]
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "category",
+                    "type": "nominal",
+                    "title": "Category"
+                },
+                "y": {
+                    "field": "value",
+                    "type": "quantitative",
+                    "title": "Value"
+                },
+                "color": {
+                    "field": "category",
+                    "type": "nominal"
+                }
+            }
+        },
+        {
+            "title": "View 2",
+            "width": 150,
+            "view": {
+                "fill": "lightgrey"
+            },
+            "data": {
+                "values": [
+                    {
+                        "category": "A",
+                        "value": 20
+                    },
+                    {
+                        "category": "B",
+                        "value": 50
+                    },
+                    {
+                        "category": "C",
+                        "value": 60
+                    }
+                ]
+            },
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "category",
+                    "type": "nominal",
+                    "title": "Category"
+                },
+                "y": {
+                    "field": "value",
+                    "type": "quantitative",
+                    "title": "Value"
+                }
+            }
+        }
+    ],
+    "config": {
+        "legend": {
+            "disable": true
+        },
+        "axis": {
+            "grid": false
+        }
+    }
+}

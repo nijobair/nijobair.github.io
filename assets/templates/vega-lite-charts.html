@@ -1,0 +1,17 @@
+<div id="chart-01"></div>
+
+<script type="text/javascript">
+    async function run() {
+        const local = '/__Extras/trial.json';
+        const spec = "https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json";
+        const trial = "https://raw.githubusercontent.com/nijobair/Vega-lite-Examples/master/trial.vg.json";
+
+        const result = await vegaEmbed("#chart-01", local, {
+            actions: true,
+        });
+
+        console.log(result);
+    }
+
+    run();
+</script>

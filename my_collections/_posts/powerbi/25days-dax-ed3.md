@@ -1,8 +1,8 @@
 ---
 featured: false
-categories: dax powerbi
+categories: powerbi dax
 title: "My Solution to the '25 Days of DAX Fridays!' Challenge – Ed3 by CURBAL"
-image: /assets/images/post_excel/title.png
+image: /assets/images/posts/powerbi/curbal-dax-challenge-ed3.png
 excerpt: ""
 ---
 

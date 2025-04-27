@@ -48,3 +48,9 @@
     }
 
 }
+
+@media only screen and (max-width: 540px) {
+    .vega-embed {
+        height: 250px !important;
+    }
+}
