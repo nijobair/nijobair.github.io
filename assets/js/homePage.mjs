@@ -10,7 +10,7 @@ Typing effect
 ------------------------------------------------------------
 */
 var typingEffect = new Typed(".typedText", {
-    strings: ["Data Analyst", "Physicist"],
+    strings: ["Data Analyst", "Physics Lover"],
     loop: true,
     typeSpeed: 100,
     backSpeed: 80,
@@ -58,7 +58,7 @@ ScrollReveal Animation
 */
 const sr = ScrollReveal({
     origin: 'top',  // 'bottom', 'left', 'right', 'top'. We set the default origin to 'top'.
-    distance: '90px',
+    distance: '70px',
     duration: 2000,
     reset: true
 })

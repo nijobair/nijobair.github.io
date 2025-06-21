@@ -75,6 +75,10 @@ Hero Section
     gap: 20px;
 }
 
+.featured-text-btn button {
+    font-weight: bold;
+}
+
 
 /* ----- FEATURED IMAGE BOX ----- */
 .hero-image {

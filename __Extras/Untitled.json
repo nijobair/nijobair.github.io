@@ -1,0 +1,48 @@
+{
+    "sections": [
+        {
+            "displayname": "Event Info",
+            "fields": [
+                "Title"
+            ]
+        },
+        {
+            "displayname": "📌 Event Location",
+            "fields": [
+                "Location",
+                "Country",
+                "Territory"
+            ]
+        },
+        {
+            "displayname": "⌚ Date & Time",
+            "fields": [
+                "Start",
+                "End",
+                "All Day"
+            ]
+        },
+        {
+            "displayname": "❄️ Details",
+            "fields": [
+                "Interaction Type",
+                "Engagement Type",
+                "Function",
+                "Speaker(s)",
+                "Target Audience"
+            ]
+        },
+        {
+            "displayname": "Others",
+            "fields": [
+                "Note"
+            ]
+        },
+        {
+            "displayname": "",
+            "fields": [
+                "Approval"
+            ]
+        }
+    ]
+}
