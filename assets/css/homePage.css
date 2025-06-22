@@ -156,57 +156,61 @@ Badges
     gap: .1rem;
     grid-auto-columns: 1fr;
     grid-template-areas:
-        "excel excel python analytics x dataviz mysql mysql excel-es a"
-        "excel excel upwork upwork powerbi powerbi mysql mysql google google"
-        "b sql upwork upwork powerbi powerbi softskills mecc google google";
+        "pbi-ms pbi-ms sql-cs pth-cs exl-ms exl-ms pbi-ma dav-cs sql-ma sql-ma"
+        "pbi-ms pbi-ms dta-up dta-up exl-ms exl-ms gap-cs gap-cs sql-ma sql-ma"
+        "bbb-bb exl-cs dta-up dta-up dae-cs sfs-cs gap-cs gap-cs mecc-c xxx-xx";
 }
 
-.excel {
-    grid-area: excel;
+.mecc-c {
+    grid-area: mecc-c;
 }
 
-.upwork {
-    grid-area: upwork;
+.sfs-cs {
+    grid-area: sfs-cs;
 }
 
-.mysql {
-    grid-area: mysql;
+.pbi-ms {
+    grid-area: pbi-ms;
 }
 
-.sql {
-    grid-area: sql;
+.sql-cs {
+    grid-area: sql-cs;
 }
 
-.python {
-    grid-area: python;
+.pth-cs {
+    grid-area: pth-cs;
 }
 
-.google {
-    grid-area: google;
+.exl-ms {
+    grid-area: exl-ms;
 }
 
-.mecc {
-    grid-area: mecc;
+.pbi-ma {
+    grid-area: pbi-ma;
 }
 
-.powerbi {
-    grid-area: powerbi;
+.dav-cs {
+    grid-area: dav-cs;
 }
 
-.dataviz {
-    grid-area: dataviz;
+.sql-ma {
+    grid-area: sql-ma;
 }
 
-.excel-es {
-    grid-area: excel-es;
+.dta-up {
+    grid-area: dta-up;
 }
 
-.analytics {
-    grid-area: analytics;
+.gap-cs {
+    grid-area: gap-cs;
 }
 
-.softskills {
-    grid-area: softskills;
+.exl-cs {
+    grid-area: exl-cs;
+}
+
+.dae-cs {
+    grid-area: dae-cs;
 }
 
 .badge {

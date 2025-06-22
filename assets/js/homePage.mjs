@@ -58,9 +58,9 @@ ScrollReveal Animation
 */
 const sr = ScrollReveal({
     origin: 'top',  // 'bottom', 'left', 'right', 'top'. We set the default origin to 'top'.
-    distance: '70px',
+    distance: '90px',
     duration: 2000,
-    reset: true
+    reset: false
 })
 
 

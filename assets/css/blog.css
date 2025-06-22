@@ -29,14 +29,14 @@
     margin: 0;
 }
 
-.powerbi {
+/* .powerbi {
     display: flex;
     margin: 15px 0;
     position: relative;
     width: 100%;
     aspect-ratio: 16/9;
     justify-content: center;
-}
+} */
 
 .post-content {
     width: max(140px, 55%);
