@@ -27,7 +27,7 @@ The data came from the coach's tracking system. I imported the flat file data in
 - **Flexible Time Period Selection:** Month/year filters and time granularity options (Y/Q/M/W/D)
 - **Alert System:** Visual indicators when metrics fall outside healthy ranges
 
-<div class="powerbi">
+<div class="powerbi-embed">
     <iframe title="Fitness Tracking Dashboard" width="100%" src="https://app.powerbi.com/view?r=eyJrIjoiNjdlOWI3ZWUtZGJjZi00Y2IxLWEwYTEtODRlODM2ZjQ5MmI5IiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&embedImagePlaceholder=true" frameborder="0" allowFullScreen="true"></iframe>
 </div>
 

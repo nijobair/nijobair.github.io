@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "This is the online editor for Vega and Vega-Lite. The post you are reading is written by Nazmul Islam.",
+  "height": 350,
+  "width": 600,
+  "padding": 15,
+  "data": [
+    {
+      "name": "dataset",
+      "values": [
+        {"name": "nazmul", "occupation": "student", "income": 5000},
+        {"name": "saad", "occupation": "student", "income": 2100},
+        {"name": "sarah", "occupation": "doctor", "income": 900},
+        {"name": "nusrat", "occupation": "student", "income": 9000},
+        {"name": "sinwar", "occupation": "warrior", "income": 11000}
+      ]
+    },
+    {
+      "name": "anotherDataset",
+      "values": [
+        {"x": 1, "y": 28},
+        {"x": 2, "y": 55},
+        {"x": 3, "y": 43},
+        {"x": 4, "y": 91},
+        {"x": 5, "y": 81},
+        {"x": 6, "y": 53},
+        {"x": 7, "y": 19},
+        {"x": 8, "y": 87},
+        {"x": 9, "y": 52},
+        {"x": 10, "y": 48},
+        {"x": 11, "y": 24},
+        {"x": 12, "y": 49},
+        {"x": 13, "y": 87},
+        {"x": 14, "y": 66},
+        {"x": 15, "y": 17},
+        {"x": 16, "y": 27},
+        {"x": 17, "y": 68},
+        {"x": 18, "y": 16},
+        {"x": 19, "y": 49},
+        {"x": 20, "y": 15}
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "__websiteLink",
+      "value": "https://nijobair.github.io/"
+    },
+    {
+      "name": "__postNumber",
+      "value": 2
+    }
+  ],
+  "scales": [
+    {
+      "name": "xScale",
+      "type": "band",
+      "domain": {
+        "data": "dataset",
+        "field": "name"
+      },
+      "range": "width",
+      "round": true,
+      "padding": 0.4
+    },
+    {
+      "name": "yScale",
+      "domain": {
+        "data": "dataset",
+        "field": "income"
+      },
+      "range": "height",
+      "nice": true
+    }
+  ],
+  "axes": [
+    {"orient": "bottom", "scale": "xScale"},
+    {"orient": "left", "scale": "yScale", "tickCount": 5}
+  ],
+  "marks": [
+    {
+      "name": "bars",
+      "type": "rect",
+      "from": {"data": "dataset"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "xScale", "field": "name"},
+          "width": {"scale": "xScale", "band": 1},
+          "y": {"scale": "yScale", "field": "income"},
+          "y2": {"scale": "yScale", "value": 0},
+          "cornerRadiusTopLeft": {"value": 10},
+          "cornerRadiusTopRight": {"value": 10}
+        },
+        "update": {
+          "fill": {"value": "#6f384e"}
+        },
+        "hover": {
+          "fill": {"value": "#457d40"}
+        }
+      }
+    }
+  ]
+}

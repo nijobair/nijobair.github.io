@@ -14,10 +14,6 @@ In this post, I’ll share the naming convention I follow in my VBA projects. It
 
 ## What are Naming Conventions?
 
-<div class="powerbi">
-    <iframe title="Fitness Tracking Dashboard" width="800" height="486" src="https://app.powerbi.com/view?r=eyJrIjoiNjdlOWI3ZWUtZGJjZi00Y2IxLWEwYTEtODRlODM2ZjQ5MmI5IiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&embedImagePlaceholder=true" frameborder="0" allowFullScreen="true"></iframe>
-</div>
-
 Naming conventions are like roadmaps 🛣️ for your code. They provide a clear, consistent way of labeling variables, functions, and other elements so that anyone reading your code can quickly understand its purpose. Imagine trying to navigate a city where street signs are missing or randomly labeled—it would be frustrating and time-consuming. The same applies to coding. When names are clear and follow a pattern, the code becomes easier to read, debug, and extend.
 
 In VBA, where you often deal with objects like worksheets, ranges, and user forms, a good naming convention is especially valuable. It helps you quickly identify what a variable represents or what a procedure does, reducing the chances of errors and making your projects much easier to manage over time.

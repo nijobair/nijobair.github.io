@@ -29,14 +29,14 @@
     margin: 0;
 }
 
-/* .powerbi {
+.powerbi-embed {
     display: flex;
     margin: 15px 0;
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/10;
     justify-content: center;
-} */
+}
 
 .post-content {
     width: max(140px, 55%);
@@ -353,15 +353,15 @@ main .gsc-loading-image {
 
 /*
 ------------------------------------------------------------
-Vege-lite Charts
+Vege Charts
 ------------------------------------------------------------
 */
 .vega-embed {
     display: flex !important;
     justify-content: center;
     align-items: center;
-    /* align-self: center; */
+    aspect-ratio: 2/1;
     width: 100%;
-    height: 350px;
+    height: auto;
     margin: 1rem 0
 }

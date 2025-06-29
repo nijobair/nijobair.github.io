@@ -35,6 +35,8 @@ collections:
     output: true
   sqlChallengeHub:
     output: true
+  vegaCharts:
+    output: true
 
 
 # Layouts
