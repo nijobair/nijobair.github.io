@@ -4,6 +4,6 @@
 #   - Term is different from displayed text: {% glossary <term>, display: <diplay name> %}
 #     - Ex. {% glossary operating system, display: OS %}, {% glossary computer, display: PC %}
 #
-- term: ASCII
-  definition: ASCII is a character encoding standard for electronic communication. It uses 128 code points (95 printable), limiting its scope.
-  url: https://en.wikipedia.org/wiki/ASCII#:~:text=ASCII%20(%2F%CB%88%C3%A6sk,telecommunications%20equipment%2C%20and%20other%20devices.
+- term: arrays
+  definition: A JSON array contains zero, one, or more ordered elements, separated by a comma. The JSON array is surrounded by square brackets [ ].
+  url: https://www.microfocus.com/documentation/silk-performer/205/en/silkperformer-205-webhelp-en/GUID-0847DE13-2A2F-44F2-A6E7-214CD703BF84.html
