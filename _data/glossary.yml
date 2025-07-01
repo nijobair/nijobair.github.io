@@ -4,6 +4,10 @@
 #   - Term is different from displayed text: {% glossary <term>, display: <diplay name> %}
 #     - Ex. {% glossary operating system, display: OS %}, {% glossary computer, display: PC %}
 #
-- term: arrays
+- term: JSON array
   definition: A JSON array contains zero, one, or more ordered elements, separated by a comma. The JSON array is surrounded by square brackets [ ].
-  url: https://www.microfocus.com/documentation/silk-performer/205/en/silkperformer-205-webhelp-en/GUID-0847DE13-2A2F-44F2-A6E7-214CD703BF84.html
+  url: https://www.json.org/json-en.html#:~:text=An%20array%20is%20an%20ordered%20collection%20of%20values.%20An%20array%20begins%20with%20%5Bleft%20bracket%20and%20ends%20with%20%5Dright%20bracket.%20Values%20are%20separated%20by%20%2Ccomma.
+
+- term: JSON object
+  definition: A JSON object contains zero, one, or more unordered, comma-separated key-value pairs, also called properties. The object is surrounded by curly braces {}.
+  url: https://www.json.org/json-en.html#:~:text=An%20object%20is%20an%20unordered%20set%20of%20name/value%20pairs.%20An%20object%20begins%20with%20%7Bleft%20brace%20and%20ends%20with%20%7Dright%20brace.%20Each%20name%20is%20followed%20by%20%3Acolon%20and%20the%20name/value%20pairs%20are%20separated%20by%20%2Ccomma.

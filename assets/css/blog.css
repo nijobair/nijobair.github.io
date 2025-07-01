@@ -363,5 +363,10 @@ Vege Charts
     aspect-ratio: 2/1;
     width: 100%;
     height: auto;
-    margin: 1rem 0
+    margin: 1rem 0;
 }
+
+/* .chart-wrapper {
+    width: 100%;
+    position: relative;
+} */

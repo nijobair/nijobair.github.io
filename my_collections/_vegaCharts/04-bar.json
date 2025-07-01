@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 500,
+  "height": 200,
+
+  "data": [
+    {
+      "name": "dataset",
+      "values": [
+        {"city": "Dhaka", "population": 2300000},
+        {"city": "Istanbul", "population": 1500000},
+        {"city": "Narsingdi", "population": 230000}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "yScale",
+      "type": "band",
+      "domain": {"data": "dataset", "field": "city"},
+      "range": "height",
+      "padding": 0.4
+    },
+    {
+      "name": "xScale",
+      "domain": {"data": "dataset", "field": "population"},
+      "range": "width"
+    }
+  ],
+  "marks": [
+    {
+      "name": "barPopulation",
+      "type": "rect",
+      "from": {"data": "dataset"},
+      "encode": {
+        "enter":{
+          "x": {"scale": "xScale", "field": "population"},
+          "x2": {"value": 0},
+          "y": {"scale": "yScale", "field": "city"},
+          "height": {"scale": "yScale", "band": 1}
+        }
+      }
+    }
+  ]
+}
