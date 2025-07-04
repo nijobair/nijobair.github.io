@@ -64,6 +64,7 @@ code.hljs {
     border-radius: .2em;
     background-color: transparent;
     overflow: auto;
+    width: 100%;
 }
 
 /*

@@ -11,3 +11,9 @@
 - term: JSON object
   definition: A JSON object contains zero, one, or more unordered, comma-separated key-value pairs, also called properties. The object is surrounded by curly braces {}.
   url: https://www.json.org/json-en.html#:~:text=An%20object%20is%20an%20unordered%20set%20of%20name/value%20pairs.%20An%20object%20begins%20with%20%7Bleft%20brace%20and%20ends%20with%20%7Dright%20brace.%20Each%20name%20is%20followed%20by%20%3Acolon%20and%20the%20name/value%20pairs%20are%20separated%20by%20%2Ccomma.
+
+- term: LOOKUP functions
+  definition: Excel's lookup functions (like VLOOKUP, HLOOKUP, INDEX-MATCH, and XLOOKUP) are used to find specific data within tables and retrieve related information.
+
+- term: RELATED
+  definition: In Power BI's DAX, RELATED is a function used in calculated columns to retrieve a value from a related table, automatically following an existing one-to-many relationship.
