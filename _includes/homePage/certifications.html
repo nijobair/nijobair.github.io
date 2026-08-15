@@ -1,0 +1,27 @@
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-head flex-row mb-8">
+      <div>
+        <div class="section-kicker">Credentials</div>
+        <h2 class="section-title">Certifications & learning.</h2>
+      </div>
+    </div>
+
+    <div class="cert-grid grid">
+      {% for cert in site.data.certifications %}
+        <a href="{{ cert.link }}" target="_blank" rel="noopener noreferrer">
+          <article class="cert p-5">
+            <div class="cert-top flex-row">
+              <div>
+                <h3>{{ cert.title }}</h3>
+                <p class="mt-1">{{ cert.class }}</p>
+              </div>
+              <img class="cert-logo grid" src="{{ cert.logo }}" alt="{{ cert.title }} logo" />
+            </div>
+            <span class="verified inline-block mt-4"><i class="fa-solid fa-circle-check"></i> Verified</span>
+          </article>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

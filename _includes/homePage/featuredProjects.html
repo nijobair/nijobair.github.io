@@ -1,0 +1,50 @@
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head flex-row mb-8">
+      <div>
+        <div class="section-kicker">Selected work</div>
+        <h2 class="section-title">Projects that tell a data story.</h2>
+      </div>
+      <p class="section-intro mt-2">
+        Replace these examples with your real projects, screenshots, GitHub
+        repositories and live Power BI reports.
+      </p>
+    </div>
+
+    <div class="projects grid">
+      {% assign featured_projects = site.projects | where: "featured", true %}
+      {% for project in featured_projects %}
+      <article class="project">
+        <div class="project-visual">
+          <div class="visual-label">{{ project.label }}</div>
+          {% if project.image %}
+          <img
+            class="visual-image"
+            src="{{ project.image | relative_url }}"
+            alt="{{ project.title }}"
+          />
+          {% else %}
+          <img
+            class="visual-image"
+            src="{{ '/assets/images/featured_default.png' | asset_url }}"
+            alt="{{ project.title }}"
+          />
+          {% endif %}
+        </div>
+        <div class="project-body p-5">
+          <div class="tag-row flex-row-wrap mb-3">
+            {% for tag in project.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <h3 class="txt-h6">{{ project.title }}</h3>
+          <p>{{ project.excerpt }}</p>
+          <a href="{{ project.url | relative_url }}" class="project-link"
+            >View case study →</a
+          >
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

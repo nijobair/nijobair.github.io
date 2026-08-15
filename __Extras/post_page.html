@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Designing Power BI Dashboards That Actually Support Decisions</title>
+
+    <style>
+        /* =========================================================
+           GLOBAL VARIABLES
+           ========================================================= */
+
+        :root {
+            --col-primary: #7C334F;
+            --col-primary-hover: #672941;
+            --col-primary-subtle: rgba(124, 51, 79, 0.09);
+
+            --col-black: #000000;
+            --col-white: #ffffff;
+
+            --col-txt-default: #171315;
+            --col-txt-muted: #625a5d;
+            --col-txt-subtle: #8d8588;
+            --col-txt-inverse: #ffffff;
+
+            --col-background: #ffffff;
+            --col-surface: #faf8f9;
+            --col-surface-raised: #ffffff;
+            --col-surface-sunken: #f3eff1;
+
+            --col-border-def: #e5dfe2;
+            --col-border-strong: #cfc4c9;
+
+            --font-sans:
+                "Segoe UI",
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
+            --font-mono:
+                ui-monospace,
+                "Cascadia Code",
+                "Source Code Pro",
+                monospace;
+
+            --fw-normal: 400;
+            --fw-medium: 500;
+            --fw-semibold: 600;
+            --fw-bold: 700;
+
+            --fs-display: clamp(42px, 6vw, 64px);
+            --fs-h1: clamp(36px, 5vw, 48px);
+            --fs-h2: clamp(30px, 4vw, 38px);
+            --fs-h3: clamp(24px, 3vw, 30px);
+            --fs-h4: 22px;
+
+            --fs-body-lg: 19px;
+            --fs-body: 17px;
+            --fs-body-sm: 15px;
+            --fs-small: 14px;
+            --fs-xsmall: 12px;
+
+            --lh-tight: 1.15;
+            --lh-snug: 1.3;
+            --lh-normal: 1.6;
+            --lh-relaxed: 1.8;
+
+            --ls-tight: -0.025em;
+            --ls-tighter: -0.04em;
+            --ls-widest: 0.12em;
+
+            --width-max: 1180px;
+            --width-article: 780px;
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 22px;
+
+            --shadow-sm: 0 2px 8px rgba(30, 20, 25, 0.04);
+            --shadow-lg: 0 16px 40px rgba(30, 20, 25, 0.10);
+
+            --transition-fast: 180ms ease;
+            --transition-normal: 280ms ease;
+        }
+
+
+        /* =========================================================
+           DARK THEME
+           ========================================================= */
+
+        [data-theme="dark"] {
+            --col-primary: #B86687;
+            --col-primary-hover: #CA7898;
+            --col-primary-subtle: rgba(184, 102, 135, 0.13);
+
+            --col-txt-default: #F5F0F2;
+            --col-txt-muted: #B8ADB2;
+            --col-txt-subtle: #82777C;
+            --col-txt-inverse: #ffffff;
+
+            --col-background: #121012;
+            --col-surface: #191619;
+            --col-surface-raised: #211d20;
+            --col-surface-sunken: #0f0d0f;
+
+            --col-border-def: #342d31;
+            --col-border-strong: #4A3E44;
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+            --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.32);
+        }
+
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            background: var(--col-background);
+            color: var(--col-txt-default);
+
+            font-family: var(--font-sans);
+            line-height: var(--lh-normal);
+
+            transition:
+                background var(--transition-normal),
+                color var(--transition-normal);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(
+                calc(100% - 40px),
+                var(--width-max)
+            );
+
+            margin-inline: auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: color-mix(
+                in srgb,
+                var(--col-background) 92%,
+                transparent
+            );
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--col-border-def);
+        }
+
+        .nav {
+            min-height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            font-weight: var(--fw-bold);
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            color: #ffffff;
+            background: var(--col-primary);
+
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: var(--fw-bold);
+        }
+
+        .brand-name {
+            color: var(--col-txt-default);
+
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .brand-role {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--col-txt-subtle);
+
+            font-size: 11px;
+            font-weight: var(--fw-normal);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--col-txt-muted);
+
+            font-size: 14px;
+            font-weight: var(--fw-medium);
+
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--col-primary);
+        }
+
+        .nav-links .nav-cta {
+            padding: 10px 16px;
+
+            color: #ffffff;
+
+            background: var(--col-primary);
+
+            border-radius: 8px;
+        }
+
+        .nav-links .nav-cta:hover {
+            color: #ffffff;
+            background: var(--col-primary-hover);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-toggle,
+        .menu-btn {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--col-txt-default);
+            background: var(--col-surface);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            transition:
+                background var(--transition-fast),
+                border-color var(--transition-fast);
+        }
+
+        .theme-toggle:hover,
+        .menu-btn:hover {
+            border-color: var(--col-primary);
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+
+        /* =========================================================
+           ARTICLE HEADER
+           ========================================================= */
+
+        .article {
+            padding-bottom: 100px;
+        }
+
+        .article-header {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 85px 0 55px;
+
+            text-align: center;
+        }
+
+        .article-category {
+            display: inline-flex;
+            align-items: center;
+
+            margin-bottom: 22px;
+            padding: 7px 12px;
+
+            color: var(--col-primary);
+            background: var(--col-primary-subtle);
+
+            border-radius: 999px;
+
+            font-size: var(--fs-xsmall);
+            font-weight: var(--fw-bold);
+
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .article-header h1 {
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            color: var(--col-txt-default);
+
+            font-size: clamp(38px, 6vw, 62px);
+            line-height: var(--lh-tight);
+
+            letter-spacing: var(--ls-tighter);
+        }
+
+        .article-subtitle {
+            max-width: 700px;
+
+            margin: 25px auto 0;
+
+            color: var(--col-txt-muted);
+
+            font-size: var(--fs-body-lg);
+            line-height: var(--lh-relaxed);
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 27px;
+
+            color: var(--col-txt-subtle);
+
+            font-size: var(--fs-small);
+        }
+
+        .meta-divider {
+            width: 4px;
+            height: 4px;
+
+            background: var(--col-txt-subtle);
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================================================
+           HERO IMAGE
+           ========================================================= */
+
+        .article-hero-image {
+            width: 100%;
+            max-width: 1100px;
+
+            height: min(620px, 55vw);
+
+            margin: 0 auto 65px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-xl);
+
+            background: var(--col-surface-sunken);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* =========================================================
+           ARTICLE BODY
+           ========================================================= */
+
+        .article-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, var(--width-article))
+                220px;
+
+            justify-content: center;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .article-content {
+            min-width: 0;
+        }
+
+        .article-content > p:first-child {
+            color: var(--col-txt-default);
+
+            font-size: var(--fs-body-lg);
+        }
+
+        .article-content p {
+            margin: 0 0 25px;
+
+            color: var(--col-txt-muted);
+
+            font-size: var(--fs-body);
+            line-height: var(--lh-relaxed);
+        }
+
+        .article-content h2 {
+            margin: 55px 0 20px;
+
+            color: var(--col-txt-default);
+
+            font-size: var(--fs-h2);
+            line-height: var(--lh-tight);
+
+            letter-spacing: var(--ls-tight);
+        }
+
+        .article-content h3 {
+            margin: 40px 0 15px;
+
+            color: var(--col-txt-default);
+
+            font-size: var(--fs-h3);
+            line-height: var(--lh-snug);
+        }
+
+        .article-content strong {
+            color: var(--col-txt-default);
+            font-weight: var(--fw-semibold);
+        }
+
+        .article-content a {
+            color: var(--col-primary);
+            font-weight: var(--fw-semibold);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 0 0 28px;
+            padding-left: 25px;
+
+            color: var(--col-txt-muted);
+
+            font-size: var(--fs-body);
+            line-height: var(--lh-relaxed);
+        }
+
+        .article-content li {
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================================================
+           ARTICLE CALLOUT
+           ========================================================= */
+
+        .callout {
+            margin: 35px 0;
+
+            padding: 25px 28px;
+
+            background: var(--col-primary-subtle);
+
+            border-left: 4px solid var(--col-primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .callout p {
+            margin: 0;
+
+            color: var(--col-txt-default);
+
+            font-size: var(--fs-body);
+            line-height: var(--lh-relaxed);
+        }
+
+
+        /* =========================================================
+           INLINE IMAGES
+           ========================================================= */
+
+        .article-image {
+            margin: 40px 0;
+        }
+
+        .article-image img {
+            width: 100%;
+
+            max-height: 520px;
+
+            object-fit: cover;
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-image figcaption {
+            margin-top: 10px;
+
+            color: var(--col-txt-subtle);
+
+            font-size: var(--fs-xsmall);
+
+            text-align: center;
+        }
+
+        .image-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+
+            margin: 40px 0;
+        }
+
+        .image-grid figure {
+            margin: 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+
+            object-fit: cover;
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-md);
+        }
+
+        .image-grid figcaption {
+            margin-top: 8px;
+
+            color: var(--col-txt-subtle);
+
+            font-size: var(--fs-xsmall);
+        }
+
+
+        /* =========================================================
+           CODE BLOCK
+           ========================================================= */
+
+        .code-block {
+            overflow-x: auto;
+
+            margin: 30px 0;
+
+            padding: 22px 24px;
+
+            background: var(--col-surface-sunken);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-md);
+
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .code-block code {
+            color: var(--col-txt-default);
+        }
+
+
+        /* =========================================================
+           ARTICLE SIDEBAR
+           ========================================================= */
+
+        .article-sidebar {
+            position: sticky;
+            top: 105px;
+        }
+
+        .toc {
+            padding: 20px;
+
+            background: var(--col-surface);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-lg);
+        }
+
+        .toc-title {
+            margin-bottom: 14px;
+
+            color: var(--col-txt-default);
+
+            font-size: var(--fs-xsmall);
+            font-weight: var(--fw-bold);
+
+            letter-spacing: var(--ls-widest);
+            text-transform: uppercase;
+        }
+
+        .toc a {
+            display: block;
+
+            padding: 7px 0;
+
+            color: var(--col-txt-muted);
+
+            font-size: 13px;
+            line-height: 1.45;
+
+            border-bottom: 1px solid var(--col-border-def);
+
+            transition: color var(--transition-fast);
+        }
+
+        .toc a:last-child {
+            border-bottom: 0;
+        }
+
+        .toc a:hover {
+            color: var(--col-primary);
+        }
+
+
+        /* =========================================================
+           AUTHOR CARD
+           ========================================================= */
+
+        .author-card {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin-top: 18px;
+            padding: 18px;
+
+            background: var(--col-surface);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-lg);
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            display: grid;
+            place-items: center;
+
+            color: #ffffff;
+            background: var(--col-primary);
+
+            border-radius: 50%;
+
+            font-size: 13px;
+            font-weight: var(--fw-bold);
+        }
+
+        .author-name {
+            color: var(--col-txt-default);
+
+            font-size: 13px;
+            font-weight: var(--fw-bold);
+        }
+
+        .author-role {
+            margin-top: 3px;
+
+            color: var(--col-txt-subtle);
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           ARTICLE TAGS
+           ========================================================= */
+
+        .article-tags {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 50px;
+            padding-top: 25px;
+
+            border-top: 1px solid var(--col-border-def);
+        }
+
+        .tag {
+            padding: 6px 10px;
+
+            color: var(--col-txt-muted);
+            background: var(--col-surface);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: 999px;
+
+            font-size: var(--fs-xsmall);
+        }
+
+
+        /* =========================================================
+           POST NAVIGATION
+           ========================================================= */
+
+        .post-navigation {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+            max-width: var(--width-article);
+
+            margin: 80px auto 0;
+
+            padding-top: 30px;
+
+            border-top: 1px solid var(--col-border-def);
+        }
+
+        .post-nav {
+            min-height: 145px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 23px;
+
+            background: var(--col-surface);
+
+            border: 1px solid var(--col-border-def);
+            border-radius: var(--radius-lg);
+
+            transition:
+                transform var(--transition-normal),
+                border-color var(--transition-normal),
+                box-shadow var(--transition-normal);
+        }
+
+        .post-nav:hover {
+            transform: translateY(-4px);
+
+            border-color: var(--col-primary);
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .post-nav.next {
+            text-align: right;
+        }
+
+        .post-nav-label {
+            color: var(--col-primary);
+
+            font-size: var(--fs-xsmall);
+            font-weight: var(--fw-bold);
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .post-nav-title {
+            margin-top: 12px;
+
+            color: var(--col-txt-default);
+
+            font-size: 17px;
+            font-weight: var(--fw-semibold);
+            line-height: var(--lh-snug);
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            border-top: 1px solid var(--col-border-def);
+        }
+
+        .footer {
+            min-height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .footer-brand {
+            color: var(--col-txt-default);
+
+            font-size: 14px;
+            font-weight: var(--fw-semibold);
+        }
+
+        .footer-brand span {
+            color: var(--col-txt-subtle);
+            font-weight: var(--fw-normal);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            color: var(--col-txt-muted);
+
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--col-primary);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .article-layout {
+                display: block;
+
+                max-width: var(--width-article);
+
+                margin-inline: auto;
+            }
+
+            .article-sidebar {
+                display: none;
+            }
+
+            .article-hero-image {
+                height: 52vw;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: min(
+                    calc(100% - 28px),
+                    var(--width-max)
+                );
+            }
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                left: 14px;
+                right: 14px;
+                top: 70px;
+
+                padding: 10px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                background: var(--col-surface-raised);
+
+                border: 1px solid var(--col-border-def);
+                border-radius: 12px;
+
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 12px;
+            }
+
+            .menu-btn {
+                display: grid;
+            }
+
+            .article-header {
+                padding: 55px 0 40px;
+            }
+
+            .article-header h1 {
+                font-size: clamp(36px, 10vw, 52px);
+            }
+
+            .article-subtitle {
+                font-size: var(--fs-body);
+            }
+
+            .article-hero-image {
+                height: 65vw;
+
+                margin-bottom: 45px;
+
+                border-radius: var(--radius-lg);
+            }
+
+            .article-content p {
+                font-size: 16px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-navigation {
+                grid-template-columns: 1fr;
+
+                margin-top: 60px;
+            }
+
+            .post-nav.next {
+                text-align: left;
+            }
+
+            .footer {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 25px 0;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header>
+
+        <div class="container nav">
+
+            <a href="#" class="brand">
+
+                <div class="brand-mark">
+                    AM
+                </div>
+
+                <div class="brand-name">
+                    Alex Morgan
+
+                    <span class="brand-role">
+                        Data & Analytics
+                    </span>
+                </div>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                id="navLinks">
+
+                <a href="#">
+                    Home
+                </a>
+
+                <a href="#">
+                    Posts
+                </a>
+
+                <a href="#">
+                    Projects
+                </a>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a
+                    href="#"
+                    class="nav-cta">
+                    Let's Talk
+                </a>
+
+            </nav>
+
+
+            <div class="nav-controls">
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    aria-label="Toggle dark mode">
+                    🌙
+                </button>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open navigation"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         ARTICLE
+         ========================================================= -->
+
+    <main class="article">
+
+
+        <!-- =====================================================
+             ARTICLE HEADER
+             ===================================================== -->
+
+        <section class="article-header">
+
+            <div class="article-category">
+                Power BI
+            </div>
+
+            <h1>
+                Designing Power BI Dashboards
+                That Actually Support Decisions
+            </h1>
+
+            <p class="article-subtitle">
+                A practical framework for moving beyond collections
+                of charts and building dashboards around business
+                questions, KPIs, context, and action.
+            </p>
+
+            <div class="article-meta">
+
+                <span>
+                    Alex Morgan
+                </span>
+
+                <span class="meta-divider"></span>
+
+                <span>
+                    August 12, 2026
+                </span>
+
+                <span class="meta-divider"></span>
+
+                <span>
+                    8 min read
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             HERO IMAGE
+             ===================================================== -->
+
+        <div class="container">
+
+            <figure class="article-hero-image">
+
+                <img
+                    src="https://picsum.photos/1200/650"
+                    alt="Dashboard visualization">
+
+            </figure>
+
+        </div>
+
+
+        <!-- =====================================================
+             ARTICLE LAYOUT
+             ===================================================== -->
+
+        <div class="container article-layout">
+
+
+            <!-- =================================================
+                 ARTICLE CONTENT
+                 ================================================= -->
+
+            <article class="article-content">
+
+
+                <p>
+                    A Power BI dashboard can contain beautiful charts,
+                    carefully designed colors, and dozens of useful
+                    measures — and still fail to help someone make a
+                    decision.
+                </p>
+
+                <p>
+                    The difference is usually not the visualization
+                    itself. It is the thinking that happens before the
+                    visualization is created.
+                </p>
+
+                <p>
+                    A strong analytical dashboard starts with a simple
+                    question: <strong>What decision should this page
+                    help someone make?</strong>
+                </p>
+
+
+                <!-- =============================================
+                     SECTION 1
+                     ============================================= -->
+
+                <h2 id="start-with-question">
+                    Start With the Business Question
+                </h2>
+
+                <p>
+                    One of the easiest mistakes to make when creating
+                    a dashboard is opening Power BI, looking at the
+                    available columns, and immediately deciding which
+                    charts to create.
+                </p>
+
+                <p>
+                    This approach often produces a dashboard that is
+                    technically impressive but strategically weak.
+                    The user sees sales, customers, products, regions,
+                    and dates — but does not know what deserves
+                    attention.
+                </p>
+
+                <div class="callout">
+
+                    <p>
+                        <strong>The dashboard should answer questions,
+                        not simply display data.</strong> Start by
+                        identifying the decisions and business problems
+                        the audience cares about.
+                    </p>
+
+                </div>
+
+
+                <figure class="article-image">
+
+                    <img
+                        src="https://picsum.photos/1000/550"
+                        alt="Business analytics planning">
+
+                    <figcaption>
+                        Good dashboard design begins with business
+                        questions rather than available fields.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =============================================
+                     SECTION 2
+                     ============================================= -->
+
+                <h2 id="identify-kpis">
+                    Choose KPIs That Explain Performance
+                </h2>
+
+                <p>
+                    Once the business questions are clear, the next
+                    step is identifying the measures that actually
+                    describe performance.
+                </p>
+
+                <p>
+                    A common dashboard mistake is showing too many
+                    KPIs. If everything is important, nothing is
+                    important.
+                </p>
+
+                <p>
+                    Instead, the first row of a dashboard should
+                    usually provide a small set of high-level metrics
+                    that answer questions such as:
+                </p>
+
+                <ul>
+
+                    <li>
+                        How are we performing right now?
+                    </li>
+
+                    <li>
+                        Are we improving or declining?
+                    </li>
+
+                    <li>
+                        Are we meeting our target?
+                    </li>
+
+                    <li>
+                        Where should management investigate further?
+                    </li>
+
+                </ul>
+
+
+                <div class="image-grid">
+
+                    <figure>
+
+                        <img
+                            src="https://picsum.photos/600/450"
+                            alt="KPI dashboard">
+
+                        <figcaption>
+                            KPI overview
+                        </figcaption>
+
+                    </figure>
+
+                    <figure>
+
+                        <img
+                            src="https://picsum.photos/601/450"
+                            alt="Business performance chart">
+
+                        <figcaption>
+                            Performance trend
+                        </figcaption>
+
+                    </figure>
+
+                </div>
+
+
+                <!-- =============================================
+                     SECTION 3
+                     ============================================= -->
+
+                <h2 id="provide-context">
+                    Always Provide Context
+                </h2>
+
+                <p>
+                    A number by itself rarely tells the whole story.
+                    If a dashboard shows revenue of $250,000, is that
+                    good or bad?
+                </p>
+
+                <p>
+                    The answer depends on context.
+                </p>
+
+                <p>
+                    Compare the current value with something meaningful:
+                    the previous period, a target, a budget, a forecast,
+                    or another relevant benchmark.
+                </p>
+
+                <p>
+                    This is why a KPI such as <strong>$250K revenue</strong>
+                    is often much less useful than:
+                    <strong>$250K revenue, +12% vs. last month, 4% above
+                    target.</strong>
+                </p>
+
+
+                <figure class="article-image">
+
+                    <img
+                        src="https://picsum.photos/1000/560"
+                        alt="Performance comparison dashboard">
+
+                    <figcaption>
+                        Context turns isolated numbers into useful
+                        information.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =============================================
+                     SECTION 4
+                     ============================================= -->
+
+                <h2 id="visual-hierarchy">
+                    Build a Clear Visual Hierarchy
+                </h2>
+
+                <p>
+                    Not every visual deserves the same amount of
+                    attention.
+                </p>
+
+                <p>
+                    A well-designed dashboard guides the user's eyes
+                    from the most important information to supporting
+                    detail.
+                </p>
+
+                <h3>
+                    A simple hierarchy
+                </h3>
+
+                <ol>
+
+                    <li>
+                        <strong>Performance:</strong>
+                        What is happening?
+                    </li>
+
+                    <li>
+                        <strong>Trend:</strong>
+                        Is it getting better or worse?
+                    </li>
+
+                    <li>
+                        <strong>Comparison:</strong>
+                        How does it compare with a target or benchmark?
+                    </li>
+
+                    <li>
+                        <strong>Drivers:</strong>
+                        What is causing the result?
+                    </li>
+
+                    <li>
+                        <strong>Detail:</strong>
+                        Where should the user investigate?
+                    </li>
+
+                </ol>
+
+                <p>
+                    This structure creates a natural analytical flow:
+                    <strong>What happened → Why did it happen →
+                    What should I investigate?</strong>
+                </p>
+
+
+                <!-- =============================================
+                     SECTION 5
+                     ============================================= -->
+
+                <h2 id="avoid-chart-sprawl">
+                    Avoid Chart Sprawl
+                </h2>
+
+                <p>
+                    More visuals do not automatically create more
+                    insight.
+                </p>
+
+                <p>
+                    In fact, adding too many charts often increases
+                    cognitive load. Users spend their time trying to
+                    understand the dashboard instead of understanding
+                    the business.
+                </p>
+
+                <div class="callout">
+
+                    <p>
+                        Before adding another visual, ask:
+                        <strong>What question does this visual answer
+                        that the existing visuals cannot?</strong>
+                    </p>
+
+                </div>
+
+
+                <figure class="article-image">
+
+                    <img
+                        src="https://picsum.photos/1000/600"
+                        alt="Dashboard visualization layout">
+
+                    <figcaption>
+                        A dashboard should prioritize clarity over
+                        the number of visuals displayed.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =============================================
+                     SECTION 6
+                     ============================================= -->
+
+                <h2 id="design-for-action">
+                    Design for Action
+                </h2>
+
+                <p>
+                    The final test of a dashboard is whether it helps
+                    the user decide what to do next.
+                </p>
+
+                <p>
+                    Imagine a sales dashboard showing that revenue is
+                    down 8%. That is useful information, but it is not
+                    enough.
+                </p>
+
+                <p>
+                    The next layer should help the user investigate
+                    the decline. Is it coming from a particular
+                    product? A region? A store? A customer segment?
+                    A change in transaction volume?
+                </p>
+
+                <p>
+                    This is where drill-downs, decomposition views,
+                    detailed tables, and meaningful filters become
+                    valuable.
+                </p>
+
+
+                <figure class="article-image">
+
+                    <img
+                        src="https://picsum.photos/1000/580"
+                        alt="Analytical drill down">
+
+                    <figcaption>
+                        Detailed analysis should help users move from
+                        an observed problem to its potential drivers.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- =============================================
+                     CONCLUSION
+                     ============================================= -->
+
+                <h2 id="conclusion">
+                    The Dashboard Is Not the End
+                </h2>
+
+                <p>
+                    A dashboard is not successful simply because it
+                    looks professional.
+                </p>
+
+                <p>
+                    Its real value comes from helping people understand
+                    what is happening, why it is happening, and what
+                    deserves attention.
+                </p>
+
+                <p>
+                    The best dashboards therefore begin long before
+                    the first visual is created. They begin with the
+                    business problem, the decision, and the questions
+                    that need to be answered.
+                </p>
+
+                <div class="callout">
+
+                    <p>
+                        <strong>
+                            Good dashboard design is not about showing
+                            more data. It is about making the right
+                            information easier to understand and act on.
+                        </strong>
+                    </p>
+
+                </div>
+
+
+                <!-- =============================================
+                     TAGS
+                     ============================================= -->
+
+                <div class="article-tags">
+
+                    <span class="tag">
+                        Power BI
+                    </span>
+
+                    <span class="tag">
+                        Data Visualization
+                    </span>
+
+                    <span class="tag">
+                        Dashboard Design
+                    </span>
+
+                    <span class="tag">
+                        Business Intelligence
+                    </span>
+
+                    <span class="tag">
+                        Data Analytics
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 SIDEBAR
+                 ================================================= -->
+
+            <aside class="article-sidebar">
+
+                <div class="toc">
+
+                    <div class="toc-title">
+                        On this page
+                    </div>
+
+                    <a href="#start-with-question">
+                        Start With the Business Question
+                    </a>
+
+                    <a href="#identify-kpis">
+                        Choose KPIs
+                    </a>
+
+                    <a href="#provide-context">
+                        Provide Context
+                    </a>
+
+                    <a href="#visual-hierarchy">
+                        Visual Hierarchy
+                    </a>
+
+                    <a href="#avoid-chart-sprawl">
+                        Avoid Chart Sprawl
+                    </a>
+
+                    <a href="#design-for-action">
+                        Design for Action
+                    </a>
+
+                    <a href="#conclusion">
+                        Conclusion
+                    </a>
+
+                </div>
+
+
+                <div class="author-card">
+
+                    <div class="author-avatar">
+                        AM
+                    </div>
+
+                    <div>
+
+                        <div class="author-name">
+                            Alex Morgan
+                        </div>
+
+                        <div class="author-role">
+                            Data Analyst
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =====================================================
+             PREVIOUS / NEXT POST
+             ===================================================== -->
+
+        <div class="container">
+
+            <nav
+                class="post-navigation"
+                aria-label="Post navigation">
+
+
+                <!-- PREVIOUS -->
+
+                <a
+                    href="#"
+                    class="post-nav previous">
+
+                    <div class="post-nav-label">
+                        ← Previous post
+                    </div>
+
+                    <div class="post-nav-title">
+                        Power Query:
+                        The Excel Feature You Should Know
+                    </div>
+
+                </a>
+
+
+                <!-- NEXT -->
+
+                <a
+                    href="#"
+                    class="post-nav next">
+
+                    <div class="post-nav-label">
+                        Next post →
+                    </div>
+
+                    <div class="post-nav-title">
+                        SQL for Analysts:
+                        Think Before You Query
+                    </div>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <div class="container footer">
+
+            <div class="footer-brand">
+
+                Alex Morgan
+
+                <span>
+                    · Data Analyst & Power BI Developer
+                </span>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#">
+                    Posts
+                </a>
+
+                <a href="#">
+                    Projects
+                </a>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <span>
+                    © 2026
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         MOBILE NAVIGATION
+         ========================================================= -->
+
+    <script>
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+                const open =
+                    navLinks.classList.toggle("open");
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    open
+                );
+
+                menuBtn.textContent =
+                    open ? "×" : "☰";
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        navLinks.classList.remove(
+                            "open"
+                        );
+
+                        menuBtn.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuBtn.textContent = "☰";
+
+                    }
+                );
+
+            });
+
+    </script>
+
+
+    <!-- =========================================================
+         LIGHT / DARK MODE
+         ========================================================= -->
+
+    <script>
+
+        const themeToggle =
+            document.getElementById(
+                "themeToggle"
+            );
+
+
+        const savedTheme =
+            localStorage.getItem(
+                "theme"
+            );
+
+
+        const prefersDark =
+            window.matchMedia &&
+            window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+
+        const initialTheme =
+            savedTheme ||
+            (prefersDark ? "dark" : "light");
+
+
+        if (initialTheme === "dark") {
+
+            document.documentElement
+                .setAttribute(
+                    "data-theme",
+                    "dark"
+                );
+
+            themeToggle.textContent =
+                "☀️";
+
+        }
+
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                const isDark =
+                    document.documentElement
+                        .getAttribute(
+                            "data-theme"
+                        ) === "dark";
+
+
+                if (isDark) {
+
+                    document.documentElement
+                        .removeAttribute(
+                            "data-theme"
+                        );
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+                    themeToggle.textContent =
+                        "🌙";
+
+                } else {
+
+                    document.documentElement
+                        .setAttribute(
+                            "data-theme",
+                            "dark"
+                        );
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+                    themeToggle.textContent =
+                        "☀️";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

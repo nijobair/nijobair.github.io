@@ -1,39 +1,104 @@
-<section class="hero-section">
-    <div class="featured-text">
-        <div class="featured-text-card">
-            <span>Nazmul Islam</span>
-        </div>
-        <div class="featured-name">
-            <h2>I'm a <span class="typedText"></span>
-            </h2>
-        </div>
-        <div class="featured-text-info">
-            <p>Data is everywhere, but insights are priceless. 🔢✨ Leveraging a background in physics and data
-                analytics, I bring precision, curiosity, and creativity to every project – unlocking the full story
-                behind the numbers! 📊🔍
-            </p>
-        </div>
-        <div class="featured-text-btn">
-            <button class="hire">დატა</button>
-            <button class="cv">ფიზიკა</button>
+<section class="section hero" id="home">
+    <div class="container hero-grid grid">
+    <div>
+        <div class="eyebrow inflex-row">Data Analyst · Power BI Developer</div>
+
+        <h1 class="hero-h1 mt-4">Turning data into<span> clear decisions.</span></h1>
+
+        <p class="hero-copy">
+            I build analytical solutions, interactive Power BI dashboards, and automated data workflows that turn complex business data into insights people can actually use.
+        </p>
+
+        <div class="hero-actions flex-row-wrap mt-7">
+            <a class="btn btn-primary" href="#projects">View My Work →</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
         </div>
 
-        <div class="social-media">
-            {% for icon in site.data.social-media %}
+        <div class="hero-meta flex-row mt-8">
+            <div class="meta-item">
+                <strong class="block">Power BI</strong>
+                <span>PL-300 Certified</span>
+            </div>
+            <div class="meta-item">
+                <strong class="block">Excel</strong>
+                <span>Microsoft Certified</span>
+            </div>
+            <div class="meta-item">
+                <strong class="block">Python</strong>
+                <span>Analytics & Automation</span>
+            </div>
+        </div>
+    </div>
 
-            <div>
-                <a href="{{ icon.link }}" target="_blank" class="follow-link">
-                    <img class="icons" src="{{ icon.logo }}" alt="{{ icon.alt_text}}" title="{{ icon.alt_text }}">
-                </a>
+    <!-- Dashboard illustration -->
+    <div class="dashboard p-4" aria-label="Illustrative analytics dashboard">
+        <div class="dashboard-top flex-row">
+            <div class="dashboard-title">Executive Performance Overview</div>
+            <div class="dashboard-filter">FY 2026 ▾</div>
+        </div>
+
+        <div class="kpi-grid grid">
+            <div class="kpi p-3">
+                <small>Revenue</small>
+                <strong class="block mt-1">$2.84M</strong>
+                <span class="positive comparison"><i class="fa-solid fa-arrow-trend-up"></i> 14.8%</span>
+            </div>
+            <div class="kpi p-3">
+                <small>Margin</small>
+                <strong class="block mt-1">28.6%</strong>
+                <span class="negative comparison"><i class="fa-solid fa-arrow-trend-down"></i> 3.2%</span>
+            </div>
+            <div class="kpi p-3">
+                <small>Customers</small>
+                <strong class="block mt-1">8,421</strong>
+                <span class="positive comparison"><i class="fa-solid fa-arrow-trend-up"></i> 9.7%</span>
+            </div>
+        </div>
+
+        <div class="chart-card mt-2 p-3">
+            <div class="chart-heading flex-row">
+                Revenue Trend
+                <span>Jan — Dec</span>
             </div>
 
-            {% endfor %}
+            <div class="chart mt-3">
+                <svg viewBox="0 0 500 115" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--col-chart-1)" stop-opacity=".25"/>
+                    <stop offset="100%" stop-color="var(--col-chart-1)" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M0 94 L42 83 L84 88 L126 68 L168 74 L210 54 L252 61 L294 42 L336 47 L378 25 L420 34 L500 12 L500 115 L0 115 Z"
+                        fill="url(#area)"/>
+                <polyline points="0,94 42,83 84,88 126,68 168,74 210,54 252,61 294,42 336,47 378,25 420,34 500,12"
+                            fill="none" stroke="var(--col-chart-1)" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <div class="legend flex-row mt-2">
+                <span><i style="background:var(--col-chart-1)"></i>Actual</span>
+                <span><i style="background:var(--col-gray-300)"></i>Target</span>
+            </div>
         </div>
 
-    </div>
-    <div class="hero-image">
-        <div class="image">
-            <img src="{{ '/assets/images/Jobair.png' | relative_url }}" alt="avatar">
+        <div class="mini-grid grid mt-2">
+        <div class="mini-card p-3">
+            <div class="chart-heading flex-row">Monthly Sales <span>€K</span></div>
+            <div class="bars flex-row mt-2">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
+
+        <div class="mini-card p-3">
+            <div class="chart-heading">Revenue Mix</div>
+            <div class="donut"></div>
+        </div>
+        </div>
+    </div>
     </div>
 </section>

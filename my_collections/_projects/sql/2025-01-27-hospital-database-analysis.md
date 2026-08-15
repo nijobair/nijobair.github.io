@@ -1,6 +1,8 @@
 ---
 featured: true
-categories: sql
+category: sql
+tags: ["SQL"]
+label: "SQL · Data Analysis"
 title: "24 Days of SQL Advent Calendar Challenge: My Solutions"
 image: /assets/images/portfolio/sql/title-HospitalOperationsAnalysis.png
 excerpt: ""

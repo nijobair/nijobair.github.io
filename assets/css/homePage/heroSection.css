@@ -1,0 +1,200 @@
+.hero{
+    background: radial-gradient(circle at 86% 25%, rgba(124, 51, 79, .08), transparent 27%), linear-gradient(180deg, var(--col-surface-raised) 0%, var(--col-background) 100%);
+    border-bottom: 1px solid var(--col-border-def);
+}
+.hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: var(--space-19);
+}
+.eyebrow {
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--col-primary);
+    font-size: var(--fs-xsmall);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+.eyebrow::before {
+    content: "";
+    width: var(--space-6);
+    height: 2px;
+    background: var(--col-primary);
+}
+.hero-h1 {
+    font: var(--f-display-xl);
+    max-width: 720px;
+    letter-spacing: var(--ls-tighter);
+}
+.hero-h1 span {
+    color: var(--col-primary);
+}
+.hero-copy {
+    max-width: 650px;
+    margin: var(--space-6) 0 0;
+    color: var(--col-txt-muted);
+}
+.hero-actions {
+    gap: var(--space-3);
+}
+.hero-meta {
+    gap: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--border-def);
+}
+.meta-item span {
+    color: var(--col-txt-subtle);
+    font-size: var(--fs-xsmall);
+}
+.dashboard {
+    position: relative;
+    background: var(--col-white);
+    border: var(--border-def);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    transform: rotate(3.5deg);
+}
+.dashboard-top {
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-1) var(--space-1) var(--space-3);
+}
+.dashboard-title {
+    font-size: var(--fs-xsmall);
+    font-weight: var(--fw-extrabold);
+}
+.dashboard-filter {
+    color: var(--col-txt-subtle);
+    font-size: 10px;
+    background: var(--col-background);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+}
+.kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+}
+.kpi {
+    border: var(--border-def);
+    border-radius: var(--radius-md);
+    background: var(--col-white);
+}
+.kpi small {
+    color: var(--col-txt-subtle);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: var(--ls-widest);
+    font-weight: var(--fw-extrabold);
+}
+.kpi strong {
+    font-size: var(--fs-body-lg);
+}
+.kpi .comparison {
+    font-size: 9px;
+    font-weight: var(--fw-bold);
+}
+.kpi .positive {
+    color: var(--col-success);
+}
+.kpi .negative {
+    color: var(--col-warning);
+}
+.chart-card {
+    border: var(--border-def);
+    border-radius: var(--radius-md);
+}
+.chart-heading {
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: var(--fw-extrabold);
+}
+.chart-heading span {
+    color: var(--col-txt-subtle);
+    font-weight: var(--fw-semibold);
+}
+.chart {
+    position: relative;
+    height: 132px;
+    overflow: hidden;
+    background: linear-gradient(to bottom, transparent 24%, var(--col-surface-sunken) 25%, transparent 26%), linear-gradient(to bottom, transparent 49%, var(--col-surface-sunken) 50%, transparent 51%), linear-gradient(to bottom, transparent 74%, var(--col-surface-sunken) 75%, transparent 76%);
+}
+.legend {
+    gap: var(--space-3);
+    color: var(--col-txt-subtle);
+    font-size: 9px;
+}
+.legend i {
+    width: var(--space-2);
+    height: var(--space-2);
+    display: inline-block;
+    margin-right: var(--space-1);
+    border-radius: var(--radius-circle);
+}
+.mini-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+}
+.mini-card {
+    border: var(--border-def);
+    border-radius: var(--radius-md);
+}
+.chart-heading {
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: var(--fw-extrabold);
+}
+.chart-heading span {
+    color: var(--col-txt-subtle);
+    font-weight: var(--fw-semibold);
+}
+.bars {
+    align-items: end;
+    gap: 6px;
+    height: 72px;
+}
+.bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    background: var(--col-primary);
+    opacity: .9;
+}
+.bar:nth-child(1) {
+    background: var(--col-chart-1);
+    height: 44%;
+}
+.bar:nth-child(2) {
+    background: var(--col-chart-2);
+    height: 60%;
+}
+.bar:nth-child(3) {
+    background: var(--col-chart-3);
+    height: 32%;
+}
+.bar:nth-child(4) {
+    background: var(--col-chart-4);
+    height: 82%;
+}
+.bar:nth-child(5) {
+    background: var(--col-chart-5);
+    height: 28%;
+}
+.donut {
+    width: 76px;
+    height: 76px;
+    margin: 10px auto 4px;
+    border-radius: var(--radius-circle);
+    background: conic-gradient(var(--col-chart-1) 0 44%, var(--col-chart-2) 44% 70%, var(--col-chart-3) 70% 87%, var(--col-surface-sunken) 87% 100%);
+    position: relative;
+}
+.donut::after {
+    content: "44%";
+    position: absolute;
+    inset: 16px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-circle);
+    background: var(--col-surface-raised);
+    font-size: var(--fs-xsmall);
+    font-weight: var(--fw-extrabold);
+}

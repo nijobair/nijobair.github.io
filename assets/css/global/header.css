@@ -1,0 +1,93 @@
+header {
+    border-bottom: var(--border-def);
+}
+.nav {
+    min-height: 76px;
+    gap: var(--space-6);
+    align-items: center;
+    justify-content: space-between;
+}
+.brand {
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    transition: transform 0.2s ease-in-out;
+}
+.brand:hover {
+    transform: scale(1.05);
+}
+.brand-logo {
+    width: 40px;
+    aspect-ratio: 1/1;
+}
+.brand-role {
+    font: var(--f-xsmall);
+    color: var(--col-txt-muted);
+    margin-top: -3px;
+}
+.nav-links {
+    gap: 6px;
+    align-items: center;
+    margin-left: auto;
+    padding-right: var(--space-3);
+}
+.nav-links a {
+    font: var(--f-small-bold);
+    color: var(--col-txt-secondary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: 0.2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--col-primary);
+    background: var(--col-pr-light);
+}
+.nav-controls {
+    gap: var(--space-3);
+    align-items: center;
+}
+#letsTalk {
+    background: var(--col-primary);
+    color: var(--col-white);
+}
+#letsTalk:hover {
+    background: var(--col-pr-hover);
+}
+.theme-toggle, .menu-btn {
+    background: transparent;
+    color: var(--col-primary);
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+.theme-toggle:hover, .menu-btn:hover {
+    transform: scale(1.05);
+}
+.menu-btn {
+    display: none;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 70px;
+        padding: 10px;
+        border-radius: var(--radius-md);
+        border: var(--border-def);
+        box-shadow: var(--shadow-md);
+        background: var(--col-surface-raised);
+    }
+    .nav-links.open {
+        display: flex;
+    }
+    .menu-btn {
+        display: flex;
+    }
+}

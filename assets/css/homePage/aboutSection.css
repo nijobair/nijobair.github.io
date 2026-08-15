@@ -1,0 +1,24 @@
+.about {
+    grid-template-columns: 1.1fr .9fr;
+    gap: var(--space-7);
+}
+.about-main, .about-side {
+    background: var(--col-surface-raised);
+    border: var(--border-def);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+.about-main p {
+    color: var(--col-txt-muted);
+}
+.stat {
+    border-bottom: var(--border-def);
+}
+.stat h4 {
+    color: var(--col-primary);
+    line-height: var(--lh-loose);
+}
+.stat span {
+    color: var(--col-txt-muted);
+    font-size: var(--fs-label);
+}

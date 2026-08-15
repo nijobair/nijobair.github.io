@@ -1,0 +1,22 @@
+<section class="section experience" id="experience">
+  <div class="container">
+    <div class="section-head flex-row mb-8">
+      <div>
+        <div class="section-kicker">Experience</div>
+        <h2 class="section-title">A track record of turning data into action.</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+      {% for experience in site.data.experiences %}
+        <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">{{ experience.timeline }}</div>
+            <h3 class="mt-1 txt-h6">{{ experience.title }}</h3>
+            <div class="timeline-company">{{ experience.company }}</div>
+            <p class="mt-3">{{ experience.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

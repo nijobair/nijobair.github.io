@@ -3,81 +3,210 @@ title: Portfolio
 permalink: /portfolio/
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.lang | default: 'en-US' }}">
-
-<head>
+  <head>
     {% include head.html %}
     <title>{{ page.title }} | {{ site.title }}</title>
 
-    <link rel="preload" href="{{ '/assets/css/blog.min.css' | relative_url }}" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <link
+      rel="preload"
+      href="{{ '/assets/css/portfolio.css' | relative_url }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
     <noscript>
-        <link rel="stylesheet" href="{{ '/assets/css/blog.min.css' | relative_url }}">
+      <link
+        rel="stylesheet"
+        href="{{ '/assets/css/portfolio.css' | relative_url }}"
+      />
     </noscript>
+  </head>
 
-    <script defer src="/assets/js/blog.min.js"></script>
+  <body class="flex-col">
+    <!-- HEADER -->
+    {% include header.html %}
 
-    {% include cssCritical.html %}
+    <main class="portfolio-page">
+      <div class="container">
+        <!-- Hero Section -->
+        <section class="portfolio-hero grid">
+          <div>
+            <div class="portfolio-kicker inflex-row">Selected work</div>
 
-</head>
+            <h1 class="section-title">
+              Projects that turn
+              <span>data into decisions.</span>
+            </h1>
 
+            <p class="portfolio-description mt-7">
+              Explore analytical projects, dashboards, reporting solutions, and
+              data workflows built to solve practical business problems.
+            </p>
+          </div>
 
-<body>
-
-    <div class="container">
-
-        <!-- HEADER -->
-        <nav id="header">
-            {% include header.html %}
-        </nav>
-
-        <main class="blog-wrapper">
-
-            <h1>Explore, Learn, Share</h1>
-
-            <div class="category-buttons">
-                <span class="other-categories selected-category" filter="all">All</span>
-                <span class="other-categories" filter="excel">Excel</span>
-                <span class="other-categories" filter="powerbi">Power BI</span>
-                <span class="other-categories" filter="sql">SQL</span>
-                <span class="other-categories" filter="others">Others</span>
+          <div class="portfolio-stats grid">
+            <div class="portfolio-stat p-5">
+              <strong class="block txt-h3">12+</strong>
+              <span> Projects completed </span>
             </div>
-            <div class="posts">
 
-                {% for project in site.projects %}
-                <div class="post-item {{ post.categories | join: ' ' }}">
-                    <div class="post-image">
-                        {% if project.image %}
-                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-                        {% else %}
-                        <img src="{{ '/assets/images/featured_default.png' | asset_url }}" alt="{{ project.title }}">
-                        {% endif %}
-                    </div>
+            <div class="portfolio-stat p-5">
+              <strong class="block txt-h3">6</strong>
+              <span> Analytics tools </span>
+            </div>
 
-                    <div class="post-content">
-                        {% for category in project.categories %}
-                        <span class="category">{{ category }}</span>
-                        {% endfor %}
-                        <h5><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h5>
-                        <p>{{ project.excerpt }}</p>
-                    </div>
+            <div class="portfolio-stat p-5">
+              <strong class="block txt-h3">4</strong>
+              <span> Core specialties </span>
+            </div>
+
+            <div class="portfolio-stat p-5">
+              <strong class="block txt-h3">100%</strong>
+              <span> Business-focused </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Project Filters -->
+        <section
+          class="portfolio-controls flex-row py-8"
+          aria-label="Project filters"
+        >
+          <div class="portfolio-filter-label">Explore projects by category</div>
+
+          <div class="category-buttons flex-row-wrap">
+            <span
+              class="other-categories selected-category inflex-row py-2 px-4"
+              data-filter="all"
+            >
+              All
+            </span>
+
+            <span
+              class="other-categories inflex-row py-2 px-4"
+              data-filter="powerbi"
+            >
+              Power BI
+            </span>
+
+            <span
+              class="other-categories inflex-row py-2 px-4"
+              data-filter="excel"
+            >
+              Excel
+            </span>
+
+            <span
+              class="other-categories inflex-row py-2 px-4"
+              data-filter="python"
+            >
+              Python
+            </span>
+
+            <span
+              class="other-categories inflex-row py-2 px-4"
+              data-filter="sql"
+            >
+              SQL
+            </span>
+
+            <span
+              class="other-categories inflex-row py-2 px-4"
+              data-filter="others"
+            >
+              Others
+            </span>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" aria-label="Projects">
+          <div class="projects grid" id="projectsGrid">
+            {% for project in site.projects %}
+            <article class="project" data-category="{{ project.category }}">
+              <div class="project-visual">
+                <div class="visual-label">{{ project.label }}</div>
+                {% if project.image %}
+                <img
+                  class="visual-image"
+                  src="{{ project.image | relative_url }}"
+                  alt="{{ project.title }}"
+                />
+                {% else %}
+                <img
+                  class="visual-image"
+                  src="{{ '/assets/images/featured_default.png' | asset_url }}"
+                  alt="{{ project.title }}"
+                />
+                {% endif %}
+              </div>
+              <div class="project-body p-5">
+                <div class="tag-row flex-row-wrap mb-3">
+                  {% for tag in project.tags %}
+                  <span class="tag">{{ tag }}</span>
+                  {% endfor %}
                 </div>
-                {% endfor %}
+                <h3 class="txt-h6">{{ project.title }}</h3>
+                <p>{{ project.excerpt }}</p>
+                <a href="{{ project.url | relative_url }}" class="project-link"
+                  >View case study →</a
+                >
+              </div>
+            </article>
+            {% endfor %}
+          </div>
 
-            </div>
+          <div class="no-projects" id="noProjects">
+            No projects found in this category.
+          </div>
+        </section>
+      </div>
+    </main>
 
-            <div class="pagination"></div>
+    <!-- FOOTER -->
+    {% include footer.html %}
 
-        </main>
+    <!-- Main JS file -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <!-- Project filters -->
+    <script>
+      const filters = document.querySelectorAll(".other-categories");
 
-        <!-- FOOTER -->
-        <footer>
-            {% include footer.html %}
-        </footer>
+      const projects = document.querySelectorAll(".project");
 
-    </div>
+      const noProjects = document.getElementById("noProjects");
 
-</body>
+      filters.forEach(function (filter) {
+        filter.addEventListener("click", function () {
+          const selectedFilter = this.dataset.filter;
 
+          filters.forEach(function (item) {
+            item.classList.remove("selected-category");
+          });
+
+          this.classList.add("selected-category");
+
+          let visibleProjects = 0;
+
+          projects.forEach(function (project) {
+            const category = project.dataset.category;
+
+            if (selectedFilter === "all" || category === selectedFilter) {
+              project.style.display = "block";
+
+              visibleProjects++;
+            } else {
+              project.style.display = "none";
+            }
+          });
+
+          noProjects.style.display = visibleProjects === 0 ? "block" : "none";
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,47 @@
+- name: "Power BI"
+  desc: "Data modeling, dashboards, Power Query, DAX and deployment."
+  icon: "assets/images/tools/power-bi.svg"
+
+- name: "DAX"
+  desc: "Measures, calculated columns, time intelligence and optimization."
+  icon: "assets/images/tools/dax-studio.svg"
+
+- name: "Power Query"
+  desc: "ETL, data cleansing, transformation and reusable query logic."
+  icon: "assets/images/tools/power-query.svg"
+
+- name: "Vega"
+  desc: "Custom data visualizations and advanced visual storytelling."
+  icon: "assets/images/tools/vega.svg"
+
+- name: "Excel"
+  desc: "Advanced analysis, formulas, reporting and Microsoft-certified expertise."
+  icon: "assets/images/tools/excel.svg"
+
+- name: "VBA"
+  desc: "Macros, automation and custom Excel solutions."
+  icon: "assets/images/tools/vba.svg"
+
+- name: "Power Automate"
+  desc: "Workflow automation, connectors and data integration."
+  icon: "assets/images/tools/power-automate.svg"
+
+- name: "Python"
+  desc: "Pandas, data analysis, automation and exploratory workflows."
+  icon: "assets/images/tools/python.svg"
+
+- name: "SQL"
+  desc: "Querying, aggregation, joins and analytical data preparation."
+  icon: "assets/images/tools/sql.svg"
+
+- name: "HTML"
+  desc: "Semantic structure, web standards, clean markup and accessible layouts."
+  icon: "assets/images/tools/html.svg"
+
+- name: "CSS"
+  desc: "Responsive design, modern layouts, custom styling and visual polish."
+  icon: "assets/images/tools/css.svg"
+
+- name: "JavaScript"
+  desc: "Dynamic interactivity, DOM manipulation, client-side logic and web APIs."
+  icon: "assets/images/tools/javascript.svg"

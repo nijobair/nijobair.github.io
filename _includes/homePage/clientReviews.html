@@ -1,0 +1,34 @@
+<section class="section reviews-section" id="reviews">
+  <div class="container">
+    <div class="section-head flex-row mb-8">
+      <div>
+        <div class="section-kicker">Client reviews</div>
+        <h2 class="section-title">Trusted for clarity,<br />not just dashboards.</h2>
+      </div>
+      <p class="section-intro">
+        Feedback from stakeholders and clients who value practical analysis,
+        clear communication and solutions built around business needs.
+      </p>
+    </div>
+
+    <div class="reviews grid">
+      {% for review in site.data.client-reviews %}
+      <article class="review flex-col p-6">
+        <div class="flex-row review-header">
+            <span class="review-quote">“</span>
+            <span class="review-platform">{{ review.platform | upcase }}</span>
+        </div>
+        <p class="mt-4 mb-6">{{ review.review }}</p>
+        <div class="review-author flex-row">
+          <div class="review-avatar grid">{{ review.name_abbr | upcase }}</div>
+          <div>
+            <div class="review-name">{{ review.name }}</div>
+            <span class="review-role block">{{ review.title }}</span>
+          </div>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

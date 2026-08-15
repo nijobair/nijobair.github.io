@@ -1,81 +1,63 @@
 ---
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.lang | default: 'en-US' }}">
-
-<head>
+  <head>
     {% include head.html %}
     <title>{{ site.title }}</title>
 
-    <link rel="preload" href="{{ '/assets/css/homePage.min.css' | relative_url }}" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
+    <link
+      rel="preload"
+      href="{{ '/assets/css/homePage.css' | relative_url }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
     <noscript>
-        <link rel="stylesheet" href="{{ '/assets/css/homePage.min.css' | relative_url }}">
+      <link
+        rel="stylesheet"
+        href="{{ '/assets/css/homePage.css' | relative_url }}"
+      />
     </noscript>
+  </head>
 
-    {% include cssCritical.html %}
+  <body class="flex-col">
+    <!-- HEADER -->
+    {% include header.html %}
 
-</head>
+    <main>
+      <!-- Hero Section -->
+      {% include homePage/heroSection.html %}
 
+      <!-- About -->
+      {% include homePage/about.html %}
 
-<body>
+      <!-- Skills -->
+      {% include homePage/skills.html %}
 
-    {% include loader.html %}
+      <!-- Projects -->
+      {% include homePage/featuredProjects.html %}
 
-    <div class="container">
+      <!-- Experience -->
+      {% include homePage/experiences.html %}
 
-        <!-- HEADER -->
-        <nav id="header">
-            {% include header.html %}
-        </nav>
+      <!-- Acquired certifications -->
+      {% include homePage/certifications.html %}
 
-        <main class="home-wrapper">
+      <!-- Client reviews -->
+      {% include homePage/clientReviews.html %}
 
-            <!-- Hero Section -->
-            {% include homePage/heroSection.html %}
+      <!-- Acquired certifications -->
+      {% include homePage/contactForm.html %}
+    </main>
 
-            <!-- About -->
-            {% include homePage/about.html %}
+    <!-- FOOTER -->
+    {% include footer.html %}
 
-            <!-- Projects -->
-            <!-- <div class="index-projects" markdown="1">
-            
-            <div class="home-title">
-            <h2>Projects</h2>
-            </div>
-            
-            {% for project in site.projects %}
-            - [{{ project.title }}]({{ project.url | relative_url }})
-            {% endfor %}
-            
-            </div> -->
-
-            <!-- Acquired certifications -->
-            {% include homePage/badges.html %}
-
-
-            <!-- Publications: blog, tutorial, papers, learning resources, etc. -->
-            {% include homePage/featuredPosts.html %}
-
-            <!-- Scrolling Logos -->
-            {% include homePage/scrollingLogos.html %}
-
-            <!-- Testimonials -->
-            {% include homePage/testimonials.html %}
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer>
-            {% include footer.html %}
-        </footer>
-
-    </div>
-
-    <!-- JAVASCRIPT -->
-    <script defer type="module" src="{{ '/assets/js/homePage.mjs' | relative_url }}"></script>
-
-</body>
-
+    <!-- Main JS file -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
 </html>

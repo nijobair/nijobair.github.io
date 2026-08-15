@@ -3,41 +3,183 @@ title: 4️⃣0️⃣4️⃣
 permalink: /404.html
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    {% include head.html %}
+    <title>{{ page.title }} | {{ site.title }}</title>
 
-<head>
-  {% include head.html %}
-  <title>{{ page.title }} | {{ site.title }}</title>
+    <link
+      rel="preload"
+      href="{{ '/assets/css/404.css' | relative_url }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="{{ '/assets/css/404.css' | relative_url }}"
+      />
+    </noscript>
+  </head>
 
-  <link rel="preload" href="{{ '/assets/css/blog.min.css' | relative_url }}" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="{{ '/assets/css/blog.min.css' | relative_url }}">
-  </noscript>
+  <body class="flex-col">
+    <!-- HEADER -->
+    {% include header.html %}
 
-  {% include cssCritical.html %}
+    <main>
+      <section class="error-page">
+        <div class="container">
+          <div class="error-content">
+            <div class="analytics-error-visual p-6" aria-hidden="true">
+              <div class="fake-dashboard-header flex-row mb-4">
+                <div class="fake-dashboard-title"></div>
 
-</head>
+                <div class="fake-dashboard-dots flex-row">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
 
-<body>
-  <div class="container">
+              <div class="fake-dashboard grid">
+                <!-- Broken chart -->
 
-    <nav id="header">
-      {% include header.html %}
-    </nav>
+                <div class="fake-panel p-4">
+                  <div class="broken-chart">
+                    <div class="chart-lines flex-col">
+                      <div class="chart-line"></div>
+                      <div class="chart-line"></div>
+                      <div class="chart-line"></div>
+                      <div class="chart-line"></div>
+                    </div>
 
-    <main class="blog-wrapper">
+                    <div class="chart-path">
+                      <svg viewBox="0 0 500 100" preserveAspectRatio="none">
+                        <path
+                          d="M 0 72 L 55 58 L 105 65 L 155 34 L 205 45 L 255 20 L 305 42 L 355 31 L 405 55 L 455 27 L 500 48"
+                        ></path>
+                      </svg>
+                    </div>
 
-      <img class="shadowless"
-        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWoybjd4dHg2a202dTl6Mjd1ZGMzaWZ0N3FmNzVnbWd5MXdnNjQ4aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiN0L7EW5trfOvEk0/giphy.gif"
-        alt="Not found gif">
+                    <div class="chart-x grid">×</div>
+                  </div>
+                </div>
 
-      <footer>
-        {% include footer.html %}
-      </footer>
+                <div class="fake-panel p-4">
+                  <div class="fake-kpis grid">
+                    <div class="fake-kpi p-2">
+                      <div class="fake-kpi-label mb-2"></div>
 
+                      <div class="fake-kpi-broken">ERR</div>
+                    </div>
+
+                    <div class="fake-kpi p-2">
+                      <div class="fake-kpi-label mb-2"></div>
+
+                      <div class="fake-kpi-broken">—</div>
+                    </div>
+
+                    <div class="fake-kpi p-2">
+                      <div class="fake-kpi-label mb-2"></div>
+
+                      <div class="fake-kpi-value"></div>
+                    </div>
+
+                    <div class="fake-kpi p-2">
+                      <div class="fake-kpi-label mb-2"></div>
+
+                      <div class="fake-kpi-broken">404</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="error-number inline-block" aria-hidden="true">
+              <span class="inline-block">4</span>
+              <span class="broken-zero inline-block">0</span>
+              <span class="inline-block">4</span>
+            </div>
+
+            <div class="error-label mt-7 mb-4 py-2 px-3 inflex-row">
+              ANALYSIS_FAILED
+            </div>
+
+            <h1 class="txt-h1">This analysis couldn't find the page.</h1>
+
+            <p class="error-description">
+              The requested URL returned no usable data. The page may have been
+              moved, renamed, or the link may simply be broken.
+            </p>
+
+            <div class="query-error">
+              <span class="query-status"></span>
+
+              <span class="query-text">
+                <strong>QueryError:</strong>
+                Data source returned
+                <strong>404 — Page Not Found</strong>
+              </span>
+            </div>
+
+            <div class="error-actions">
+              <a href="/" class="btn btn-primary error-button">
+                ← Back to Home
+              </a>
+              <a
+                href="{{ '/portfolio' | relative_url }}"
+                class="btn btn-secondary error-button"
+              >
+                Explore Projects
+              </a>
+              <a
+                href="{{ '/blog' | relative_url }}"
+                class="btn btn-secondary error-button"
+              >
+                Read Blog
+              </a>
+            </div>
+
+            <div class="suggested-links">
+              <a
+                href="{{ '/portfolio' | relative_url }}"
+                class="suggested-link"
+              >
+                <div class="suggested-icon">◇</div>
+
+                <h2>Explore Projects</h2>
+
+                <p>
+                  Browse data analytics projects, dashboards, and case studies.
+                </p>
+
+                <span class="card-arrow"> → </span>
+              </a>
+
+              <a href="{{ '/blog' | relative_url }}" class="suggested-link">
+                <div class="suggested-icon">✦</div>
+
+                <h2>Read the Blog</h2>
+
+                <p>
+                  Explore articles about Excel, Power BI, SQL, and analytics.
+                </p>
+
+                <span class="card-arrow"> → </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
-  </div>
-</body>
+    <!-- FOOTER -->
+    {% include footer.html %}
+    <!-- Main JS file -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  </body>
+</html>

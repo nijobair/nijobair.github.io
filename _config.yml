@@ -17,7 +17,7 @@ markdown: kramdown
 kramdown:
   syntax_highlighter: None
   syntax_highlighter_opts:
-    disable : true
+    disable: true
 
 
 # SASS configuration
@@ -32,8 +32,6 @@ sass:
 collections_dir: my_collections
 collections:
   projects:
-    output: true
-  sqlChallengeHub:
     output: true
   vegaCharts:
     output: true
@@ -78,25 +76,5 @@ exclude:
   - __Extras
   - my_collections/_posts/_drafts
   - my_collections/_projects/_drafts
-  - assets/css/blog.css
-  - assets/css/global.css
-  - assets/css/homePage.css
-  - assets/css/others.css
-  - assets/css/sqlChallengeHub.css
-  - assets/css/accordion.css
-  - assets/js/blog.js
-  - assets/js/highlight.js
-  - assets/js/sqlChallengeHub/annotateScrollbar.js
-  - assets/js/sqlChallengeHub/closeBrackets.js
-  - assets/js/sqlChallengeHub/codeMirror.js
-  - assets/js/sqlChallengeHub/comment.js
-  - assets/js/sqlChallengeHub/fullScreen.js
-  - assets/js/sqlChallengeHub/matchBrackets.js
-  - assets/js/sqlChallengeHub/matchHighlighter.js
-  - assets/js/sqlChallengeHub/matchOnScrollbar.js
-  - assets/js/sqlChallengeHub/placeHolder.js
-  - assets/js/sqlChallengeHub/searchCursor.js
-  - assets/js/sqlChallengeHub/sqlChallengeHub.js
-  - assets/js/sqlChallengeHub/sqlCodeMirror.js
 
   

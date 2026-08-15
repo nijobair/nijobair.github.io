@@ -1,0 +1,65 @@
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-box grid">
+      <div class="contact-copy">
+        <div class="section-kicker">Get in touch</div>
+        <h2 class="txt-h1">Let's build something useful with data.</h2>
+        <p class="mt-4">
+          Whether you need a Power BI dashboard, an automated reporting
+          workflow, or help making sense of your data, I'd be happy to discuss
+          the problem.
+        </p>
+
+        <div class="contact-detail mt-6">
+          {% for social in site.data.social-media %}
+            <a
+              href="{{ social.link }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-detail-item"
+            >
+              {{ social.logo | raw }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <form class="contact-form p-10" id="contactForm">
+        <div class="form-grid grid">
+          <div>
+            <label class="block mb-2" for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div>
+            <label class="block mb-2" for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="field-full">
+            <label class="block mb-2" for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="How can I help?" />
+          </div>
+
+          <div class="field-full">
+            <label class="block mb-2" for="message">Message</label>
+            <textarea
+              id="message"
+              placeholder="Tell me a little about your project..."
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <button class="btn btn-primary form-submit mt-4" type="submit">
+          Send Message →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,324 +1,584 @@
-/*
-------------------------------------------------------------
-Fonts
-------------------------------------------------------------
-*/
+/* GLOBAL VARIABLES */
+:root {
+  /* COLORS */
+  --col-black: #000000;
+  --col-white: #ffffff;
+  --col-red: #ff0000;
 
-/*
-By default, 1rem = 16px
-*/
+  --col-gray-50: #FAF8F9;
+  --col-gray-100: #F4F0F2;
+  --col-gray-200: #E8E1E4;
+  --col-gray-300: #D8CDD2;
+  --col-gray-400: #B5A7AE;
+  --col-gray-500: #8A7C83;
+  --col-gray-600: #6A5C63;
+  --col-gray-700: #4C4046;
+  --col-gray-800: #30262B;
+  --col-gray-900: #21191D;
 
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  --col-pr-50: #FBF4F7;
+  --col-pr-100: #F5E6EC;
+  --col-pr-200: #E9C9D5;
+  --col-pr-300: #D9A5B8;
+  --col-pr-400: #BE718D;
+  --col-primary: #7C334F;
+  --col-pr-600: #6A2B43;
+  --col-pr-700: #592438;
+  --col-pr-800: #471D2D;
+  --col-pr-900: #351621;
+  --col-pr-hover: var(--col-pr-600);
+  --col-pr-active: var(--col-pr-700);
+  --col-pr-subtle: var(--col-pr-50);
+  --col-pr-muted: var(--col-pr-100);
+
+  --col-background: #FFFCFD;
+  --col-surface: #F8F5F6;
+  --col-surface-raised: #FFFFFF;
+  --col-surface-sunken: #F1ECEE;
+
+  --col-txt-default: #24191E;
+  --col-txt-muted: #655960;
+  --col-txt-subtle: #8A7C83;
+  --col-txt-inverse: #FFFFFF;
+
+  --col-border-def: #E5DDE1;
+  --col-border-strong: #D3C5CC;
+  --col-success: #287A52;
+  --col-success-bg: #EAF6EF;
+  --col-warning: #A66A00;
+  --col-warning-bg: #FFF4D6;
+  --col-danger: #B4233D;
+  --col-danger-bg: #FDECEF;
+  --col-info: #2867A8;
+  --col-info-bg: #EAF3FB;
+
+  --col-chart-1: #7C334F;
+  --col-chart-2: #2F6F73;
+  --col-chart-3: #D28C45;
+  --col-chart-4: #526A8D;
+  --col-chart-5: #7B6B8F;
+
+  /* FONTS */
+  --font-def:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-title: Georgia, "Times New Roman", serif;
+  --font-mono:
+    "Cascadia Code", "Source Code Pro", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  /* font size
+  12px → 0.75rem
+  13px → 0.8125rem
+  14px → 0.875rem
+  15px → 0.9375rem
+  16px → 1rem
+  18px → 1.125rem
+  20px → 1.25rem
+  24px → 1.5rem
+  28px → 1.75rem
+  32px → 2rem
+  40px → 2.5rem
+  48px → 3rem
+  56px → 3.5rem
+  64px → 4rem */
+  --fs-display-xl: clamp(3rem, 2.25rem + 3vw, 4rem);
+  --fs-display-lg: clamp(2.75rem, 2.125rem + 2.5vw, 3.5rem);
+  --fs-display: clamp(2.5rem, 2rem + 2vw, 3rem);
+  --fs-h1: clamp(2.25rem, 1.875rem + 1.5vw, 2.5rem);
+  --fs-h2: clamp(1.875rem, 1.625rem + 1vw, 2rem);
+  --fs-h3: clamp(1.625rem, 1.5rem + 0.625vw, 1.75rem);
+  --fs-h4: clamp(1.375rem, 1.25rem + 0.625vw, 1.5rem);
+  --fs-h5: 1.25rem;
+  --fs-h6: 1.125rem;
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.9375rem;
+  --fs-small: 0.875rem;
+  --fs-xsmall: 0.75rem;
+  --fs-label: 0.8125rem;
+  --fs-button: 0.875rem;
+  --fs-overline: 0.75rem;
+  --fs-code: 0.875rem;
+  /* line height */
+  --lh-none: 1;
+  --lh-tight: 1.1;
+  --lh-snug: 1.2;
+  --lh-normal: 1.4;
+  --lh-relaxed: 1.5;
+  --lh-loose: 1.6;
+  /* letter spacing */
+  --ls-tighter: -0.03em;
+  --ls-tight: -0.02em;
+  --ls-normal: 0;
+  --ls-wide: 0.02em;
+  --ls-wider: 0.04em;
+  --ls-widest: 0.08em;
+
+  --f-display-xl: var(--fw-bold) var(--fs-display-xl) / var(--lh-tight)
+    var(--font-title);
+  --f-display-lg: var(--fw-bold) var(--fs-display-lg) / var(--lh-tight)
+    var(--font-title);
+  --f-display: var(--fw-bold) var(--fs-display) / var(--lh-tight)
+    var(--font-title);
+  --f-h1: var(--fw-bold) var(--fs-h1) / var(--lh-tight) var(--font-title);
+  --f-h2: var(--fw-bold) var(--fs-h2) / var(--lh-snug) var(--font-title);
+  --f-h3: var(--fw-bold) var(--fs-h3) / var(--lh-snug) var(--font-title);
+  --f-h4: var(--fw-semibold) var(--fs-h4) / var(--lh-snug) var(--font-title);
+  --f-h5: var(--fw-semibold) var(--fs-h5) / var(--lh-snug) var(--font-title);
+  --f-h6: var(--fw-semibold) var(--fs-h6) / var(--lh-snug) var(--font-title);
+  --f-body-lg: var(--fw-regular) var(--fs-body-lg) / var(--lh-relaxed)
+    var(--font-def);
+  --f-body: var(--fw-regular) var(--fs-body) / var(--lh-relaxed) var(--font-def);
+  --f-body-md: var(--fw-medium) var(--fs-body) / var(--lh-relaxed)
+    var(--font-def);
+  --f-body-semibold: var(--fw-semibold) var(--fs-body) / var(--lh-relaxed)
+    var(--font-def);
+  --f-body-bold: var(--fw-bold) var(--fs-body) / var(--lh-relaxed)
+    var(--font-def);
+  --f-body-sm: var(--fw-regular) var(--fs-body-sm) / var(--lh-relaxed)
+    var(--font-def);
+  --f-small: var(--fw-regular) var(--fs-small) / var(--lh-normal)
+    var(--font-def);
+  --f-small-medium: var(--fw-medium) var(--fs-small) / var(--lh-normal)
+    var(--font-def);
+  --f-small-bold: var(--fw-bold) var(--fs-small) / var(--lh-normal)
+    var(--font-def);
+  --f-xsmall: var(--fw-regular) var(--fs-xsmall) / var(--lh-normal)
+    var(--font-def);
+  --f-label: var(--fw-medium) var(--fs-label) / var(--lh-normal) var(--font-def);
+  --f-label-bold: var(--fw-bold) var(--fs-label) / var(--lh-normal)
+    var(--font-def);
+  --f-button: var(--fw-semibold) var(--fs-button) / var(--lh-none)
+    var(--font-def);
+  --f-overline: var(--fw-bold) var(--fs-overline) / var(--lh-normal)
+    var(--font-def);
+  --f-code: var(--fw-regular) var(--fs-code) / var(--lh-normal) var(--font-mono);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-circle: 50%;
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-def: var(--border-width-thin) solid var(--col-border-def);
+  --border-strong: var(--border-width-medium) solid var(--col-border-strong);
+
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 20px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 40px rgb(0 0 0 / 0.12);
+
+  --transition-fast: 120ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
+  --space-11: 44px;
+  --space-12: 48px;
+  --space-13: 52px;
+  --space-14: 56px;
+  --space-15: 60px;
+  --space-16: 64px;
+  --space-17: 68px;
+  --space-18: 72px;
+  --space-19: 76px;
+  --space-20: 80px;
+
+  --width-max: 1152px;
+  --focus-ring: 0 0 0 3px rgb(37 99 235 / 0.25);
 }
+/* THEME SPECIFIC VARIABLES (OVERRIDES GLOBAL VARIABLES): */
+[data-theme="dark"] {
+  --col-primary: #B85D7C;
+  --col-pr-hover: #C87390;
+  --col-pr-active: #A94E6D;
+  --col-pr-subtle: #3A202B;
+  --col-pr-muted: #4A2735;
 
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('../fonts/Ubuntu-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
+  --col-background: #171315;
+  --col-surface: #211B1E;
+  --col-surface-raised: #2A2226;
+  --col-surface-sunken: #100D0F;
+
+  --col-txt-default: #F7F0F3;
+  --col-txt-muted: #C8BBC1;
+  --col-txt-subtle: #9C8D95;
+  --col-txt-inverse: #24191E;
+
+  --col-border-def: #3A3035;
+  --col-border-strong: #51434A;
+  --border-def: var(--border-width-thin) solid var(--col-border-def);
+  --border-strong: var(--border-width-medium) solid var(--col-border-strong);
+
+  --col-success: #65C18C;
+  --col-success-bg: #193326;
+  --col-warning: #E2AE4F;
+  --col-warning-bg: #3A2D18;
+  --col-danger: #E67588;
+  --col-danger-bg: #3B1F27;
+  --col-info: #70A9DC;
+  --col-info-bg: #1C2E40;
 }
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
-    font-weight: 1000;
-    font-style: bold;
+html {
+  scroll-behavior: smooth;
 }
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url('../fonts/Ubuntu-BoldItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
-
-@font-face {
-    font-family: 'UbuntuMono';
-    src: url('../fonts/UbuntuMono-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-
-@font-face {
-    font-family: 'Lugrasimo';
-    src: url('../fonts/Lugrasimo-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/*
-------------------------------------------------------------
-Base font
-------------------------------------------------------------
-*/
 body {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--color-text);
-    -webkit-font-smoothing: antialiased;
-    font-size: 1rem;
-    line-height: 1.3;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--col-background);
+  color: var(--col-txt-default);
+  font: var(--f-body);
 }
-
-/*
-------------------------------------------------------------
-Paragraph
-------------------------------------------------------------
-*/
-p {
-    margin: .7em .25em 0;
+main {
+  flex: 1 0 auto;
 }
-
-/*
-------------------------------------------------------------
-Bold text
-------------------------------------------------------------
-*/
-strong {
-    font-weight: bold;
+.container {
+  width: min(calc(100% - 48px), var(--width-max));
+  margin-inline: auto;
 }
-
-/*
-------------------------------------------------------------
-Italic text
-------------------------------------------------------------
-*/
-em {
-    font-style: italic;
-}
-
-/*
-------------------------------------------------------------
-Headers
-------------------------------------------------------------
-*/
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--color-primary);
-    font-style: italic;
-    margin: .25em 0 0 0;
-    line-height: 1.2;
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
-
-h1 {
-    text-align: center;
-    font-size: clamp(2rem, 5vw, 3rem);
-    border-bottom: 0.1em solid #d3ccc1;
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
 }
-
-h3 {
-    font-size: clamp(1.5rem, 3.5vw, 2rem);
+/* Force form inputs and buttons to inherit the body font */
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
-
-h4 {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--col-background);
 }
-
-h5 {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+.abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
-h6 {
-    font-size: clamp(0.875rem, 2vw, 1.25rem);
+.block {
+  display: block;
 }
-
-
+.inline-block {
+  display: inline-block;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.inflex-col {
+  display: inline-flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.inflex-row {
+  display: inline-flex;
+  flex-direction: row;
+}
+.flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.grid {
+  display: grid;
+}
 /*
-------------------------------------------------------------
-Links
-------------------------------------------------------------
+--------------------------------------------------------------
+LINKS
+--------------------------------------------------------------
 */
 a {
-    color: var(--color-link);
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
-
-a:hover {
-    text-decoration: underline;
-    color: var(--color-linkHover);
+.link {
+  color: var(--col-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-
+.link:hover {
+  text-decoration-thickness: 2px;
+}
 /*
-------------------------------------------------------------
-Loader
-------------------------------------------------------------
+--------------------------------------------------------------
+BUTTONS
+--------------------------------------------------------------
 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding-inline: var(--space-4);
+  padding-block: var(--space-3);
+  border-radius: var(--radius-md);
+  font: var(--f-button);
+  cursor: pointer;
+  border: none;
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-fast);
+}
+.btn:hover {
+  filter: brightness(0.95);
+}
 
-
+.btn:active {
+  transform: translateY(-1px);
+}
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-primary {
+  background-color: var(--col-primary);
+  color: var(--col-white);
+}
+.btn-primary:hover {
+  background-color: var(--col-pr-hover);
+}
+.btn-secondary {
+  color: var(--col-primary);
+  border: 1px solid var(--col-primary);
+  background: transparent;
+}
+.btn-secondary:hover {
+  background-color: var(--col-pr-subtle);
+}
 /*
-------------------------------------------------------------
-Header
-------------------------------------------------------------
+--------------------------------------------------------------
+MARGINS
+--------------------------------------------------------------
 */
-nav {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 90px;
-    line-height: 90px;
-    background: var(--color-background);
-    padding-inline: 9vw;
-    transition: .3s;
-    z-index: 100;
+.m-0 {
+  margin: 0;
 }
-
-.nav-logo {
-    position: relative;
-    width: 135px;
+.m-auto {
+  margin: auto;
 }
-
-a#site-logo {
-    height: 45px;
-    display: block;
-    background: transparent url(../images/NIJobair.svg) 0 0 no-repeat;
-    transition-duration: 0.3s;
+.mt-1 {
+  margin-top: var(--space-1);
 }
-
-a#site-logo:hover {
-    transform: scale(1.1, 1.1);
-    transition: transform 0.3s ease-in-out;
+.mt-2 {
+  margin-top: var(--space-2);
 }
-
-.nav-menu,
-.nav_menu_list {
-    display: flex;
-    padding: 0;
+.mt-3 {
+  margin-top: var(--space-3);
 }
-
-.nav-menu .nav_list {
-    list-style: none;
-    position: relative;
-    background: none;
-    padding: 0;
+.mt-4 {
+  margin-top: var(--space-4);
 }
-
-.nav-link {
-    text-decoration: none;
-    font-weight: bold;
-    padding-inline: 15px;
-    margin-inline: 20px;
+.mt-6 {
+  margin-top: var(--space-6);
 }
-
-.nav-link:hover {
-    color: var(--color-primary);
-    text-decoration: none;
+.mt-7 {
+  margin-top: var(--space-7);
 }
-
-.nav-menu-btn {
-    display: none;
+.mt-8 {
+  margin-top: var(--space-8);
 }
-
+.mb-1 {
+  margin-bottom: var(--space-1);
+}
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+.mb-3 {
+  margin-bottom: var(--space-3);
+}
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.ml-auto {
+  margin-left: auto;
+}
+.mr-auto {
+  margin-right: auto;
+}
 /*
-------------------------------------------------------------
-Footer
-------------------------------------------------------------
+--------------------------------------------------------------
+PADDINGS
+--------------------------------------------------------------
 */
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 30px;
-    padding-block: 20px 20px;
+.p-0 {
+  padding: 0;
 }
-
-
-footer div.copyright p {
-    color: var(--color-primary);
-    font-size: .7rem;
-    font-weight: bold;
+.p-1 {
+  padding: var(--space-1);
 }
-
+.p-2 {
+  padding: var(--space-2);
+}
+.p-3 {
+  padding: var(--space-3);
+}
+.p-4 {
+  padding: var(--space-4);
+}
+.p-5 {
+  padding: var(--space-5);
+}
+.p-6 {
+  padding: var(--space-6);
+}
+.p-5 {
+  padding: var(--space-5);
+}
+.p-8 {
+  padding: var(--space-8);
+}
+.p-10 {
+  padding: var(--space-10);
+}
+.px-2 {
+  padding-inline: var(--space-2);
+}
+.px-3 {
+  padding-inline: var(--space-3);
+}
+.px-4 {
+  padding-inline: var(--space-4);
+}
+.px-6 {
+  padding-inline: var(--space-6);
+}
+.py-2 {
+  padding-block: var(--space-2);
+}
+.py-4 {
+  padding-block: var(--space-4);
+}
+.py-6 {
+  padding-block: var(--space-6);
+}
+.py-8 {
+  padding-block: var(--space-8);
+}
 /*
-------------------------------------------------------------
-Footer link
-------------------------------------------------------------
+--------------------------------------------------------------
+TEXTS
+--------------------------------------------------------------
 */
-footer div.copyright a {
-    color: #7eb0d2;
-    font-family: 'Lugrasimo', sans-serif;
-    font-weight: bold;
+.txt-h1 {
+  font: var(--f-h1);
 }
-
+.txt-h2 {
+  font: var(--f-h2);
+}
+.txt-h3 {
+  font: var(--f-h3);
+}
+.txt-h4 {
+  font: var(--f-h4);
+}
+.txt-h5 {
+  font: var(--f-h5);
+}
+.txt-h6 {
+  font: var(--f-h6);
+}
+.txt-muted {
+  color: var(--col-txt-muted);
+}
+.txt-subtle {
+  color: var(--col-txt-subtle);
+}
+.txt-primary {
+  color: var(--col-primary);
+}
+.txt-danger {
+  color: var(--col-danger);
+}
+.txt-success {
+  color: var(--col-success);
+}
 /*
-------------------------------------------------------------
-Glossary Tooltip
-------------------------------------------------------------
+--------------------------------------------------------------
+ACCESSIBILITY
+--------------------------------------------------------------
 */
-/* Tooltip from https://www.w3schools.com/css/css_tooltip.asp */
-.jekyll-glossary {
-    position: relative;
-    display: inline-block;
-    border-bottom: 2px dotted var(--color-primary);
-    cursor: help;
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
-
-.jekyll-glossary .jekyll-glossary-tooltip {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--color-backgroundDarker);
-    color: var(--color-black);
-    text-align: center;
-    font-size: 0.7em;
-    padding: 5px;
-    border-radius: 6px;
-
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-
-    width: 160px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -80px;
-    /* Use half of the width to center the tooltip */
-
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.jekyll-glossary:hover .jekyll-glossary-tooltip {
-    visibility: visible;
-}
-
-/* Style the source link (if there is one provided in the glossary entry). */
-.jekyll-glossary-source-link:before {
-    content: "[source]";
-}
-
-/* Arrow created with borders. */
-.jekyll-glossary .jekyll-glossary-tooltip::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--color-backgroundDarker) transparent transparent transparent;
-}
-
-/* Animation from invisible to visible on hover. */
-.jekyll-glossary .jekyll-glossary-tooltip {
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.jekyll-glossary:hover .jekyll-glossary-tooltip {
-    opacity: 1;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

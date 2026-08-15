@@ -1,19 +1,39 @@
-<div class="nav-logo">
-    <a id="site-logo" href="{{ site.url }}"></a>
-</div>
+<header class="sticky-header">
+  <div class="container nav flex-row">
+    <a href="{{ site.url }}" class="brand flex-row" aria-label="nijobair logo">
+      <img
+        src="/assets/images/my-logo.svg"
+        alt="brand logo"
+        class="brand-logo"
+      />
+      <div class="brand-name">
+        Nazmul Islam
+        <span class="brand-role block">DATA & ANALYTICS</span>
+      </div>
+    </a>
 
+    <nav class="nav-links flex-row" id="navLinks">
+      <a href="{{ '/portfolio' | relative_url }}">Portfolio</a>
+      <a href="{{ '/blog' | relative_url }}">Blog</a>
+      <a href="{{ '/#contact' | relative_url }}" id="letsTalk">Let's Talk</a>
+    </nav>
 
-<div class="nav-menu" id="myNavMenu">
-    <ul class="nav_menu_list">
-        <li class="nav_list">
-            <a href="{{ '/portfolio' | relative_url }}" class="nav-link">Portfolio</a>
-        </li>
-        <li class="nav_list">
-            <a href="{{ '/sql-challenge-hub' | relative_url }}" class="nav-link">SQLChallengeHub</a>
-        </li>
-        <li class="nav_list">
-            <a href="{{ '/blog' | relative_url }}" class="nav-link">Blog</a>
-        </li>
-    </ul>
-</div>
-<div class="nav-menu-btn" onclick="myMenuFunction()"></div>
+    <div class="nav-controls flex-row">
+      <button
+        id="themeToggle"
+        class="theme-toggle flex-row"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+    </div>
+  </div>
+</header>

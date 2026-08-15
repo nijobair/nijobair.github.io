@@ -1,24 +1,24 @@
-# UPWORK
-- link: "https://www.upwork.com/freelancers/nijobair?mp_source=share"
-  logo: "/assets/images/social-media/upwork.svg"
-  alt_text: "Click to view my Upwork profile"
-
 # LINKEDIN
 - link: "https://www.linkedin.com/in/nijobair/"
-  logo: "/assets/images/social-media/linkedin.svg"
+  logo: '<i class="fa-brands fa-square-linkedin"></i>'
   alt_text: "Start a conversation on LinkedIn"
 
-# BUYMEACOFFEE
-- link: "https://buymeacoffee.com/nijobair"
-  logo: "/assets/images/social-media/buymeacoffee.svg"
-  alt_text: "Support me on Buy Me a Coffee"
+# UPWORK
+- link: "https://www.upwork.com/freelancers/nijobair?mp_source=share"
+  logo: '<i class="fa-brands fa-square-upwork"></i>'
+  alt_text: "Click to view my Upwork profile"
 
 # FACEBOOK
 - link: "https://www.facebook.com/nijobair/"
-  logo: "/assets/images/social-media/facebook.svg"
+  logo: '<i class="fa-brands fa-square-facebook"></i>'
   alt_text: "Connect with me on Facebook"
 
 # REDDIT
 - link: "https://www.reddit.com/user/nijobair/"
-  logo: "/assets/images/social-media/reddit.svg"
+  logo: '<i class="fa-brands fa-square-reddit"></i>'
   alt_text: "Follow me on Reddit"
+
+# EMAIL
+- link: "mailto:nijobair@outlook.com"
+  logo: '<i class="fa-solid fa-square-envelope"></i>'
+  alt_text: "Send me an email"

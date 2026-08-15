@@ -1,59 +1,67 @@
+const d = document;
 /*
 ------------------------------------------------------------
 Navigation Bar Functionality
 ------------------------------------------------------------
 */
-window.myMenuFunction = function () {
-    var menuBtn = document.getElementById("myNavMenu");
-    var menuIcon = document.getElementsByClassName("nav-menu-btn")[0];
+const menuBtn = d.getElementById("menuBtn");
+const navLinks = d.getElementById("navLinks");
 
-    if (menuBtn.className === "nav-menu") {
-        menuBtn.className += " responsive";
-        menuIcon.className += " open";
-    } else {
-        menuBtn.className = "nav-menu";
-        menuIcon.className = "nav-menu-btn";
-    }
-};
+menuBtn.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.textContent = open ? "×" : "☰";
+});
+
+d.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+    });
+});
+
 
 /*
 ------------------------------------------------------------
-Header Shadow on Scroll
+Dark Mode Toggle Functionality
 ------------------------------------------------------------
 */
-window.onscroll = function () { headerShadow() };
+const themeToggle = d.getElementById("themeToggle");
+const currentTheme = localStorage.getItem("theme") || 
+                        (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
-function headerShadow() {
-    const navHeader = document.getElementById("header");
-
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-
-        navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
-        navHeader.style.height = "70px";
-        navHeader.style.lineHeight = "70px";
-
-    } else {
-
-        navHeader.style.boxShadow = "none";
-        navHeader.style.height = "90px";
-        navHeader.style.lineHeight = "90px";
-
-    }
+if (currentTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeToggle.textContent = "☀️";
 }
 
+themeToggle.addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    
+    if (isDark) {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙";
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️";
+    }
+});
 /*
 ------------------------------------------------------------
 Loader
 ------------------------------------------------------------
 */
-document.addEventListener("DOMContentLoaded", function () {
+d.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", function () {
         // Hide the loader
-        var loader = document.querySelector('.loader');
+        var loader = d.querySelector('.loader');
         loader.style.display = 'none';
 
         // Show the main content
-        var mainContent = document.querySelector('.container');
+        var mainContent = d.querySelector('.container');
         mainContent.style.display = 'block';
     });
 });

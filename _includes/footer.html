@@ -1,18 +1,13 @@
-<div class="social-media-footer">
-    {% for icon in site.data.social-media %}
-
-    <div>
-        <a href="{{ icon.link }}" target="_blank" class="follow-link">
-            <img class="icons" src="{{ icon.logo }}" alt="{{ icon.alt_text}}" title="{{ icon.alt_text }}">
-        </a>
+<footer>
+    <div class="container flex-row footer-container">
+        <div class="footer-brand">
+            <a href="https://nijobair.github.io/">Nazmul Islam</a> <span>· Data Analyst & Power BI Developer</span>
+        </div>
+        <div class="footer-links flex-row-wrap">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <span>&copy; 2023 - <script>document.write(new Date().getFullYear());</script></span>
+        </div>
     </div>
-
-    {% endfor %}
-</div>
-
-<div class="copyright">
-    <p>&copy; 2023 -
-        <script>document.write(new Date().getFullYear());</script> <a href="https://github.com/nijobair">Nazmul
-            Islam</a>. All rights reserved.
-    </p>
-</div>
+</footer>

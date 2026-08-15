@@ -1,0 +1,24 @@
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <div class="section-head flex-row mb-8">
+      <div>
+        <div class="section-kicker">Toolkit</div>
+        <h2 class="section-title">Tools I work with.</h2>
+      </div>
+      <p class="section-intro mt-2">
+        A practical stack for analytics, reporting, automation, and interactive
+        data experiences.
+      </p>
+    </div>
+
+    <div class="skills grid">
+      {% for skill in site.data.skills %}
+        <article class="skill p-4">
+            <img src="{{ skill.icon }}" alt="{{ skill.name }} icon" class="skill-icon grid">
+            <h3 class="txt-h6 py-2">{{ skill.name }}</h3>
+            <p class="mt-2 txt-subtle">{{ skill.desc }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
