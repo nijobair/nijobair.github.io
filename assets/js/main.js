@@ -109,7 +109,6 @@ d.addEventListener("DOMContentLoaded", function () {
 
     fetch(webAppUrl, {
       method: "POST",
-      mode: "no-cors", // This is important to avoid CORS issues
       body: data,
     })
       .then(function (response) {
