@@ -12,29 +12,32 @@
 
         <div class="contact-detail mt-6">
           {% for social in site.data.social-media %}
-            <a
-              href="{{ social.link }}"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-detail-item"
-            >
-              {{ social.logo | raw }}
-            </a>
+          <a
+            href="{{ social.link }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-detail-item"
+          >
+            {{ social.logo | raw }}
+          </a>
           {% endfor %}
         </div>
       </div>
 
-      <form class="contact-form p-10" id="contactForm">
+      <form class="contact-form pt-10 pb-10 pl-10 pr-10" id="contactForm">
+        <!-- Honey Pot Field -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="form-grid grid">
           <div>
             <label class="block mb-2" for="name">Name</label>
-            <input id="name" type="text" placeholder="Your name" required />
+            <input id="name" name="name" type="text" placeholder="Your name" required />
           </div>
 
           <div>
             <label class="block mb-2" for="email">Email</label>
             <input
               id="email"
+              name="email"
               type="email"
               placeholder="you@example.com"
               required
@@ -43,13 +46,14 @@
 
           <div class="field-full">
             <label class="block mb-2" for="subject">Subject</label>
-            <input id="subject" type="text" placeholder="How can I help?" />
+            <input id="subject" name="subject" type="text" placeholder="How can I help?" />
           </div>
 
           <div class="field-full">
             <label class="block mb-2" for="message">Message</label>
             <textarea
               id="message"
+              name="message"
               placeholder="Tell me a little about your project..."
               required
             ></textarea>

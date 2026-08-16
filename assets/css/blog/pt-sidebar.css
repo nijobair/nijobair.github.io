@@ -1,0 +1,52 @@
+.article-sidebar {
+    position: sticky;
+    top: 105px;
+}
+.toc {
+    background: var(--col-surface);
+    border: var(--border-def);
+    border-radius: var(--radius-lg);
+}
+.toc-title {
+    color: var(--col-txt-default);
+    font-size: var(--fs-xsmall);
+    font-weight: var(--fw-bold);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+}
+.toc a {
+    /* color: var(--col-txt-muted); */
+    font-size: var(--fs-label);
+    line-height: var(--lh-normal);
+    border-bottom: var(--border-def);
+    transition: color var(--transition-fast);
+}
+.toc a:last-child {
+    border-bottom: 0;
+}
+.toc a:hover {
+    color: var(--col-primary);
+}
+.author-card {
+    align-items: center;
+    gap: var(--space-3);
+    background: var(--col-surface);
+    border: var(--border-def);
+    border-radius: var(--radius-lg);
+}
+.author-avatar {
+    width: var(--space-11);
+    height: var(--space-11);
+    flex: 0 0 var(--space-11);
+    place-items: center;
+    border-radius: var(--radius-circle);
+}
+.author-name {
+    color: var(--col-txt-default);
+    font-size: var(--fs-label);
+    font-weight: var(--fw-bold);
+}
+.author-role {
+    color: var(--col-txt-subtle);
+    font-size: 11px;
+}

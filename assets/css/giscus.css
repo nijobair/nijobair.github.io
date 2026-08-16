@@ -1,6 +1,7 @@
 .giscus-container {
   max-width: var(--width-content);
 }
+
 main {
   --color-prettylights-syntax-comment: #6e7781;
   --color-prettylights-syntax-constant: #0550ae;
@@ -97,7 +98,7 @@ main .gsc-loading-image {
 }
 
 /*! Dark mode */
-@media (prefers-color-scheme: dark) {
+html[data-theme="dark"] {
   main {
     --color-prettylights-syntax-comment: #8b949e;
     --color-prettylights-syntax-constant: #79c0ff;
@@ -203,6 +204,7 @@ main .gsc-loading-image {
   background-size: 600% 600%;
   animation: gradient 21s ease infinite;
 }
+
 .gsc-comment-box:not(.gsc-comment-box-is-reply) {
   border: var(--border-def);
 }

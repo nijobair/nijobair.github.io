@@ -2,12 +2,10 @@
 @import url("/assets/css/portfolio/projectFilters.css");
 @import url("/assets/css/homePage/featuredProjects.css");
 
-.portfolio-page {
-  padding: 0 0 100px;
-}
 [data-theme="dark"] .project {
   background: var(--col-surface-raised);
 }
+
 .no-projects {
   display: none;
   padding: var(--space-15) var(--space-6);

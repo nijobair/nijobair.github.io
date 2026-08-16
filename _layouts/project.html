@@ -28,7 +28,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
   </head>
 
-  <body class="flex-col">
+  <body class="flex-col project-page">
     <!-- HEADER -->
     {% include header.html %}
     <!-- LOADER -->
@@ -45,7 +45,7 @@
 
             <div class="project-meta flex-row-wrap mt-7">
               {% for tag in page.tags %}
-              <span class="project-tag py-2 px-3"> {{ tag }} </span>
+              <span class="project-tag pt-2 pb-2 pl-3 pr-3"> {{ tag }} </span>
               {% endfor %}
             </div>
           </div>
@@ -67,25 +67,25 @@
       <section class="project-overview">
         <div class="container">
           <div class="overview-grid grid">
-            <div class="overview-item p-5">
+            <div class="overview-item pt-5 pb-5 pl-5 pr-5">
               <div class="overview-label mb-2">Role</div>
 
               <div class="overview-value">{{ page.role }}</div>
             </div>
 
-            <div class="overview-item p-5">
+            <div class="overview-item pt-5 pb-5 pl-5 pr-5">
               <div class="overview-label mb-2">Tools</div>
 
               <div class="overview-value">{{ page.tools }}</div>
             </div>
 
-            <div class="overview-item p-5">
+            <div class="overview-item pt-5 pb-5 pl-5 pr-5">
               <div class="overview-label mb-2">Focus</div>
 
               <div class="overview-value">{{ page.focus }}</div>
             </div>
 
-            <div class="overview-item p-5">
+            <div class="overview-item pt-5 pb-5 pl-5 pr-5">
               <div class="overview-label mb-2">Deliverable</div>
 
               <div class="overview-value">{{ page.deliverable }}</div>
@@ -99,15 +99,15 @@
         <div class="container case-study-layout grid">
           <!-- Side bar -->
           <aside class="case-study-sidebar">
-            <nav class="case-study-nav p-5">
+            <nav class="case-study-nav pt-5 pb-5 pl-5 pr-5">
               <div class="case-study-nav-title mb-3">Case Study</div>
-              <!-- {% assign h2_nodes = content | split: '<h2 id="' %}
-                {% for node in h2_nodes offset: 1 %}
+              {% assign h1_nodes = content | split: '<h1 id="' %}
+                {% for node in h1_nodes offset: 1 %}
                   {% assign id = node | split: '"' | first %}
-                  {% assign title_raw = node | split: '</h2' | first %}
+                  {% assign title_raw = node | split: '</h1' | first %}
                   {% assign title = title_raw | split: '>' | last | strip_html | strip %}
-                  <a class="block py-2" href="#{{ id }}">{{ title }}</a>
-                {% endfor %} -->
+                  <a class="block pt-2 pb-2" href="#{{ id }}">{{ title }}</a>
+                {% endfor %}
             </nav>
           </aside>
           <!-- Content -->
@@ -143,7 +143,7 @@
             pre_project_url = "" %} {% endif %}
             <a
               href="{{ pre_project_url }}"
-              class="project-nav previous flex-col p-6 {{ btn_class }}"
+              class="project-nav previous flex-col pt-6 pb-6 pl-6 pr-6 {{ btn_class }}"
             >
               <div class="project-nav-label">← Previous project</div>
               <div class="project-nav-title mt-3">{{ pre_project_title }}</div>
@@ -155,7 +155,7 @@
             next_project_url = "" %} {% endif %}
             <a
               href="{{ next_project_url }}"
-              class="project-nav next flex-col p-6 {{ btn_class }}"
+              class="project-nav next flex-col pt-6 pb-6 pl-6 pr-6 {{ btn_class }}"
             >
               <div class="project-nav-label">Next project →</div>
               <div class="project-nav-title mt-3">{{ next_project_title }}</div>
@@ -190,12 +190,13 @@
     {% include footer.html %}
     <!-- Main JS file -->
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-    <!-- <script defer src="/assets/js/highlight.min.js"></script>
+    <script src="{{ '/assets/js/others.js' | relative_url }}"></script>
+    <script defer src="/assets/js/highlight.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         hljs.highlightAll();
       });
-    </script> -->
+    </script>
 
     <!-- MATHJAXfor LATEX -->
     <!-- <script

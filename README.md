@@ -17,3 +17,7 @@ Making and hosting a website with GitHub pages and Jekyll is super easy if you h
 - Jekyll Plugins: [Github Repo](https://github.com/planetjekyll/awesome-jekyll-plugins)
 
 - CodeMirror: [CodeMirror 5](https://codemirror.net/5/)
+
+<!-- example of image with classes -->
+
+![Alt text](/path/to/image.jpg){: .img-fluid.rounded}

@@ -1,0 +1,54 @@
+.excalidraw {
+    transition: filter 0.2s ease-in-out;
+}
+
+html[data-theme="dark"] .excalidraw {
+    filter: invert(90%) hue-rotate(180deg) contrast(105%);
+}
+html[data-theme="dark"] pre {
+    background: var(--col-surface-raised);
+}
+pre {
+    display: flex;
+    background: var(--col-surface-sunken);
+    overflow: auto;
+    width: min(660px, 100%);
+    max-height: 420px;
+    border-radius: var(--radius-lg);
+    white-space: pre-wrap;
+    padding: var(--space-4);
+    position: relative;
+    margin: var(--space-3) auto;
+}
+code {
+    font: var(--f-code);
+    background-color: var(--col-bg-code);
+    color: var(--col-txt-code);
+    margin: 1px 3px;
+    padding: 1px var(--space-1);
+    border-radius: var(--radius-sm);
+}
+code.hljs {
+    padding: 0 var(--space-2) 1px;
+    margin: 0;
+    font-style: italic;
+    background-color: transparent;
+    overflow: auto;
+    width: 100%;
+    scrollbar-color: var(--col-background) var(--col-surface);
+    scrollbar-width: thin;
+}
+.copy {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-2);
+    color: var(--col-txt-muted);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+.copy:hover {
+    color: var(--col-pr-hover);
+    transform: scale(1.2);
+}

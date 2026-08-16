@@ -1,13 +1,19 @@
 <footer>
-    <div class="container flex-row footer-container">
-        <div class="footer-brand">
-            <a href="https://nijobair.github.io/">Nazmul Islam</a> <span>· Data Analyst & Power BI Developer</span>
-        </div>
-        <div class="footer-links flex-row-wrap">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <span>&copy; 2023 - <script>document.write(new Date().getFullYear());</script></span>
-        </div>
+  <div class="container flex-row footer-container">
+    <div class="footer-brand">
+      <a href="https://nijobair.github.io/">Nazmul Islam</a>
+      <span>· Data Analyst & Power BI Developer</span>
     </div>
+    <div class="footer-links flex-row-wrap">
+      <a href="{{ '/blog' | relative_url }}">Posts</a>
+      <a href="{{ '/portfolio' | relative_url }}">Projects</a>
+      <a href="{{ '/#contact' | relative_url }}">Contact</a>
+      <span
+        >&copy; 2023 -
+        <script>
+          document.write(new Date().getFullYear());
+        </script></span
+      >
+    </div>
+  </div>
 </footer>

@@ -1,0 +1,166 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    {% include head.html %}
+    <title>Blog | {{ site.title }}</title>
+
+    <link
+      rel="preload"
+      href="{{ '/assets/css/post.css' | relative_url }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="{{ '/assets/css/post.css' | relative_url }}"
+      />
+    </noscript>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  </head>
+
+  <body class="flex-col post-page">
+    <!-- HEADER -->
+    {% include header.html %}
+    <!-- LOADER -->
+    {% include loader.html %}
+
+    <main class="article pb-20">
+      <!-- Header Section -->
+      <section class="article-header ml-auto mr-auto pt-15 pb-10">
+        <h1 class="article-title">{{ page.title }}</h1>
+
+        <div class="article-meta flex-row-wrap mt-7">
+          <span> {{ site.author }} </span>
+          <span class="meta-divider"></span>
+          <span> {{ page.date | date: "%B %d, %Y" }} </span>
+          <span class="meta-divider"></span>
+          <span> {{ page.read_time }} read </span>
+        </div>
+      </section>
+      <!-- Hero Image -->
+      <div class="container">
+        <figure class="article-hero-image ml-auto mr-auto mb-15">
+          {% if page.image %}
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" />
+          {% else %}
+          <img
+            src="{{ '/assets/images/featured_default.png' | asset_url }}"
+            alt="{{ page.title }}"
+          />
+          {% endif %}
+        </figure>
+      </div>
+
+      <!-- Article Layout -->
+      <div class="container article-layout grid">
+        <article class="article-content">{{ content }}</article>
+        <!-- Sidebar -->
+        <aside class="article-sidebar">
+          <div class="toc pt-5 pb-5 pl-5 pr-5">
+            <div class="toc-title mb-3">On this page</div>
+            {% assign h1_nodes = content | split: '<h1 id="' %}
+                {% for node in h1_nodes offset: 1 %}
+                  {% assign id = node | split: '"' | first %}
+                  {% assign title_raw = node | split: '</h1' | first %}
+                  {% assign title = title_raw | split: '>' | last | strip_html | strip %}
+                  <a class="block pt-2 pb-2" href="#{{ id }}">{{ title }}</a>
+                {% endfor %}
+          </div>
+
+          <div class="author-card flex-row mt-5 pt-4 pb-4 pl-4 pr-4">
+            <img
+              src="{{ '/assets/images/Jobair.png'}}"
+              alt="Author's picture"
+              class="author-avatar grid"
+            />
+
+            <div>
+              <div class="author-name">{{ site.author }}</div>
+              <div class="author-role mt-1">{{ site.description }}</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Navigation -->
+      <div class="container">
+        <nav class="post-navigation grid" aria-label="Post navigation">
+          {% if page.previous %} {% assign btn_class = "enabled" %} {% assign
+          pre_post_title = page.previous.title %} {% assign pre_post_url =
+          page.previous.url %} {% else %} {% assign btn_class = "disabled" %} {%
+          assign pre_post_title = "No previous post" %} {% assign
+          pre_post_url = "" %} {% endif %}
+          <a
+            href="{{ pre_post_url }}"
+            class="post-nav previous flex-col pt-6 pb-6 pl-6 pr-6 {{ btn_class }}"
+          >
+            <div class="post-nav-label">← Previous post</div>
+            <div class="post-nav-title mt-3">{{ pre_post_title }}</div>
+          </a>
+          {% if page.next %} {% assign btn_class = "enabled" %} {% assign
+          next_post_title = page.next.title %} {% assign next_post_url =
+          page.next.url %} {% else %} {% assign btn_class = "disabled" %} {%
+          assign next_post_title = "No next post" %} {% assign
+          next_post_url = "" %} {% endif %}
+          <a
+            href="{{ next_post_url }}"
+            class="post-nav next flex-col pt-6 pb-6 pl-6 pr-6 {{ btn_class }}"
+          >
+            <div class="post-nav-label">Next post →</div>
+            <div class="post-nav-title mt-3">{{ next_post_title }}</div>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Comments -->
+      <div class="container giscus-container mb-8">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="nijobair/nijobair.github.io"
+          data-repo-id="R_kgDOMwgFyA"
+          data-category="General"
+          data-category-id="DIC_kwDOMwgFyM4CiZqE"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="https://nijobair.github.io/assets/css/giscus.css"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    {% include footer.html %}
+    <!-- Main JS file -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/others.js' | relative_url }}"></script>
+    <script defer src="/assets/js/highlight.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.highlightAll();
+      });
+    </script>
+
+    <!-- MATHJAXfor LATEX -->
+    <!-- <script
+      id="MathJax-script"
+      defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script> -->
+  </body>
+</html>

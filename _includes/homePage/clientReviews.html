@@ -3,7 +3,9 @@
     <div class="section-head flex-row mb-8">
       <div>
         <div class="section-kicker">Client reviews</div>
-        <h2 class="section-title">Trusted for clarity,<br />not just dashboards.</h2>
+        <h2 class="section-title">
+          Trusted for clarity,<br />not just dashboards.
+        </h2>
       </div>
       <p class="section-intro">
         Feedback from stakeholders and clients who value practical analysis,
@@ -13,14 +15,19 @@
 
     <div class="reviews grid">
       {% for review in site.data.client-reviews %}
-      <article class="review flex-col p-6">
+      <article class="review flex-col pt-6 pb-6 pl-6 pr-6">
         <div class="flex-row review-header">
-            <span class="review-quote">“</span>
-            <span class="review-platform">{{ review.platform | upcase }}</span>
+          <span class="review-quote">“</span>
+          <span class="review-platform">{{ review.platform | upcase }}</span>
         </div>
         <p class="mt-4 mb-6">{{ review.review }}</p>
         <div class="review-author flex-row">
-          <div class="review-avatar grid">{{ review.name_abbr | upcase }}</div>
+          {% if review.gender == "male" %}
+            {% assign avatar = "/assets/images/testimonials/male.jpg" %}
+          {% else %}
+            {% assign avatar = "/assets/images/testimonials/female.jpg" %}
+          {% endif %}
+          <img class="review-avatar" src="{{ avatar | relative_url }}" alt="{{ review.name }} avatar" />
           <div>
             <div class="review-name">{{ review.name }}</div>
             <span class="review-role block">{{ review.title }}</span>

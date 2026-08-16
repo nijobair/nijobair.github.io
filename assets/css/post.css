@@ -1,0 +1,31 @@
+@import url("/assets/css/blog/pt-headerSection.css");
+@import url("/assets/css/blog/pt-contentSection.css");
+@import url("/assets/css/blog/pt-sidebar.css");
+@import url("/assets/css/others.css");
+@import url("/assets/css/giscus.css");
+
+.post-page {
+  color: var(--col-txt-muted)
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--col-txt-default);
+}
+@media (max-width: 900px) {
+    .article-layout {
+        display: block;
+        max-width: var(--width-content);
+        margin-inline: auto;
+    }
+    .article-sidebar {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        width: min(calc(100% - 28px), var(--width-max));
+    }
+  .post-navigation {
+    grid-template-columns: 1fr;
+    margin-top: var(--space-15);
+  }
+}

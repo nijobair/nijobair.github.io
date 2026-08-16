@@ -1,4 +1,5 @@
 {
     "svg.preview.background": "transparent",
-    "minify.minifyExistingOnSave": true
+    "minify.minifyExistingOnSave": false,
+    "prettier.ignorePath": ".prettierignore"
 }

@@ -13,9 +13,9 @@
 
     <div class="skills grid">
       {% for skill in site.data.skills %}
-        <article class="skill p-4">
+        <article class="skill pt-4 pb-4 pl-4 pr-4">
             <img src="{{ skill.icon }}" alt="{{ skill.name }} icon" class="skill-icon grid">
-            <h3 class="txt-h6 py-2">{{ skill.name }}</h3>
+            <h3 class="txt-h6 pt-2 pb-2">{{ skill.name }}</h3>
             <p class="mt-2 txt-subtle">{{ skill.desc }}</p>
         </article>
       {% endfor %}

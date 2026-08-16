@@ -3,6 +3,7 @@
 @import url("/assets/css/homePage/aboutSection.css");
 @import url("/assets/css/homePage/skillsSection.css");
 @import url("/assets/css/homePage/featuredProjects.css");
+@import url("/assets/css/homePage/featuredPosts.css");
 @import url("/assets/css/homePage/experiences.css");
 @import url("/assets/css/homePage/certifications.css");
 @import url("/assets/css/homePage/contactForm.css");
@@ -11,14 +12,17 @@
 section {
   scroll-margin-top: 80px;
 }
+
 .section {
   padding: 82px 0;
 }
+
 .section-head {
   align-items: end;
   justify-content: space-between;
   gap: var(--space-7);
 }
+
 .section-kicker {
   color: var(--col-primary);
   font-size: var(--fs-xsmall);
@@ -26,42 +30,57 @@ section {
   letter-spacing: var(--ls-widest);
   text-transform: uppercase;
 }
+
 .section-title {
   font: var(--f-display);
 }
+
 .section-intro {
   max-width: 540px;
   color: var(--col-txt-muted);
   font-size: var(--fs-body-sm);
 }
+
 [data-theme="dark"] .dashboard,
 [data-theme="dark"] .kpi,
 [data-theme="dark"] .project,
+[data-theme="dark"] .post,
 [data-theme="dark"] .cert,
 [data-theme="dark"] .contact-form,
 [data-theme="dark"] input,
 [data-theme="dark"] textarea {
   background: var(--col-surface-raised);
 }
+
 [data-theme="dark"] .skills-section,
-[data-theme="dark"] .reviews-section {
+[data-theme="dark"] .reviews-section,
+[data-theme="dark"] .posts-section {
   background: var(--col-background);
 }
+
 @media (max-width: 900px) {
+
   .hero-grid,
   .about,
   .contact-box {
     grid-template-columns: 1fr;
   }
+
   .dashboard {
     transform: rotate(0deg);
   }
 }
+
 @media (max-width: 768px) {
   .section-head {
     flex-direction: column;
     align-items: start;
   }
+
+  .contact-form {
+    padding: var(--space-4);
+  }
+
   .form-grid {
     grid-template-columns: 1fr;
   }

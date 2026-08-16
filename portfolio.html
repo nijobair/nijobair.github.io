@@ -32,7 +32,7 @@ permalink: /portfolio/
     <!-- LOADER -->
     {% include loader.html %}
 
-    <main class="portfolio-page">
+    <main class="portfolio-page pb-20">
       <div class="container">
         <!-- Hero Section -->
         <section class="portfolio-hero grid">
@@ -51,22 +51,22 @@ permalink: /portfolio/
           </div>
 
           <div class="portfolio-stats grid">
-            <div class="portfolio-stat p-5">
+            <div class="portfolio-stat pt-5 pb-5 pl-5 pr-5">
               <strong class="block txt-h3">12+</strong>
               <span> Projects completed </span>
             </div>
 
-            <div class="portfolio-stat p-5">
+            <div class="portfolio-stat pt-5 pb-5 pl-5 pr-5">
               <strong class="block txt-h3">6</strong>
               <span> Analytics tools </span>
             </div>
 
-            <div class="portfolio-stat p-5">
+            <div class="portfolio-stat pt-5 pb-5 pl-5 pr-5">
               <strong class="block txt-h3">4</strong>
               <span> Core specialties </span>
             </div>
 
-            <div class="portfolio-stat p-5">
+            <div class="portfolio-stat pt-5 pb-5 pl-5 pr-5">
               <strong class="block txt-h3">100%</strong>
               <span> Business-focused </span>
             </div>
@@ -75,49 +75,49 @@ permalink: /portfolio/
 
         <!-- Project Filters -->
         <section
-          class="portfolio-controls flex-row py-8"
+          class="portfolio-controls flex-row pt-8 pb-8"
           aria-label="Project filters"
         >
           <div class="portfolio-filter-label">Explore projects by category</div>
 
           <div class="category-buttons flex-row-wrap">
             <span
-              class="other-categories selected-category inflex-row py-2 px-4"
+              class="other-categories selected-category inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="all"
             >
               All
             </span>
 
             <span
-              class="other-categories inflex-row py-2 px-4"
+              class="other-categories inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="powerbi"
             >
               Power BI
             </span>
 
             <span
-              class="other-categories inflex-row py-2 px-4"
+              class="other-categories inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="excel"
             >
               Excel
             </span>
 
             <span
-              class="other-categories inflex-row py-2 px-4"
+              class="other-categories inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="python"
             >
               Python
             </span>
 
             <span
-              class="other-categories inflex-row py-2 px-4"
+              class="other-categories inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="sql"
             >
               SQL
             </span>
 
             <span
-              class="other-categories inflex-row py-2 px-4"
+              class="other-categories inflex-row pt-2 pb-2 pl-4 pr-4"
               data-filter="others"
             >
               Others
@@ -146,7 +146,7 @@ permalink: /portfolio/
                 />
                 {% endif %}
               </div>
-              <div class="project-body p-5">
+              <div class="project-body pt-5 pb-5 pl-5 pr-5">
                 <div class="tag-row flex-row-wrap mb-3">
                   {% for tag in project.tags %}
                   <span class="tag">{{ tag }}</span>
@@ -177,9 +177,7 @@ permalink: /portfolio/
     <!-- Project filters -->
     <script>
       const filters = document.querySelectorAll(".other-categories");
-
       const projects = document.querySelectorAll(".project");
-
       const noProjects = document.getElementById("noProjects");
 
       filters.forEach(function (filter) {
@@ -191,9 +189,7 @@ permalink: /portfolio/
           });
 
           this.classList.add("selected-category");
-
           let visibleProjects = 0;
-
           projects.forEach(function (project) {
             const category = project.dataset.category;
 

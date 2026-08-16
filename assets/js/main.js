@@ -67,3 +67,68 @@ d.addEventListener("DOMContentLoaded", function () {
     mainContent.style.display = "block";
   });
 });
+/*
+------------------------------------------------------------
+Form Submission Handling
+------------------------------------------------------------
+*/
+d.addEventListener("DOMContentLoaded", function () {
+  var form = d.getElementById("contactForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var submitBtn = form.querySelector(".form-submit");
+    var emailInput = form.querySelector("#email").value;
+    var allowedDomains = [
+      "gmail.com",
+      "outlook.com",
+      "yahoo.com",
+      "hotmail.com",
+      "icloud.com",
+    ];
+    var emailDomain = emailInput.split("@")[1].toLowerCase();
+
+    // Client-side domain validation
+    if (!allowedDomains.includes(emailDomain)) {
+      alert(
+        "Only well-known email providers (Gmail, Outlook, Yahoo, etc.) are accepted.",
+      );
+      return;
+    }
+
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    // URLSearchParams is used to avoid CORS preflight errors with Google Scripts
+    var formData = new FormData(form);
+    var data = new URLSearchParams(formData);
+
+    // The copied Web App URL must be inserted here
+    var webAppUrl = "https://script.google.com/macros/s/AKfycby23hACQebMybzq9fauJKvHmnP8BMvaDf2g_IuB1kcNBwldXo4dh4uBDGLMdd8Dd60D/exec";
+
+    fetch(webAppUrl, {
+      method: "POST",
+      mode: "no-cors", // This is important to avoid CORS issues
+      body: data,
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.result === "success") {
+          alert("Message sent successfully.");
+          form.reset();
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch(function (error) {
+        alert("An error occurred while sending the message.");
+      })
+      .finally(function () {
+        submitBtn.textContent = "Send Message →";
+        submitBtn.disabled = false;
+      });
+  });
+});
