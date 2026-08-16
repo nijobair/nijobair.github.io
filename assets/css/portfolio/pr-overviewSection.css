@@ -1,0 +1,25 @@
+.project-overview {
+  padding: 30px 0 80px;
+}
+.overview-grid {
+  grid-template-columns: repeat(4, 1fr);
+  border: var(--border-def);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--col-surface);
+}
+.overview-item {
+  border-right: var(--border-def);
+}
+.overview-label {
+  color: var(--col-txt-subtle);
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+.overview-value {
+  color: var(--col-txt-default);
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+}

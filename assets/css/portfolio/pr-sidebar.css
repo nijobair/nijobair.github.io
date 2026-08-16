@@ -1,0 +1,30 @@
+.case-study-sidebar {
+  position: sticky;
+  top: 105px;
+}
+.case-study-nav {
+  background: var(--col-surface);
+  border: var(--border-def);
+  border-radius: var(--radius-lg);
+}
+.case-study-nav-title {
+  margin-bottom: var(--fs-label);
+  color: var(--col-txt-default);
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+}
+.case-study-nav a {
+  color: var(--col-txt-muted);
+  border-bottom: var(--border-def);
+  font-size: var(--fs-xsmall);
+  transition: color var(--transition-fast);
+}
+.case-study-nav a:last-child {
+  border-bottom: 0;
+}
+
+.case-study-nav a:hover {
+  color: var(--col-primary);
+}

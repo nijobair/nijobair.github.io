@@ -1,78 +1,79 @@
 .contact-box {
-    grid-template-columns: .85fr 1.15fr;
-    overflow: hidden;
-    background: var(--col-gray-900);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
+  grid-template-columns: 0.85fr 1.15fr;
+  overflow: hidden;
+  background: var(--col-gray-900);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
 }
 .contact-copy {
-    position: relative;
-    padding: 45px;
-    color: var(--col-white);
-    overflow: hidden;
+  position: relative;
+  padding: 45px;
+  color: var(--col-white);
+  overflow: hidden;
 }
 .contact-copy::before {
-    content: "";
-    position: absolute;
-    width: 330px;
-    height: 330px;
-    right: -180px;
-    bottom: -170px;
-    border-radius: var(--radius-circle);
-    background: rgba(124, 51, 79, .5);
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -180px;
+  bottom: -170px;
+  border-radius: var(--radius-circle);
+  background: rgba(124, 51, 79, 0.5);
 }
 .contact-copy > * {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 .contact-copy .section-kicker {
-    color: var(--col-pr-300);
+  color: var(--col-pr-300);
 }
 .contact-copy p {
-    max-width: 390px;
-    color: var(--col-gray-300);
-    font-size: var(--fs-small);
+  max-width: 390px;
+  color: var(--col-gray-300);
+  font-size: var(--fs-small);
 }
 .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    font-size: var(--fs-h5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-h5);
 }
 .contact-detail a:hover {
-    transform: translateY(-2px) scale(1.05);
-    transition: transform 0.3s ease;
-    color: var(--col-pr-300);
+  transform: translateY(-2px) scale(1.05);
+  transition: transform 0.3s ease;
+  color: var(--col-pr-300);
 }
 .contact-form {
-    background: var(--col-white);
+  background: var(--col-white);
 }
 .form-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-5);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
 }
 .field-full {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 label {
-    color: var(--col-txt-default);
-    font-size: var(--fs-xsmall);
-    font-weight: var(--fw-extrabold);
+  color: var(--col-txt-default);
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-extrabold);
 }
-input, textarea {
-    width: 100%;
-    border: 1px solid var(--col-border-strong);
-    border-radius: var(--radius-md);
-    outline: none;
-    padding: 12px 13px;
-    color: var(--col-txt-default);
-    background: var(--col-white);
-    transition: var(--transition-normal);
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--col-border-strong);
+  border-radius: var(--radius-md);
+  outline: none;
+  padding: 12px 13px;
+  color: var(--col-txt-default);
+  background: var(--col-white);
+  transition: var(--transition-normal);
 }
 input {
-    height: var(--space-11);
+  height: var(--space-11);
 }
 textarea {
-    min-height: 125px;
-    resize: vertical;
+  min-height: 125px;
+  resize: vertical;
 }

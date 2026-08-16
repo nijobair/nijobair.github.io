@@ -1,0 +1,207 @@
+---
+---
+
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    {% include head.html %}
+    <title>Blog | {{ site.title }}</title>
+
+    <link
+      rel="preload"
+      href="{{ '/assets/css/project.css' | relative_url }}"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="{{ '/assets/css/project.css' | relative_url }}"
+      />
+    </noscript>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+  </head>
+
+  <body class="flex-col">
+    <!-- HEADER -->
+    {% include header.html %}
+    <!-- LOADER -->
+    {% include loader.html %}
+
+    <main>
+      <!-- Hero Section -->
+      <section class="project-hero">
+        <div class="container project-hero-grid grid">
+          <div>
+            <h1>{{ page.title }}</h1>
+
+            <p class="project-intro mt-7">{{ page.excerpt}}</p>
+
+            <div class="project-meta flex-row-wrap mt-7">
+              {% for tag in page.tags %}
+              <span class="project-tag py-2 px-3"> {{ tag }} </span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <figure class="project-hero-image">
+            {% if page.image %}
+            <img src="{{ page.image }}" alt="{{ page.title }}" />
+            {% else %}
+            <img
+              src="{{ '/assets/images/featured_default.png' | asset_url }}"
+              alt="{{ page.title }}"
+            />
+            {% endif %}
+          </figure>
+        </div>
+      </section>
+
+      <!-- Project Overview -->
+      <section class="project-overview">
+        <div class="container">
+          <div class="overview-grid grid">
+            <div class="overview-item p-5">
+              <div class="overview-label mb-2">Role</div>
+
+              <div class="overview-value">{{ page.role }}</div>
+            </div>
+
+            <div class="overview-item p-5">
+              <div class="overview-label mb-2">Tools</div>
+
+              <div class="overview-value">{{ page.tools }}</div>
+            </div>
+
+            <div class="overview-item p-5">
+              <div class="overview-label mb-2">Focus</div>
+
+              <div class="overview-value">{{ page.focus }}</div>
+            </div>
+
+            <div class="overview-item p-5">
+              <div class="overview-label mb-2">Deliverable</div>
+
+              <div class="overview-value">{{ page.deliverable }}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Study -->
+      <section class="case-study">
+        <div class="container case-study-layout grid">
+          <!-- Side bar -->
+          <aside class="case-study-sidebar">
+            <nav class="case-study-nav p-5">
+              <div class="case-study-nav-title mb-3">Case Study</div>
+              <!-- {% assign h2_nodes = content | split: '<h2 id="' %}
+                {% for node in h2_nodes offset: 1 %}
+                  {% assign id = node | split: '"' | first %}
+                  {% assign title_raw = node | split: '</h2' | first %}
+                  {% assign title = title_raw | split: '>' | last | strip_html | strip %}
+                  <a class="block py-2" href="#{{ id }}">{{ title }}</a>
+                {% endfor %} -->
+            </nav>
+          </aside>
+          <!-- Content -->
+          <article class="case-study-content">
+            {{ content }}
+            <div class="project-links flex-row-wrap">
+              {% if page.dashboard_link == "" %} {% assign btn_class =
+              "disabled" %} {% else %} {% assign btn_class = "enabled" %} {%
+              endif %}
+              <a href="#" class="btn btn-primary {{ btn_class }}"
+                >View Live Dashboard →</a
+              >
+              {% if page.github_link == "" %} {% assign btn_class = "disabled"
+              %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
+              <a href="#" class="btn btn-secondary {{ btn_class }}">
+                View GitHub Repository
+              </a>
+              {% if page.download_link == "" %} {% assign btn_class = "disabled"
+              %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
+              <a href="#" class="btn btn-secondary {{ btn_class }}">
+                Download Case Study
+              </a>
+            </div>
+          </article>
+        </div>
+        <!-- Navigation -->
+        <div class="container">
+          <nav class="project-navigation grid" aria-label="Project navigation">
+            {% if page.previous %} {% assign btn_class = "enabled" %} {% assign
+            pre_project_title = page.previous.title %} {% assign pre_project_url
+            = page.previous.url %} {% else %} {% assign btn_class = "disabled"
+            %} {% assign pre_project_title = "No previous project" %} {% assign
+            pre_project_url = "" %} {% endif %}
+            <a
+              href="{{ pre_project_url }}"
+              class="project-nav previous flex-col p-6 {{ btn_class }}"
+            >
+              <div class="project-nav-label">← Previous project</div>
+              <div class="project-nav-title mt-3">{{ pre_project_title }}</div>
+            </a>
+            {% if page.next %} {% assign btn_class = "enabled" %} {% assign
+            next_project_title = page.next.title %} {% assign next_project_url =
+            page.next.url %} {% else %} {% assign btn_class = "disabled" %} {%
+            assign next_project_title = "No next project" %} {% assign
+            next_project_url = "" %} {% endif %}
+            <a
+              href="{{ next_project_url }}"
+              class="project-nav next flex-col p-6 {{ btn_class }}"
+            >
+              <div class="project-nav-label">Next project →</div>
+              <div class="project-nav-title mt-3">{{ next_project_title }}</div>
+            </a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Comments -->
+      <div class="container giscus-container mb-8">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="nijobair/nijobair.github.io"
+          data-repo-id="R_kgDOMwgFyA"
+          data-category="General"
+          data-category-id="DIC_kwDOMwgFyM4CiZqE"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="https://nijobair.github.io/assets/css/giscus.css"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    {% include footer.html %}
+    <!-- Main JS file -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <!-- <script defer src="/assets/js/highlight.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.highlightAll();
+      });
+    </script> -->
+
+    <!-- MATHJAXfor LATEX -->
+    <!-- <script
+      id="MathJax-script"
+      defer
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script> -->
+  </body>
+</html>

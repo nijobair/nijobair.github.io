@@ -2,7 +2,6 @@
 # $env:JEKYLL_ENV="production"
 # bundle exec jekyll build
 
-
 title: NIJobair
 description: A continuous learner.
 author: Nazmul Islam
@@ -19,14 +18,12 @@ kramdown:
   syntax_highlighter_opts:
     disable: true
 
-
 # SASS configuration
 sass_dir: _sass
 sass:
   load_paths:
     - "assets/css"
     - "_sass"
-
 
 # Define collection directories
 collections_dir: my_collections
@@ -36,25 +33,21 @@ collections:
   vegaCharts:
     output: true
 
-
 # Layouts
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: posts
     values:
-      layout: post
+      layout: project
       permalink: /posts/:categories/:title/
-  
-  -
-    scope:
+
+  - scope:
       path: ""
       type: projects
     values:
-      layout: post
+      layout: project
       permalink: /projects/:categories/:title/
-
 
 # Plugins
 plugins:
@@ -64,7 +57,6 @@ plugins:
   - jekyll-avatar
   - jekyll-feed
   - jekyll-loading-lazy
-
 
 # Exclude files from the build
 exclude:
@@ -76,5 +68,3 @@ exclude:
   - __Extras
   - my_collections/_posts/_drafts
   - my_collections/_projects/_drafts
-
-  

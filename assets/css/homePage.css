@@ -9,30 +9,30 @@
 @import url("/assets/css/homePage/clientReviews.css");
 
 section {
-    scroll-margin-top: 80px;
+  scroll-margin-top: 80px;
 }
 .section {
-    padding: 82px 0;
+  padding: 82px 0;
 }
 .section-head {
-    align-items: end;
-    justify-content: space-between;
-    gap: var(--space-7);
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--space-7);
 }
 .section-kicker {
-    color: var(--col-primary);
-    font-size: var(--fs-xsmall);
-    font-weight: var(--fw-extrabold);
-    letter-spacing: var(--ls-widest);
-    text-transform: uppercase;
+  color: var(--col-primary);
+  font-size: var(--fs-xsmall);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
 }
 .section-title {
-    font: var(--f-display);
+  font: var(--f-display);
 }
 .section-intro {
-    max-width: 540px;
-    color: var(--col-txt-muted);
-    font-size: var(--fs-body-sm);
+  max-width: 540px;
+  color: var(--col-txt-muted);
+  font-size: var(--fs-body-sm);
 }
 [data-theme="dark"] .dashboard,
 [data-theme="dark"] .kpi,
@@ -41,23 +41,28 @@ section {
 [data-theme="dark"] .contact-form,
 [data-theme="dark"] input,
 [data-theme="dark"] textarea {
-    background: var(--col-surface-raised);
+  background: var(--col-surface-raised);
 }
 [data-theme="dark"] .skills-section,
 [data-theme="dark"] .reviews-section {
-    background: var(--col-background);
+  background: var(--col-background);
 }
 @media (max-width: 900px) {
-    .hero-grid, .about, .contact-box {
-        grid-template-columns: 1fr;
-    }
-    .dashboard {
-        transform: rotate(0deg);
-    }
+  .hero-grid,
+  .about,
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+  .dashboard {
+    transform: rotate(0deg);
+  }
 }
 @media (max-width: 768px) {
-    .section-head {
-        flex-direction: column;
-        align-items: start;
-    }
+  .section-head {
+    flex-direction: column;
+    align-items: start;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
