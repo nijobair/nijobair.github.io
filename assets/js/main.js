@@ -32,6 +32,23 @@ const currentTheme =
   (window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light");
+const GISCUS_THEMES = {
+  light: "light_protanopia",
+  dark: "dark_protanopia",
+};
+
+function updateGiscusTheme() {
+  const isDark = d.documentElement.getAttribute("data-theme") === "dark";
+  const theme = isDark ? GISCUS_THEMES.dark : GISCUS_THEMES.light;
+
+  const iframe = d.querySelector("iframe.giscus-frame");
+  if (!iframe || !iframe.contentWindow) return;
+
+  iframe.contentWindow.postMessage(
+    { giscus: { setConfig: { theme } } },
+    "https://giscus.app",
+  );
+}
 
 if (currentTheme === "dark") {
   document.documentElement.setAttribute("data-theme", "dark");
@@ -49,6 +66,17 @@ themeToggle.addEventListener("click", () => {
     document.documentElement.setAttribute("data-theme", "dark");
     localStorage.setItem("theme", "dark");
     themeToggle.textContent = "☀️";
+  }
+
+  // Update the Giscus iframe theme
+  updateGiscusTheme();
+});
+
+// Sync Giscus once its iframe finishes loading
+window.addEventListener("message", (event) => {
+  if (event.origin !== "https://giscus.app") return;
+  if (typeof event.data === "object" && event.data.giscus) {
+    updateGiscusTheme();
   }
 });
 /*
@@ -105,7 +133,8 @@ d.addEventListener("DOMContentLoaded", function () {
     var data = new URLSearchParams(formData);
 
     // The copied Web App URL must be inserted here
-    var webAppUrl = "https://script.google.com/macros/s/AKfycby23hACQebMybzq9fauJKvHmnP8BMvaDf2g_IuB1kcNBwldXo4dh4uBDGLMdd8Dd60D/exec";
+    var webAppUrl =
+      "https://script.google.com/macros/s/AKfycby23hACQebMybzq9fauJKvHmnP8BMvaDf2g_IuB1kcNBwldXo4dh4uBDGLMdd8Dd60D/exec";
 
     fetch(webAppUrl, {
       method: "POST",

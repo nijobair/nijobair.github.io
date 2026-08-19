@@ -22,10 +22,10 @@
         href="{{ '/assets/css/post.css' | relative_url }}"
       />
     </noscript>
-
+    {% if page.vega %}
     <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+    {% endif %}
   </head>
 
   <body class="flex-col post-page">
@@ -135,7 +135,7 @@
           data-reactions-enabled="1"
           data-emit-metadata="0"
           data-input-position="top"
-          data-theme="https://nijobair.github.io/assets/css/giscus.css"
+          data-theme="preferred_color_scheme"
           data-lang="en"
           data-loading="lazy"
           crossorigin="anonymous"
@@ -157,10 +157,8 @@
     </script>
 
     <!-- MATHJAXfor LATEX -->
-    <!-- <script
-      id="MathJax-script"
-      defer
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script> -->
+    {% if page.math %}
+      {% include mathJAX.html %}
+    {% endif %}
   </body>
 </html>

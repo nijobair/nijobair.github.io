@@ -1,134 +1,209 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A gradient area chart with complex interactivity including tooltips, highlighting, and brushing.",
-    "background": "transparent",
-    "width": "container",
-    "height": "container",
-    "padding": 15,
-    "title": {
-        "text": "Area Chart with Gradient",
-        "fontSize": 16,
-        "anchor": "middle"
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "A network diagram of software dependencies, with edges grouped via hierarchical edge bundling.",
+  "padding": 5,
+  "width": 720,
+  "height": 720,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "tension", "value": 0.85,
+      "bind": {"input": "range", "min": 0, "max": 1, "step": 0.01}
     },
-    "data": {
-        "values": [
-            {
-                "date": "2025-01-01",
-                "value": 28
-            },
-            {
-                "date": "2025-01-02",
-                "value": 55
-            },
-            {
-                "date": "2025-01-03",
-                "value": 43
-            },
-            {
-                "date": "2025-01-04",
-                "value": 91
-            },
-            {
-                "date": "2025-01-05",
-                "value": 81
-            },
-            {
-                "date": "2025-01-06",
-                "value": 53
-            },
-            {
-                "date": "2025-01-07",
-                "value": 19
-            },
-            {
-                "date": "2025-01-08",
-                "value": 87
-            }
-        ]
+    {
+      "name": "radius", "value": 280,
+      "bind": {"input": "range", "min": 20, "max": 400}
     },
-    "layer": [
+    {
+      "name": "extent", "value": 360,
+      "bind": {"input": "range", "min": 0, "max": 360, "step": 1}
+    },
+    {
+      "name": "rotate", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 360, "step": 1}
+    },
+    {
+      "name": "textSize", "value": 8,
+      "bind": {"input": "range", "min": 2, "max": 20, "step": 1}
+    },
+    {
+      "name": "textOffset", "value": 2,
+      "bind": {"input": "range", "min": 0, "max": 10, "step": 1}
+    },
+    {
+      "name": "layout", "value": "cluster",
+      "bind": {"input": "radio", "options": ["tidy", "cluster"]}
+    },
+    { "name": "colorIn", "value": "firebrick" },
+    { "name": "colorOut", "value": "forestgreen" },
+    { "name": "originX", "update": "width / 2" },
+    { "name": "originY", "update": "height / 2" },
+    {
+      "name": "active", "value": null,
+      "on": [
+        { "events": "text:pointerover", "update": "datum.id" },
+        { "events": "pointerover[!event.item]", "update": "null" }
+      ]
+    }
+  ],
+
+  "data": [
+    {
+      "name": "tree",
+      "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3.1.0/data/flare.json",
+      "transform": [
         {
-            "mark": {
-                "type": "area",
-                "interpolate": "monotone",
-                "tooltip": true,
-                "cursor": "pointer",
-                "color": {
-                    "x1": 1,
-                    "x2": 1,
-                    "y1": 0,
-                    "y2": 1,
-                    "gradient": "linear",
-                    "stops": [
-                        {
-                            "offset": 0,
-                            "color": "#7c334f"
-                        },
-                        {
-                            "offset": 1,
-                            "color": "transparent"
-                        }
-                    ]
-                }
-            },
-            "encoding": {
-                "x": {
-                    "field": "date",
-                    "type": "temporal",
-                    "axis": {
-                        "title": "Date",
-                        "labelExpr": "timeFormat(datum.value, '%d')",
-                        "titleAnchor": "end",
-                        "tickCount": {
-                            "interval": "day",
-                            "step": 1
-                        }
-                    }
-                },
-                "y": {
-                    "field": "value",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Value",
-                        "titleAnchor": "end"
-                    }
-                },
-                "tooltip": [
-                    {
-                        "field": "date",
-                        "type": "temporal",
-                        "title": "Date"
-                    },
-                    {
-                        "field": "value",
-                        "type": "quantitative",
-                        "title": "Value"
-                    }
-                ]
-            }
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
         },
         {
-            "mark": {
-                "type": "line",
-                "color": "#7c334f",
-                "interpolate": "monotone"
-            },
-            "encoding": {
-                "x": {
-                    "field": "date",
-                    "type": "temporal"
-                },
-                "y": {
-                    "field": "value",
-                    "type": "quantitative"
-                }
-            }
+          "type": "tree",
+          "method": {"signal": "layout"},
+          "size": [1, 1],
+          "as": ["alpha", "beta", "depth", "children"]
+        },
+        {
+          "type": "formula",
+          "expr": "(rotate + extent * datum.alpha + 270) % 360",
+          "as":   "angle"
+        },
+        {
+          "type": "formula",
+          "expr": "inrange(datum.angle, [90, 270])",
+          "as":   "leftside"
+        },
+        {
+          "type": "formula",
+          "expr": "originX + radius * datum.beta * cos(PI * datum.angle / 180)",
+          "as":   "x"
+        },
+        {
+          "type": "formula",
+          "expr": "originY + radius * datum.beta * sin(PI * datum.angle / 180)",
+          "as":   "y"
         }
-    ],
-    "config": {
-        "axis": {
-            "labelFontSize": 12,
-            "titleFontSize": 14
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "!datum.children"
         }
+      ]
+    },
+    {
+      "name": "dependencies",
+      "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3.1.0/data/flare-dependencies.json",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "treePath('tree', datum.source, datum.target)",
+          "as":   "treepath",
+          "initonly": true
+        }
+      ]
+    },
+    {
+      "name": "selected",
+      "source": "dependencies",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.source === active || datum.target === active"
+        }
+      ]
     }
+  ],
+
+  "marks": [
+    {
+      "type": "text",
+      "from": {"data": "leaves"},
+      "encode": {
+        "enter": {
+          "text": {"field": "name"},
+          "baseline": {"value": "middle"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "dx": {"signal": "textOffset * (datum.leftside ? -1 : 1)"},
+          "angle": {"signal": "datum.leftside ? datum.angle - 180 : datum.angle"},
+          "align": {"signal": "datum.leftside ? 'right' : 'left'"},
+          "fontSize": {"signal": "textSize"},
+          "fontWeight": [
+            {"test": "indata('selected', 'source', datum.id)", "value": "bold"},
+            {"test": "indata('selected', 'target', datum.id)", "value": "bold"},
+            {"value": null}
+          ],
+          "fill": [
+            {"test": "datum.id === active", "value": "black"},
+            {"test": "indata('selected', 'source', datum.id)", "signal": "colorIn"},
+            {"test": "indata('selected', 'target', datum.id)", "signal": "colorOut"},
+            {"value": "black"}
+          ]
+        }
+      }
+    },
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "name":  "path",
+          "data":  "dependencies",
+          "field": "treepath"
+        }
+      },
+      "marks": [
+        {
+          "type": "line",
+          "interactive": false,
+          "from": {"data": "path"},
+          "encode": {
+            "enter": {
+              "interpolate": {"value": "bundle"},
+              "strokeWidth": {"value": 1.5}
+            },
+            "update": {
+              "stroke": [
+                {"test": "parent.source === active", "signal": "colorOut"},
+                {"test": "parent.target === active", "signal": "colorIn"},
+                {"value": "steelblue"}
+              ],
+              "strokeOpacity": [
+                {"test": "parent.source === active || parent.target === active", "value": 1},
+                {"value": 0.2}
+              ],
+              "tension": {"signal": "tension"},
+              "x": {"field": "x"},
+              "y": {"field": "y"}
+            }
+          }
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["depends on", "imported by"],
+      "range": [{"signal": "colorIn"}, {"signal": "colorOut"}]
+    }
+  ],
+
+  "legends": [
+    {
+      "stroke": "color",
+      "orient": "bottom-right",
+      "title": "Dependencies",
+      "symbolType": "stroke"
+    }
+  ]
 }

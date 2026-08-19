@@ -1,7 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v6.json",
-  "width": 500,
-  "height": 200,
 
   "data": [
     {
@@ -24,7 +22,8 @@
     {
       "name": "xScale",
       "domain": {"data": "dataset", "field": "population"},
-      "range": "width"
+      "range": "width",
+      "nice": true
     }
   ],
   "marks": [
@@ -37,7 +36,8 @@
           "x": {"scale": "xScale", "field": "population"},
           "x2": {"value": 0},
           "y": {"scale": "yScale", "field": "city"},
-          "height": {"scale": "yScale", "band": 1}
+          "height": {"scale": "yScale", "band": 1},
+          "fill": {"value": "black"}
         }
       }
     }

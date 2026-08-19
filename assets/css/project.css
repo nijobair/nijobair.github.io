@@ -3,15 +3,7 @@
 @import url("/assets/css/portfolio/pr-sidebar.css");
 @import url("/assets/css/portfolio/pr-caseStudy.css");
 @import url("/assets/css/others.css");
-@import url("/assets/css/giscus.css");
 
-
-.project-page {
-  color: var(--col-txt-muted)
-}
-h1, h2, h3, h4, h5, h6 {
-  color: var(--col-txt-default);
-}
 
 @media (max-width: 950px) {
   .project-hero-grid {
@@ -47,18 +39,4 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     margin-top: var(--space-15);
   }
-}
-
-p:has(> img.has-caption)::after {
-  content: attr(data-caption);
-  display: block;
-  text-align: center;
-  font-size: var(--fs-label);
-  margin-top: var(--space-1);
-  font-style: italic;
-}
-
-p:has(> img) {
-  margin-block: var(--space-6);
-  margin-inline: auto;
 }

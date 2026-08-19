@@ -1,0 +1,97 @@
+<script>
+  window.MathJax = {
+    // =========================================================================
+    // 1. EXTENSIONS & MODULE LOADER
+    // =========================================================================
+    loader: {
+      // Load TeX packages and UI components
+      // - [tex]/color: Provides xcolor syntax (hex codes, tints, \colorbox)
+      // - [tex]/mhchem: Chemistry equations (\ce{})
+      // - [tex]/physics: Dirac notation, vector calculus (\pdv, \bra, \ket)
+      // - [tex]/cancel: Strike-through math (\cancel, \xcancel)
+      // - [tex]/mathtools: Advanced alignment and arrow extensions
+      // - ui/lazy: Delays typesetting equations until scrolled into view
+      load: [
+        "[tex]/color",
+        "[tex]/mhchem",
+        "[tex]/physics",
+        "[tex]/cancel",
+        "[tex]/mathtools",
+        "ui/lazy",
+      ],
+    },
+
+    // =========================================================================
+    // 2. TEX INPUT ENGINE CONFIGURATION
+    // =========================================================================
+    tex: {
+      // Active packages loaded in the TeX parser
+      // 'base', 'ams', 'autoload', and 'require' are included by default in v4
+      packages: {
+        "[+]": ["color", "mhchem", "physics", "cancel", "mathtools"],
+      },
+
+      // Delimiters for inline equations
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"],
+      ],
+
+      // Delimiters for block / display equations
+      displayMath: [
+        ["$$", "$$"],
+        ["\\[", "\\]"],
+      ],
+
+      // Enable standard escape characters (e.g., \$ renders literal $)
+      processEscapes: true,
+
+      // Parse standard TeX environments outside math mode (e.g., \begin{equation})
+      processEnvironments: true,
+
+      // Enable automatic equation numbering for AMS environments (align, gather, etc.)
+      // Options: 'none' | 'ams' | 'all'
+      tags: "ams",
+
+      // Format for equation numbering display
+      tagSide: "right", // Where to place the tag: 'left' or 'right'
+      tagIndent: "0.8em", // Spacing from the margin
+
+      // Custom TeX Shortcuts / Macros
+      // Defines custom commands globally so you don't repeat \newcommand in markdown
+      macros: {
+        // Simple alias: \R -> \mathbb{R}
+        R: "\\mathbb{R}",
+        Z: "\\mathbb{Z}",
+        N: "\\mathbb{N}",
+        C: "\\mathbb{C}",
+
+        // Parameterized macro: \vectorsum{n} -> \sum_{i=1}^{n} \vec{v}_i
+        vectorsum: ["\\sum_{i=1}^{#1} \\vec{v}_i", 1],
+
+        // Custom colored highlight macro
+        "highlight": ["\\colorbox{rgba(230, 161, 0, 0.23)}{$\\displaystyle #1$}", 1],
+      },
+    },
+    options: {
+      // Ignore math syntax inside code blocks, navigation, and input areas
+      skipHtmlTags: [
+        "script",
+        "noscript",
+        "style",
+        "textarea",
+        "pre",
+        "code",
+        "annotation",
+        "annotation-xml",
+      ],
+    },
+  };
+</script>
+
+<!-- MathJax v4 Bundle (loaded asynchronously with defer) -->
+<script
+  id="MathJax-script"
+  defer
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+></script>

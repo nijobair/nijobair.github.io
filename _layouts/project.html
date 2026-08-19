@@ -117,19 +117,25 @@
               {% if page.dashboard_link == "" %} {% assign btn_class =
               "disabled" %} {% else %} {% assign btn_class = "enabled" %} {%
               endif %}
-              <a href="#" class="btn btn-primary {{ btn_class }}"
-                >View Live Dashboard →</a
+              <a href="#" class="{{ btn_class }}"
+                ><button type="button" class="btn btn-primary">
+                  View Live Dashboard →
+                </button></a
               >
               {% if page.github_link == "" %} {% assign btn_class = "disabled"
               %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
-              <a href="#" class="btn btn-secondary {{ btn_class }}">
-                View GitHub Repository
-              </a>
+              <a href="#" class="{{ btn_class }}"
+                ><button type="button" class="btn btn-secondary">
+                  View GitHub Repository
+                </button></a
+              >
               {% if page.download_link == "" %} {% assign btn_class = "disabled"
               %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
-              <a href="#" class="btn btn-secondary {{ btn_class }}">
-                Download Case Study
-              </a>
+              <a href="#" class="{{ btn_class }}"
+                ><button type="button" class="btn btn-secondary">
+                  Download Project Files
+                </button></a
+              >
             </div>
           </article>
         </div>
@@ -177,7 +183,7 @@
           data-reactions-enabled="1"
           data-emit-metadata="0"
           data-input-position="top"
-          data-theme="https://nijobair.github.io/assets/css/giscus.css"
+          data-theme="preferred_color_scheme"
           data-lang="en"
           data-loading="lazy"
           crossorigin="anonymous"
@@ -199,10 +205,6 @@
     </script>
 
     <!-- MATHJAXfor LATEX -->
-    <!-- <script
-      id="MathJax-script"
-      defer
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script> -->
+    {% if page.math %} {% include mathJAX.html %} {% endif %}
   </body>
 </html>

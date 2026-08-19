@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "A comprehensive reference for all Vega HTML binding elements.",
+
+  "signals": [
+    { "name": "title_text", "value": "Vega Input Binding Reference" },
+    {
+      "name": "shape_radius",
+      "value": 100,
+      "bind": {
+        "input": "range",
+        "min": 10,
+        "max": 200,
+        "step": 1,
+        "name": "Shape Radius (Range)"
+      }
+    },
+    {
+      "name": "shape_type",
+      "value": "circle",
+      "bind": {
+        "input": "select",
+        "options": ["circle", "square", "cross", "diamond", "triangle-up", "triangle-down", "triangle-right", "triangle-left"],
+        "name": "Shape Type (Select)"
+      }
+    },
+    {
+      "name": "fill_color",
+      "value": "steelblue",
+      "bind": {
+        "input": "radio",
+        "options": ["steelblue", "crimson", "forestgreen", "goldenrod"],
+        "labels": ["Blue", "Red", "Green", "Yellow"],
+        "name": "Fill Color (Radio)"
+      }
+    },
+    {
+      "name": "show_stroke",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Show Stroke (Checkbox)"
+      }
+    },
+    {
+      "name": "label_text",
+      "value": "nijobair",
+      "bind": {
+        "input": "text",
+        "placeholder": "Enter label here...",
+        "name": "Custom Label (Text)"
+      }
+    },
+    { "name": "shape_size", "update": "pow(shape_radius, 2) * PI" },
+    { "name": "stroke_width", "update": "show_stroke ? 2 : 0" }
+  ],
+
+  "marks": [
+    {
+      "name": "controlled_shape",
+      "type": "symbol",
+      "encode": {
+        "enter": {
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2"},
+          "stroke": {"value": "black"}
+        },
+        "update": {
+          "size": {"signal": "shape_size"},
+          "shape": {"signal": "shape_type"},
+          "fill": {"signal": "fill_color"},
+          "strokeWidth": {"signal": "stroke_width"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 16},
+          "fontWeight": {"value": "bold"},
+          "fill": {"value": "#333"}
+        },
+        "update": {
+          "x": {"signal": "width / 2"},
+          "y": {"signal": "height / 2 + shape_radius + 20"},
+          "text": {"signal": "label_text"}
+        }
+      }
+    }
+  ]
+}
