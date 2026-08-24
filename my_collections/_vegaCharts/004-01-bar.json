@@ -36,8 +36,7 @@
           "x": {"scale": "xScale", "field": "population"},
           "x2": {"value": 0},
           "y": {"scale": "yScale", "field": "city"},
-          "height": {"scale": "yScale", "band": 1},
-          "fill": {"value": "black"}
+          "height": {"scale": "yScale", "band": 1}
         }
       }
     }

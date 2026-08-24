@@ -15,7 +15,7 @@ markdown: kramdown
 
 kramdown:
   input: GFM
-  syntax_highlighter: None
+  syntax_highlighter: null
   syntax_highlighter_opts:
     disable: true
 
@@ -55,7 +55,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-glossary_tooltip
-  - jekyll-avatar
   - jekyll-feed
   - jekyll-loading-lazy
 

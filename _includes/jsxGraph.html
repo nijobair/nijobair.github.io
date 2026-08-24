@@ -1,0 +1,9 @@
+<div id="{{ include.id }}" class="jxg-embed has-caption" data-caption="{{ include.caption | default: 'Chart: Visualization created with JSXGraph' }}"></div>
+
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    if (typeof window['{{ include.function }}'] === 'function') {
+      window['{{ include.function }}']('{{ include.id }}');
+    }
+  });
+</script>

@@ -6,7 +6,7 @@ label: "Vega · Tutorial"
 read_time: "~8 min"
 vega: true
 title: "Deneb & Vega - 01: Custom Visuals in Power BI"
-image: /assets/images/posts/powerbi/title-Deneb.png
+image: /assets/images/posts/powerbi/001-title.jpeg
 excerpt: "Some charts just aren't possible with Power BI's native visuals—but with Vega and Deneb, you can create stunning custom visuals like gradient area charts and radial plots. This post introduces Vega, the language behind Deneb, and lays the foundation for learning it step by step."
 ---
 
@@ -14,7 +14,7 @@ excerpt: "Some charts just aren't possible with Power BI's native visuals—but 
 
 Have you ever looked at a Power BI report or dashboard and wondered how some of the visualizations were created? With Power BI's continuous advancements, many complex visualizations can now be built using native charts, conditional formatting, and DAX measures. However, there are still some charts that simply can’t be created using built-in visuals.
 
-Take, for example, the gradient area chart below. Doesn’t it look amazing? Shouldn’t it be a native chart in Power BI? Yet, as of now, it isn’t.
+Take, for example, the following chart taken from the Vega example gallery.
 
 <div id="chart-01" data-caption="Chart: A dummy bar chart made using Vega"></div>
 <script type="text/javascript">
@@ -22,7 +22,7 @@ Take, for example, the gradient area chart below. Doesn’t it look amazing? Sho
     const container = document.getElementById('chart-01');
     const width = container.clientWidth - 40;
     const height = width * 9 / 16;
-    const specs = '/vegaCharts/area-with-gradient.json';
+    const specs = '/vegaCharts/001-01-vega-example.json';
     const result = await vegaEmbed("#chart-01", specs, {
       actions: true,
     //   width: width,
@@ -33,30 +33,11 @@ Take, for example, the gradient area chart below. Doesn’t it look amazing? Sho
   document.addEventListener('DOMContentLoaded', run);
 </script>
 
-Or consider this radial chart. It’s another example of something you can’t create with Power BI’s native charts.
-
-<!-- <div id="chart-02"></div>
-<script type="text/javascript">
-  async function run() {
-    const container = document.getElementById('chart-01');
-    const width = container.clientWidth - 40;
-    const height = width / 2;
-    const specs = '/vegaCharts/radial-plot.json';
-    const result = await vegaEmbed("#chart-02", specs, {
-      actions: true,
-      width: width,
-      height: height
-    });
-    console.log(result);
-  }
-  document.addEventListener('DOMContentLoaded', run);
-</script> -->
-
 Another example is the event calendar below that I created for one of my clients.
 
-<!-- <div class="powerbi-embed">
-    <iframe title="Event Calendar" width="100%" src="https://app.powerbi.com/view?r=eyJrIjoiOTYxNDNmM2UtNzJlOC00YzdjLWFhNTctZTAzM2Q0Y2JjZDJhIiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&pageName=8b09270edfd60077e6bf" frameborder="0" allowFullScreen="true"></iframe>
-</div> -->
+<div class="powerbi-embed has-caption" data-caption="Dashboard: Event visualization with custom calendar">
+    <iframe title="Event Calendar" src="https://app.powerbi.com/view?r=eyJrIjoiOTYxNDNmM2UtNzJlOC00YzdjLWFhNTctZTAzM2Q0Y2JjZDJhIiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&pageName=8b09270edfd60077e6bf" frameborder="0" allowFullScreen="true"></iframe>
+</div>
 
 While Power BI does offer many custom visuals through the App Store, some are paid while others are free. Among the free ones, **Deneb** stands out as, in my opinion, the best. Deneb is certified by Microsoft, meaning that it doesn't access external services or resources and can be exported to PDF or displayed in emails. Pretty cool, right?
 
@@ -64,7 +45,7 @@ Now, plenty of resources explain what Deneb is and how it works, so I won’t go
 
 # What is Vega?
 
-Let’s take a look at the definition of Vega from its [official website](https://vega.github.io/vega/#:~:text=Vega%20is%20a%20visualization%20grammar%2C%20a%20declarative%20language%20for%20creating%2C%20saving%2C%20and%20sharing%20interactive%20visualization%20designs.%20With%20Vega%2C%20you%20can%20describe%20the%20visual%20appearance%20and%20interactive%20behavior%20of%20a%20visualization%20in%20a%20JSON%20format%2C%20and%20generate%20web%2Dbased%20views%20using%20Canvas%20or%20SVG.):
+Let’s take a look at the definition of Vega from its [official website](https://vega.github.io/vega/#:~:text=Vega%20is%20a%20visualization%20grammar%2C%20a%20declarative%20language%20for%20creating%2C%20saving%2C%20and%20sharing%20interactive%20visualization%20designs.%20With%20Vega%2C%20you%20can%20describe%20the%20visual%20appearance%20and%20interactive%20behavior%20of%20a%20visualization%20in%20a%20JSON%20format%2C%20and%20generate%20web%2Dbased%20views%20using%20Canvas%20or%20SVG.){:target="_blank" rel="noopener"}:
 
 > Vega is a visualization grammar, a declarative language for creating, saving, and sharing interactive visualization designs. With Vega, you can describe the visual appearance and interactive behavior of a visualization in a JSON format, and generate web-based views using Canvas or SVG.
 
@@ -74,9 +55,9 @@ Simply put, **Vega is a structured way of describing visualizations**, much like
 
 Now comes the real challenge: **How do we make sense of this language in a logical and intuitive way?**
 
-Surely, learning English grammar wasn’t easy. And unfortunately, most existing resources don’t explain Vega’s syntax in a way that’s beginner-friendly. The [Official Documentation](https://vega.github.io/vega/docs/) is comprehensive, but if you jump straight into it—like I did—you’ll feel like you’re reading Martian. **So, Should You Give Up?**
+Surely, learning English grammar wasn’t easy. And unfortunately, most existing resources don’t explain Vega’s syntax in a way that’s beginner-friendly. The [Official Documentation](https://vega.github.io/vega/docs/){:target="_blank" rel="noopener"} is comprehensive, but if you jump straight into it—like I did—you’ll feel like you’re reading Martian! **So, Should You Give Up?**
 
-Absolutely not! That’s where this series comes in.
+*Absolutely not!* That’s where this series comes in.
 
 In this series of posts, I’ll break down the logical structure of Vega in an easy-to-understand way. I’ll not only explain the concepts but also provide plenty of examples to reinforce them.
 

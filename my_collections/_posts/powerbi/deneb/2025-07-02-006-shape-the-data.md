@@ -5,15 +5,15 @@ tags: ["Power BI", "Vega", "Deneb"]
 label: "Vega · Tutorial"
 read_time: "~8 min"
 title: "Deneb & Vega - 06: Shape the Data"
-image: /assets/images/posts/powerbi/title-Deneb.png
+image: /assets/images/posts/powerbi/001-title.jpeg
 excerpt: "Transforming data is a key step in Vega before visualizing it. This post covers common transformations like calculated columns, filtering, aggregation, lookups, and sorting—so you can shape your data exactly the way you need."
 ---
 
 # Introduction
 
-In the previous post, we looked at how to get data into Vega. Once the data is in, the next step is to shape it according to your visualization needs. That’s where data transformation comes in.
+In the [previous post](/posts/powerbi/005-get-data), we looked at how to get data into Vega. Once the data is in, the next step is to shape it according to your visualization needs. That’s where data transformation comes in.
 
-In Vega, we can perform transformations right inside the `data` block of each dataset definition. Vega offers a wide range of built-in transformations, but in this post, we’ll focus on the most useful and commonly used ones. If you're curious, you can explore the full list of available transformations [here](https://vega.github.io/vega/docs/transforms/).
+In Vega, we can perform transformations right inside the `data` block of each dataset definition. Vega offers a wide range of built-in transformations, but in this post, we’ll focus on the most useful and commonly used ones. If you're curious, you can explore the full list of available transformations [here](https://vega.github.io/vega/docs/transforms/){:target="_blank" rel="noopener"}.
 
 # Transformations
 
@@ -30,12 +30,12 @@ If you’re coming from a Power BI background, the term *calculated column* shou
 In Vega, we can create new columns (or overwrite existing ones) using formulas. To do this, we use the `formula` transform with these properties:
 
 1. `type`: For calculated columns, this should be `formula`.
-2. `as`: The name of the new column. If the name already exists, it will be overwritten.
+2. `as`: The name of the new column. *If the name already exists, it will be overwritten.*
 3. `expr`: The formula to be applied to each row.
 
 Here, we need to understand the concept of `datum` in Vega. It represents the current row of the dataset (row context, Power BI folks!). You can access a field in the row using `datum.ColumnName` or `datum['Column Name']`.
 
-Vega supports a wide range of expressions. You can check them out [here](https://vega.github.io/vega/docs/expressions/).
+Vega supports a wide range of expressions. You can check them out [here](https://vega.github.io/vega/docs/expressions/){:target="_blank" rel="noopener"}.
 
 ```json
 {
@@ -66,7 +66,7 @@ Vega supports a wide range of expressions. You can check them out [here](https:/
 
 ## 2. Aggregating
 
-The `aggregate` transform is used to group and summarize data. You can perform operations like _count, sum, average, min, max, variance, distinct_, and more (full list [here](https://vega.github.io/vega/docs/transforms/aggregate/)).
+The `aggregate` transform is used to group and summarize data. You can perform operations like _count, sum, average, min, max, variance, distinct_, and more (full list [here](https://vega.github.io/vega/docs/transforms/aggregate/){:target="_blank" rel="noopener"}).
 
 Key properties:
 
@@ -181,7 +181,7 @@ Important properties:
 
 This code looks up the _firstName_ from the primary table in the _fullName_ column of the secondary table and returns the _age_ column as *age_1*. Then it looks up the _lastNames_ from the primary table in the _fullName_ column of the secondary table and returns the _age_ column as *age_2*.
 
-⚠️ The dataset you're looking *from* must be defined **before** the one doing the lookup, otherwise it won’t work.
+> ⚠️ The dataset you're looking *from* must be defined **before** the one doing the lookup, otherwise it won’t work.
 
 ## 5. Sorting
 
@@ -216,7 +216,7 @@ Sorting a dataset is another essential transformation. In Vega, we use the `coll
 }
 ```
 
-These are some of the most useful transformations you’ll find yourself using regularly. Vega supports many others like **flatten, window, stack, fold**, and so on. You can explore the full list [here](https://vega.github.io/vega/docs/transforms/). And if there's a specific one you’d like explained with examples, just let me know—I'd be happy to help!
+These are some of the most useful transformations you’ll find yourself using regularly. Vega supports many others like **flatten, window, stack, fold**, and so on. You can explore the full list [here](https://vega.github.io/vega/docs/transforms/){:target="_blank" rel="noopener"}. And if there's a specific one you’d like explained with examples, just let me know—I'd be happy to help!
 
 # Conclusion
 

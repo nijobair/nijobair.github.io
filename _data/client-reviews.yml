@@ -1,9 +1,3 @@
-- name: "Sayed Magfur Ahmed"
-  gender: "male"
-  platform: "Private"
-  title: "Researcher & Entrepreneur"
-  review: "Nazmul was a fantastic data analysis freelancer who went above and beyond expectations. I highly recommend Nazmul to anyone seeking a skilled, proactive, and communicative data analyst."
-
 - name: "Michael Caruso"
   gender: "male"
   platform: "Upwork"
@@ -33,3 +27,9 @@
   platform: "Upwork"
   title: "Director of Operations, React Holding"
   review: "He is supportive, available to jump on call for fast debriefs, and knows his craft well. I'm definitely going to work with him again."
+
+- name: "Sayed Magfur Ahmed"
+  gender: "male"
+  platform: "Private"
+  title: "Researcher & Entrepreneur"
+  review: "Nazmul was a fantastic data analysis freelancer who went above and beyond expectations. I highly recommend Nazmul to anyone seeking a skilled, proactive, and communicative data analyst."

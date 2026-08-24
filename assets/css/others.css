@@ -7,14 +7,15 @@
 }
 
 html[data-theme="dark"] .excalidraw,
-html[data-theme="dark"] .vega-embed .chart-wrapper {
+html[data-theme="dark"] .vega-embed .chart-wrapper,
+html[data-theme="dark"] .jxg-embed * {
     filter: invert(90%) hue-rotate(180deg) contrast(105%);
 }
 html[data-theme="dark"] pre {
     background: var(--col-surface-raised);
 }
 p:has(> img.has-caption)::after,
-.vega-embed::after {
+.has-caption::after {
   content: attr(data-caption);
   display: block;
   text-align: center;
@@ -23,7 +24,7 @@ p:has(> img.has-caption)::after,
   font-style: italic;
 }
 p:has(> img) {
-  margin-block: var(--space-7);
+  margin-block: var(--space-10);
 }
 img.post-img{
     width: 100%;
@@ -99,13 +100,28 @@ mjx-mpadded {
 }
 /*
 ------------------------------------------------------------------
+POWER BI EMBED
+------------------------------------------------------------------
+*/
+.powerbi-embed {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: var(--space-10) auto;
+}
+.powerbi-embed iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-lg);
+}
+/*
+------------------------------------------------------------------
 VEGA EMBED
 ------------------------------------------------------------------
 */
 .vega-embed {
     display: block !important;
     width: 90%;
-    margin: var(--space-5) auto;
+    margin: var(--space-10) auto;
 }
 .vega-embed.has-actions {
     padding: 0 !important;
@@ -148,6 +164,9 @@ VEGA EMBED
     color: var(--col-txt-subtle);
     font-size: var(--fs-xsmall);
     border-color: var(--col-gray-300);
+}
+.vega-bindings:empty {
+    display: none;
 }
 .vega-bind {
     align-self: center;
@@ -199,6 +218,50 @@ VEGA EMBED
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-1);
+}
+/*
+------------------------------------------------------------------
+JSX GRAPH
+------------------------------------------------------------------
+*/
+.jxg-embed {
+    width: 90%;
+    overflow: visible !important;
+    margin: var(--space-10) auto;
+}
+.jxg-embed > svg {
+    border: var(--border-def);
+    border-radius: var(--radius-lg);
+}
+.jxg-reset-btn {
+    position: absolute;
+    padding: var(--space-1) var(--space-2);
+    top: var(--space-2);
+    right: var(--space-2);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-xsmall);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+.jxg-reset-btn:hover {
+    transform: scale(1.1);
+}
+.JXG_wrap_private:fullscreen {
+    background: var(--col-background) !important;
+}
+.JXG_navigation {
+    top: var(--space-2) !important;
+    bottom: auto !important;
+    right: var(--space-11) !important;
+    line-height: 0;
+    padding: var(--space-1) var(--space-2) !important;
+    background: transparent !important;
+    border-radius: var(--radius-sm) !important;
+    transition: var(--transition-normal);
+}
+.JXG_navigation:hover {
+    transform: scale(1.1);
 }
 /*
 ------------------------------------------------------------------
@@ -328,6 +391,11 @@ TABLE
     overflow-x: auto;
     border: var(--border-def);
     border-radius: var(--radius-lg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--col-border-def) transparent;
+}
+.table-wrapper::-webkit-scrollbar-button {
+    display: none;
 }
 .table-wrapper figcaption {
     padding: var(--space-2) var(--space-4);

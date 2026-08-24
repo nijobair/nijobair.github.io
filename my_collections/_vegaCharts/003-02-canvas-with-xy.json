@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 400,
+  "height": 200,
+  "config": {"group": {"stroke": "black", "strokeWidth": 3}},
+  "signals": [
+    {
+      "name": "x",
+      "value": 40,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 400,
+        "step": 1,
+        "name": "x position"
+      }
+    },
+    {
+      "name": "y",
+      "value": 40,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 200,
+        "step": 1,
+        "name": "y position"
+      }
+    },
+    {
+      "name": "shape_type",
+      "value": "circle",
+      "bind": {
+        "input": "select",
+        "options": [
+          "circle",
+          "square",
+          "cross",
+          "diamond",
+          "triangle-up",
+          "triangle-down",
+          "triangle-right",
+          "triangle-left"
+        ],
+        "name": "Shape"
+      }
+    }
+  ],
+  "marks": [
+    {
+      "name": "controlled_shape",
+      "type": "symbol",
+      "encode": {
+        "enter": {"size": {"value": 300}, "fill": {"value": "#ff6600"}},
+        "update": {
+          "x": {"signal": "x"},
+          "y": {"signal": "y"},
+          "shape": {"signal": "shape_type"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "align": {"value": "left"},
+          "baseline": {"value": "middle"},
+          "fontSize": {"value": 12},
+          "fill": {"value": "gray"}
+        },
+        "update": {
+          "x": {"signal": "(340/400) * x + 15"},
+          "y": {"signal": "(140/200) * y + 20"},
+          "text": {"signal": "['x: ' + x,'y: ' + y]"}
+        }
+      }
+    }
+  ]
+}

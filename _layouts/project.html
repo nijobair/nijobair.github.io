@@ -23,9 +23,15 @@
       />
     </noscript>
 
+    {% if page.vega %}
     <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+    {% endif %}
+    {% if page.graph %}
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.min.css" rel="stylesheet">
+    <script src="{{ '/assets/js/jsxGraph.js' | relative_url }}" defer></script>
+    {% endif %}
   </head>
 
   <body class="flex-col project-page">
