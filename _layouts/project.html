@@ -123,21 +123,21 @@
               {% if page.dashboard_link == "" %} {% assign btn_class =
               "disabled" %} {% else %} {% assign btn_class = "enabled" %} {%
               endif %}
-              <a href="#" class="{{ btn_class }}"
+              <a target="_blank" rel="noopener noreferrer" href="{{ page.dashboard_link }}" class="{{ btn_class }}"
                 ><button type="button" class="btn btn-primary">
                   View Live Dashboard →
                 </button></a
               >
               {% if page.github_link == "" %} {% assign btn_class = "disabled"
               %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
-              <a href="#" class="{{ btn_class }}"
+              <a target="_blank" rel="noopener noreferrer" href="{{ page.github_link }}" class="{{ btn_class }}"
                 ><button type="button" class="btn btn-secondary">
                   View GitHub Repository
                 </button></a
               >
               {% if page.download_link == "" %} {% assign btn_class = "disabled"
               %} {% else %} {% assign btn_class = "enabled" %} {% endif %}
-              <a href="#" class="{{ btn_class }}"
+              <a target="_blank" rel="noopener noreferrer" href="{{ page.download_link }}" class="{{ btn_class }}"
                 ><button type="button" class="btn btn-secondary">
                   Download Project Files
                 </button></a

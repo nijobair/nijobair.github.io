@@ -36,7 +36,7 @@ Take, for example, the following chart taken from the Vega example gallery.
 Another example is the event calendar below that I created for one of my clients.
 
 <div class="powerbi-embed has-caption" data-caption="Dashboard: Event visualization with custom calendar">
-    <iframe title="Event Calendar" src="https://app.powerbi.com/view?r=eyJrIjoiOTYxNDNmM2UtNzJlOC00YzdjLWFhNTctZTAzM2Q0Y2JjZDJhIiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&pageName=8b09270edfd60077e6bf" frameborder="0" allowFullScreen="true"></iframe>
+    <iframe title="Event Calendar" src="https://app.powerbi.com/view?r=eyJrIjoiYTU3Njk0OTUtZDYzMy00ZjEyLTg2MTAtZTFhODlmYjJlNzJlIiwidCI6IjVhOWYwMWVhLTc5OWEtNGUwNy1iYTBhLWQ5NDEyNDE2NzUxOCIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
 </div>
 
 While Power BI does offer many custom visuals through the App Store, some are paid while others are free. Among the free ones, **Deneb** stands out as, in my opinion, the best. Deneb is certified by Microsoft, meaning that it doesn't access external services or resources and can be exported to PDF or displayed in emails. Pretty cool, right?

@@ -160,7 +160,20 @@ Scales are defined inside the `scales` block, which is a top-level property of a
 }
 ```
 
-Just like the `data` and `marks` blocks, `scales` takes an array. That means you can define multiple scales in the same visualization.
+Just like the `data` and `marks` blocks, `scales` takes an array. That means you can define multiple scales in the same visualization. Some of the properties that each scale definition can have are:
+
+<figure class="table-wrapper" markdown="1">
+<figcaption>Table 06: Scale properties</figcaption>
+
+| Name | Description | Example |
+|:-----:|:--------------|:-------|
+| `name` | **Required**. A unique name for the scale. Scales and projections share the same namespace; names must be unique across both. | `{"name": "xScale"}` |
+| `type` | The type of the scale. The default value is `linear` | `{"type": "band"}` |
+| `domain` | The domain of input data values for the scale. It can take literal values, a signal or a data reference. | `{"domain": [0, 500] / {"signal": "myDomain"} / {"data": "sales", "field": "Total Sales"}}` |
+| `range` | The range of the scale, representing the set of visual values. It can take literal values, a signal or a data reference. Vega also offers some predefined ranges for convinience. | `{"range": [0, 500] / {"signal": "myRange"} / "width"}` |
+| `round` | A boolean flag (default false) that rounds numeric output values to integers. Helpful for snapping to a pixel grid. | `{"round": true}` |
+
+</figure>
 
 A typical chart has at least two scales:
 
@@ -181,104 +194,10 @@ The scale takes a value from the domain and converts it into the corresponding v
 
 Vega supports many scale types, but you'll use a few of them most of the time.
 
-## 1. Band Scale
-
-A **band** scale is used for categorical axes.
-
-It's the standard choice for:
-
-- Bar charts.
-- Column charts.
-- Heatmaps.
-
-```json
-{
-  "name": "x",
-  "type": "band",
-  "domain": {"data": "dataset", "field": "Category"},
-  "range": "width"
-}
-```
-
-Each category gets its own evenly sized band across the canvas.
-
-One special feature of band scales is that Vega also knows the width of each band. That becomes useful later when we create bars.
-
-For example:
-
-```json
-"width": {
-  "scale": "x",
-  "band": 1
-}
-```
-
-tells Vega that each bar should occupy the full width of its category band.
-
-## 2. Linear Scale
-
-A **linear** scale is the most common scale for numeric values.
-
-Use it for:
-
-- Bar heights.
-- Line charts.
-- Scatter plots.
-- Area charts.
-
-```json
-{
-  "name": "y",
-  "type": "linear",
-  "domain": {"data": "dataset", "field": "Sales"},
-  "range": "height"
-}
-```
-
-A linear scale preserves proportional distances.
-
-If one value is twice as large as another, its visual position is also twice as far along the range.
-
-This makes linear scales perfect for continuous numeric data.
-
-## 3. Time Scale
-
-Dates are continuous values, so Vega provides a dedicated **time** scale.
-
-```json
-{
-  "name": "x",
-  "type": "time",
-  "domain": {"data": "dataset", "field": "Date"},
-  "range": "width"
-}
-```
-
-Unlike a band scale, a time scale positions values according to chronological order rather than equally spaced categories.
-
-This is the scale you'll almost always use for line charts that show values over time.
-
-## 4. Ordinal Scale
-
-An **ordinal** scale maps categories to discrete visual values instead of positions.
-
-The most common example is color.
-
-```json
-{
-  "name": "color",
-  "type": "ordinal",
-  "domain": {
-    "data": "dataset",
-    "field": "Region"
-  },
-  "range": ["#2563EB", "#EA580C", "#16A34A"]
-}
-```
-
-Now each region receives a different color.
-
-Ordinal scales can also map categories to shapes, symbols, or other discrete visual properties.
+- **Band Scale**: A **band** scale is used for categorical axes. A **band** scale is used for categorical axes. It's the standard choice for bar charts, column charts, and heatmaps.
+- **Linear Scale**: A **linear** scale is the most common scale for numeric values. It is mostly used for line charts, scatter plots, area charts, etc.
+- **Time Scale**: Dates are continuous values, so Vega provides a dedicated **time** scale. This is the scale you'll almost always use for line charts that show values over time.
+- **Ordinal Scale**: An **ordinal** scale maps categories to discrete visual values instead of positions. This is mostly used for mapping categories to colors.
 
 # Using Scales Inside Marks
 
@@ -310,198 +229,12 @@ Here's what's happening:
 - The `x` property takes the value from the `Category` field and passes it through the `x` scale.
 - The `y` property takes the value from the `Sales` field and passes it through the `y` scale.
 
-The mark never works with pixel values directly. It simply asks the scale to translate the data value into a visual value.
-
-This is one of the reasons Vega specifications stay clean and reusable. Multiple marks can reference the same scale.
-
-# Why Does the Y-Axis Look Backwards?
-
-One thing confuses almost everyone when they start using Vega.
-
-If the range is `"height"`, why do larger values appear lower on the canvas?
-
-The answer is that the Vega canvas starts at the **top-left corner**.
-
-That means:
-
-- `0` pixels is at the top.
-- Larger pixel values move downward.
-
-For most charts, we want higher values to appear higher on the screen, so we reverse the range.
-
-```json
-"range": [
-  {"signal": "height"},
-  0
-]
-```
-
-Now the mapping works like this:
-
-- The minimum value appears at the bottom.
-- The maximum value appears at the top.
-
-You'll see this pattern in almost every Vega bar chart, line chart, or area chart.
-
-# Nice Scales
-
-Sometimes the minimum and maximum values in your data produce awkward axis labels.
-
-Suppose your sales values range from `13` to `97`.
-
-Without any adjustment, Vega might generate tick marks like:
-
-`13, 34, 55, 76, 97`
-
-Not very reader-friendly.
-
-You can ask Vega to round the domain to nicer values.
-
-```json
-{
-  "name": "y",
-  "type": "linear",
-  "domain": {"data": "dataset", "field": "Sales"},
-  "range": [{"signal": "height"}, 0],
-  "nice": true
-}
-```
-
-Now Vega expands the domain to something like:
-
-`0, 20, 40, 60, 80, 100`
-
-The underlying data stays the same, but the axis becomes much easier to read.
-
-# Starting the Scale at Zero
-
-Bar charts usually start at zero because viewers compare lengths.
-
-Vega lets you enforce that using the `zero` property.
-
-```json
-{
-  "name": "y",
-  "type": "linear",
-  "domain": {"data": "dataset", "field": "Sales"},
-  "range": [{"signal": "height"}, 0],
-  "zero": true
-}
-```
-
-Even if your smallest value is `45`, Vega expands the domain so the axis starts at `0`.
-
-For line charts, you don't always want this behavior because it can flatten meaningful variation.
-
-# Padding Between Categories
-
-Band scales also let you control the spacing between categories.
-
-```json
-{
-  "name": "x",
-  "type": "band",
-  "domain": {"data": "dataset", "field": "Category"},
-  "range": "width",
-  "padding": 0.2
-}
-```
-
-Increasing the padding creates more space between adjacent bands.
-
-A padding of `0` makes the bands touch each other.
-
-Larger padding values make bars narrower and leave gaps between categories.
-
-This is one of the easiest ways to improve the appearance of a column or bar chart.
-
-# A Complete Example
-
-Let's put everything together with a simple column chart.
-
-```json
-{
-  "$schema": "https://vega.github.io/schema/vega/v6.json",
-  "width": 400,
-  "height": 200,
-
-  "data": [
-    {
-      "name": "sales",
-      "values": [
-        {"month": "Jan", "sales": 28},
-        {"month": "Feb", "sales": 55},
-        {"month": "Mar", "sales": 43},
-        {"month": "Apr", "sales": 91}
-      ]
-    }
-  ],
-
-  "scales": [
-    {
-      "name": "x",
-      "type": "band",
-      "domain": {"data": "sales", "field": "month"},
-      "range": "width",
-      "padding": 0.15
-    },
-    {
-      "name": "y",
-      "type": "linear",
-      "domain": {"data": "sales", "field": "sales"},
-      "range": [{"signal": "height"}, 0],
-      "nice": true,
-      "zero": true
-    }
-  ],
-
-  "marks": [
-    {
-      "type": "rect",
-      "from": {"data": "sales"},
-      "encode": {
-        "update": {
-          "x": {"scale": "x", "field": "month"},
-          "width": {"band": 1, "scale": "x"},
-          "y": {"scale": "y", "field": "sales"},
-          "y2": {"scale": "y", "value": 0},
-          "fill": {"value": "#2563EB"}
-        }
-      }
-    }
-  ]
-}
-```
-
-This example contains everything we've learned so far:
-
-- A categorical `band` scale for the x-axis.
-- A numeric `linear` scale for the y-axis.
-- A reversed y-range.
-- A zero baseline.
-- Nice axis values.
-- Padding between the columns.
-
-# Common Scale Properties
-
-Here are the scale properties you'll use most frequently.
-
-| Property | Purpose |
-|----------|---------|
-| `name` | Gives the scale a unique name so marks can reference it. |
-| `type` | Defines how values are mapped (`band`, `linear`, `time`, `ordinal`, etc.). |
-| `domain` | Specifies the input values from the dataset or manually. |
-| `range` | Specifies the visual output values on the canvas. |
-| `nice` | Expands numeric domains to cleaner, rounded values. |
-| `zero` | Ensures the numeric domain includes zero. |
-| `padding` | Adds spacing between categories in band scales. |
-
-These few properties cover the majority of scales you'll create in everyday Vega work.
+The mark never works with pixel values directly. It simply asks the scale to translate the data value into a visual value. This is one of the reasons Vega specifications stay clean and reusable. Multiple marks can reference the same scale.
 
 # Conclusion
 
 Scales are the bridge between your data and your visualization. They take raw values from your dataset and translate them into positions, colors, sizes, and other visual properties on the canvas.
 
-Once you understand **domain** and **range**, the rest of Vega becomes much easier to read and write. You'll define scales once and reuse them across multiple marks, keeping your specifications clean and consistent.
+Once you understand **domain** and **range**, the rest of Vega becomes much easier to read and write. You'll define scales once and reuse them across multiple marks, which keeps your Vega specifications much cleaner and easier to maintain.
 
-In the next post, we'll build on this foundation by looking at **axes**—the visual representation of scales. We'll learn how to draw axes, customize labels, control tick marks, and make our Vega charts much easier to read.
+In the next few posts, we'll dive deeper into the most common scale types in Vega, including **band**, **linear**, **time**, and **ordinal** scales. We'll see how each one works and when to use it. Stay tuned!

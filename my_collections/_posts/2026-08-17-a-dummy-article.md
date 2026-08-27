@@ -60,13 +60,16 @@ Here is a link [GitHub](https://github.com) that opens in the same tab. And [Git
 # Images
 
 ![Excalidraw Diagram](/assets/images/excalidraw-trial.svg){: .has-caption.excalidraw.ml-auto.mr-auto }
-{: data-caption="Diagram: Demo diagram from Excalidraw"}
+{: data-caption="Diagram: Demo diagram from Excalidraw" }
 
-![Image with caption](https://picsum.photos/1200/600){: .has-caption.post-img.ml-auto.mr-auto}
-{: data-caption="Figure: Demo image with caption"}
+![Image with caption](https://picsum.photos/1200/600){: .has-caption.post-img.ml-auto.mr-auto }
+{: data-caption="Figure: Demo image with caption" }
+
+![Image with border](https://picsum.photos/1200/600){: .has-caption.post-img.has-border.ml-auto.mr-auto }
+{: data-caption="Figure: Demo image with border" }
 
 <div class="powerbi-embed has-caption" data-caption="Dashboard: Event visualization with custom calendar">
-    <iframe title="Event Calendar" src="https://app.powerbi.com/view?r=eyJrIjoiOTYxNDNmM2UtNzJlOC00YzdjLWFhNTctZTAzM2Q0Y2JjZDJhIiwidCI6ImRjM2YyNGU5LTAyYjktNGZiMC05NzE2LWQ1NTYzOTVlNWVlNSIsImMiOjl9&pageName=8b09270edfd60077e6bf" frameborder="0" allowFullScreen="true"></iframe>
+    <iframe title="Event Calendar" src="https://app.powerbi.com/view?r=eyJrIjoiYTU3Njk0OTUtZDYzMy00ZjEyLTg2MTAtZTFhODlmYjJlNzJlIiwidCI6IjVhOWYwMWVhLTc5OWEtNGUwNy1iYTBhLWQ5NDEyNDE2NzUxOCIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
 </div>
 
 <div id="chart-01" class="has-caption" data-caption="Chart: Dummy chart demonstrating Vega functionalities"></div>
