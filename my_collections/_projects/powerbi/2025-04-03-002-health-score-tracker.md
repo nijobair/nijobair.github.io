@@ -9,7 +9,7 @@ label: "Power BI · Executive Analytics"
 title: "Health Monitoring Dashboard: Coach's Wellness Tracking System"
 image: /assets/images/portfolio/powerbi/002-title.jpeg
 excerpt: "Developed an intuitive health dashboard for wellness coaches to track client vitals and health scores, enabling data-driven guidance that improved client outcomes by 28%."
-dashboard_link: "x"
+dashboard_link: "https://app.powerbi.com/view?r=eyJrIjoiMGMzYWZjN2YtNmIxYS00N2U0LWJlYWUtZGM0OGUxNGQ2OGM5IiwidCI6IjVhOWYwMWVhLTc5OWEtNGUwNy1iYTBhLWQ5NDEyNDE2NzUxOCIsImMiOjl9"
 github_link: ""
 download_link: ""
 ---
@@ -18,7 +18,7 @@ download_link: ""
 
 Developed an intuitive health monitoring dashboard for wellness coaches to track and analyze client health metrics. The solution enables coaches to monitor multiple clients, identify concerning trends, and provide data-driven guidance to improve client outcomes and program effectiveness.
 
-# Business Challenge
+# The Business Problem
 
 The wellness coaching company faced several challenges in effectively serving their clients:
 
@@ -31,20 +31,12 @@ The wellness coaching company faced several challenges in effectively serving th
 
 The data came from the coach's tracking system. I imported the flat file data in _Power Query_ then normalized and cleaned to create a _start ⭐ schema_. I created a separate table for the dates for best performance.
 
-# Dashboard Highlights
-
-- **Client Selector:** Drop-down menu to quickly switch between clients
-- **Health Score Overview:** Prominently displayed composite health score with visual indicators
-- **Key Metrics Gauges:** Heart rate, weight, and activity minutes with color-coded status indicators
-- **Longitudinal Tracking:** Time-series visualization of health score progression
-- **Flexible Time Period Selection:** Month/year filters and time granularity options (Y/Q/M/W/D)
-- **Alert System:** Visual indicators when metrics fall outside healthy ranges
 
 # Technical Implementation
 
-- Implemented calculated measures to derive custom health scores based on company methodology
-- Used bookmarks and buttons to create an interactive coaching interface
-- Designed custom visualizations for at-a-glance status assessment
+<div class="powerbi-embed has-caption" data-caption="Dashboard: Project management dashbaord">
+    <iframe title="Event Calendar" src="{{ page.dashboard_link }}" frameborder="0" allowFullScreen="true"></iframe>
+</div>
 
 # Business Impact
 
